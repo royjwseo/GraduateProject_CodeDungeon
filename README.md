@@ -15,6 +15,7 @@
 Deferred Rendering, GPU 인스턴싱 파티클, Compute/Geometry Shader 기반 이펙트 등 다양한 렌더링 기법을 직접 구현하였습니다.
 
 #### 개발 배경
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/ff7f125b-40f1-4df6-8adb-227643254880" />
 
 팀 초기에는 팀장이 자체 제작한 프레임워크를 사용하려 했으나, 검토 결과 아래 구조적 문제가 있었습니다.
 
@@ -51,11 +52,12 @@ C++20 Concepts와 Template을 활용해 잘못된 타입 사용을 컴파일 타
 ---
 
 ## 3. 팀 역할 분담
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/82538f1b-1f05-4125-b032-14e81cf23303" />
 
-| 이름 | 역할 |
+| 역할 |
 |------|------|
-| 박태현 (팀장) | 프레임워크 설계 및 제작, FBX 스키닝 / 애니메이션 시스템, Boost.Asio 기반 비동기 TCP 서버 |
-| 이성현 | 레벨 디자인 / 몬스터 배치, 네비게이션 메시 기반 AI 경로탐색, 충돌 처리, 전투 시스템 |
+| (팀장) | 프레임워크 설계 및 제작, FBX 스키닝 / 애니메이션 시스템, Boost.Asio 기반 비동기 TCP 서버 |
+| (팀원) | 레벨 디자인 / 몬스터 배치, 네비게이션 메시 기반 AI 경로탐색, 충돌 처리, 전투 시스템 |
 | 서정원 | 렌더링 파이프라인 설계 및 최적화, 셰이더 이펙트 전체 구현, UI / 사운드 시스템 연동 |
 
 ### 서정원 상세 담당
@@ -71,6 +73,7 @@ C++20 Concepts와 Template을 활용해 잘못된 타입 사용을 컴파일 타
 ## 4. 핵심 구현
 
 ### 4-1. Deferred Rendering 파이프라인
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/05831320-ab98-456f-815e-eef2cd920496" />
 
 G-Buffer 작성부터 Post-Processing까지 단계를 명시적으로 분리하여 Pass 단위로 렌더링을 관리합니다.  
 각 Pass는 독립된 Render Target Group을 가지며, 이전 Pass의 결과를 SRV로 넘겨받아 순차적으로 처리합니다.
@@ -139,6 +142,7 @@ tDesc.stCamProj = UCamera::CAMPROJ(
 ---
 
 ### 4-2. 상수 버퍼 최적화 — Upload Heap → Default Heap
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/1fbc9bbc-8244-4d8c-a33b-4cf433e1f68b" />
 
 DirectX 12에서 상수 버퍼를 Upload Heap으로만 관리하면 GPU가 읽을 때마다 CPU 공유 메모리를 거쳐야 합니다.  
 자주 변하지 않는 데이터(조명, 월드 행렬 등)는 Default Heap으로 마이그레이션하여 GPU 접근 비용을 줄였습니다.
@@ -206,6 +210,7 @@ if (m_bUseDefaultBuffer && ::memcmp(&m_pPreviousBuffer[iIndex], _pBuffer, _iSize
 ---
 
 ### 4-3. GPU 인스턴싱 파티클 시스템 (Compute + Geometry Shader)
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/4192ad05-d58f-4ed9-80d8-eeeec60fdf8f" />
 
 CPU에서 파티클을 하나씩 업데이트하는 대신, Compute Shader로 GPU에서 병렬 처리합니다.  
 파티클 데이터는 `RWStructuredBuffer`로 GPU 메모리에 상주하며, CPU는 파라미터만 전달합니다.
@@ -273,6 +278,7 @@ float3 noise = { 2*r1-1, 2*r2-1, 2*r3-1 }; // [-1, 1] 범위
 ```
 
 #### 이펙트 종류 (9종 Compute Shader)
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/80e054fe-7e54-46c4-8f89-57df6874b655" />
 
 파티클 종류별로 전용 Compute Shader를 두어 시뮬레이션 로직을 분리합니다.  
 최대 파티클 수는 종류별로 고정하여 버퍼 오버플로우를 원천 차단합니다.
@@ -291,6 +297,7 @@ float3 noise = { 2*r1-1, 2*r2-1, 2*r3-1 }; // [-1, 1] 범위
 ---
 
 ### 4-4. PSO 자동화 & Table Descriptor
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/7fbad4a6-3635-41b5-b1cc-e847a0ad5d79" />
 
 #### Root Signature — 단일 범용 설계
 
@@ -306,6 +313,8 @@ Root Signature의 레지스터 레이아웃을 고정함으로써 어떤 셰이�
 ---
 
 #### PSO 자동화
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/bec24d7d-6d71-4818-950b-e082885f68b3" />
+
 
 DirectX 12에서 PSO(Pipeline State Object)는 셰이더, 블렌드, 래스터라이저, 뎁스 스텐실 등 파이프라인 전체 상태를 하나의 객체로 관리합니다.  
 이를 매번 수동으로 구성하면 셰이더가 늘어날수록 설정 코드가 폭발적으로 증가합니다.
@@ -348,6 +357,7 @@ static PIPELINECONTAINER s_m_PipeLineContainer; // 모든 셰이더 인스턴스
 ---
 
 #### Table Descriptor — CBV / SRV / UAV 통합 바인딩
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/c39067ce-4986-4069-8004-3acbdb844a10" />
 
 DirectX 12는 셰이더에 리소스를 바인딩할 때 `SetDescriptorHeaps`로 힙을 교체해야 합니다.  
 힙 교체는 GPU 파이프라인 플러시를 유발할 수 있어 비용이 큽니다.
@@ -386,6 +396,7 @@ void CommitComputeTable(...)  { SetComputeRootDescriptorTable(...); }
 ### 4-5. 셰이더 이펙트
 
 #### Bloom
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/bc97c90f-dbd9-441d-b3a8-f5d6ba25d151" />
 
 밝은 영역을 추출하고 가우시안 블러를 거쳐 원본에 합산하는 다단계 Bloom을 구현했습니다.
 
@@ -453,6 +464,7 @@ Out.vColor = vHDRColor + enhancedBlurColor + vOriginalColor;
 ---
 
 #### Sword Trail (CatmullRom 스플라인 기반 Procedural Mesh)
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/d67a1b0d-cd74-4954-8833-a80432d87d3e" />
 
 검 궤적을 스플라인 곡선으로 부드럽게 표현하기 위해 메시를 CPU에서 매 프레임 직접 생성합니다.
 
@@ -516,6 +528,7 @@ for (_uint i = 0; i < m_iCount; i += 2)
 궤적은 0.3초(`m_EndTime`) 후 페이드 아웃됩니다.
 
 **Trail 셰이더 — 노이즈 기반 발광 표현**
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/8d118b89-5276-4609-bb8b-1b70d4a6e650" />
 
 3개 텍스처를 조합해 에너지가 흐르는 듯한 궤적을 표현합니다.
 
@@ -546,6 +559,7 @@ Out.vGlow = float4(finalColor.rgb, 0.5f); // Bloom Glow 버퍼에도 출력
 ---
 
 #### Distortion Fire — 3중 노이즈 UV 왜곡
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/34771e78-aaee-4e9d-a244-783dcf449b86" />
 
 텍스처 하나를 반복하는 대신, 서로 다른 스케일과 스크롤 속도를 가진 노이즈 레이어 3개를 합산하여 불규칙하고 자연스러운 불꽃 움직임을 만듭니다.
 
@@ -567,6 +581,7 @@ Out.vTexCoords3.y += fGrobalDeltaTime * fScrollSpeeds.z;
 ```
 
 **PS — 합산 노이즈로 UV 왜곡 후 샘플링**
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/8e97ddea-d165-4003-add1-5271b022a865" />
 
 3개 노이즈를 [-1, 1]로 정규화한 뒤 각각 다른 왜곡 계수를 곱해 합산합니다.  
 최종 왜곡 강도는 Y 위치에 따라 변화합니다 — 불 아래는 왜곡이 약하고 위로 갈수록 강해져 위로 타오르는 형태를 만듭니다.
@@ -608,10 +623,13 @@ else                        Out.vGlow = float4(AmpColor.xyz,   1); // 밝은 영
 ```
 
 → [`Shader/2DFire.hlsl`](CodeDungeon/Shader/2DFire.hlsl)
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/11957b46-3b58-4ab5-a642-8082e59a6bf4" />
 
 ---
 
 #### Guard 결계 / Rim Light
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/3b05fbf7-5189-44f5-b7c6-10aee83ef70b" />
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/e7044d41-f9cf-4545-b65d-746d29cab0e0" />
 
 | 이펙트 | 구현 방식 |
 |--------|-----------|
@@ -623,6 +641,7 @@ else                        Out.vGlow = float4(AmpColor.xyz,   1); // 밝은 영
 ---
 
 #### Outline — 깊이 기반 외곽선 합성
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/14243c56-c3c1-429e-82d3-3f13d650ce04" />
 
 외곽선을 그리는 방식은 두 가지를 구현하고 상황에 따라 선택합니다.
 
@@ -665,6 +684,7 @@ if (vDepthDesc == 1.f && outline.w > 0.f)
 ---
 
 #### Scene-Based Fog — G-Buffer 픽셀 단위 거리 계산
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/a28811a0-8ed3-4075-8a6a-ee9ca6abff8a" />
 
 일반적인 버텍스 단위 안개는 정점 사이 보간 오차가 생깁니다.  
 G-Buffer에 저장된 월드 공간 Position을 읽어 **픽셀 단위로 카메라 거리를 계산**하므로 정확도가 높습니다.
@@ -686,6 +706,7 @@ Out.vColor = lerp(float4(0.21f, 0.21f, 0.21f, 1.f), Out.vColor, FogFactor);
 선형 안개를 선택한 이유는 `fogStart` / `fogEnd` 두 파라미터만으로 안개 영역을 직관적으로 제어할 수 있어, 던전 구간별로 안개 범위를 명확하게 조정할 수 있기 때문입니다.
 
 **Fog Exception — 특정 이펙트 안개 제외**
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/272fa55d-1bce-48c2-a9c8-ac2d4482c69f" />
 
 불꽃 빌보드처럼 자체 발광 이펙트에 안개가 적용되면 색이 탁해집니다.  
 Glow 버퍼의 알파값을 식별자로 사용해 해당 픽셀을 안개 계산에서 제외합니다.
@@ -708,6 +729,7 @@ if (IsFogOn && vGlow.a != 0.5f)  // 발광 이펙트 제외
 ---
 
 #### Render Target 기반 화면 효과
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/63d49194-c7e9-4242-82a0-333687c70e4c" />
 
 별도의 Post-Processing Pass 없이, Deferred 최종 합성 단계(`FinalDeffered.hlsl`)에서 게임 상태 플래그를 읽어 화면 전체 효과를 적용합니다.  
 렌더러에서 `DRAWSHADERBUFFER` 상수 버퍼로 플래그와 경과 시간을 매 프레임 전달합니다.
@@ -742,6 +764,7 @@ Out.vColor = lerp(float4(1,0,0,1), grayscaleTexture, blendFactor);
 ---
 
 #### 기타 이펙트
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/2007f453-f8c3-408f-ac12-8408b00315bb" />
 
 | 이펙트 | 파일 | 구현 |
 |--------|------|------|
@@ -754,6 +777,7 @@ Out.vColor = lerp(float4(1,0,0,1), grayscaleTexture, blendFactor);
 ---
 
 ### 4-6. UI / 사운드 시스템
+<img width="2400" height="1350" alt="image" src="https://github.com/user-attachments/assets/62d63f3f-0e22-43e1-8cd4-90ae4938afc6" />
 
 #### UI — 3계층 렌더 레이어
 
@@ -809,31 +833,7 @@ SetPitch(soundName, pitch);                  // 피치 조정 (피격 시 변조
 
 ---
 
-## 5. 스크린샷
-
-> 시연 영상 전체 : [![YouTube](https://img.shields.io/badge/YouTube-Demo-red?logo=youtube)](https://www.youtube.com/watch?v=hQBBsoL_ETs&t)
-
-| Deferred Rendering + Lighting | Bloom & HDR |
-|:---:|:---:|
-| ![deferred](docs/screenshots/deferred.png) | ![bloom](docs/screenshots/bloom.png) |
-
-| GPU 파티클 시스템 | Distortion Fire |
-|:---:|:---:|
-| ![particle](docs/screenshots/particle.png) | ![fire](docs/screenshots/fire.png) |
-
-| Sword Trail (CatmullRom) | Outline + Fog |
-|:---:|:---:|
-| ![trail](docs/screenshots/trail.png) | ![fog](docs/screenshots/fog.png) |
-
-| 피격 / 사망 Render Target 효과 | UI |
-|:---:|:---:|
-| ![rt_effect](docs/screenshots/rt_effect.png) | ![ui](docs/screenshots/ui.png) |
-
-> 스크린샷은 `docs/screenshots/` 경로에 추가 예정
-
----
-
-## 6. 빌드 방법
+## 5. 빌드 방법
 
 ### 요구 환경
 
