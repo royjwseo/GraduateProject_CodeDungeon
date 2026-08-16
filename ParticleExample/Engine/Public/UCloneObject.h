@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCLONEOBJECT_H
+ï»¿#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCLONEOBJECT_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCLONEOBJECT_H
 
 #include "UObject.h"
@@ -8,8 +8,8 @@ class UDevice;
 class UGpuCommand;
 
 /*
-Actor, Resource, Component µîÀÇ ºÎ¸ð Å¬·¡½º
-º¹Á¦°¡ ÇÊ¿äÇÑ Å¬·¡½º´Â ¹Ýµå½Ã ÀÌ Å¬·¡½º¸¦ »ó¼Ó ¹Þ¾Æ¾ß ÇÑ´Ù. 
+Actor, Resource, Component ë“±ì˜ ë¶€ëª¨ í´ëž˜ìŠ¤
+ë³µì œê°€ í•„ìš”í•œ í´ëž˜ìŠ¤ëŠ” ë°˜ë“œì‹œ ì´ í´ëž˜ìŠ¤ë¥¼ ìƒì† ë°›ì•„ì•¼ í•œë‹¤. 
 */
 
 class ENGINE_DLL  UCloneObject  abstract : public UObject {
@@ -31,4 +31,4 @@ private:
 
 END
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCLONEOBJECT_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCLONEOBJECT_H

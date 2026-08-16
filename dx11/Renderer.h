@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "Component.h"
 
 #define RENDERTEST 0
@@ -182,4 +182,4 @@ public:
 	virtual void Free() override;
 };
 
-END
+END

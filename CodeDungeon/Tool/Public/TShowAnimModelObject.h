@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UPawn.h"
 
@@ -8,9 +8,9 @@ END
 
 BEGIN(Tool)
 /*
-@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 @ Explain
-- AnimationÀÌ µé¾î°£ ¸ğµ¨À» º¸¿©ÁÖ±â À§ÇÑ Å¬·¡½º
+- Animationì´ ë“¤ì–´ê°„ ëª¨ë¸ì„ ë³´ì—¬ì£¼ê¸° ìœ„í•œ í´ë˜ìŠ¤
 */
 class TShowAnimModelObject final  : public UPawn {
 public:
@@ -21,7 +21,7 @@ public:
 	CSHPTRREF<UAnimModel> GetAnimModel() const { return m_spModel; }
 
 public:
-	// UPawnÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UPawnì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(TShowAnimModelObject, "TShowAnimModelObject::Clone To Failed")
 	virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;

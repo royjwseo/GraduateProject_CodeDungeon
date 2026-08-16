@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_COREFUNCTION_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_COREFUNCTION_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_COREFUNCTION_H
 
 namespace Core
@@ -6,9 +6,9 @@ namespace Core
 #pragma region FUNCTION 
 
 	/*
-	@ Date: 2024-01-10,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-01-10,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¾ÛÀ» ¸¸µé¾î¼­ µî·ÏÇÏ´Â ÇÔ¼öÀÌ´Ù.
+	- ì•±ì„ ë§Œë“¤ì–´ì„œ ë“±ë¡í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
 	*/
 	template<class T>
 	T* CreateAndRegisterApp()
@@ -18,9 +18,9 @@ namespace Core
 		return App;
 	}
 	/*
-	@ Date: 2024-01-09,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-01-09,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ÇöÀç ¹Ğ¸®¼¼ÄÁµå¸¦ ±¸ÇÏ´Â ÇÔ¼öÀÌ´Ù. 
+	- í˜„ì¬ ë°€ë¦¬ì„¸ì»¨ë“œë¥¼ êµ¬í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤. 
 	*/
 	static _llong CurrentMilliseconds()
 	{
@@ -28,9 +28,9 @@ namespace Core
 		return std::chrono::duration_cast<std::chrono::milliseconds>(Time.time_since_epoch()).count();
 	}
 	/*
-	@ Date: 2024-01-13,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-01-13,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ÇöÀç ¹Ğ¸®¼¼ÄÁµå¸¦ ±¸ÇÏ´Â ÇÔ¼öÀÌ´Ù.
+	- í˜„ì¬ ë°€ë¦¬ì„¸ì»¨ë“œë¥¼ êµ¬í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
 	*/
 	static _llong CurrentTime()
 	{
@@ -39,9 +39,9 @@ namespace Core
 	}
 
 	/*
-	@ Date: 2024-01-05,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-01-05,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- _temp°¡ _Value¸¦ ³Ñ¾ú´ÂÁö È®ÀÎÇÏ´Â ÇÔ¼ö
+	- _tempê°€ _Valueë¥¼ ë„˜ì—ˆëŠ”ì§€ í™•ì¸í•˜ëŠ” í•¨ìˆ˜
 	*/
 	template<class T, class Value >
 	requires (CheckNumber<T> && CheckNumber<Value>)
@@ -55,9 +55,9 @@ namespace Core
 		return _temp;
 	}
 	/*
-	@ Date: 2024-01-05,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-01-05,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¸Ş¸ğ¸®¸¦ ÃÊ±âÈ­ÇÏ±â À§ÇÑ ÇÔ¼ö, WindowÇÔ¼öÀÎ ZeroMemory¸¦ ¾²Áö ¾Ê±â À§ÇÔÀÌ´Ù.
+	- ë©”ëª¨ë¦¬ë¥¼ ì´ˆê¸°í™”í•˜ê¸° ìœ„í•œ í•¨ìˆ˜, Windowí•¨ìˆ˜ì¸ ZeroMemoryë¥¼ ì“°ì§€ ì•Šê¸° ìœ„í•¨ì´ë‹¤.
 	*/
 	template<class T>
 	static void MemoryInitialization(T* _pData, const size_t _bufferSize)
@@ -67,9 +67,9 @@ namespace Core
 	}
 
 	/*
-	@ Date: 2024-01-05,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-01-05,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¸Ş¸ğ¸®¸¦ ÃÊ±âÈ­ÇÏ±â À§ÇÑ ÇÔ¼ö, WindowÇÔ¼öÀÎ ZeroMemory¸¦ ¾²Áö ¾Ê±â À§ÇÔÀÌ´Ù.
+	- ë©”ëª¨ë¦¬ë¥¼ ì´ˆê¸°í™”í•˜ê¸° ìœ„í•œ í•¨ìˆ˜, Windowí•¨ìˆ˜ì¸ ZeroMemoryë¥¼ ì“°ì§€ ì•Šê¸° ìœ„í•¨ì´ë‹¤.
 	*/
 	template<class T>
 	static void MemoryInitialization(T& _Data)
@@ -79,9 +79,9 @@ namespace Core
 	}
 
 	/*
-	@ Date: 2024-01-05,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-01-05,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ÇØ´ç Thread¸¦ nanoseconds¸¸Å­ ½¬´Â ÇÔ¼öÀÌ´Ù.
+	- í•´ë‹¹ Threadë¥¼ nanosecondsë§Œí¼ ì‰¬ëŠ” í•¨ìˆ˜ì´ë‹¤.
 	*/
 	template<class T>
 	requires std::is_integral_v<T>
@@ -90,9 +90,9 @@ namespace Core
 		std::this_thread::sleep_for(std::chrono::nanoseconds(_data));
 	}
 	/*
-	@ Date: 2024-01-05,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-01-05,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ÇØ´ç Thread¸¦ MicroSeconds¸¸Å­ ½¬´Â ÇÔ¼öÀÌ´Ù.
+	- í•´ë‹¹ Threadë¥¼ MicroSecondsë§Œí¼ ì‰¬ëŠ” í•¨ìˆ˜ì´ë‹¤.
 	*/
 	template<class T>
 		requires std::is_integral_v<T>
@@ -102,9 +102,9 @@ namespace Core
 	}
 
 	/*
-	@ Date: 2024-01-05,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-01-05,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ÇØ´ç Thread¸¦ MiliSeconds¸¸Å­ ½¬´Â ÇÔ¼öÀÌ´Ù.
+	- í•´ë‹¹ Threadë¥¼ MiliSecondsë§Œí¼ ì‰¬ëŠ” í•¨ìˆ˜ì´ë‹¤.
 	*/
 	template<class T>
 		requires std::is_integral_v<T>
@@ -114,9 +114,9 @@ namespace Core
 	}
 	/*
 	@ Date: 2023-12-26
-	@ Writer: ¹ÚÅÂÇö
+	@ Writer: ë°•íƒœí˜„
 	@ Explain
-	- _originÀÇ °ªÀÌ _old¿Í °°À» ¶§ _weak¸¦ ³Ö°í true ¸®ÅÏ
+	- _originì˜ ê°’ì´ _oldì™€ ê°™ì„ ë•Œ _weakë¥¼ ë„£ê³  true ë¦¬í„´
 	*/
 	template<class T>
 	static bool CAS_VALUE(std::atomic<T>& _origin, T _old, T _weak)
@@ -124,29 +124,29 @@ namespace Core
 		return _origin.compare_exchange_strong(_old, _weak);
 	}
 	/*
-	@ Date: 2024-01-02,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-01-02,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- std::make_pair¸¦ ¾²±â ½È¾î¼­ »ç¿ëÇÏ´Â ÇÔ¼ö
+	- std::make_pairë¥¼ ì“°ê¸° ì‹«ì–´ì„œ ì‚¬ìš©í•˜ëŠ” í•¨ìˆ˜
 	*/
 	template<class T1, class T2>
 	static std::pair<T1, T2> MakePair(const T1& _t1, const T2& _t2) { return std::move(std::pair<T1, T2>(_t1, _t2)); }
 
 	/*
-	@ Date: 2024-02-04,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-04,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- sizeof¸¦ ¾²¸é, Áö¿ª º¯¼ö È£ÃâÀÎµ¥ ÀÌ ÇÔ¼ö¸¦ ¾²¸é Àü¿ª º¯¼ö È£ÃâÀÌ¶ó »õ·Î¿î ÀÓ½Ã º¯¼ö¸¦ ¸¸µéÁö ¾Ê´Â´Ù.
+	- sizeofë¥¼ ì“°ë©´, ì§€ì—­ ë³€ìˆ˜ í˜¸ì¶œì¸ë° ì´ í•¨ìˆ˜ë¥¼ ì“°ë©´ ì „ì—­ ë³€ìˆ˜ í˜¸ì¶œì´ë¼ ìƒˆë¡œìš´ ì„ì‹œ ë³€ìˆ˜ë¥¼ ë§Œë“¤ì§€ ì•ŠëŠ”ë‹¤.
 	*/
 	template<class Type>
 	static int GetTypeSize() { constexpr static int SIZE{ sizeof(Type) }; return SIZE; }
 	/*
-	@ Date: 2024-02-04,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-04,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- µé¾î¿Â ¼ö¸¦ numÀÇ ¹è¼ö¸¸Å­ÀÇ ¼ö¸¦ ¸®ÅÏÇÏ´Â ÇÔ¼ö
+	- ë“¤ì–´ì˜¨ ìˆ˜ë¥¼ numì˜ ë°°ìˆ˜ë§Œí¼ì˜ ìˆ˜ë¥¼ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜
 	*/
 	template<int Number, class T>
 		requires CheckNumber<T>
 	static T MakeMultipleNumber(T number) {
-		// 16ÀÇ ¹è¼ö·Î ¸¸µé±â À§ÇØ 15¸¦ ´õÇÏ°í 16À¸·Î ³ª´¯´Ï´Ù.
+		// 16ì˜ ë°°ìˆ˜ë¡œ ë§Œë“¤ê¸° ìœ„í•´ 15ë¥¼ ë”í•˜ê³  16ìœ¼ë¡œ ë‚˜ëˆ•ë‹ˆë‹¤.
 		T remainder = number % Number;
 		if (remainder != 0) {
 			number += (Number - remainder);
@@ -154,9 +154,9 @@ namespace Core
 		return number;
 	}
 	/*
-	@ Date: 2024-02-04,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-04,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- µé¾î¿Â ¼ö¸¦ Divine ÇØÁÖ´Â ÇÔ¼ö
+	- ë“¤ì–´ì˜¨ ìˆ˜ë¥¼ Divine í•´ì£¼ëŠ” í•¨ìˆ˜
 	*/
 	template<int Number, class T>
 		requires CheckNumber<T>
@@ -165,9 +165,9 @@ namespace Core
 	}
 
 	/*
-	@ Date: 2024-12-26, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-12-26, Writer: ë°•íƒœí˜„
 	@ Explain
-	- ´Ü¼øÈ÷ °´Ã¼¸¦ ¸¸µå´Â ÇÔ¼öÀÌ´Ù, 
+	- ë‹¨ìˆœíˆ ê°ì²´ë¥¼ ë§Œë“œëŠ” í•¨ìˆ˜ì´ë‹¤, 
 	*/
 	template<class T, class... Args>
 		requires ConstructArgsCheck<T, Args...>
@@ -176,14 +176,14 @@ namespace Core
 		return std::move(pInstance);
 	}
 	/*
-	@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
+	@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
 	@ Explain
-	- NatvieConstruct ÇÔ¼ö¸¦ È£Ãâ ÇÑ ÈÄ , ½ÇÆĞÇÏ¸é nullptr ¸®ÅÏ, ÇÔ¼ö¿¡¼­ ÃÊ±âÈ­
+	- NatvieConstruct í•¨ìˆ˜ë¥¼ í˜¸ì¶œ í•œ í›„ , ì‹¤íŒ¨í•˜ë©´ nullptr ë¦¬í„´, í•¨ìˆ˜ì—ì„œ ì´ˆê¸°í™”
 	*/
 	template<class T, class ...Args>
 		requires	CheckToSameMethodArgs<T, Args...>
 	static SHPTR<T> CreateInitNative(Args&&... args) {
-		static_assert(CheckToSameMethodArgs<T, Args...>, "NativeConstructÀÇ ÀÎÀÚ°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+		static_assert(CheckToSameMethodArgs<T, Args...>, "NativeConstructì˜ ì¸ìê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		SHPTR<T> pInstance{ Core::MakeShared<T>() };
 		if (false ==  (pInstance->NativeConstruct(args...))) {
 #ifdef USE_DEBUG
@@ -194,14 +194,14 @@ namespace Core
 		return std::move(pInstance);
 	}
 	/*
-	@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
+	@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
 	@ Explain
-	- CreateInitNative µ¿ÀÏ, ´Ù¸¸ ¸Ş½ÃÁö´Â Ãâ·ÂÇÏÁö ¾ÊÀ½
+	- CreateInitNative ë™ì¼, ë‹¤ë§Œ ë©”ì‹œì§€ëŠ” ì¶œë ¥í•˜ì§€ ì•ŠìŒ
 	*/
 	template<class T, class ...Args>
 		requires CheckToSameMethodArgs<T, Args...>
 	static SHPTR<T> CreateInitNativeNotMsg(Args&&... args) {
-		static_assert(CheckToSameMethodArgs<T, Args...>, "NativeConstructÀÇ ÀÎÀÚ°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+		static_assert(CheckToSameMethodArgs<T, Args...>, "NativeConstructì˜ ì¸ìê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		SHPTR<T> pInstance{ Core::MakeShared<T>() };
 		if (false == (pInstance->NativeConstruct(args...))) {
 			pInstance.reset();
@@ -209,16 +209,16 @@ namespace Core
 		return std::move(pInstance);
 	}
 	/*
-	@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
+	@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
 	@ Explain
-	- NatvieConstruct ÇÔ¼ö¸¦ È£Ãâ ÇÑ ÈÄ , ½ÇÆĞÇÏ¸é nullptr ¸®ÅÏ, »ı¼ºÀÚ¿¡¼­ ÃÊ±âÈ­, 
-	NatvieÇÔ¼ö°¡ ÀÖ´ÂÁö È®ÀÎ ÈÄ, »ı¼ºÀÚÀÇ º¯¼ö¿Í Args...ÀÇ º¯¼ö°¡ µ¿ÀÏÇÑÁö ÆÇ´Ü.
+	- NatvieConstruct í•¨ìˆ˜ë¥¼ í˜¸ì¶œ í•œ í›„ , ì‹¤íŒ¨í•˜ë©´ nullptr ë¦¬í„´, ìƒì„±ìì—ì„œ ì´ˆê¸°í™”, 
+	Natvieí•¨ìˆ˜ê°€ ìˆëŠ”ì§€ í™•ì¸ í›„, ìƒì„±ìì˜ ë³€ìˆ˜ì™€ Args...ì˜ ë³€ìˆ˜ê°€ ë™ì¼í•œì§€ íŒë‹¨.
 	*/
 	template<class T, class ...Args>
 		requires ConstructArgsCheck<T, Args...>
 	&& CheckToSameMethodArgs<T>
 		static SHPTR<T> CreateInitConstructor(Args&&... args) {
-		static_assert(ConstructArgsCheck<T, Args...>, "»ı¼ºÀÚÀÇ ÀÎÀÚ°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+		static_assert(ConstructArgsCheck<T, Args...>, "ìƒì„±ìì˜ ì¸ìê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		SHPTR<T> pInstance{ Core::MakeShared<T>(std::forward<Args>(args)...) };
 		if (false == (pInstance->NativeConstruct())) {
 #ifdef USE_DEBUG
@@ -229,15 +229,15 @@ namespace Core
 		return std::move(pInstance);
 	}
 	/*
-	@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
+	@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
 	@ Explain
-	- CreateInitConstructor µ¿ÀÏ, ´Ù¸¸ ¸Ş½ÃÁö´Â Ãâ·ÂÇÏÁö ¾ÊÀ½
+	- CreateInitConstructor ë™ì¼, ë‹¤ë§Œ ë©”ì‹œì§€ëŠ” ì¶œë ¥í•˜ì§€ ì•ŠìŒ
 	*/
 	template<class T, class ...Args>
 		requires ConstructArgsCheck<T, Args...>
 	&& CheckToSameMethodArgs<T>
 		static SHPTR<T>  CreateInitConstructorNotMsg(Args&&... args) {
-		static_assert(ConstructArgsCheck<T, Args...>, "»ı¼ºÀÚÀÇ ÀÎÀÚ°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+		static_assert(ConstructArgsCheck<T, Args...>, "ìƒì„±ìì˜ ì¸ìê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		SHPTR<T> pInstance{ Core::MakeShared<T>(std::forward<Args>(args)...) };
 		if (false ==  (pInstance->NativeConstruct())) {
 			pInstance.reset();
@@ -245,9 +245,9 @@ namespace Core
 		return std::move(pInstance);
 	}
 	/*
-	@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
+	@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
 	@ Explain
-	- ÀÚ±â ÀÚ½ÅÀ» Å¬·ĞÇÏ´Â ÇÔ¼öÀÌ´Ù. 
+	- ìê¸° ìì‹ ì„ í´ë¡ í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤. 
 	*/
 	template<class T>
 	static SHPTR<T> CloneThis(const T& _rhs)
@@ -256,9 +256,9 @@ namespace Core
 		return std::move(pInstance);
 	}
 	/*
-	@ Date: 2024-04-06, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-04-06, Writer: ë°•íƒœí˜„
 	@ Explain
-	- charÀ» Á¶ÇÕÇÏ´Â ÇÔ¼öÀÌ´Ù.
+	- charì„ ì¡°í•©í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
 	*/
 	static _string CombineRawString(const _char* _p1, const _char* _p2)
 	{
@@ -267,9 +267,9 @@ namespace Core
 		return std::move(str);
 	}
 	/*
-	@ Date: 2024-07-03, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-07-03, Writer: ë°•íƒœí˜„
 	@ Explain
-	- wstringÀ» ±×³É stringÀ¸·Î º¯È¯ÇÏ´Â ÇÔ¼ö
+	- wstringì„ ê·¸ëƒ¥ stringìœ¼ë¡œ ë³€í™˜í•˜ëŠ” í•¨ìˆ˜
 	*/
 	static _string ConvertWToS(const _wstring& var)
 	{
@@ -280,9 +280,9 @@ namespace Core
 		return std::move(str);
 	}
 	/*
-	@ Date: 2024-07-03, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-07-03, Writer: ë°•íƒœí˜„
 	@ Explain
-	- wstringÀ» ±×³É stringÀ¸·Î º¯È¯ÇÏ´Â ÇÔ¼ö
+	- wstringì„ ê·¸ëƒ¥ stringìœ¼ë¡œ ë³€í™˜í•˜ëŠ” í•¨ìˆ˜
 	*/
 	static _wstring ConvertSToW(const _string& var)
 	{
@@ -293,9 +293,9 @@ namespace Core
 		return std::move(wstr);
 	}
 	/*
-	@ Date: 2024-07-03, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-07-03, Writer: ë°•íƒœí˜„
 	@ Explain
-	- stringÀ» ÀĞ´Â ÇÔ¼ö 
+	- stringì„ ì½ëŠ” í•¨ìˆ˜ 
 	*/
 	static void ReadString(std::ifstream& _if, _wstring& _wstr) 
 	{
@@ -308,9 +308,9 @@ namespace Core
 		ReleaseBuffer(pText);
 	}
 	/*
-	@ Date: 2024-07-03, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-07-03, Writer: ë°•íƒœí˜„
 	@ Explain
-	- stringÀ» ÀĞ´Â ÇÔ¼ö
+	- stringì„ ì½ëŠ” í•¨ìˆ˜
 	*/
 	static void ReadString(std::ifstream& _if, _string& _str)
 	{
@@ -337,4 +337,4 @@ namespace Core
 #pragma endregion FUNCTION
 }
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_COREFUNCTION_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_COREFUNCTION_H

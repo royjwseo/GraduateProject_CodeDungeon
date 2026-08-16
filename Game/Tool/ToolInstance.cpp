@@ -1,4 +1,4 @@
-#include "ToolInstance.h"
+ï»¿#include "ToolInstance.h"
 #include "Engine.h"
 #include "NavigationCell.h"
 
@@ -31,7 +31,7 @@ void Tool::BuildToolScene()
 
 void Tool::InitImgui(HWND hWnd)
 {
-    //Imgui ÃÊ±âÈ­
+    //Imgui ì´ˆê¸°í™”
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
@@ -39,8 +39,8 @@ void Tool::InitImgui(HWND hWnd)
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
     ImGui::StyleColorsDark();
 
-    //win32, API ÃÊ±âÈ­
-    //ÀÌ¸¦ À§ÇØ º°µµÀÇ SRV Descriptor HeapÀ» »ı¼º
+    //win32, API ì´ˆê¸°í™”
+    //ì´ë¥¼ ìœ„í•´ ë³„ë„ì˜ SRV Descriptor Heapì„ ìƒì„±
     {
         D3D12_DESCRIPTOR_HEAP_DESC desc = {};
         desc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
@@ -97,7 +97,7 @@ void Tool::ImguiRender()
     ImGui_ImplWin32_NewFrame();
     ImGui::NewFrame();
 
-    //Å×½ºÆ®¸¦ À§ÇÑ ¿¹Á¦ À©µµ¿ì
+    //í…ŒìŠ¤íŠ¸ë¥¼ ìœ„í•œ ì˜ˆì œ ìœˆë„ìš°
     //ImGui::ShowDemoWindow();
 
     if(m_pImguiManager) 

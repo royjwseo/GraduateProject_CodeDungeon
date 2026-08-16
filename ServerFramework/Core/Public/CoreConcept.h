@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_CORECONCEPT_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_CORECONCEPT_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_CORECONCEPT_H
 
 #include <iostream>
@@ -7,27 +7,27 @@
 namespace Core
 {
 	/*
-	@ Date: 2024-01-05, Writer: ¹ÚÅÂÇö
-	@ Explain: ÇØ´çÇÏ´Â Template°¡ ¼ıÀÚÀÎÁö È®ÀÎ
+	@ Date: 2024-01-05, Writer: ë°•íƒœí˜„
+	@ Explain: í•´ë‹¹í•˜ëŠ” Templateê°€ ìˆ«ìì¸ì§€ í™•ì¸
 	*/
 	template <typename T>
 	concept CheckNumber = std::integral<T> || std::floating_point<T>;
 
 	/*
-	@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
-	@ Explain: °°Àº ³ğÀÎÁö, ºÎ¸ğ Å¸ÀÔÀÎÁö, operator = ¿¬»ê ¼öÇà °¡´ÉÇÑÁö 
+	@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
+	@ Explain: ê°™ì€ ë†ˆì¸ì§€, ë¶€ëª¨ íƒ€ì…ì¸ì§€, operator = ì—°ì‚° ìˆ˜í–‰ ê°€ëŠ¥í•œì§€ 
 	*/
 	template <class T, class U>
 	concept SameType = std::is_same_v<T, U>();
 	template <class T, class U>
 	/*
-	@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
-	@ Explain: ºÎ¸ğ ÀÚ½ÄÀÎÁö È®ÀÎÇÏ´Â coencept
+	@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
+	@ Explain: ë¶€ëª¨ ìì‹ì¸ì§€ í™•ì¸í•˜ëŠ” coencept
 	*/
 	concept ParentsChildType = std::is_base_of_v<T*, U*>() || std::is_base_of_v<U*, T*>();
 	/*
-	@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
-	@ Explain: T¿¡¼­ U·Î º¯È¯ÀÌ °¡´ÉÇÑÁö È®ÀÎÇÏ´Â concept
+	@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
+	@ Explain: Tì—ì„œ Uë¡œ ë³€í™˜ì´ ê°€ëŠ¥í•œì§€ í™•ì¸í•˜ëŠ” concept
 	*/
 	template<class T, class U>
 	concept Convertible = std::is_convertible_v<T*, U*>();
@@ -37,23 +37,23 @@ namespace Core
 	concept BASE_CHECK = std::is_base_of_v<Base, Derived>;
 
 	/*
-	@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
-	@ Explain: Args...¿¡¼­ ÆîÄ£ º¯¼öµé°ú »ı¼ºÀÚÀÇ º¯¼öµéÀÌ ¸Â´ÂÁö È®ÀÎ
+	@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
+	@ Explain: Args...ì—ì„œ í¼ì¹œ ë³€ìˆ˜ë“¤ê³¼ ìƒì„±ìì˜ ë³€ìˆ˜ë“¤ì´ ë§ëŠ”ì§€ í™•ì¸
 	*/
 	template<typename T, class ...Args>
 	concept ConstructArgsCheck = std::is_constructible_v<T, Args...>;
 
 	/*
-	@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
-	@ Explain: Å¬·¡½º¿¡ NativeConstruct ÇÔ¼ö°¡ Á¤ÀÇµÇ¾îÀÖ´ÂÁö È®ÀÎ
+	@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
+	@ Explain: í´ë˜ìŠ¤ì— NativeConstruct í•¨ìˆ˜ê°€ ì •ì˜ë˜ì–´ìˆëŠ”ì§€ í™•ì¸
 	*/
 	template <typename T, typename... Args>
 	concept CheckToSameMethodArgs = requires(T * t, Args&&... args) {
 		{ t->NativeConstruct(args...) } -> std::same_as<bool>;
 	};
 	/*
-	@ Date: 2024-01-06, Writer: ¹ÚÅÂÇö
-	@ Explain: ProtoType Å¬·¡½ºÀÎÁö Ã¼Å©ÇÏ´Â concept
+	@ Date: 2024-01-06, Writer: ë°•íƒœí˜„
+	@ Explain: ProtoType í´ë˜ìŠ¤ì¸ì§€ ì²´í¬í•˜ëŠ” concept
 	*/
 	template<typename T>
 	concept CheckProtoType = requires(T * _t) {
@@ -62,8 +62,8 @@ namespace Core
 
 	/*
 	@ Date: 2023-12-26
-	@ Writer: ¹ÚÅÂÇö
-	@ Explain: SmartPointerÀÎÁö È®ÀÎÇÏ´Â Concept 
+	@ Writer: ë°•íƒœí˜„
+	@ Explain: SmartPointerì¸ì§€ í™•ì¸í•˜ëŠ” Concept 
 	*/
 	template <typename T>
 	concept SmartPointer = requires(T t) {
@@ -73,8 +73,8 @@ namespace Core
 
 	/*
 	@ Date: 2023-12-26
-	@ Writer: ¹ÚÅÂÇö
-	@ Explain: PointerÀÇ ¹è¿­ÀÎÁö È®ÀÎÇÏ´Â conecept
+	@ Writer: ë°•íƒœí˜„
+	@ Explain: Pointerì˜ ë°°ì—´ì¸ì§€ í™•ì¸í•˜ëŠ” conecept
 	*/
 	template <typename T>
 	concept PointerArray = requires(T t) {
@@ -85,21 +85,21 @@ namespace Core
 	concept ConvertibleFrom = (SameType<T, U> || ParentsChildType<T, U> || Convertible<T, U>);
 
 	/*
-	@ Date: 2024-02-05, Writer: ¹ÚÅÂÇö
-	@ Explain: StringÀÎÁö È®ÀÎÇÏ´Â concept
+	@ Date: 2024-02-05, Writer: ë°•íƒœí˜„
+	@ Explain: Stringì¸ì§€ í™•ì¸í•˜ëŠ” concept
 	*/
 	template<class T>
 	concept CheckStdStrings = std::is_same_v<T, std::string> || std::is_same_v<T, std::wstring>;
 
 	/*
-	@ Date: 2024-02-05, Writer: ¹ÚÅÂÇö
-	@ Explain: char, wchar_t ÀÎÁö È®ÀÎÇÏ´Â concept
+	@ Date: 2024-02-05, Writer: ë°•íƒœí˜„
+	@ Explain: char, wchar_t ì¸ì§€ í™•ì¸í•˜ëŠ” concept
 	*/
 	template<class T>
 	concept CheckChar = std::is_same_v<T, char> || std::is_same_v<T, wchar_t>;
 	/*
-	@ Date: 2024-02-05, Writer: ¹ÚÅÂÇö
-	@ Explain: CustomString ¿ë ConceptÀ¸·Î filesystemÀ¸·Î º¯È¯ °¡´ÉÇÑÁö, TStringÀÇ °ªÀÌ std::string, std::wstring ¸Â´ÂÁö È®ÀÎ
+	@ Date: 2024-02-05, Writer: ë°•íƒœí˜„
+	@ Explain: CustomString ìš© Conceptìœ¼ë¡œ filesystemìœ¼ë¡œ ë³€í™˜ ê°€ëŠ¥í•œì§€, TStringì˜ ê°’ì´ std::string, std::wstring ë§ëŠ”ì§€ í™•ì¸
 	*/
 	template<class TChar, class TString>
 	concept CheckCustomString = CheckStdStrings<TString> || CheckChar<TChar>;
@@ -107,4 +107,4 @@ namespace Core
 }
 
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_CORECONCEPT_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_CORECONCEPT_H

@@ -1,4 +1,4 @@
-#include "ServerDefines.h"
+﻿#include "ServerDefines.h"
 #include "CMonsterJobTimer.h"
 #include "AMonster.h"
 #include "CPlayerSession.h"
@@ -32,4 +32,4 @@ namespace Server
 	void CMonsterJobTimer::Free()
 	{
 	}
-}
+}

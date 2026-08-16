@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_SERVER_PUBLIC_CMIMIC_H
+﻿#ifndef _SERVERFRAMEWORK_SERVER_PUBLIC_CMIMIC_H
 #define _SERVERFRAMEWORK_SERVER_PUBLIC_CMIMIC_H
 
 #include "CServerMonster.h"
@@ -26,4 +26,4 @@ private:
 
 END
 
-#endif 
+#endif 

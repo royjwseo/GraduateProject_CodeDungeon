@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UDevice.h"
 #include "UGpuCommand.h"
 #include "UComputeCommand.h"
@@ -144,9 +144,9 @@ HRESULT UGraphicDevice::MainRenderBegin()
 	SHPTR<UTexture> pDefaultTexture =
 		m_spDefaultRenderTargetGroup->GetRenderTargetTexture(m_spSwapChain->GetBackBufferIndex());
 
-	// Àç¼³Á¤Àº GPU°¡ °ü·Ã ¸í·É ¸ñ·ÏµéÀ» ¸ðµÎ Ã³¸®ÇÑ ÈÄ¿¡ ÀÏ¾î³­´Ù. 
+	// ìž¬ì„¤ì •ì€ GPUê°€ ê´€ë ¨ ëª…ë ¹ ëª©ë¡ë“¤ì„ ëª¨ë‘ ì²˜ë¦¬í•œ í›„ì— ì¼ì–´ë‚œë‹¤. 
 	RETURN_CHECK_FAILED(FrameContext->cpAllocator->Reset(), E_FAIL);
-	// ¸í·É ¸ñ·ÏÀ» ´ë±â¿­¿¡ Ãß°¡Çß´Ù¸é ¸í·É ¸ñ·ÏÀ» Àç¼³Á¤ÇØ¾ß ÇÑ´Ù. 
+	// ëª…ë ¹ ëª©ë¡ì„ ëŒ€ê¸°ì—´ì— ì¶”ê°€í–ˆë‹¤ë©´ ëª…ë ¹ ëª©ë¡ì„ ìž¬ì„¤ì •í•´ì•¼ í•œë‹¤. 
 	RETURN_CHECK_FAILED(pGraphicCmdList->Reset(FrameContext->cpAllocator.Get(), nullptr), E_FAIL);
 
 	// Bind And Clear
@@ -179,7 +179,7 @@ HRESULT UGraphicDevice::MainRenderEnd()
 	pGraphicCmdList->ResourceBarrier(1, &Barrier);
 	pGraphicCmdList->Close();
 
-	// Ä¿¸Çµå ¸®½ºÆ® ¼öÇà
+	// ì»¤ë§¨ë“œ ë¦¬ìŠ¤íŠ¸ ìˆ˜í–‰
 	ID3D12CommandList* cmdListArr[] = { pGraphicCmdList.Get() };
 	pCmdQueue->ExecuteCommandLists(_countof(cmdListArr), cmdListArr);
 

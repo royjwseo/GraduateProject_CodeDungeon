@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "EnginePch.h"
 #include "Scene.h"
 #include "DeviceAndFactory.h"
@@ -42,7 +42,7 @@ private:
 	shared_ptr<CommandQueue> m_spCommandQueue = make_shared<CommandQueue>();
 	shared_ptr<RootSignature> m_spRootSignature = make_shared<RootSignature>();
 public:
-	//INPUT °ü·Ã
+	//INPUT ê´€ë ¨
 	void OnProcessingMouseMessage(HWND hwnd, UINT nMessageID, WPARAM wParam, LPARAM lParam);
 
 	void OnProcessingKeyboardMessage(HWND hwnd, UINT nMessageID, WPARAM wParam, LPARAM lParam);

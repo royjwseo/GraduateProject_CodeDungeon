@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UBase.h"
 
 BEGIN(Engine)
@@ -6,9 +6,9 @@ class UDevice;
 class UGpuCommand;
 
 /*
-¸ğµç ½¦ÀÌ´õ¸¶´Ù °øÅëÀ¸·Î ¾²ÀÌ´Â °´Ã¼
-¹«Á¶°Ç ÇÏ³ª¸¸ »ı¼ºµÇ¾ß ÇÑ´Ù.
-Engine¿¡¼­¸¸ »ı¼ºÇÑ´Ù.
+ëª¨ë“  ì‰ì´ë”ë§ˆë‹¤ ê³µí†µìœ¼ë¡œ ì“°ì´ëŠ” ê°ì²´
+ë¬´ì¡°ê±´ í•˜ë‚˜ë§Œ ìƒì„±ë˜ì•¼ í•œë‹¤.
+Engineì—ì„œë§Œ ìƒì„±í•œë‹¤.
 */
 
 class UGlobalConstantBuffer final : public UBase {

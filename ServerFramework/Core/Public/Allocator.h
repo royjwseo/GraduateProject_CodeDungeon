@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ALLOCATOR_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ALLOCATOR_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ALLOCATOR_H
 
 namespace Core {
@@ -10,20 +10,20 @@ namespace Core {
 	*/
 	/*
 	@ Date: 2023-12-30
-	@ Writer: ¹ÚÅÂÇö
+	@ Writer: ë°•íƒœí˜„
 	@ Explain
-	- ±âº»ÀûÀÎ ¸Ş¸ğ¸® ÇÒ´ç°ú Delete¸¦ ¸Ã°í ÀÖ´Â Å¬·¡½ºÀÌ´Ù. 
+	- ê¸°ë³¸ì ì¸ ë©”ëª¨ë¦¬ í• ë‹¹ê³¼ Deleteë¥¼ ë§¡ê³  ìˆëŠ” í´ë˜ìŠ¤ì´ë‹¤. 
 	*/
 	class CORE_DLL UBaseAllocator {
 	public:
 		/*
 		@ Date: 2023-12-30
-		@ Writer: ¹ÚÅÂÇö
+		@ Writer: ë°•íƒœí˜„
 		*/
 		static void* Alloc(size_t _size);
 		/*
 		@ Date: 2023-12-30
-		@ Writer: ¹ÚÅÂÇö
+		@ Writer: ë°•íƒœí˜„
 		*/
 		static void Release(void* _ptr);
 	};
@@ -37,20 +37,20 @@ namespace Core {
 	----------------------------------------
 	*/
 		/*
-		@ Date: 2023-12-31, Writer: ¹ÚÅÂÇö
+		@ Date: 2023-12-31, Writer: ë°•íƒœí˜„
 		@ Explain
-		- ¸Ş¸ğ¸® Ç® °´Ã¼ ÇÒ´çÀ» À§ÇÑ Å¬·¡½º
+		- ë©”ëª¨ë¦¬ í’€ ê°ì²´ í• ë‹¹ì„ ìœ„í•œ í´ë˜ìŠ¤
 		*/
 		class CORE_DLL UPoolAllocator {
 		public:
 			/*
 			@ Date: 2023-12-30
-			@ Writer: ¹ÚÅÂÇö
+			@ Writer: ë°•íƒœí˜„
 			*/
 			static void* Alloc(size_t _size);
 			/*
 			@ Date: 2023-12-30
-			@ Writer: ¹ÚÅÂÇö
+			@ Writer: ë°•íƒœí˜„
 			*/
 			static void Release(void* _ptr);
 	};
@@ -66,31 +66,31 @@ namespace Core {
 	*/
 	/*
 	@ Date: 2023-12-30
-	@ Writer: ¹ÚÅÂÇö
+	@ Writer: ë°•íƒœí˜„
 	@ Explain
-	- ÇØ´çÇÏ´Â OS¿¡ ¸Â°Ô °¡»ó ¸Ş¸ğ¸®¸¦ ÇÒ´çÇØÁÖ´Â Å¬·¡½ºÀÌ´Ù.
+	- í•´ë‹¹í•˜ëŠ” OSì— ë§ê²Œ ê°€ìƒ ë©”ëª¨ë¦¬ë¥¼ í• ë‹¹í•´ì£¼ëŠ” í´ë˜ìŠ¤ì´ë‹¤.
 	*/
 	class CORE_DLL UStompAllocator{
 		/*
 		@ Date: 2023-12-30
-		@ Writer: ¹ÚÅÂÇö
+		@ Writer: ë°•íƒœí˜„
 		@ Explain
-		- ¸Ş¸ğ¸®¸¦ ÇÒ´çÇÒ ¶§ PAGE_SIZE ¸¸Å­ Àâ¾ÆÁÖ´Â °ÍÀÌ´Ù. 
-		±×·¡¼­ ¸Ş¸ğ¸®¸¦ ÇÒ´çÇÒ ¶§ Page_Size¸¸Å­ ÇÒ´çÇÏ±â À§ÇØ¼­ »ç¿ë
+		- ë©”ëª¨ë¦¬ë¥¼ í• ë‹¹í•  ë•Œ PAGE_SIZE ë§Œí¼ ì¡ì•„ì£¼ëŠ” ê²ƒì´ë‹¤. 
+		ê·¸ë˜ì„œ ë©”ëª¨ë¦¬ë¥¼ í• ë‹¹í•  ë•Œ Page_Sizeë§Œí¼ í• ë‹¹í•˜ê¸° ìœ„í•´ì„œ ì‚¬ìš©
 		*/
 		enum { PAGE_SIZE = 0x1000 };
 
 	public:
 		/*
 		@ Date: 2023-12-30
-		@ Writer: ¹ÚÅÂÇö
+		@ Writer: ë°•íƒœí˜„
 		*/
 		static void* Alloc(size_t _size);
 
 #ifdef _WIN32
 		/*
 		@ Date: 2023-12-30
-		@ Writer: ¹ÚÅÂÇö
+		@ Writer: ë°•íƒœí˜„
 		*/
 		static void		Release(void* _ptr);
 #else
@@ -171,9 +171,9 @@ namespace Core {
 	}
 
 	/*
-	@ Date: 2024-02-04,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-04,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¹è¿­À» ÇÒ´çÇÏ±â À§ÇÑ ÇÔ¼ö
+	- ë°°ì—´ì„ í• ë‹¹í•˜ê¸° ìœ„í•œ í•¨ìˆ˜
 	*/
 	template<class T>
 	static T* AllocBuffer(size_t _number) {
@@ -181,9 +181,9 @@ namespace Core {
 		return p;
 	}
 	/*
-	@ Date: 2024-02-03,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-03,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¹è¿­À» Á¦°ÅÇÏ±â À§ÇÑ ÇÔ¼ö
+	- ë°°ì—´ì„ ì œê±°í•˜ê¸° ìœ„í•œ í•¨ìˆ˜
 	*/
 	template<class T>
 	static void ReleaseBuffer(T* obj)
@@ -194,9 +194,9 @@ namespace Core {
 		UPoolAllocator::Release(obj);
 	}
 	/*
-	@ Date: 2024-02-03,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-03,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- const ¿ë ¹è¿­À» Á¦°ÅÇÏ±â À§ÇÑ ÇÔ¼ö
+	- const ìš© ë°°ì—´ì„ ì œê±°í•˜ê¸° ìœ„í•œ í•¨ìˆ˜
 	*/
 	template<class T>
 	static void ReleaseBuffer(const T* obj)
@@ -208,4 +208,4 @@ namespace Core {
 }
 
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ALLOCATOR_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ALLOCATOR_H

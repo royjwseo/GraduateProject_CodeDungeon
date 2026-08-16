@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_USHADER_H
+ï»¿#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_USHADER_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_USHADER_H
 
 #include "UResource.h"
@@ -11,10 +11,10 @@ class UShaderConstantBuffer;
 class URootSignature;
 class UShaderStructedBuffer;
 /*
-¸ðµç ½¦ÀÌ´õ ParamµéÀ» ¹ÙÀÎµåÇÒ ¶§´Â ¹«Á¶°Ç Shader Å¬·¡½º¸¦ °ÅÃÄ¼­ ¹ÙÀÎµåÇÑ´Ù.
-¹Ýµå½Ã µû·Î °ªÀ» Àü´ÞÇÏ´Â °æ¿ì´Â ¾øµµ·Ï ÇÑ´Ù.
+ëª¨ë“  ì‰ì´ë” Paramë“¤ì„ ë°”ì¸ë“œí•  ë•ŒëŠ” ë¬´ì¡°ê±´ Shader í´ëž˜ìŠ¤ë¥¼ ê±°ì³ì„œ ë°”ì¸ë“œí•œë‹¤.
+ë°˜ë“œì‹œ ë”°ë¡œ ê°’ì„ ì „ë‹¬í•˜ëŠ” ê²½ìš°ëŠ” ì—†ë„ë¡ í•œë‹¤.
 
-½¦ÀÌ´õ ÆÄÀÏÀº º¹Á¦ µÇ´Â ÀÏÀÌ ¾ø°í ¿øº¹ °´Ã¼¸¦ ±×´ë·Î ¸®ÅÏÇÏµµ·Ï µÇ¾î ÀÖ´Ù.
+ì‰ì´ë” íŒŒì¼ì€ ë³µì œ ë˜ëŠ” ì¼ì´ ì—†ê³  ì›ë³µ ê°ì²´ë¥¼ ê·¸ëŒ€ë¡œ ë¦¬í„´í•˜ë„ë¡ ë˜ì–´ ìžˆë‹¤.
 */
 class ENGINE_DLL DEF_CACHE_ALGIN UShader : public UResource {
 	// Shader Container

@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UFrustomCulling.h"
 #include "UGameInstance.h"
 #include "UCamera.h"
@@ -39,17 +39,17 @@ void UFrustomCulling::Tick()
 		m_arrChangePosArr[i] = _float3::TransformCoord(m_arrLocalPosArr[i], CombineMatrix);
 	}
 
-	// À§
+	// ìœ„
 	XMStoreFloat4(&m_arrPlaneArr[0], XMPlaneFromPoints(m_arrChangePosArr[3], m_arrChangePosArr[2], m_arrChangePosArr[1]));
-	// ¾Æ·¡
+	// ì•„ëž˜
 	XMStoreFloat4(&m_arrPlaneArr[1], XMPlaneFromPoints(m_arrChangePosArr[7], m_arrChangePosArr[5], m_arrChangePosArr[6]));
-	// ¿À¸¥ÂÊ
+	// ì˜¤ë¥¸ìª½
 	XMStoreFloat4(&m_arrPlaneArr[2], XMPlaneFromPoints(m_arrChangePosArr[4], m_arrChangePosArr[1], m_arrChangePosArr[5]));
-	// ¿ÞÂÊ
+	// ì™¼ìª½
 	XMStoreFloat4(&m_arrPlaneArr[3], XMPlaneFromPoints(m_arrChangePosArr[6], m_arrChangePosArr[1], m_arrChangePosArr[2]));
-	// ¾ÕÂÊ
+	// ì•žìª½
 	XMStoreFloat4(&m_arrPlaneArr[4], XMPlaneFromPoints(m_arrChangePosArr[6], m_arrChangePosArr[2], m_arrChangePosArr[7]));
-	// ¿À¸¥ÂÊ
+	// ì˜¤ë¥¸ìª½
 	XMStoreFloat4(&m_arrPlaneArr[5], XMPlaneFromPoints(m_arrChangePosArr[3], m_arrChangePosArr[0], m_arrChangePosArr[7]));
 }
 

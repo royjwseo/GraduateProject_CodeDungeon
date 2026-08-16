@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+﻿#include "EngineDefines.h"
 #include "ULightCamera.h"
 
 ULightCamera::ULightCamera(CSHPTRREF<UDevice> _spDevice, const _wstring& _wstrLayer, const CLONETYPE& _eCloneType)

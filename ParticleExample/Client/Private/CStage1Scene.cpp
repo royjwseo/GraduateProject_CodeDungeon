@@ -1,4 +1,4 @@
-#include "ClientDefine.h"
+Ôªø#include "ClientDefine.h"
 #include "CStage1Scene.h"
 #include "USkyBox.h"
 #include "UGameInstance.h"
@@ -68,12 +68,12 @@ HRESULT CStage1Scene::LoadSceneData()
 	}
 	{
 		{
-			// Default∑Œ CloneOnce¥œ±Ó ¡÷¿«
+			// DefaultÎ°ú CloneOnceÎãàÍπå Ï£ºÏùò
 			UTerrain::TERRAINDESC tDesc;
 			tDesc.wstrBufferProtoName = PROTO_RES_VIBUFFERTERRAIN;
 			tDesc.wstrTextureName = L"Detail_Texture_7";
 			tDesc.wstrTextureProtoName = PROTO_RES_TERRAINGROUP;
-			// Terrain ª˝º∫
+			// Terrain ÏÉùÏÑ±
 			VOIDDATAS vecDatas;
 			{
 				vecDatas.push_back(&tDesc);

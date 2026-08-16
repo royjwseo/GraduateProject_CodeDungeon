@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 #include <fstream>
 #include "UAnimModel.h"
 #include "UMethod.h"
@@ -79,7 +79,7 @@ HRESULT UAnimModel::NativeConstructClone(const VOIDDATAS& _vecDatas)
 
 	if (m_vecAnimations.size() > 0)
 	{
-		// ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ nullptrÀÏ ¶§, Animation 0À¸·Î ÃÊ±âÈ­ 
+		// ì• ë‹ˆë©”ì´ì…˜ì´ nullptrì¼ ë•Œ, Animation 0ìœ¼ë¡œ ì´ˆê¸°í™” 
 		SetAnimation(0);
 	}
 
@@ -106,7 +106,7 @@ void UAnimModel::TickAnimation(const _double& _dDeltaTime)
 		m_isChangeAnim = false;
 	}
 
-	/* ºÎ¸ğ·ÎºÎÅÍ ÀÚ½Ä»À¿¡°Ô ´©Àû½ÃÄÑ Àü´ŞÇÑ´Ù.(CombinedTransformationMatrix) */
+	/* ë¶€ëª¨ë¡œë¶€í„° ìì‹ë¼ˆì—ê²Œ ëˆ„ì ì‹œì¼œ ì „ë‹¬í•œë‹¤.(CombinedTransformationMatrix) */
 	{
 		for (auto& BoneNode : GetBoneNodes())
 			BoneNode->UpdateCombinedMatrix();
@@ -118,13 +118,13 @@ HRESULT UAnimModel::Render(const _uint _iMeshIndex, CSHPTRREF<UShader> _spShader
 	RETURN_CHECK(nullptr == _spShader, E_FAIL);
 	RETURN_CHECK(GetMeshContainerCnt() <= _iMeshIndex, E_FAIL);
 	RETURN_CHECK(nullptr == GetMeshContainers()[_iMeshIndex], E_FAIL);
-	// ÀÌÀü º» °ª ¼¼ÆÃ
+	// ì´ì „ ë³¸ ê°’ ì„¸íŒ…
 	_spShader->BindCBVBuffer(m_spPrevBoneMatrixShaderConstantBuffer, m_vecSetupBonMatrix[_iMeshIndex].data(), BONEMATRIXPARA_SIZE);
 	CSHPTRREF<UMeshContainer> spMeshContainer {GetMeshContainers()[_iMeshIndex]};
 	spMeshContainer->SetUpBoneMatrix(m_vecSetupBonMatrix[_iMeshIndex]);
-	// ÇöÀç º» °ª ¼¼ÆÃ
+	// í˜„ì¬ ë³¸ ê°’ ì„¸íŒ…
 	_spShader->BindCBVBuffer(m_spBoneMatrixShaderConstantBuffer, m_vecSetupBonMatrix[_iMeshIndex].data(), BONEMATRIXPARA_SIZE);
-	// ¾Ö´Ï¸ŞÀÌ¼Ç ¼¼ÆÃ
+	// ì• ë‹ˆë©”ì´ì…˜ ì„¸íŒ…
 	_spShader->BindCBVBuffer(m_spAnimShaderConstantBuffer, &m_stAnimParam, ANIMPARAM_SIZE);
 	spMeshContainer->Render(_spShader, _spCommand);
 	return S_OK;
@@ -133,28 +133,28 @@ HRESULT UAnimModel::Render(const _uint _iMeshIndex, CSHPTRREF<UShader> _spShader
 void UAnimModel::SetAnimation(const _uint& _iAnimIndex)
 {
 	ChangeAnimIndex(_iAnimIndex, m_iCurAnimIndex);
-	// ÇöÀç ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ¼¼ÆÃµÇ´Â »óÈ²ÀÏ ¶§ÀÇ ÇÔ¼ö ½ÇÇà
+	// í˜„ì¬ ì• ë‹ˆë©”ì´ì…˜ì´ ì„¸íŒ…ë˜ëŠ” ìƒí™©ì¼ ë•Œì˜ í•¨ìˆ˜ ì‹¤í–‰
 	SettingCurAnimSituation();
 }
 
 void UAnimModel::SetAnimation(const _wstring& _wstrAnimName)
 {
 	ChangeAnimIndex(_wstrAnimName, m_iCurAnimIndex);
-	// ÇöÀç ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ¼¼ÆÃµÇ´Â »óÈ²ÀÏ ¶§ÀÇ ÇÔ¼ö ½ÇÇà
+	// í˜„ì¬ ì• ë‹ˆë©”ì´ì…˜ì´ ì„¸íŒ…ë˜ëŠ” ìƒí™©ì¼ ë•Œì˜ í•¨ìˆ˜ ì‹¤í–‰
 	SettingCurAnimSituation();
 }
 
 void UAnimModel::ChangeAnimation(const _uint& _iAnimIndex)
 {
 	ChangeAnimIndex(_iAnimIndex, m_iNextAnimIndex);
-	// ´ÙÀ½ ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ¼¼ÆÃµÇ´Â »óÈ²ÀÏ ¶§ÀÇ ÇÔ¼ö ½ÇÇà
+	// ë‹¤ìŒ ì• ë‹ˆë©”ì´ì…˜ì´ ì„¸íŒ…ë˜ëŠ” ìƒí™©ì¼ ë•Œì˜ í•¨ìˆ˜ ì‹¤í–‰
 	SettingNextAnimSituation();
 }
 
 void UAnimModel::ChangeAnimation(const _wstring& _wstrAnimName)
 {
 	ChangeAnimIndex(_wstrAnimName, m_iNextAnimIndex);
-	// ´ÙÀ½ ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ¼¼ÆÃµÇ´Â »óÈ²ÀÏ ¶§ÀÇ ÇÔ¼ö ½ÇÇà
+	// ë‹¤ìŒ ì• ë‹ˆë©”ì´ì…˜ì´ ì„¸íŒ…ë˜ëŠ” ìƒí™©ì¼ ë•Œì˜ í•¨ìˆ˜ ì‹¤í–‰
 	SettingNextAnimSituation();
 }
 
@@ -351,4 +351,4 @@ HRESULT UAnimModel::CreateShaderConstantBuffer()
 	RETURN_CHECK(nullptr == m_spPrevBoneMatrixShaderConstantBuffer, E_FAIL);
 
 	return S_OK;
-}
+}

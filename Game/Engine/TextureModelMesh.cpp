@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Mesh.h"
 #include "Vertex.h"
 #include "TextureModelMesh.h"
@@ -24,7 +24,7 @@ void TextureModelMesh::LoadMeshFromFile(const ComPtr<ID3D12Device>& _Device, con
 {
     ifstream inFile(filePath, ios::binary);
     if (!inFile.is_open()) {
-        // ÆÄÀÏ ¿­±â ½ÇÆĞ Ã³¸®
+        // íŒŒì¼ ì—´ê¸° ì‹¤íŒ¨ ì²˜ë¦¬
         return;
     }
 
@@ -220,8 +220,8 @@ void TextureModelMesh::LoadMeshFromFile(const ComPtr<ID3D12Device>& _Device, con
         {
             nReads = (UINT)::fread(&m_xmf3AABBCenter, sizeof(XMFLOAT3), 1, pInFile);
             nReads = (UINT)::fread(&m_xmf3AABBExtents, sizeof(XMFLOAT3), 1, pInFile);
-            //2024-01-18 ÀÌ¼ºÇö
-            //AABB·Î BoundingOrientedBox»ı¼º
+            //2024-01-18 ì´ì„±í˜„
+            //AABBë¡œ BoundingOrientedBoxìƒì„±
             CreateOrientedBoxFromAABB();
         }
         else if (!strcmp(pstrToken, "<Positions>:"))
@@ -331,18 +331,18 @@ void TextureModelMesh::LoadMeshFromFile(const ComPtr<ID3D12Device>& _Device, con
             nReads = (UINT)::fread(&(m_nSubMeshes), sizeof(int), 1, pInFile);
             if (m_nSubMeshes > 0)
             {
-                // ¼­ºê ¸Ş½¬ ÀÎµ¦½º °³¼ö
+                // ì„œë¸Œ ë©”ì‰¬ ì¸ë±ìŠ¤ ê°œìˆ˜
                 m_pnSubSetIndices.resize(m_nSubMeshes);
                 m_ppnSubSetIndices.resize(m_nSubMeshes);
 
 
-                // ¼­ºê ¸Ş½¬ ÀÎµ¦½º ¹öÆÛ
+                // ì„œë¸Œ ë©”ì‰¬ ì¸ë±ìŠ¤ ë²„í¼
                 m_ppd3dIndexBuffers.resize(m_nSubMeshes);
 
-                // ¼­ºê ¸Ş½¬ ÀÎµ¦½º ¾÷·Îµå ¹öÆÛ
+                // ì„œë¸Œ ë©”ì‰¬ ì¸ë±ìŠ¤ ì—…ë¡œë“œ ë²„í¼
                 m_ppd3dIndexUploadBuffers.resize(m_nSubMeshes);
 
-                // ¼­ºê ¸Ş½¬ ÀÎµ¦½º ¹öÆÛ ºä
+                // ì„œë¸Œ ë©”ì‰¬ ì¸ë±ìŠ¤ ë²„í¼ ë·°
                 m_pd3dIndexBufferViews.resize(m_nSubMeshes);
 
                 for (int i = 0; i < m_nSubMeshes; i++)
@@ -357,7 +357,7 @@ void TextureModelMesh::LoadMeshFromFile(const ComPtr<ID3D12Device>& _Device, con
                         nReads = (UINT)::fread(&(m_pnSubSetIndices[i]), sizeof(int), 1, pInFile);
                         if (m_pnSubSetIndices[i] > 0)
                         {
-                            // ¼­ºê ¸Ş½¬µéÀÇ ÀÎµ¦½º µé
+                            // ì„œë¸Œ ë©”ì‰¬ë“¤ì˜ ì¸ë±ìŠ¤ ë“¤
                             m_ppnSubSetIndices[i].resize(m_pnSubSetIndices[i]);
                             nReads = (UINT)::fread(m_ppnSubSetIndices[i].data(), sizeof(UINT) * m_pnSubSetIndices[i], 1, pInFile);
 

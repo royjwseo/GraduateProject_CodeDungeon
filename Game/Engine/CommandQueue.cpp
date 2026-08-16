@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "CommandQueue.h"
 #include "SwapChainAndRtvDsvHeap.h"
 #include "Engine.h"
@@ -25,7 +25,7 @@ void CommandQueue::CreateCommandQueueAndList(const ComPtr<ID3D12Device>& _Device
 	m_hFenceEvent = ::CreateEvent(NULL, FALSE, FALSE, NULL);
 }
 
-void CommandQueue::RenderBegin() {//¿©±â¼­ DescriptorHeap SetÇØµµµÊ.
+void CommandQueue::RenderBegin() {//ì—¬ê¸°ì„œ DescriptorHeap Setí•´ë„ë¨.
 	DX::ThrowIfFailed(m_pd3dCommandAllocator->Reset());
 	DX::ThrowIfFailed(m_pd3dCommandList->Reset(m_pd3dCommandAllocator.Get(), NULL));
 
@@ -45,7 +45,7 @@ void CommandQueue::RenderBegin() {//¿©±â¼­ DescriptorHeap SetÇØµµµÊ.
 
 	CMDLIST->SetGraphicsRootSignature(GRAPHICS_ROOT_SIGNATURE.Get());
 
-	//¿©±â¼­ Viewport, ScissorRect ¼³Á¤ÇØµµµÇÁö¸¸, Ä«¸Þ¶óÀÇ Á¤º¸¿¡ ³Ö¾î ¼³Á¤ÇØµµµÊ.±×°Ô ³ªÀºµí.
+	//ì—¬ê¸°ì„œ Viewport, ScissorRect ì„¤ì •í•´ë„ë˜ì§€ë§Œ, ì¹´ë©”ë¼ì˜ ì •ë³´ì— ë„£ì–´ ì„¤ì •í•´ë„ë¨.ê·¸ê²Œ ë‚˜ì€ë“¯.
 }
 
 void CommandQueue::RenderEnd() {
@@ -82,4 +82,4 @@ void CommandQueue::MoveToNextFrame()
 		DX::ThrowIfFailed(m_cpd3dFence.Get()->SetEventOnCompletion(nFenceValue, m_hFenceEvent));
 		::WaitForSingleObjectEx(m_hFenceEvent, INFINITE, FALSE);
 	}
-}
+}

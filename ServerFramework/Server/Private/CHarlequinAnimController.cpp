@@ -1,4 +1,4 @@
-#include "ServerDefines.h"
+﻿#include "ServerDefines.h"
 #include "CHarlequinAnimController.h"
 
 namespace Server {
@@ -18,4 +18,4 @@ namespace Server {
 	}
 
 
-}
+}

@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 #include "UPipeLine.h"
 #include "UGameInstance.h"
 #include "UTransform.h"
@@ -38,7 +38,7 @@ void UPipeLine::RegisterCameraInPipeline(CSHPTRREF<UCamera> _spCamera, CAMID& _i
 
 	if(MAIN_CAMERA_ID == ID || DEFFERED_CAMERA_ID == ID || SHADOWLIGHT_CAMERA_ID == ID)
 	{
-		// Main Ä«¸Ş¶ó°¡ Á¸ÀçÇÏ¸é ¹Ù²Û´Ù. 
+		// Main ì¹´ë©”ë¼ê°€ ì¡´ì¬í•˜ë©´ ë°”ê¾¼ë‹¤. 
 		if (nullptr != m_arrCameras[MAIN_CAMERA_ID])
 		{
 			_uint OtherCamID = GetID(CAMERATYPE::OTEHR);
@@ -103,7 +103,7 @@ void UPipeLine::ChangeMainCamera(const _uint& _iCamID)
 
 void UPipeLine::UpdateViewProjMatrix()
 {
-	// ±Û·Î¹ú ¹öÆÛÀÎ ViewProj¿¡ °ªÀ» ¸ğ¾Æ¼­ Àü´ŞÇÑ´Ù. 
+	// ê¸€ë¡œë²Œ ë²„í¼ì¸ ViewProjì— ê°’ì„ ëª¨ì•„ì„œ ì „ë‹¬í•œë‹¤. 
 	for (_uint i = 0; i < m_arrCameras.size(); ++i)
 	{
 		if (nullptr != m_arrCameras[i])

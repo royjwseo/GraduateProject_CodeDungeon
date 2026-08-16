@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <fmod/fmod.hpp>
 #include <fmod/fmod_errors.h>
 #include "UBase.h"
@@ -7,9 +7,9 @@ BEGIN(Engine)
 class UAudioSystem;
 class UTransform;
 /*
-@ Date: 2024-02-25, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-25, Writer: ë°•íƒœí˜„
 @ Explain
-- Sound¸¦ ÆÄÀÏ¿¡¼­ ·ÎµåÇÏ°í ´ã´çÇÏ´Â Å¬·¡½º
+- Soundë¥¼ íŒŒì¼ì—ì„œ ë¡œë“œí•˜ê³  ë‹´ë‹¹í•˜ëŠ” í´ë˜ìŠ¤
 */
 class USound final : public UBase {
 public:

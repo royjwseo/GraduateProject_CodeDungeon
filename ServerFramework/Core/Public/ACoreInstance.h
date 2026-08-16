@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ACOREINSTANCE_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ACOREINSTANCE_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ACOREINSTANCE_H
 
 #include "ACoreBase.h"
@@ -29,10 +29,10 @@ using SESSIONCONTAINER = CONUNORMAP<SESSIONID, SHPTR<ASession>>;
 using MOBOBJCONTAINER = CONUNORMAP<SESSIONID, SHPTR<AMonster>>;
 /*
 @ Date: 2024-01-23
-@ Writer: ¹ÚÅÂÇö
+@ Writer: ë°•íƒœí˜„
 @ Explain
-- »ı¼º, ¼Ò¸êÀÚ¸¦ ÀÌ¿ëÇØ¼­ ¼­¹ö°¡ Á¾·áµÉ ¶§, ¸Ş¸ğ¸®°¡ Á¦´ë·Î ÇØÁ¦µÇ°Ô ÇÏ±â À§ÇÑ Å¬·¡½ºÀÌ´Ù. 
-¹«Á¶°Ç ÇÑ °³¸¸ »ı¼ºÇÑ´Ù. 
+- ìƒì„±, ì†Œë©¸ìë¥¼ ì´ìš©í•´ì„œ ì„œë²„ê°€ ì¢…ë£Œë  ë•Œ, ë©”ëª¨ë¦¬ê°€ ì œëŒ€ë¡œ í•´ì œë˜ê²Œ í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ì´ë‹¤. 
+ë¬´ì¡°ê±´ í•œ ê°œë§Œ ìƒì„±í•œë‹¤. 
 */
 class CORE_DLL ACoreInstance : public ACoreBase {
 public:
@@ -43,21 +43,21 @@ public:
 	void ReadyCoreInstance(SHPTR<AService> _spService);
 	_bool Start();
 public: /* Service */
-	// ID¸¦ ÅëÇØ¼­ SessionID
+	// IDë¥¼ í†µí•´ì„œ SessionID
 	 SHPTR<ASession> FindSession(const SESSIONID _SessionID);
-	 // ID¸¦ ÅëÇØ¼­ GameObject¸¦ Ã£¾Æ¿Â´Ù. 
+	 // IDë¥¼ í†µí•´ì„œ GameObjectë¥¼ ì°¾ì•„ì˜¨ë‹¤. 
 	 SHPTR<AMonster> FindMobObject(const SESSIONID _SessionID);
-	// ÀüÃ¼ ¼­¹ö Âü¿©ÀÚ¿¡°Ô ¸Ş½ÃÁö¸¦ º¸³»´Â ÇÔ¼öÀÌ´Ù. 
+	// ì „ì²´ ì„œë²„ ì°¸ì—¬ìì—ê²Œ ë©”ì‹œì§€ë¥¼ ë³´ë‚´ëŠ” í•¨ìˆ˜ì´ë‹¤. 
 	 void BroadCastMessage(_char* _pPacket, const PACKETHEAD& _PacketHead);
-	 // ÇØ´ç Session ID¸¦ Á¦¿ÜÇÑ ÀüÃ¼ ¼­¹ö Âü¿©ÀÚ¿¡°Ô ¸Ş½ÃÁö¸¦ º¸³»´Â ÇÔ¼ö
+	 // í•´ë‹¹ Session IDë¥¼ ì œì™¸í•œ ì „ì²´ ì„œë²„ ì°¸ì—¬ìì—ê²Œ ë©”ì‹œì§€ë¥¼ ë³´ë‚´ëŠ” í•¨ìˆ˜
 	 void BroadCastMessageExcludingSession(const SESSIONID _SessionID, _char* _pPacket, const PACKETHEAD& _PacketHead);
-	 // Direct·Î ¸Ş½ÃÁö º¸³»´Â ÇÔ¼ö
+	 // Directë¡œ ë©”ì‹œì§€ ë³´ë‚´ëŠ” í•¨ìˆ˜
 	 void DirectSendMessage(const SESSIONID _SessionID, _char* _pPacket, const PACKETHEAD& _PacketHead);
-	// SessionÀÇ TCP Socket ¿¬°á¸¸ ²÷°í Insert³ª ±âÅ¸ ´Ù¸¥ ÇÔ¼öµéÀ» Á¤ÀÇÇØ¼­ Socketµé Á¦°Å
+	// Sessionì˜ TCP Socket ì—°ê²°ë§Œ ëŠê³  Insertë‚˜ ê¸°íƒ€ ë‹¤ë¥¸ í•¨ìˆ˜ë“¤ì„ ì •ì˜í•´ì„œ Socketë“¤ ì œê±°
 	 void LeaveService(const SESSIONID _SessionID);
-	// SessionÀ» Container¿¡ ÀúÀåÇÏ´Â ÇÔ¼öÀÌ´Ù. 
+	// Sessionì„ Containerì— ì €ì¥í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤. 
 	 void InsertSession(SESSIONID _SessionID, SHPTR<ASession> _spSession);
-	 // GameObject¸¦ Áı¾î³Ö´Â ÇÔ¼ö
+	 // GameObjectë¥¼ ì§‘ì–´ë„£ëŠ” í•¨ìˆ˜
 	 void InsertMobObject(SESSIONID _SessionID, SHPTR<AMonster> _spMobObject);
 	 // Get 
 	 const SESSIONCONTAINER& GetSessionContainer() const;

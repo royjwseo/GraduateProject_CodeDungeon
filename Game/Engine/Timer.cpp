@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Timer.h"
 
 CGameTimer::CGameTimer() {
@@ -36,11 +36,11 @@ void CGameTimer::Tick(float fLockFPS)
 	{
 		//m_nCurrentTime = ::timeGetTime();
 	}
-	//¸¶Áö¸·À¸·Î ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÑ ÀÌÈÄ °æ°úÇÑ ½Ã°£À» °è»êÇÑ´Ù. 
+	//ë§ˆì§€ë§‰ìœ¼ë¡œ ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•œ ì´í›„ ê²½ê³¼í•œ ì‹œê°„ì„ ê³„ì‚°í•œë‹¤. 
 	float fTimeElapsed = (m_nCurrentTime - m_nLastTime) * m_fTimeScalse;//m_fTimeScale
 	if (fLockFPS > 0.0f)
 	{
-		//ÀÌ ÇÔ¼öÀÇ ÆÄ¶ó¸ŞÅÍ(fLockFPS)°¡ 0º¸´Ù Å©¸é ÀÌ ½Ã°£¸¸Å­ È£ÃâÇÑ ÇÔ¼ö¸¦ ±â´Ù¸®°Ô ÇÑ´Ù. 
+		//ì´ í•¨ìˆ˜ì˜ íŒŒë¼ë©”í„°(fLockFPS)ê°€ 0ë³´ë‹¤ í¬ë©´ ì´ ì‹œê°„ë§Œí¼ í˜¸ì¶œí•œ í•¨ìˆ˜ë¥¼ ê¸°ë‹¤ë¦¬ê²Œ í•œë‹¤. 
 		while (fTimeElapsed < (1.0f / fLockFPS))
 		{
 			if (m_bHardwareHasPerformanceCounter)
@@ -51,14 +51,14 @@ void CGameTimer::Tick(float fLockFPS)
 			{
 				//m_nCurrentTime = ::timeGetTime();
 			}
-			//¸¶Áö¸·À¸·Î ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÑ ÀÌÈÄ °æ°úÇÑ ½Ã°£À» °è»êÇÑ´Ù. 
+			//ë§ˆì§€ë§‰ìœ¼ë¡œ ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•œ ì´í›„ ê²½ê³¼í•œ ì‹œê°„ì„ ê³„ì‚°í•œë‹¤. 
 			fTimeElapsed = (m_nCurrentTime - m_nLastTime) * m_fTimeScalse;//m_fTimeScale
 		}
 	}
-	//ÇöÀç ½Ã°£À» m_nLastTime¿¡ ÀúÀåÇÑ´Ù. 
+	//í˜„ì¬ ì‹œê°„ì„ m_nLastTimeì— ì €ì¥í•œë‹¤. 
 	m_nLastTime = m_nCurrentTime;
-	/* ¸¶Áö¸· ÇÁ·¹ÀÓ Ã³¸® ½Ã°£°ú ÇöÀç ÇÁ·¹ÀÓ Ã³¸® ½Ã°£ÀÇ Â÷ÀÌ°¡ 1ÃÊº¸´Ù ÀÛÀ¸¸é ÇöÀç ÇÁ·¹ÀÓ Ã³¸® ½Ã°£
-	À» m_fFrameTime[0]¿¡ ÀúÀåÇÑ´Ù. */
+	/* ë§ˆì§€ë§‰ í”„ë ˆì„ ì²˜ë¦¬ ì‹œê°„ê³¼ í˜„ì¬ í”„ë ˆì„ ì²˜ë¦¬ ì‹œê°„ì˜ ì°¨ì´ê°€ 1ì´ˆë³´ë‹¤ ì‘ìœ¼ë©´ í˜„ì¬ í”„ë ˆì„ ì²˜ë¦¬ ì‹œê°„
+	ì„ m_fFrameTime[0]ì— ì €ì¥í•œë‹¤. */
 	if (fabsf(fTimeElapsed - m_fTimeElapsed) < 1.0f)
 	{
 		::memmove(&m_fFrameTime[1], m_fFrameTime, (MAX_SAMPLE_COUNT - 1) *
@@ -66,7 +66,7 @@ void CGameTimer::Tick(float fLockFPS)
 		m_fFrameTime[0] = fTimeElapsed;
 		if (m_nSampleCount < MAX_SAMPLE_COUNT) m_nSampleCount++;
 	}
-	//ÃÊ´ç ÇÁ·¹ÀÓ ¼ö¸¦ 1 Áõ°¡½ÃÅ°°í ÇöÀç ÇÁ·¹ÀÓ Ã³¸® ½Ã°£À» ´©ÀûÇÏ¿© ÀúÀåÇÑ´Ù. 
+	//ì´ˆë‹¹ í”„ë ˆì„ ìˆ˜ë¥¼ 1 ì¦ê°€ì‹œí‚¤ê³  í˜„ì¬ í”„ë ˆì„ ì²˜ë¦¬ ì‹œê°„ì„ ëˆ„ì í•˜ì—¬ ì €ì¥í•œë‹¤. 
 	m_nFramesPerSecond++;
 	m_fFPSTimeElapsed += fTimeElapsed;
 	if (m_fFPSTimeElapsed > 1.0f)
@@ -75,7 +75,7 @@ void CGameTimer::Tick(float fLockFPS)
 		m_nFramesPerSecond = 0;
 		m_fFPSTimeElapsed = 0.0f;
 	}
-	//´©ÀûµÈ ÇÁ·¹ÀÓ Ã³¸® ½Ã°£ÀÇ Æò±ÕÀ» ±¸ÇÏ¿© ÇÁ·¹ÀÓ Ã³¸® ½Ã°£À» ±¸ÇÑ´Ù. 
+	//ëˆ„ì ëœ í”„ë ˆì„ ì²˜ë¦¬ ì‹œê°„ì˜ í‰ê· ì„ êµ¬í•˜ì—¬ í”„ë ˆì„ ì²˜ë¦¬ ì‹œê°„ì„ êµ¬í•œë‹¤. 
 	m_fTimeElapsed = 0.0f;
 	for (ULONG i = 0; i < m_nSampleCount; i++) m_fTimeElapsed += m_fFrameTime[i];
 	if (m_nSampleCount > 0) m_fTimeElapsed /= m_nSampleCount;
@@ -83,7 +83,7 @@ void CGameTimer::Tick(float fLockFPS)
 
 unsigned long CGameTimer::GetFrameRate(LPTSTR lpszString, int nCharacters)
 {
-	//ÇöÀç ÇÁ·¹ÀÓ ·¹ÀÌÆ®¸¦ ¹®ÀÚ¿­·Î º¯È¯ÇÏ¿© lpszString ¹öÆÛ¿¡ ¾²°í ¡° FPS¡±¿Í °áÇÕÇÑ´Ù. 
+	//í˜„ì¬ í”„ë ˆì„ ë ˆì´íŠ¸ë¥¼ ë¬¸ìì—´ë¡œ ë³€í™˜í•˜ì—¬ lpszString ë²„í¼ì— ì“°ê³  â€œ FPSâ€ì™€ ê²°í•©í•œë‹¤. 
 	if (lpszString)
 	{
 		_itow_s(m_nCurrentFrameRate, lpszString, nCharacters, 10);
@@ -104,4 +104,4 @@ void CGameTimer::Reset()
 	m_nLastTime = nPerformanceCounter;
 	m_nCurrentTime = nPerformanceCounter;
 	m_bStopped = false;
-}
+}

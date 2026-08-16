@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ACHANEL_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ACHANEL_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ACHANEL_H
 
 #include "ACoreBase.h"
@@ -31,7 +31,7 @@ private:
 	virtual void Free() override;
 private:
 	static  constexpr Vector4			ZERO_VALUE{ 0.f, 0.f, 0.f, 1.f };
-	// »ç¿ëÇÏ´Â °Íµé
+	// ì‚¬ìš©í•˜ëŠ” ê²ƒë“¤
 	Vector3											m_vScale;
 	Vector4											m_vRotation;
 	Vector4											m_vPosition;
@@ -46,4 +46,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ACHANEL_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ACHANEL_H

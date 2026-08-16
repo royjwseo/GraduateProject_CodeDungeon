@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+Ôªø#include "EngineDefine.h"
 #include "UVIBufferCube.h"
 
 
@@ -104,7 +104,7 @@ HRESULT UVIBufferCube::NativeConstruct()
 		const _uint INDICES_CNT = 12;
 		INDICIES16* pIndices = Make::AllocBuffer<INDICIES16>(INDICES_CNT);
 		ZeroMemory(pIndices, sizeof(INDICIES16) * INDICES_CNT);
-		// ¿Œµ¶Ω∫ µ•¿Ã≈Õ √ ±‚»≠
+		// Ïù∏Îç±Ïä§ Îç∞Ïù¥ÌÑ∞ Ï¥àÍ∏∞Ìôî
 	/* +x */
 		pIndices[0]._1 = 1; pIndices[0]._2 = 5; pIndices[0]._3 = 6;
 		pIndices[1]._1 = 1; pIndices[1]._2 = 6; pIndices[1]._3 = 2;

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "CModelObjects.h"
 
 BEGIN(Engine)
@@ -8,9 +8,9 @@ END
 
 BEGIN(Client)
 /*
-@ Date: 2024-04-23, Writer: ÀÌ¼ºÇö
+@ Date: 2024-04-23, Writer: ì´ì„±í˜„
 @ Explain
-- ¸ÊÀ» ÀÌ·ç´Â ¹æµéÀ» Ãë±ŞÇÏ´Â Å¬·¡½º
+- ë§µì„ ì´ë£¨ëŠ” ë°©ë“¤ì„ ì·¨ê¸‰í•˜ëŠ” í´ë˜ìŠ¤
 */
 class CRooms final : public CModelObjects {
 public:

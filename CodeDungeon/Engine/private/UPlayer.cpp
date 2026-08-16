@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UPlayer.h"
 #include "UMethod.h"
 #include "UTransform.h"
@@ -37,7 +37,7 @@ HRESULT UPlayer::NativeConstruct()
 HRESULT UPlayer::NativeConstructClone(const VOIDDATAS& _Datas)
 {
 	RETURN_CHECK_FAILED(__super::NativeConstructClone(_Datas), E_FAIL);
-	// VOIDDATAS¿¡ CharacterDesc 0¹ø, PlayerDesc 1¹ø¿¡ °ªÀ» Ã¤¿ö¾ßÇÑ´Ù. 
+	// VOIDDATASì— CharacterDesc 0ë²ˆ, PlayerDesc 1ë²ˆì— ê°’ì„ ì±„ì›Œì•¼í•œë‹¤. 
 	SetPawnType(PAWN_PLAYER);
 
 	if (_Datas.size() >= 2)
@@ -81,28 +81,28 @@ void UPlayer::FollowCameraMove(const _float3& _vPlayerToDistancePosition, const 
 {
 	RETURN_CHECK(true == IsNetworkConnected(), ;);
 	RETURN_CHECK(nullptr == m_spFollowCamera, ;);
-    // Ä«¸Ş¶óÀÇ ¸ñÇ¥ À§Ä¡¸¦ °è»ê.
+    // ì¹´ë©”ë¼ì˜ ëª©í‘œ ìœ„ì¹˜ë¥¼ ê³„ì‚°.
     _float3 vTargetPosition = DirectX::XMVector3Transform(_vPlayerToDistancePosition, GetTransform()->GetWorldMatrix());
 
-    // Ä«¸Ş¶óÀÇ ÇöÀç À§Ä¡.
+    // ì¹´ë©”ë¼ì˜ í˜„ì¬ ìœ„ì¹˜.
     _float3 vCurrentPosition = m_spFollowCamera->GetTransform()->GetPos();
 
-    // Ä«¸Ş¶óÀÇ ÀÌµ¿ ¹æÇâÀ» °è»ê.
+    // ì¹´ë©”ë¼ì˜ ì´ë™ ë°©í–¥ì„ ê³„ì‚°.
     _float3 vDirection = vTargetPosition - vCurrentPosition;
     _float3 f3Distance = DirectX::XMVector3Length(vDirection);
     _float fDistance = f3Distance.x;
     _float fTimeLag = 0.05f;
 
     vDirection.Normalize();
-    // µô·¹ÀÌ¸¦ Àû¿ëÇÑ °Å¸®¸¦ °è»ê.
+    // ë”œë ˆì´ë¥¼ ì ìš©í•œ ê±°ë¦¬ë¥¼ ê³„ì‚°.
 	_float fTimeLagScale = (fTimeLag) ? static_cast<_float>(_TimeElapsed) * (1.0f / fTimeLag) : 1.0f;
 	_float fAdjustedDistance = fDistance * fTimeLagScale;
 
-    // Ä«¸Ş¶ó ÀÌµ¿ °Å¸®¸¦ Á¦ÇÑ.
+    // ì¹´ë©”ë¼ ì´ë™ ê±°ë¦¬ë¥¼ ì œí•œ.
     if (fAdjustedDistance > fDistance) fAdjustedDistance = fDistance;
     if (fDistance < 0.01f) fAdjustedDistance = fDistance;
 
-    // Àû¿ëµÈ ÀÌµ¿ °Å¸®¿¡ µû¶ó Ä«¸Ş¶ó¸¦ ÀÌµ¿.
+    // ì ìš©ëœ ì´ë™ ê±°ë¦¬ì— ë”°ë¼ ì¹´ë©”ë¼ë¥¼ ì´ë™.
     if (fAdjustedDistance > 0)
     {
         _float3 vNewPosition = vCurrentPosition + vDirection * fAdjustedDistance;;
@@ -124,30 +124,30 @@ void UPlayer::JumpState(const _double& _dTimeDelta)
 		SHPTR<UCell> newCell{};
 		_double speed = _dTimeDelta * 3.f;
 
-		//¿¹¿ÜÃ³¸®. Àü¹æÀ¸·Î Á¡ÇÁÇÏ¸é¼­ ¶³¾îÁú ¶§ ¾Æ·¡°¡ ³¶¶°·¯Áö¸é µÎ »óÅÂ°¡ ÀüºÎ true°¡ µÇ¸é¼­ ¾ó¾îºÙÀ½.
-		//ÀÌ¸¦ ¹æÁöÇÏ±â À§ÇØ µÑ ´Ù trueÀÏ ¶§ fallingÀ» false·Î ÇÔÀ¸·Î½á Á¡ÇÁ¸¦ ¸¶Àú ÇÏµµ·Ï Ã³¸®. 
+		//ì˜ˆì™¸ì²˜ë¦¬. ì „ë°©ìœ¼ë¡œ ì í”„í•˜ë©´ì„œ ë–¨ì–´ì§ˆ ë•Œ ì•„ë˜ê°€ ë‚­ë– ëŸ¬ì§€ë©´ ë‘ ìƒíƒœê°€ ì „ë¶€ trueê°€ ë˜ë©´ì„œ ì–¼ì–´ë¶™ìŒ.
+		//ì´ë¥¼ ë°©ì§€í•˜ê¸° ìœ„í•´ ë‘˜ ë‹¤ trueì¼ ë•Œ fallingì„ falseë¡œ í•¨ìœ¼ë¡œì¨ ì í”„ë¥¼ ë§ˆì € í•˜ë„ë¡ ì²˜ë¦¬. 
 		if (m_bisJumping && m_bisFalling)
 		{
 			m_bisFalling = false;
 		}
 
-		//±âº» Áß·Â ³«ÇÏ. Áß·ÂÀÌ È°¼ºÈ­µÇ¾ß¸¸ ½ÇÇà
-		//Á¡ÇÁÇÏ¿© ¿Ã¶ó°¡°í ÀÖÀ» ¶© ºñÈ°¼ºÈ­
+		//ê¸°ë³¸ ì¤‘ë ¥ ë‚™í•˜. ì¤‘ë ¥ì´ í™œì„±í™”ë˜ì•¼ë§Œ ì‹¤í–‰
+		//ì í”„í•˜ì—¬ ì˜¬ë¼ê°€ê³  ìˆì„ ë• ë¹„í™œì„±í™”
 		if (!m_bisJumping && m_bisFalling)
 		{
 			GetTransform()->GravityFall(speed);
 			vPosition = GetTransform()->GetPos();
 		}
 
-		//Á¡ÇÁ¸¦ ÇÏ°í ÀÖ´Ù¸é Á¡ÇÁ ¿òÁ÷ÀÓ ¼öÇà
+		//ì í”„ë¥¼ í•˜ê³  ìˆë‹¤ë©´ ì í”„ ì›€ì§ì„ ìˆ˜í–‰
 		if (!m_bisFalling && m_bisJumping)
 		{
 			GetTransform()->JumpMovement(speed);
 			vPosition = GetTransform()->GetPos();
 		}
-		if (GetTransform()->GetJumpVelocity().y < 0.f) //ÃÖ´ë ³ôÀÌ±îÁö Á¡ÇÁÇß´Ù¸é 
+		if (GetTransform()->GetJumpVelocity().y < 0.f) //ìµœëŒ€ ë†’ì´ê¹Œì§€ ì í”„í–ˆë‹¤ë©´ 
 		{
-			//Á¡ÇÁ(»ó½Â) ÇØÁ¦, ³«ÇÏ ¼öÇà
+			//ì í”„(ìƒìŠ¹) í•´ì œ, ë‚™í•˜ ìˆ˜í–‰
 		
 			m_bisJumping = false;
 			m_bisFalling = true;
@@ -156,26 +156,26 @@ void UPlayer::JumpState(const _double& _dTimeDelta)
 		}
 
 
-		//¼¿ÀÇ ³¡¿¡ ´Ù´Ù¶úÀ» ¶§
+		//ì…€ì˜ ëì— ë‹¤ë‹¤ëì„ ë•Œ
 		if (false == spNavigation->IsMove(vPosition, REF_OUT newCell))
 		{
-			//³¶¶°·¯Áö ¼¿ÀÌ ¾Æ´Ò °æ¿ì
+			//ë‚­ë– ëŸ¬ì§€ ì…€ì´ ì•„ë‹ ê²½ìš°
 			if (!spNavigation->GetCurCell()->GetJumpableState())
 			{
 				if (GetElapsedTime() < 70)
 				{
-					// ¿òÁ÷ÀÌ·Á´Â À§Ä¡°¡ ¼¿ ¹Û¿¡ ÀÖ´Â °æ¿ì ÇöÀç ¼¿ÀÇ °¡Àå °¡±î¿î ¼± À§ÀÇ Á¡À¸·Î Á¶Á¤
-					// ½½¶óÀÌµù º¤ÅÍÀÇ È¿°ú¸¦ ³¾ ¼ö ÀÖÀ½
+					// ì›€ì§ì´ë ¤ëŠ” ìœ„ì¹˜ê°€ ì…€ ë°–ì— ìˆëŠ” ê²½ìš° í˜„ì¬ ì…€ì˜ ê°€ì¥ ê°€ê¹Œìš´ ì„  ìœ„ì˜ ì ìœ¼ë¡œ ì¡°ì •
+					// ìŠ¬ë¼ì´ë”© ë²¡í„°ì˜ íš¨ê³¼ë¥¼ ë‚¼ ìˆ˜ ìˆìŒ
 					_float3 closestPoint = spNavigation->ClampPositionToCell(vPosition);
 					GetTransform()->SetPos(_float3(closestPoint.x, vPosition.y, closestPoint.z));
 					vPosition = GetTransform()->GetPos();
 				}
 			}
-			//³¶¶°·¯Áö ¼¿ÀÎ °æ¿ì
+			//ë‚­ë– ëŸ¬ì§€ ì…€ì¸ ê²½ìš°
 			else
 			{
-				//³¶¶°·¯Áö ¼¿¿¡¼­ ¹ÛÀ¸·Î °¬À» ¶§, Áß·Â È°¼ºÈ­(³«ÇÏ)
-				//°øÁß¿¡¼­ ¹ß ¾Æ·¡ÀÇ ¼¿À» Ã£°í, ÇöÀç ¼¿·Î ¼³Á¤ÇÔ
+				//ë‚­ë– ëŸ¬ì§€ ì…€ì—ì„œ ë°–ìœ¼ë¡œ ê°”ì„ ë•Œ, ì¤‘ë ¥ í™œì„±í™”(ë‚™í•˜)
+				//ê³µì¤‘ì—ì„œ ë°œ ì•„ë˜ì˜ ì…€ì„ ì°¾ê³ , í˜„ì¬ ì…€ë¡œ ì„¤ì •í•¨
 				newCell = spNavigation->FindCell(vPosition);
 				
 				m_bisFalling = true;
@@ -185,11 +185,11 @@ void UPlayer::JumpState(const _double& _dTimeDelta)
 
 		if (m_bisFalling && spNavigation->GetCurCell() != nullptr)
 		{
-			//ÇöÀç ¼¿º¸´Ù ¾Æ·¡·Î ¶³¾îÁö¸é
+			//í˜„ì¬ ì…€ë³´ë‹¤ ì•„ë˜ë¡œ ë–¨ì–´ì§€ë©´
 			_float curCellCenterY = spNavigation->GetCurCell()->GetHeightAtXZ(vPosition.x, vPosition.z);
 			if (vPosition.y < curCellCenterY)
 			{
-				//³«ÇÏ Á¾·ávPosition
+				//ë‚™í•˜ ì¢…ë£ŒvPosition
 				m_bisFalling = false;
 				GetTransform()->DisableGravity();
 				GetTransform()->SetPos(_float3(vPosition.x, curCellCenterY, vPosition.z));
@@ -198,7 +198,7 @@ void UPlayer::JumpState(const _double& _dTimeDelta)
 			
 		}
 
-		//¶³¾îÁö°í ÀÖÁö ¾ÊÀ» ¶§, ±×¸®°í Á¡ÇÁÇÏ¿© ¿Ã¶ó°¡°í ÀÖÁö ¾ÊÀ» ¶§ ¼¿ À§ÀÇ ³ôÀÌ¸¦ Å½
+		//ë–¨ì–´ì§€ê³  ìˆì§€ ì•Šì„ ë•Œ, ê·¸ë¦¬ê³  ì í”„í•˜ì—¬ ì˜¬ë¼ê°€ê³  ìˆì§€ ì•Šì„ ë•Œ ì…€ ìœ„ì˜ ë†’ì´ë¥¼ íƒ
 		if (!m_bisFalling && !m_bisJumping)
 		{		
 			spNavigation->ComputeHeight(GetTransform());

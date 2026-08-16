@@ -1,4 +1,4 @@
-
+﻿
 #ifndef HIREDIS_POLL_H
 #define HIREDIS_POLL_H
 

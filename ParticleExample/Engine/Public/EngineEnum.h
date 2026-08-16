@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINEENUM_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINEENUM_H
 
@@ -29,7 +29,7 @@ namespace Engine {
 	 
 	 typedef enum ERenderID : _ubyte
 	 {
-		 // Ã¹ ¹øÂ° ±×·ÁÁú °Í
+		 // ì²« ë²ˆì§¸ ê·¸ë ¤ì§ˆ ê²ƒ
 		 RI_NONALPHA_PRIORITY, RI_SHADOW, RI_NONALPHA_FIRST , RI_NONALPHA_LAST, RI_NONALPHA_MIDDLE, RI_ALPHA ,RI_DISTORTION, RI_NOLIGHT, RI_3DUI, RI_2DUI,
 		 RI_END
 	 }RENDERID;
@@ -44,7 +44,7 @@ namespace Engine {
 	 enum  class ROOT_REGISTER_TYPE : unsigned short
 	 {
 		 COMMON, GRAPHI_LIGHT,
-		 // Compute´Â µû·Î Á¤ÀÇ
+		 // ComputeëŠ” ë”°ë¡œ ì •ì˜
 		 COMPUTE_COMMON, ROOT_REGISTER_END
 	 };
 
@@ -87,9 +87,9 @@ namespace Engine {
 		LESS_EQUAL,
 		GREATER,
 		GREATER_EQUAL,
-		NO_DEPTH_TEST, // ±íÀÌ Å×½ºÆ®(X) + ±íÀÌ ±â·Ï(O)
-		NO_DEPTH_TEST_NO_WRITE, // ±íÀÌ Å×½ºÆ®(X) + ±íÀÌ ±â·Ï(X)
-		LESS_NO_WRITE, // ±íÀÌ Å×½ºÆ®(O) + ±íÀÌ ±â·Ï(X)
+		NO_DEPTH_TEST, // ê¹Šì´ í…ŒìŠ¤íŠ¸(X) + ê¹Šì´ ê¸°ë¡(O)
+		NO_DEPTH_TEST_NO_WRITE, // ê¹Šì´ í…ŒìŠ¤íŠ¸(X) + ê¹Šì´ ê¸°ë¡(X)
+		LESS_NO_WRITE, // ê¹Šì´ í…ŒìŠ¤íŠ¸(O) + ê¹Šì´ ê¸°ë¡(X)
 	};
 
 	enum class BLEND_TYPE : unsigned short {
@@ -281,4 +281,4 @@ namespace Engine {
 	};
 }
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINEENUM_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINEENUM_H

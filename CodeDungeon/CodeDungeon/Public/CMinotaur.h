@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "CMob.h"
 BEGIN(Engine)
 class UGameInstance;
@@ -8,9 +8,9 @@ END
 
 BEGIN(Client)
 /*
-@ Date: 2024-07-05, Writer: ÀÌ¼ºÇö
+@ Date: 2024-07-05, Writer: ì´ì„±í˜„
 @ Explain
--  ¹Ì³ëÅ¸¿ì¸£½º ¸ó½ºÅÍ Å¬·¡½º.
+-  ë¯¸ë…¸íƒ€ìš°ë¥´ìŠ¤ ëª¬ìŠ¤í„° í´ë˜ìŠ¤.
 */
 class CMinotaur final : public CMob {
 public:
@@ -21,7 +21,7 @@ public:
 	};
 	DESTRUCTOR(CMinotaur)
 public:
-	// UPlayerÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UPlayerì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(CMinotaur, "CMinotaur::CloneToFailed")
 		virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;

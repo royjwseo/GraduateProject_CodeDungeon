@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+﻿#include "ClientDefines.h"
 #include "CMummy.h"
 #include "UGameInstance.h"
 #include "URenderer.h"
@@ -74,14 +74,14 @@ void CMummy::CreateParticles()
 		m_stParticleType = m_spBloodParticle->GetParticleSystem()->GetParticleTypeParam();
 		m_stParticleType->fParticleType = PARTICLE_TYPE_DEFAULT;
 		m_stParticleType->fParticleLifeTimeType = PARTICLE_LIFETIME_TYPE_DEFAULT;
-		m_spBloodParticle->SetBloodTexture(0, L"blood"); // y�� ���� x ��
-		m_spBloodParticle->SetBloodTexture(1, L"blood1"); // y�� ���� x ��
-		m_spBloodParticle->SetBloodTexture(2, L"blood2"); // y�� ���� x ��
-		m_spBloodParticle->SetBloodTexture(3, L"blood3"); // y�� ���� x ��
-		m_spBloodParticle->SetBloodTexture(4, L"blood4"); // y�� ���� x ��
-		m_spBloodParticle->SetBloodTexture(5, L"blood5"); // y�� ���� x ��
-		m_spBloodParticle->SetBloodTexture(6, L"blood6"); // y�� ���� x ��
-		m_spBloodParticle->SetBloodTexture(7, L"blood7"); // y�� ���� x ��
+		m_spBloodParticle->SetBloodTexture(0, L"blood"); // y占쏙옙 占쏙옙占쏙옙 x 占쏙옙
+		m_spBloodParticle->SetBloodTexture(1, L"blood1"); // y占쏙옙 占쏙옙占쏙옙 x 占쏙옙
+		m_spBloodParticle->SetBloodTexture(2, L"blood2"); // y占쏙옙 占쏙옙占쏙옙 x 占쏙옙
+		m_spBloodParticle->SetBloodTexture(3, L"blood3"); // y占쏙옙 占쏙옙占쏙옙 x 占쏙옙
+		m_spBloodParticle->SetBloodTexture(4, L"blood4"); // y占쏙옙 占쏙옙占쏙옙 x 占쏙옙
+		m_spBloodParticle->SetBloodTexture(5, L"blood5"); // y占쏙옙 占쏙옙占쏙옙 x 占쏙옙
+		m_spBloodParticle->SetBloodTexture(6, L"blood6"); // y占쏙옙 占쏙옙占쏙옙 x 占쏙옙
+		m_spBloodParticle->SetBloodTexture(7, L"blood7"); // y占쏙옙 占쏙옙占쏙옙 x 占쏙옙
 		m_spBloodParticle->SetParticleType(PARTICLE_BLOOD);
 		*m_spBloodParticle->GetParticleSystem()->GetCreateInterval() = 0.85f;
 		*m_spBloodParticle->GetParticleSystem()->GetAddParticleAmount() = 5;

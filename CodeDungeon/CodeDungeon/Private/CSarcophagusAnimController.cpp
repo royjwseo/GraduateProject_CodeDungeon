@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+﻿#include "ClientDefines.h"
 #include "CSarcophagusAnimController.h"
 #include "CSarcophagus.h"
 #include "UGameInstance.h"

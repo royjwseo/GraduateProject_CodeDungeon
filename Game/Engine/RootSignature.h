@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 class RootSignature {
 	
@@ -10,4 +10,4 @@ private:
 	void CreateGraphicsRootSignature(ComPtr<ID3D12Device>& _Device);
 
 	ComPtr<ID3D12RootSignature> m_pd3dGraphicsRootSignature = nullptr;
-};
+};

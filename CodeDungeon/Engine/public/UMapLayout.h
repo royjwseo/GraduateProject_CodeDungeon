@@ -1,4 +1,4 @@
-#pragma once
+Ôªø#pragma once
 #include "UComponent.h"
 
 BEGIN(Engine)
@@ -22,7 +22,7 @@ public:
 	using MOBDATA = std::pair<_string, _string>;
 	using MAPOBJECTS = VECTOR<OBJDESC>;
 	using MAPMOBS = VECTOR<MOBDESC>;
-	using MAPOBJECTSCONTAINER = UNORMAP<_string, MAPOBJECTS>; //<πÊ ¿Ã∏ß, µ•¿Ã≈Õ>
+	using MAPOBJECTSCONTAINER = UNORMAP<_string, MAPOBJECTS>; //<Î∞© Ïù¥Î¶Ñ, Îç∞Ïù¥ÌÑ∞>
 	using GUARDSSCONTAINER = UNORMAP<_string, MAPOBJECTS>;
 	using MAPMOBSCONTAINER = UNORMAP<_string, MAPMOBS>;
 	
@@ -31,7 +31,7 @@ public:
 	UMapLayout(const UMapLayout& _rhs);
 	DESTRUCTOR(UMapLayout)
 	CLONE_MACRO(UMapLayout, "MapLayout::Clone To Failed")
-	// UComponent¿ª(∏¶) ≈Î«ÿ ªÛº”µ 
+	// UComponentÏùÑ(Î•º) ÌÜµÌï¥ ÏÉÅÏÜçÎê®
 	void Free() override;
 	HRESULT NativeConstruct() override;
 	HRESULT NativeConstructClone(const VOIDDATAS& _tDatas) override;

@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UTableDescriptor.h"
 #include "UDevice.h"
 #include "UCommand.h"
@@ -66,12 +66,12 @@ void UTableDescriptor::BindUAV(const D3D12_CPU_DESCRIPTOR_HANDLE& _uavHandle, co
 {
 	D3D12_CPU_DESCRIPTOR_HANDLE destHandle = GetCpuHandle(_eReg);
 	CopyDesc(destHandle, _uavHandle);
-	// ¸®¼Ò½º »óÅÂ º¯°æ
+	// ë¦¬ì†ŒìŠ¤ ìƒíƒœ ë³€ê²½
 }
 
 void UTableDescriptor::CommitGraphicTable(CSHPTRREF<UCommand> _spCommand)
 {
-	// CommitTable ->DescriptorHeapStart¸¦ °¡Á®¿Í¼­ Group¸¸Å­ Bind ÇÏ´Â °ÍÀÌ´Ù. //GetStaticValue->3¹øÀÌ´Ù. ·çÆ®ÆÄ¶ó¸ŞÅÍ 3¹øÀÌ tableÀÌ¶ó
+	// CommitTable ->DescriptorHeapStartë¥¼ ê°€ì ¸ì™€ì„œ Groupë§Œí¼ Bind í•˜ëŠ” ê²ƒì´ë‹¤. //GetStaticValue->3ë²ˆì´ë‹¤. ë£¨íŠ¸íŒŒë¼ë©”í„° 3ë²ˆì´ tableì´ë¼
 	_spCommand->GetGpuCmdList()->SetGraphicsRootDescriptorTable(GetStaticValue(), ReturnCommitTableHandle(_spCommand));
 }
 

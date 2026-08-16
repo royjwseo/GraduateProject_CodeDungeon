@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "CMob.h"
 BEGIN(Engine)
 class UGameInstance;
@@ -8,9 +8,9 @@ END
 
 BEGIN(Client)
 /*
-@ Date: 2024-05-13, Writer: ÀÌ¼ºÇö
+@ Date: 2024-05-13, Writer: ì´ì„±í˜„
 @ Explain
--  ¹Ì¹Í ¸ó½ºÅÍ Å¬·¡½º.
+-  ë¯¸ë¯¹ ëª¬ìŠ¤í„° í´ë˜ìŠ¤.
 */
 class CMimic final : public CMob {
 public:
@@ -18,7 +18,7 @@ public:
 	CMimic(const CMimic& _rhs);
 	DESTRUCTOR(CMimic)
 public:
-	// UPlayerÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UPlayerì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(CMimic, "CMimic::CloneToFailed")
 		virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;

@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 
 #include "TImGuiView.h"
 
 /*
-@ Date: 2024-02-03, Writer: ÀÌ¼ºÇö
+@ Date: 2024-02-03, Writer: ì´ì„±í˜„
 @ Explain
-- ImguiÀÇ ¸ŞÀÎ ºä 
+- Imguiì˜ ë©”ì¸ ë·° 
 */
 
 BEGIN(Tool)
@@ -16,7 +16,7 @@ public:
 	NO_COPY(TMainView)
 		DESTRUCTOR(TMainView)
 public:
-	// TImGuiViewÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// TImGuiViewì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual void Free() override;
 
 	virtual HRESULT NativeConstruct() override;

@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+ο»Ώ#include "ClientDefines.h"
 #include "CHarlequinn.h"
 #include "UGameInstance.h"
 #include "URenderer.h"
@@ -79,14 +79,14 @@ void CHarlequinn::CreateParticles()
 		m_stParticleType = m_spBloodParticle->GetParticleSystem()->GetParticleTypeParam();
 		m_stParticleType->fParticleType = PARTICLE_TYPE_DEFAULT;
 		m_stParticleType->fParticleLifeTimeType = PARTICLE_LIFETIME_TYPE_DEFAULT;
-		m_spBloodParticle->SetBloodTexture(0, L"blood"); // y°ª Αυ°΅ x Ώψ
-		m_spBloodParticle->SetBloodTexture(1, L"blood1"); // y°ª Αυ°΅ x Ώψ
-		m_spBloodParticle->SetBloodTexture(2, L"blood2"); // y°ª Αυ°΅ x Ώψ
-		m_spBloodParticle->SetBloodTexture(3, L"blood3"); // y°ª Αυ°΅ x Ώψ
-		m_spBloodParticle->SetBloodTexture(4, L"blood4"); // y°ª Αυ°΅ x Ώψ
-		m_spBloodParticle->SetBloodTexture(5, L"blood5"); // y°ª Αυ°΅ x Ώψ
-		m_spBloodParticle->SetBloodTexture(6, L"blood6"); // y°ª Αυ°΅ x Ώψ
-		m_spBloodParticle->SetBloodTexture(7, L"blood7"); // y°ª Αυ°΅ x Ώψ
+		m_spBloodParticle->SetBloodTexture(0, L"blood"); // yκ°’ μ¦κ°€ x μ›
+		m_spBloodParticle->SetBloodTexture(1, L"blood1"); // yκ°’ μ¦κ°€ x μ›
+		m_spBloodParticle->SetBloodTexture(2, L"blood2"); // yκ°’ μ¦κ°€ x μ›
+		m_spBloodParticle->SetBloodTexture(3, L"blood3"); // yκ°’ μ¦κ°€ x μ›
+		m_spBloodParticle->SetBloodTexture(4, L"blood4"); // yκ°’ μ¦κ°€ x μ›
+		m_spBloodParticle->SetBloodTexture(5, L"blood5"); // yκ°’ μ¦κ°€ x μ›
+		m_spBloodParticle->SetBloodTexture(6, L"blood6"); // yκ°’ μ¦κ°€ x μ›
+		m_spBloodParticle->SetBloodTexture(7, L"blood7"); // yκ°’ μ¦κ°€ x μ›
 		m_spBloodParticle->SetParticleType(PARTICLE_BLOOD);
 		*m_spBloodParticle->GetParticleSystem()->GetCreateInterval() = 0.85f;
 		*m_spBloodParticle->GetParticleSystem()->GetAddParticleAmount() = 5;
@@ -130,7 +130,7 @@ void CHarlequinn::CreateParticles()
 
 		tDesc.ParticleParam.stGlobalParticleInfo.fAccTime = 0.f;
 		//tDesc.ParticleParam.stGlobalParticleInfo.fDeltaTime = 2.f;
-		tDesc.ParticleParam.stGlobalParticleInfo.fEndScaleParticle = 0.45f;  //0.45f;  //0.85 scale ²ψ¶§
+		tDesc.ParticleParam.stGlobalParticleInfo.fEndScaleParticle = 0.45f;  //0.45f;  //0.85 scale λλ•
 		tDesc.ParticleParam.stGlobalParticleInfo.fStartScaleParticle = 0.05f;  //0.05f;  //1.0 
 		tDesc.ParticleParam.stGlobalParticleInfo.fMaxLifeTime = 1.5f;
 		tDesc.ParticleParam.stGlobalParticleInfo.fMinLifeTime = 0.1f;
@@ -224,7 +224,7 @@ HRESULT CHarlequinn::NativeConstructClone(const VOIDDATAS& _Datas)
 
 	CreateParticles();
 
-	//ΐε½Δ Η¥ΓΆ
+	//μ¥μ‹ ν‘μ°½
 	{
 		CShuriken::EQDESC Desc1(std::static_pointer_cast<UModel>(spGameInstance->CloneResource(PROTO_RES_SHURIKENMODEL)), ThisShared<UCharacter>(), L"..\\..\\Resource\\Model\\Item\\Equip\\Shuriken\\Convert\\EquipDesc\\Shuriken_FBX.bin");
 		CShuriken::EQDESC Desc2(std::static_pointer_cast<UModel>(spGameInstance->CloneResource(PROTO_RES_SHURIKENMODEL)), ThisShared<UCharacter>(), L"..\\..\\Resource\\Model\\Item\\Equip\\Shuriken\\Convert\\EquipDesc\\Shuriken_FBX1.bin");
@@ -560,7 +560,7 @@ void CHarlequinn::Collision(CSHPTRREF<UPawn> _pEnemy, const _double& _dTimeDelta
 			{
 				if (!GetIsHItAlreadyState())
 				{
-					//µξΐ» ΈΒΎÒΐ» ¶§Ώ΅ΈΈ
+					//λ“±μ„ λ§μ•μ„ λ•μ—λ§
 					if (dotProduct < -0.5f)
 					{
 						

@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "AThreadManager.h"
 #include "AJobTimer.h"
 #include "AMainLoop.h"
@@ -10,7 +10,7 @@ namespace Core
 	}
 	/*
 	@ Date: 2023-12-26
-	@ Writer: ¹ÚÅÂÇö
+	@ Writer: ë°•íƒœí˜„
 	*/
 	void AThreadManager::CreateMainLoop(SHPTR<ACoreInstance> _spCoreinstance, Asio::io_service& _service, SHPTR< AService> _spService)
 	{
@@ -40,7 +40,7 @@ namespace Core
 
 	/*
 	@ Date: 2023-12-26
-	@ Writer: ¹ÚÅÂÇö
+	@ Writer: ë°•íƒœí˜„
 	*/
 	void AThreadManager::Join()
 	{
@@ -65,7 +65,7 @@ namespace Core
 	}
 	/*
 	@ Date: 2023-12-26
-	@ Writer: ¹ÚÅÂÇö
+	@ Writer: ë°•íƒœí˜„
 	*/
 	void AThreadManager::ThreadJoin(const THREADFUNC& _CallBack, void* _Data, _uint _CurrentThreadID)
 	{
@@ -75,7 +75,7 @@ namespace Core
 	}
 	/*
 	@ Date: 2023-12-26
-	@ Writer: ¹ÚÅÂÇö
+	@ Writer: ë°•íƒœí˜„
 	*/
 	void AThreadManager::InitTLS(_uint _CurrentThreadID)
 	{
@@ -83,7 +83,7 @@ namespace Core
 	}
 	/*
 	@ Date: 2023-12-26
-	@ Writer: ¹ÚÅÂÇö
+	@ Writer: ë°•íƒœí˜„
 	*/
 	void AThreadManager::DestroyTLS()
 	{
@@ -95,4 +95,4 @@ namespace Core
 		m_JobThreadContainer.clear();
 		m_ThreadContainer.clear();
 	}
-}
+}

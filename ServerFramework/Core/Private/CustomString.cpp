@@ -1,2 +1,2 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "CustomString.h"

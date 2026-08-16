@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UGROBALCONSTANTBUFFER_H
+ï»¿#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UGROBALCONSTANTBUFFER_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UGROBALCONSTANTBUFFER_H
 
 #include "UBase.h"
@@ -8,9 +8,9 @@ class UDevice;
 class UGpuCommand;
 
 /*
-¸ðµç ½¦ÀÌ´õ¸¶´Ù °øÅëÀ¸·Î ¾²ÀÌ´Â °´Ã¼
-¹«Á¶°Ç ÇÏ³ª¸¸ »ý¼ºµÇ¾ß ÇÑ´Ù. 
-Engine¿¡¼­¸¸ »ý¼ºÇÑ´Ù. 
+ëª¨ë“  ì‰ì´ë”ë§ˆë‹¤ ê³µí†µìœ¼ë¡œ ì“°ì´ëŠ” ê°ì²´
+ë¬´ì¡°ê±´ í•˜ë‚˜ë§Œ ìƒì„±ë˜ì•¼ í•œë‹¤. 
+Engineì—ì„œë§Œ ìƒì„±í•œë‹¤. 
 */
 
 class DEF_CACHE_ALGIN UGrobalConstantBuffer final : public UBase {
@@ -37,4 +37,4 @@ private:
 
 END
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UGROBALCONSTANTBUFFER_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UGROBALCONSTANTBUFFER_H

@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_SERVER_PUBLIC_CSERVERADIMINSTOR_H
+ï»¿#ifndef _SERVERFRAMEWORK_SERVER_PUBLIC_CSERVERADIMINSTOR_H
 #define _SERVERFRAMEWORK_SERVER_PUBLIC_CSERVERADIMINSTOR_H
 
 #include "AServerService.h"
@@ -10,9 +10,9 @@ END
 
 BEGIN(Server)
 /*
-@ Date: 2023-01-02, Writer: ¹ÚÅÂÇö
+@ Date: 2023-01-02, Writer: ë°•íƒœí˜„
 @ Explain
-- Server¸¦ °ü¸®ÇÏ´Â °ü¸®ÀÚ Å¬·¡½ºÀÌ´Ù. ÇÃ·¹ÀÌ¾î ¼¼¼ÇµéÀ» ÃÑ°ı
+- Serverë¥¼ ê´€ë¦¬í•˜ëŠ” ê´€ë¦¬ì í´ë˜ìŠ¤ì´ë‹¤. í”Œë ˆì´ì–´ ì„¸ì…˜ë“¤ì„ ì´ê´„
 */
 class  CServerAdiminstor final : public Core::AServerService{
 public:
@@ -23,7 +23,7 @@ public:
 	virtual bool NativeConstruct() override;
 	virtual bool Start() override;
 protected:
-	// UServerServiceÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UServerServiceì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual void Connect() override;
 private:
 	void CreateServerMobResourceData();

@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "ASession.h"
 #include "ATransform.h"
 #include "ASpace.h"
@@ -66,38 +66,38 @@ namespace Core
 	void ASession::ConnectTcpSocket(){ }
 
 	/*
-	@ Data: 2024-01-13, Writer : ¹ÚÅÂÇö
+	@ Data: 2024-01-13, Writer : ë°•íƒœí˜„
 	@ Explain
-	- Buffer Å¬·¡½º¸¦ ¹Ş¾Æ¼­ Combine ÇÑ ÈÄ PacketÀ» Ã³¸®ÇÏ´Â ÇÔ¼öÀÌ´Ù.
+	- Buffer í´ë˜ìŠ¤ë¥¼ ë°›ì•„ì„œ Combine í•œ í›„ Packetì„ ì²˜ë¦¬í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
 	*/
 	void ASession::PacketCombine(_char* _pPacket, _llong _Size)
 	{
-		// ¹öÆÛ¸¦ Á¶ÇÕÇÑ´Ù. 
+		// ë²„í¼ë¥¼ ì¡°í•©í•œë‹¤. 
 		{
 			::memcpy(&m_TotalBuffer[m_CurBuffuerLocation], _pPacket, _Size);
 			m_CurBuffuerLocation +=_Size;
 		}
 		short moveBuffer{ 0 };
 		char* pBufferMove = &m_TotalBuffer[0];
-		// ¸¸¾à BufferLocationÀÌ Á¸ÀçÇÒ ¶§
+		// ë§Œì•½ BufferLocationì´ ì¡´ì¬í•  ë•Œ
 		while (m_CurBuffuerLocation > 0)
 		{
-			// PacketSize¸¦ ±¸ÇÑ´Ù. 
+			// PacketSizeë¥¼ êµ¬í•œë‹¤. 
 			PACKETHEAD PacketHead;
 			memcpy(&PacketHead, pBufferMove, PACKETHEAD_SIZE);
 			short CurrPacket = PacketHead.PacketSize + PACKETHEAD_SIZE;
-			// ÆĞÅ¶ÀÇ ÇöÀç À§Ä¡°¡ À½¼ö°¡ µÇ´Â °æ¿ì¸é 
+			// íŒ¨í‚·ì˜ í˜„ì¬ ìœ„ì¹˜ê°€ ìŒìˆ˜ê°€ ë˜ëŠ” ê²½ìš°ë©´ 
 			if ((m_CurBuffuerLocation - CurrPacket) < 0)     
 			{
 #ifdef USE_DEBUG
 		//		std::cout << m_CurBuffuerLocation << "\n";
 #endif
-				// ÃÖÁ¾ÀûÀÎ ¹öÆÛ¿¡ PacketSize¸¸Å­ ÀÌµ¿ÇÏ¿© ¾ÕÂÊ¿¡ Á¸ÀçÇÏ´Â µ¥ÀÌÅÍµéÀ» Áö¿î´Ù. 
+				// ìµœì¢…ì ì¸ ë²„í¼ì— PacketSizeë§Œí¼ ì´ë™í•˜ì—¬ ì•ìª½ì— ì¡´ì¬í•˜ëŠ” ë°ì´í„°ë“¤ì„ ì§€ìš´ë‹¤. 
 				memmove(&m_TotalBuffer[0], pBufferMove, MAX_PROCESSBUF_LENGTH - moveBuffer);
 				return;
 			}
 			ProcessPacket(&pBufferMove[PACKETHEAD_SIZE], PacketHead);
-			// BufferÀÇ À§Ä¡¸¦ ¿Å±ä´Ù. 
+			// Bufferì˜ ìœ„ì¹˜ë¥¼ ì˜®ê¸´ë‹¤. 
 			m_CurBuffuerLocation -= CurrPacket;
 			pBufferMove += CurrPacket;
 			moveBuffer += CurrPacket;
@@ -107,9 +107,9 @@ namespace Core
 	}
 
 	/*
-	@ Data: 2023-12-31,  Writer : ¹ÚÅÂÇö
+	@ Data: 2023-12-31,  Writer : ë°•íƒœí˜„
 	@ Explain
-	- Buffer¸¦ Á¶ÇÕÇÏ´Â ÇÔ¼ö
+	- Bufferë¥¼ ì¡°í•©í•˜ëŠ” í•¨ìˆ˜
 	*/
 	void ASession::CombineSendBuffer( _char* _pPacket, const PACKETHEAD& _PacketHead)
 	{
@@ -130,4 +130,4 @@ namespace Core
 		m_TcpSocket.close();
 	}
 
-}
+}

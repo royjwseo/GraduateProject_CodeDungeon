@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+﻿#include "EngineDefines.h"
 #include "UCamera.h"
 #include "UGameInstance.h"
 #include "UMethod.h"
@@ -158,4 +158,4 @@ void UCamera::ShowObjectInfo()
 		ImGui::TreePop();
 	}
 }
-#endif
+#endif

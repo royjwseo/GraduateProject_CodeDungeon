@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "DeviceAndFactory.h"
 
 void DeviceAndFactory::InitDeviceAndFactory()
@@ -10,7 +10,7 @@ void DeviceAndFactory::InitDeviceAndFactory()
 void DeviceAndFactory::CreateDxgiFactory()
 {
 	UINT nDXGIFactoryFlags = 0;
-#if defined(_DEBUG) //ÀüÃ³¸®±â Á¶°Ç¹® #ifÀÖÀ¸¸é #endif ´Â ¹«Á¶°Ç ¼¼Æ®, D3D12 µð¹ö±×Ãþ È°¼ºÈ­
+#if defined(_DEBUG) //ì „ì²˜ë¦¬ê¸° ì¡°ê±´ë¬¸ #ifìžˆìœ¼ë©´ #endif ëŠ” ë¬´ì¡°ê±´ ì„¸íŠ¸, D3D12 ë””ë²„ê·¸ì¸µ í™œì„±í™”
 
 	if (SUCCEEDED(D3D12GetDebugInterface(IID_PPV_ARGS(&m_pd3dDebugController))))
 	{
@@ -43,14 +43,14 @@ void DeviceAndFactory::CreateDirect3DDevice()
 
 	D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS d3dMsaaQualityLevels;
 	d3dMsaaQualityLevels.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-	d3dMsaaQualityLevels.SampleCount = 4; //Msaa4x ´ÙÁß »ùÇÃ¸µ
-	d3dMsaaQualityLevels.Flags = D3D12_MULTISAMPLE_QUALITY_LEVELS_FLAG_NONE;//Æ¯º°ÇÑ ±â´É x ¸ÖÆ¼ ½º·¹µå »ç¿ë½Ã SHARED»ç¿ëÇÒ¼öµµ
+	d3dMsaaQualityLevels.SampleCount = 4; //Msaa4x ë‹¤ì¤‘ ìƒ˜í”Œë§
+	d3dMsaaQualityLevels.Flags = D3D12_MULTISAMPLE_QUALITY_LEVELS_FLAG_NONE;//íŠ¹ë³„í•œ ê¸°ëŠ¥ x ë©€í‹° ìŠ¤ë ˆë“œ ì‚¬ìš©ì‹œ SHAREDì‚¬ìš©í• ìˆ˜ë„
 	d3dMsaaQualityLevels.NumQualityLevels = 0;
 	DX::ThrowIfFailed(m_cpd3dDevice->CheckFeatureSupport(D3D12_FEATURE_MULTISAMPLE_QUALITY_LEVELS, &d3dMsaaQualityLevels, sizeof(D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS)));
 	m_nMsaa4xQualityLevels = d3dMsaaQualityLevels.NumQualityLevels;
-	//µð¹ÙÀÌ½º°¡ Áö¿øÇÏ´Â ´ÙÁß »ùÇÃÀÇ Ç°Áú ¼öÁØÀ» È®ÀÎÇÑ´Ù. 
+	//ë””ë°”ì´ìŠ¤ê°€ ì§€ì›í•˜ëŠ” ë‹¤ì¤‘ ìƒ˜í”Œì˜ í’ˆì§ˆ ìˆ˜ì¤€ì„ í™•ì¸í•œë‹¤. 
 	m_bMsaa4xEnable = (m_nMsaa4xQualityLevels > 1) ? true : false;
-	//´ÙÁß »ùÇÃÀÇ Ç°Áú ¼öÁØÀÌ 1º¸´Ù Å©¸é ´ÙÁß »ùÇÃ¸µÀ» È°¼ºÈ­ÇÑ´Ù.
+	//ë‹¤ì¤‘ ìƒ˜í”Œì˜ í’ˆì§ˆ ìˆ˜ì¤€ì´ 1ë³´ë‹¤ í¬ë©´ ë‹¤ì¤‘ ìƒ˜í”Œë§ì„ í™œì„±í™”í•œë‹¤.
 	::gnCbvSrvDescriptorIncrementSize = m_cpd3dDevice->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 	::gnRtvDescriptorIncrementSize = m_cpd3dDevice->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
 	::gnDsvDescriptorIncrementSize = m_cpd3dDevice->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_DSV);

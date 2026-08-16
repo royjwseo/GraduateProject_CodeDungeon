@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "ToolDefines.h"
 #include "ToolScene.h"
 #include "ImguiManager.h"
@@ -38,4 +38,4 @@ private:
 	shared_ptr<ToolScene>			m_pToolScene;
 	ComPtr<ID3D12DescriptorHeap>	m_pdxgiSRVDescriptorHeapForImgui;
 
-};
+};

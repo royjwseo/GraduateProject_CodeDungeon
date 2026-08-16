@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UBase.h"
 
@@ -10,9 +10,9 @@ class UPlayer;
 using COLLISIONPAWNLIST = SET<SHPTR<UPawn>>;
 using PLAYERCONTAINER = SET<SHPTR<UPlayer>>;
 /*
-@ Date: 2024-02-25, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-25, Writer: ë°•íƒœí˜„
 @ Explain
-- Player, Monstter, NPCµîÀ» °ü¸®ÇÏ°í ±×µé³¢¸®ÀÇ Ãæµ¹µµ °ü¸®ÇÏ´Â Å¬·¡½ºÀÌ´Ù. 
+- Player, Monstter, NPCë“±ì„ ê´€ë¦¬í•˜ê³  ê·¸ë“¤ë¼ë¦¬ì˜ ì¶©ëŒë„ ê´€ë¦¬í•˜ëŠ” í´ë˜ìŠ¤ì´ë‹¤. 
 */
 class UCharacterManager final : public UBase {
 public:

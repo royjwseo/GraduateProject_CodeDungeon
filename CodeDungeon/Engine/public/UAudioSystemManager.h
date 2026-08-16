@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <fmod/fmod.hpp>
 #include <fmod/fmod_errors.h>
@@ -14,9 +14,9 @@ class UCharacter;
 
 using AUDIOSYSTEMCONTAINER = ARRAY <SHPTR< UAudioSystem>, SOUND_END>;
 /*
-@ Date: 2024-02-25, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-25, Writer: ë°•íƒœí˜„
 @ Explain
-- UAudioSystemÀ» °ü¸®ÇÏ´Â ¸Å´ÏÀú Å¬·¡½º
+- UAudioSystemì„ ê´€ë¦¬í•˜ëŠ” ë§¤ë‹ˆì € í´ë˜ìŠ¤
 */
 class UAudioSystemManager final : public UBase {
 public:

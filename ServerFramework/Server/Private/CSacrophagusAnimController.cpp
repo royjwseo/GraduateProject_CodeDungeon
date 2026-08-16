@@ -1,4 +1,4 @@
-#include "ServerDefines.h"
+﻿#include "ServerDefines.h"
 #include "CSacrophagusAnimController.h"
 #include "APawn.h"
 #include "AAnimator.h"
@@ -57,4 +57,4 @@ namespace Server {
 	}
 
 
-}
+}

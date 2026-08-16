@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINEFUNCTION_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINEFUNCTION_H
 
@@ -85,18 +85,18 @@ namespace Engine {
 		MessageBoxA(0, typeid(T).name(), nullptr, MB_OK);
 	}
 
-	// »ı¼ºÀÚ°¡ µ¿ÀÛÇÏ´ÂÁö Ã¼Å©ÇÏ°í µ¿ÀÛÇÏ¸é ¸®ÅÏÇÏ´Â ÇÔ¼ö NativeConstruct ÇÔ¼ö°¡ ¾ø¾îµµ µÈ´Ù. 
+	// ìƒì„±ìê°€ ë™ì‘í•˜ëŠ”ì§€ ì²´í¬í•˜ê³  ë™ì‘í•˜ë©´ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜ NativeConstruct í•¨ìˆ˜ê°€ ì—†ì–´ë„ ëœë‹¤. 
 	template<class T, class ...Args>
 	requires ConstructWidthArgsCheck<T, Args...>
 	static SHPTR<T> Create(Args&&... args) {
 		SHPTR<T> pInstance { std::make_shared<T>(args...)};
 		return pInstance;
 	}
-	// ÇÔ¼ö¿¡¼­ °ªÀ» ¹Ş¾Æ¿Í¼­ °´Ã¼¸¦ ¸¸µé¾î ³»´Â °Í
+	// í•¨ìˆ˜ì—ì„œ ê°’ì„ ë°›ì•„ì™€ì„œ ê°ì²´ë¥¼ ë§Œë“¤ì–´ ë‚´ëŠ” ê²ƒ
 	template<class T, class ...Args>
 		requires	CheckToSameMethodArgs<T, Args...> 
 	static SHPTR<T> CreateNative(Args&&... args) {
-		static_assert(CheckToSameMethodArgs<T, Args...>, "NativeConstructÀÇ ÀÎÀÚ°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+		static_assert(CheckToSameMethodArgs<T, Args...>, "NativeConstructì˜ ì¸ìê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		SHPTR<T> pInstance { std::make_shared<T>()};
 		if (FAILED(pInstance->NativeConstruct(args...))) {
 			ErrorToCreateClass(pInstance);
@@ -106,11 +106,11 @@ namespace Engine {
 	}
 
 
-	// ÇÔ¼ö¿¡¼­ °ªÀ» ¹Ş¾Æ¿Í¼­ °´Ã¼¸¦ ¸¸µé¾î ³»´Â °Í
+	// í•¨ìˆ˜ì—ì„œ ê°’ì„ ë°›ì•„ì™€ì„œ ê°ì²´ë¥¼ ë§Œë“¤ì–´ ë‚´ëŠ” ê²ƒ
 	template<class T, class ...Args>
 		requires CheckToSameMethodArgs<T, Args...>
 	static SHPTR<T> CreateNativeNotMsg(Args&&... args) {
-		static_assert(CheckToSameMethodArgs<T, Args...>, "NativeConstructÀÇ ÀÎÀÚ°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+		static_assert(CheckToSameMethodArgs<T, Args...>, "NativeConstructì˜ ì¸ìê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		SHPTR<T> pInstance {std::make_shared<T>()};
 		if (FAILED(pInstance->NativeConstruct(args...))) {
 			pInstance.reset();
@@ -118,7 +118,7 @@ namespace Engine {
 		return pInstance;
 	}
 
-	// »ı¼ºÀÚ·Î Device, GpuCommand¸¦ ¹Ş°í ³ª¸ÓÁö °ªµéÀ» NativeCosntruct ÇÔ¼ö¿¡¼­ ¹Ş´Â °Í
+	// ìƒì„±ìë¡œ Device, GpuCommandë¥¼ ë°›ê³  ë‚˜ë¨¸ì§€ ê°’ë“¤ì„ NativeCosntruct í•¨ìˆ˜ì—ì„œ ë°›ëŠ” ê²ƒ
 	template<class T, class ...Args>
 		requires  CheckToSameMethodArgs<T, Args...>
 	static SHPTR<T> CreateConstructorNative(CSHPTRREF<class UDevice> _pDevice, Args&&... args) {
@@ -130,7 +130,7 @@ namespace Engine {
 		return pInstance;
 	}
 
-	// »ı¼ºÀÚ·Î Device, GpuCommand¸¦ ¹Ş°í ³ª¸ÓÁö °ªµéÀ» NativeCosntruct ÇÔ¼ö¿¡¼­ ¹Ş´Â °Í
+	// ìƒì„±ìë¡œ Device, GpuCommandë¥¼ ë°›ê³  ë‚˜ë¨¸ì§€ ê°’ë“¤ì„ NativeCosntruct í•¨ìˆ˜ì—ì„œ ë°›ëŠ” ê²ƒ
 	template<class T, class ...Args>
 		requires CheckToSameMethodArgs<T, Args...>
 		static SHPTR<T> CreateConstructorNativeNotMsg(CSHPTRREF<class UDevice> _pDevice, Args&&... args) {
@@ -141,12 +141,12 @@ namespace Engine {
 		return pInstance;
 	}
 
-	// »ı¼ºÀÚ¿¡¼­¸¸ °ªÀ» ¹Ş¾Æ¿À´Â °Í
+	// ìƒì„±ìì—ì„œë§Œ ê°’ì„ ë°›ì•„ì˜¤ëŠ” ê²ƒ
 	template<class T, class ...Args>
 		requires ConstructWidthArgsCheck<T, Args...>
 	&& CheckToSameMethodArgs<T>
 		static SHPTR<T> CreateConstructorToNative(Args&&... args) {;
-	static_assert(ConstructWidthArgsCheck<T, Args...>, "»ı¼ºÀÚÀÇ ÀÎÀÚ°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+	static_assert(ConstructWidthArgsCheck<T, Args...>, "ìƒì„±ìì˜ ì¸ìê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 	SHPTR<T> pInstance { std::make_shared<T>(args...)};
 		if (FAILED(pInstance->NativeConstruct())) {
 			ErrorToCreateClass(pInstance);
@@ -155,12 +155,12 @@ namespace Engine {
 		return pInstance;
 	}
 
-	// »ı¼ºÀÚ¿¡¼­¸¸ °ªÀ» ¹Ş¾Æ¿À´Â °Í
+	// ìƒì„±ìì—ì„œë§Œ ê°’ì„ ë°›ì•„ì˜¤ëŠ” ê²ƒ
 	template<class T, class ...Args>
 		requires ConstructWidthArgsCheck<T, Args...>
 	&& CheckToSameMethodArgs<T>
 		static SHPTR<T> CreateConstructorToNativeNotMsg(Args&&... args) {
-		static_assert(ConstructWidthArgsCheck<T, Args...>, "»ı¼ºÀÚÀÇ ÀÎÀÚ°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+		static_assert(ConstructWidthArgsCheck<T, Args...>, "ìƒì„±ìì˜ ì¸ìê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		SHPTR<T> pInstance{  std::make_shared<T>(args...) };
 		if (FAILED(pInstance->NativeConstruct())) {
 			pInstance.reset();
@@ -168,7 +168,7 @@ namespace Engine {
 		return pInstance;
 	}
 
-	// ÀÚ±â ÀÚ½ÅÀ» Å¬·ĞÇÏ´Â ÇÔ¼ö 
+	// ìê¸° ìì‹ ì„ í´ë¡ í•˜ëŠ” í•¨ìˆ˜ 
 	template<class T>
 	static SHPTR<T> CloneThis(const T& _rhs)
 	{
@@ -211,4 +211,4 @@ namespace Engine {
 }
 
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINEFUNCTION_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINEFUNCTION_H

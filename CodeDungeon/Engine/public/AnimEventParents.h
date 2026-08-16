@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UBase.h"
 
@@ -7,9 +7,9 @@ class UAnimModel;
 class UAnimator;
 class UPawn;
 /*
-@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 @ Explain
-- Animation Event¸¦ Á¤ÀÇÇÒ ºÎ¸ğ Å¬·¡½º
+- Animation Eventë¥¼ ì •ì˜í•  ë¶€ëª¨ í´ë˜ìŠ¤
 */
 class UAnimEvent abstract : public UBase {
 protected:
@@ -24,15 +24,15 @@ public:
 public:
 	virtual _bool EventCheck(UPawn* _pPawn, UAnimModel* _pAnimModel, const _double& _dTimeDelta, const _double& _dTimeAcc,
 		const _wstring& _wstrInputTrigger) PURE;
-	// AnimEventDesc¸¦ »ó¼Ó¹Ş´Â ±¸Á¶Ã¼¸¦ ¸®ÅÏÇÏ´Â ÇÔ¼ö
+	// AnimEventDescë¥¼ ìƒì†ë°›ëŠ” êµ¬ì¡°ì²´ë¥¼ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜
 	virtual const  ANIMEVENTDESC*  OutAnimEventDesc() PURE;
-	// AnimEvent¿¡ ´Ù¸¥ ±¸Á¶Ã¼°¡ ÇÊ¿äÇÒ °æ¿ì ÇØ´ç ±¸Á¶Ã¼ÀÇ »ó¼ÓÀ» ¹Ş´Â ³à¼®µé¸¸ ³»º¸³¾ ¼ö ÀÖµµ·Ï ÇÑ´Ù.
+	// AnimEventì— ë‹¤ë¥¸ êµ¬ì¡°ì²´ê°€ í•„ìš”í•  ê²½ìš° í•´ë‹¹ êµ¬ì¡°ì²´ì˜ ìƒì†ì„ ë°›ëŠ” ë…€ì„ë“¤ë§Œ ë‚´ë³´ë‚¼ ìˆ˜ ìˆë„ë¡ í•œë‹¤.
 	virtual const ANIMOTHEREVENTDESC*  OutOtherEventDesc() PURE;
 
 	virtual void SaveEvent(std::ofstream& _save) PURE;
 	virtual void LoadEvent(CSHPTRREF<UAnimModel> _spAnimModel, std::ifstream& _load) PURE;
 protected:
-	// Event »óÈ²ÀÏ ¶§¸¦ Á¤ÀÇ
+	// Event ìƒí™©ì¼ ë•Œë¥¼ ì •ì˜
 	virtual void EventSituation(UPawn* _pPawn, UAnimModel* _pAnimModel, const _double& _dTimeDelta, const _double& _dTimeAcc) PURE;
 private:
 	virtual void Free() PURE;
@@ -48,9 +48,9 @@ AnimSectionEvent
 =====================================
 */
 /*
-@ Date: 2024-02-08, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-08, Writer: ë°•íƒœí˜„
 @ Explain
-- ±¸°£¿¡¸¸ ÀÌº¥Æ®¸¦ ¹ß»ı½ÃÅ°´Â Å¬·¡½º
+- êµ¬ê°„ì—ë§Œ ì´ë²¤íŠ¸ë¥¼ ë°œìƒì‹œí‚¤ëŠ” í´ë˜ìŠ¤
 */
 class UAnimSectionEvent abstract : public UAnimEvent {
 protected:
@@ -67,7 +67,7 @@ public:
 protected: /* get set*/
 	const ANIMEVENTSECTIONDESC& GetAnimSectionDesc() const { return m_AnimSectionDesc; }
 protected:
-	// Event »óÈ²ÀÏ ¶§¸¦ Á¤ÀÇ
+	// Event ìƒí™©ì¼ ë•Œë¥¼ ì •ì˜
 	virtual void EventSituation(UPawn* _pPawn, UAnimModel* _pAnimModel, const _double& _dTimeDelta, const _double& _dTimeAcc) PURE;
 	virtual void SaveEvent( std::ofstream& _save) PURE;
 	virtual void LoadEvent(CSHPTRREF<UAnimModel> _spAnimModel, std::ifstream& _load) PURE;
@@ -86,9 +86,9 @@ AnimOccurEvent
 =====================================
 */
 /*
-@ Date: 2024-02-08, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-08, Writer: ë°•íƒœí˜„
 @ Explain
-- ±¸°£À» Áö³ª¸é ÀÌº¥Æ®¸¦ ¹ß»ı½ÃÅ°´Â Å¬·¡½º
+- êµ¬ê°„ì„ ì§€ë‚˜ë©´ ì´ë²¤íŠ¸ë¥¼ ë°œìƒì‹œí‚¤ëŠ” í´ë˜ìŠ¤
 */
 class UAnimOccurEvent abstract : public UAnimEvent {
 protected:
@@ -104,7 +104,7 @@ public:
 protected: /* get set*/
 	const ANIMOCURRESDESC& GetAnimOccursDesc() const { return m_AnimOccurDesc; }
 protected:
-	// Event »óÈ²ÀÏ ¶§¸¦ Á¤ÀÇ
+	// Event ìƒí™©ì¼ ë•Œë¥¼ ì •ì˜
 	virtual void EventSituation(UPawn* _pPawn, UAnimModel* _pAnimModel, const _double& _dTimeDelta, const _double& _dTimeAcc) PURE;
 	virtual void SaveEvent(std::ofstream& _save) PURE;
 	virtual void LoadEvent(CSHPTRREF<UAnimModel> _spAnimModel, std::ifstream& _load) PURE;

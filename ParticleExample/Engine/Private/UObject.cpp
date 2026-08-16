@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+﻿#include "EngineDefines.h"
 #include "UObject.h"
 
 UObject::UObject(CSHPTRREF<UDevice> _spDevice)
@@ -22,4 +22,4 @@ HRESULT UObject::NativeConstruct()
 void UObject::ShowObjectInfo()
 {
 }
-#endif
+#endif

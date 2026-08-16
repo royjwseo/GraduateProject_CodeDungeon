@@ -1,4 +1,4 @@
-//--------------------------------------------------------------------------------------
+﻿//--------------------------------------------------------------------------------------
 // File: WICTextureLoader12.h
 //
 // Function for loading a WIC image and creating a Direct3D runtime texture for it
@@ -79,4 +79,4 @@ namespace DirectX
         _Outptr_ ID3D12Resource** texture,
         std::unique_ptr<uint8_t[]>& decodedData,
         D3D12_SUBRESOURCE_DATA& subresource);
-}
+}

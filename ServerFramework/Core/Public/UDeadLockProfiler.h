@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_UDEADLOCKPROFILER_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_UDEADLOCKPROFILER_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_UDEADLOCKPROFILER_H
 
 #include "ACoreBase.h"
@@ -8,9 +8,9 @@ BEGIN(Core)
 
 /*
 @ Date: 2023-12-29
-@ Writer: ¹ÚÅÂÇö
+@ Writer: ë°•íƒœí˜„
 @ Explain
-- DeadLockÀ» °ËÃâÇÏ±â À§ÇÑ ÇÁ·ÎÆÄÀÏ·¯
+- DeadLockì„ ê²€ì¶œí•˜ê¸° ìœ„í•œ í”„ë¡œíŒŒì¼ëŸ¬
 */
 class UDeadLockProfiler final : public ACoreBase {
 public:
@@ -37,12 +37,12 @@ private:
 
 	MUTEX																m_Mutex;
 
-	CONVECTOR<_long>										m_DiscoveredOrder; // ³ëµå°¡ ¹ß°ßµÈ ¼ø¼­¸¦ ±â·ÏÇÏ´Â ¹è¿­
-	std::atomic<_long>											m_DiscoveredCount; // ³ëµå°¡ ¹ß°ßµÈ ¼ø¼­
-	CONVECTOR<_bool>										m_Finished; // Dfs°¡ Á¾·áµÇ¾ú´ÂÁö ¿©ºÎ
+	CONVECTOR<_long>										m_DiscoveredOrder; // ë…¸ë“œê°€ ë°œê²¬ëœ ìˆœì„œë¥¼ ê¸°ë¡í•˜ëŠ” ë°°ì—´
+	std::atomic<_long>											m_DiscoveredCount; // ë…¸ë“œê°€ ë°œê²¬ëœ ìˆœì„œ
+	CONVECTOR<_bool>										m_Finished; // Dfsê°€ ì¢…ë£Œë˜ì—ˆëŠ”ì§€ ì—¬ë¶€
 	CONVECTOR<_long>										m_Parent; 
 };
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_UDEADLOCKPROFILER_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_UDEADLOCKPROFILER_H

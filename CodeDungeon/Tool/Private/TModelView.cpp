@@ -1,4 +1,4 @@
-#include "ToolDefines.h"
+ï»¿#include "ToolDefines.h"
 #include "TModelView.h"
 #include "UGameInstance.h"
 #include "UMethod.h"
@@ -154,7 +154,7 @@ void TModelView::LateTickActive(const _double& _dTimeDetla)
 
 	//for (auto& ShowModel : m_ShowModelsContainer)
 	//{
-	//	//ÇÈÅ·ÀÌ °¡´ÉÇÏµµ·Ï ÇÈÅ·¸ñ·Ï¿¡ Ãß°¡
+	//	//í”½í‚¹ì´ ê°€ëŠ¥í•˜ë„ë¡ í”½í‚¹ëª©ë¡ì— ì¶”ê°€
 	//	SHPTR<UModel> spModel = ShowModel.second->GetShowModel();
 	//	for (auto& Mesh : spModel->GetMeshContainers())
 	//	{
@@ -166,7 +166,7 @@ void TModelView::LateTickActive(const _double& _dTimeDetla)
 
 	//for (auto& ShowAnimModel : m_ShowAnimModelsContainer)
 	//{
-	//	//ÇÈÅ·ÀÌ °¡´ÉÇÏµµ·Ï ÇÈÅ·¸ñ·Ï¿¡ Ãß°¡
+	//	//í”½í‚¹ì´ ê°€ëŠ¥í•˜ë„ë¡ í”½í‚¹ëª©ë¡ì— ì¶”ê°€
 	//	SHPTR<UModel> spModel = ShowAnimModel.second->GetAnimModel();
 	//	for (auto& Mesh : spModel->GetMeshContainers())
 	//	{
@@ -201,33 +201,33 @@ void TModelView::RenderActive()
 
 void TModelView::DockBuildInitSetting()
 {
-	// ÃÊ±â ¼³Á¤ÀÌ ÀÌ¹Ì ¿Ï·áµÇ¾ú´Ù¸é Áß´Ü
+	// ì´ˆê¸° ì„¤ì •ì´ ì´ë¯¸ ì™„ë£Œë˜ì—ˆë‹¤ë©´ ì¤‘ë‹¨
 	RETURN_CHECK(true == m_isInitSetting, ;);
 
 	{
 		ImGuiID dock_main_id = m_stMainDesc.iDockSpaceID;
 
-		// ±âÁ¸ DockSpace Á¦°Å ¹× »õ·Î Ãß°¡
+		// ê¸°ì¡´ DockSpace ì œê±° ë° ìƒˆë¡œ ì¶”ê°€
 		ImGui::DockBuilderRemoveNode(m_stMainDesc.iDockSpaceID);
 		ImGui::DockBuilderAddNode(m_stMainDesc.iDockSpaceID);
 
-		// ±âÁ¸ ³ëµå¿¡ À©µµ¿ì¸¦ ¸ğµÎ ÅÇ ÇüÅÂ·Î µµÅ·
+		// ê¸°ì¡´ ë…¸ë“œì— ìœˆë„ìš°ë¥¼ ëª¨ë‘ íƒ­ í˜•íƒœë¡œ ë„í‚¹
 		ImGui::DockBuilderDockWindow(m_stModelDockDesc.strName.c_str(), dock_main_id);
 		ImGui::DockBuilderDockWindow(m_stAnimModelDockDesc.strName.c_str(), dock_main_id);
 
-		m_stTransformEditorDesc.iDockSpaceID = ImGui::DockBuilderSplitNode(dock_main_id, ImGuiDir_Down, 0.3f, NULL, &dock_main_id); // »õ·Î¿î ³ëµå »ı¼º
-		ImGui::DockBuilderDockWindow(m_stTransformEditorDesc.strName.c_str(), m_stTransformEditorDesc.iDockSpaceID); // »õ ³ëµå¿¡ µµÅ·
+		m_stTransformEditorDesc.iDockSpaceID = ImGui::DockBuilderSplitNode(dock_main_id, ImGuiDir_Down, 0.3f, NULL, &dock_main_id); // ìƒˆë¡œìš´ ë…¸ë“œ ìƒì„±
+		ImGui::DockBuilderDockWindow(m_stTransformEditorDesc.strName.c_str(), m_stTransformEditorDesc.iDockSpaceID); // ìƒˆ ë…¸ë“œì— ë„í‚¹
 		
-		// Dock ºô´õ ¿Ï·á
+		// Dock ë¹Œë” ì™„ë£Œ
 		ImGui::DockBuilderFinish(m_stMainDesc.iDockSpaceID);
 	}
 
-	m_isInitSetting = true; // ÃÊ±âÈ­ ¿Ï·á ÇÃ·¡±× ¼³Á¤
+	m_isInitSetting = true; // ì´ˆê¸°í™” ì™„ë£Œ í”Œë˜ê·¸ ì„¤ì •
 }
 
 void TModelView::EditModel()
 {
-	// EditModelÀº µ¶¿¡¼­ ·»´õ¸µµÇ¹Ç·Î º°µµ ImGui::Begin È£ÃâÀÌ ÇÊ¿ä ¾øÀ½
+	// EditModelì€ ë…ì—ì„œ ë Œë”ë§ë˜ë¯€ë¡œ ë³„ë„ ImGui::Begin í˜¸ì¶œì´ í•„ìš” ì—†ìŒ
 	if (ImGui::Begin(m_stTransformEditorDesc.strName.c_str()))
 	{
 		if (m_spSelectedModel != nullptr)
@@ -252,16 +252,16 @@ void TModelView::ShowModels()
 {
 	static bool Modelfirstrun = true;
 	static bool AnimModelfirstrun = true;
-	static std::future<void> loadModelFuture; // ºñµ¿±â ·Îµù »óÅÂ ÃßÀû¿ë
-	static std::future<void> loadAnimModelFuture; // ºñµ¿±â ·Îµù »óÅÂ ÃßÀû¿ë
-	static bool isModelLoadComplete = false;     // ÀÏ¹İ ¸ğµ¨ ·Îµù ¿Ï·á ¿©ºÎ
+	static std::future<void> loadModelFuture; // ë¹„ë™ê¸° ë¡œë”© ìƒíƒœ ì¶”ì ìš©
+	static std::future<void> loadAnimModelFuture; // ë¹„ë™ê¸° ë¡œë”© ìƒíƒœ ì¶”ì ìš©
+	static bool isModelLoadComplete = false;     // ì¼ë°˜ ëª¨ë¸ ë¡œë”© ì™„ë£Œ ì—¬ë¶€
 
-	// ÀÏ¹İ ¸ğµ¨ Ç¥½Ã
+	// ì¼ë°˜ ëª¨ë¸ í‘œì‹œ
 	ImGui::Begin(m_stModelDockDesc.strName.c_str(), GetOpenPointer(), m_stModelDockDesc.imgWindowFlags);
 	{
 		if (ImGui::TreeNodeEx("ShowModel", ImGuiTreeNodeFlags_DefaultOpen))
 		{
-			// ÀÏ¹İ ¸ğµ¨ ·Îµù »óÅÂ Ã³¸®
+			// ì¼ë°˜ ëª¨ë¸ ë¡œë”© ìƒíƒœ ì²˜ë¦¬
 			if (!m_bisModelsLoaded)
 			{
 				ImGui::OpenPopup("Loading##ModelLoadingDialog");
@@ -272,13 +272,13 @@ void TModelView::ShowModels()
 					ImGui::Separator();
 
 					{
-						// ·Îµù ÀÛ¾÷ È®ÀÎ
+						// ë¡œë”© ì‘ì—… í™•ì¸
 						if (loadModelFuture.valid() && loadModelFuture.wait_for(std::chrono::milliseconds(0)) == std::future_status::ready)
 						{
 							
-							m_bisModelsLoaded = true;   // ·Îµù ¿Ï·á
+							m_bisModelsLoaded = true;   // ë¡œë”© ì™„ë£Œ
 							
-							loadModelFuture.get();           // ºñµ¿±â °á°ú °¡Á®¿À±â (¿¹¿Ü ¹ß»ı ½Ã Ã³¸®)
+							loadModelFuture.get();           // ë¹„ë™ê¸° ê²°ê³¼ ê°€ì ¸ì˜¤ê¸° (ì˜ˆì™¸ ë°œìƒ ì‹œ ì²˜ë¦¬)
 						}
 					}
 
@@ -286,18 +286,18 @@ void TModelView::ShowModels()
 				}
 			}
 
-			// ·Îµù Æ®¸®°Å
+			// ë¡œë”© íŠ¸ë¦¬ê±°
 			if (!m_bisModelsLoaded && !Modelfirstrun && !loadModelFuture.valid())
 			{
 				loadModelFuture = std::async(std::launch::async, [this]()
 					{
-						ConvertModels(); // µ¿±âÀûÀ¸·Î È£Ãâ		
-						isModelLoadComplete = true; // ÀÏ¹İ ¸ğµ¨ ·Îµù ¿Ï·á
+						ConvertModels(); // ë™ê¸°ì ìœ¼ë¡œ í˜¸ì¶œ		
+						isModelLoadComplete = true; // ì¼ë°˜ ëª¨ë¸ ë¡œë”© ì™„ë£Œ
 					});
 			}
 
 
-			// ·Îµù ¿Ï·á ½Ã ¸ğµ¨ Ç¥½Ã
+			// ë¡œë”© ì™„ë£Œ ì‹œ ëª¨ë¸ í‘œì‹œ
 			if (m_bisModelsLoaded)
 			{
 				ResetModels();
@@ -310,7 +310,7 @@ void TModelView::ShowModels()
 	}
 	ImGui::End();
 
-	// ¾Ö´Ï¸ŞÀÌ¼Ç ¸ğµ¨ Ç¥½Ã (ÀÏ¹İ ¸ğµ¨ ·ÎµùÀÌ ¿Ï·áµÈ ÀÌÈÄ¿¡¸¸ ½ÇÇà)
+	// ì• ë‹ˆë©”ì´ì…˜ ëª¨ë¸ í‘œì‹œ (ì¼ë°˜ ëª¨ë¸ ë¡œë”©ì´ ì™„ë£Œëœ ì´í›„ì—ë§Œ ì‹¤í–‰)
 	if (isModelLoadComplete)
 	{
 		ImGui::Begin(m_stAnimModelDockDesc.strName.c_str(), GetOpenPointer(), m_stAnimModelDockDesc.imgWindowFlags);
@@ -326,26 +326,26 @@ void TModelView::ShowModels()
 						ImGui::Text("Animation models are loading. Please wait...");
 						ImGui::Separator();
 
-						// ·Îµù ÀÛ¾÷ È®ÀÎ
+						// ë¡œë”© ì‘ì—… í™•ì¸
 						if (loadAnimModelFuture.valid() && loadAnimModelFuture.wait_for(std::chrono::milliseconds(0)) == std::future_status::ready)
 						{
-							m_bisAnimModelsLoaded = true; // ·Îµù ¿Ï·á
+							m_bisAnimModelsLoaded = true; // ë¡œë”© ì™„ë£Œ
 							loadAnimModelFuture.get();
 						}
 						ImGui::EndPopup();
 					}
 				}
 
-				// ·Îµù Æ®¸®°Å
+				// ë¡œë”© íŠ¸ë¦¬ê±°
 				if (!m_bisAnimModelsLoaded && !AnimModelfirstrun && !loadAnimModelFuture.valid())
 				{
 					loadAnimModelFuture = std::async(std::launch::async, [this]()
 						{
-							ConvertAnimModels(); // µ¿±âÀûÀ¸·Î È£Ãâ
+							ConvertAnimModels(); // ë™ê¸°ì ìœ¼ë¡œ í˜¸ì¶œ
 						});
 				}
 
-				// ·Îµù ¿Ï·á ½Ã ¾Ö´Ï¸ŞÀÌ¼Ç ¸ğµ¨ Ç¥½Ã
+				// ë¡œë”© ì™„ë£Œ ì‹œ ì• ë‹ˆë©”ì´ì…˜ ëª¨ë¸ í‘œì‹œ
 				if (m_bisAnimModelsLoaded)
 				{
 					ResetAnimModels();
@@ -377,14 +377,14 @@ void TModelView::ShowModelList()
 					_string uniqueName = ModelName;
 					int counter = 1;
 
-					// Áßº¹µÈ ÀÌ¸§ Ã³¸®
+					// ì¤‘ë³µëœ ì´ë¦„ ì²˜ë¦¬
 					while (m_ShowModelsContainer.find(uniqueName) != m_ShowModelsContainer.end())
 					{
 						uniqueName = ModelName + "_" + std::to_string(counter);
 						counter++;
 					}
 
-					//ShowModelÀ» ÄÁÅ×ÀÌ³Ê¿¡ Ãß°¡
+					//ShowModelì„ ì»¨í…Œì´ë„ˆì— ì¶”ê°€
 					SHPTR<TShowModelObject> newModel = std::static_pointer_cast<TShowModelObject>(GetGameInstance()->CloneActorAdd(PROTO_ACTOR_SHOWMODELOBJECT));
 					newModel->SetShowModel(Model.second);
 					newModel->SetOutline(true);
@@ -465,7 +465,7 @@ void TModelView::ShowModelList()
 							_string uniqueName = ModelName;
 							int counter = 1;
 
-							// Áßº¹µÈ ÀÌ¸§ Ã³¸®
+							// ì¤‘ë³µëœ ì´ë¦„ ì²˜ë¦¬
 							while (m_ShowModelsContainer.find(uniqueName) != m_ShowModelsContainer.end())
 							{
 								uniqueName = ModelName + "_" + std::to_string(counter);
@@ -473,7 +473,7 @@ void TModelView::ShowModelList()
 							}
 
 
-							//ShowModelÀ» ÄÁÅ×ÀÌ³Ê¿¡ Ãß°¡
+							//ShowModelì„ ì»¨í…Œì´ë„ˆì— ì¶”ê°€
 							SHPTR<TShowModelObject> newModel = std::static_pointer_cast<TShowModelObject>(GetGameInstance()->CloneActorAdd(PROTO_ACTOR_SHOWMODELOBJECT));
 							newModel->SetShowModel(it->second);
 							newModel->GetTransform()->SetNewWorldMtx(layoutObjects._mWorldMatrix);
@@ -522,7 +522,7 @@ void TModelView::ShowModelList()
 						_string uniqueName = ModelName;
 						int counter = 1;
 
-						// Áßº¹µÈ ÀÌ¸§ Ã³¸®
+						// ì¤‘ë³µëœ ì´ë¦„ ì²˜ë¦¬
 						while (m_ShowModelsContainer.find(uniqueName) != m_ShowModelsContainer.end())
 						{
 							uniqueName = ModelName + "_" + std::to_string(counter);
@@ -530,7 +530,7 @@ void TModelView::ShowModelList()
 						}
 
 
-						//ShowModelÀ» ÄÁÅ×ÀÌ³Ê¿¡ Ãß°¡
+						//ShowModelì„ ì»¨í…Œì´ë„ˆì— ì¶”ê°€
 						SHPTR<TShowModelObject> newModel = std::static_pointer_cast<TShowModelObject>(GetGameInstance()->CloneActorAdd(PROTO_ACTOR_SHOWMODELOBJECT));
 						newModel->SetShowModel(it->second);
 						newModel->GetTransform()->SetNewWorldMtx(layoutObjects._mWorldMatrix);
@@ -795,7 +795,7 @@ HRESULT TModelView::CopyCurrentModel()
 
 	int count = 1;
 
-	// Áßº¹µÈ ÀÌ¸§ Ã³¸®
+	// ì¤‘ë³µëœ ì´ë¦„ ì²˜ë¦¬
 	while (m_ShowModelsContainer.find(m_CopiedModelName) != m_ShowModelsContainer.end() || m_ShowAnimModelsContainer.find(m_CopiedModelName) != m_ShowAnimModelsContainer.end())
 	{
 		m_CopiedModelName = m_SelectedModelName + "_Clone" + std::to_string(count);
@@ -889,7 +889,7 @@ void TModelView::LoadAnimModelData(CSHPTRREF<FILEGROUP> _spFolder)
 	SHPTR<FILEGROUP> UnityFBXFolder = _spFolder->FindGroup(L"UnityFBX");
 	if (nullptr != UnityFBXFolder)
 	{
-		// Convert Folder°¡ Á¸ÀçÇÏ´Â °æ¿ì ´Ù½Ã ¸¸µéÁö ¾ÊÀ½ 
+		// Convert Folderê°€ ì¡´ì¬í•˜ëŠ” ê²½ìš° ë‹¤ì‹œ ë§Œë“¤ì§€ ì•ŠìŒ 
 		for (const FILEPAIR& File : UnityFBXFolder->FileDataList)
 		{
 			_wstring wstrConvertLoadPath = L"";
@@ -903,7 +903,7 @@ void TModelView::LoadAnimModelData(CSHPTRREF<FILEGROUP> _spFolder)
 		SHPTR<FILEGROUP> ConvertFolder = _spFolder->FindGroup(L"Convert");
 		if (nullptr != ConvertFolder && 0 <= ConvertFolder->FileDataList.size())
 		{
-			// Convert Folder°¡ Á¸ÀçÇÏ´Â °æ¿ì ´Ù½Ã ¸¸µéÁö ¾ÊÀ½ 
+			// Convert Folderê°€ ì¡´ì¬í•˜ëŠ” ê²½ìš° ë‹¤ì‹œ ë§Œë“¤ì§€ ì•ŠìŒ 
 			for (const FILEPAIR& File : ConvertFolder->FileDataList)
 			{
 				SHPTR<UAnimModel> spModel = CreateConstructorNativeNotMsg<UAnimModel>(GetDevice(), File.second->wstrfilePath);

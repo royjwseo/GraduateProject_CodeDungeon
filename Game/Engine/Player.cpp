@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Player.h"
 //-----------------------------------------------------------------------------
 // File: CPlayer.cpp
@@ -186,9 +186,9 @@ CDebugPlayer::~CDebugPlayer()
 {
 }
 
-//2024-01-17 ÀÌ¼ºÇö
-//shared_from_this()´Â »ı¼ºÀÚ ¹Û¿¡¼­ È£ÃâµÇ¾î¾ß ÇÏ¹Ç·Î Ä«¸Ş¶ó ÃÊ±âÈ­ ºÎºĞÀ» »ı¼ºÀÚ¿¡¼­ ºĞ¸®½ÃÅ°°í
-//º°µµ·Î È£ÃâÇÔ. ¾ÕÀ¸·Î »ó¼ÓµÈ ÇÃ·¹ÀÌ¾î Å¬·¡½º¸¦ »ı¼ºÇÒ¶§µµ Ç×»ó ÀÌ·¸°Ô ÇÏ´Â°ÍÀ» ÁöÇâÇÔ.
+//2024-01-17 ì´ì„±í˜„
+//shared_from_this()ëŠ” ìƒì„±ì ë°–ì—ì„œ í˜¸ì¶œë˜ì–´ì•¼ í•˜ë¯€ë¡œ ì¹´ë©”ë¼ ì´ˆê¸°í™” ë¶€ë¶„ì„ ìƒì„±ìì—ì„œ ë¶„ë¦¬ì‹œí‚¤ê³ 
+//ë³„ë„ë¡œ í˜¸ì¶œí•¨. ì•ìœ¼ë¡œ ìƒì†ëœ í”Œë ˆì´ì–´ í´ë˜ìŠ¤ë¥¼ ìƒì„±í• ë•Œë„ í•­ìƒ ì´ë ‡ê²Œ í•˜ëŠ”ê²ƒì„ ì§€í–¥í•¨.
 void CDebugPlayer::InitCamera(const ComPtr<ID3D12Device>& _Device, const ComPtr<ID3D12GraphicsCommandList>& _CommandList, const ComPtr<ID3D12RootSignature>& _RootSignature)
 {
 	m_pCamera = ChangeCamera(DEBUG_CAMERA, 0.0f);

@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "ASpace.h"
 #include "ASession.h"
 #include "ACollider.h"
@@ -60,7 +60,7 @@ namespace Core {
 	_bool ASpace::InsertSessionRecursively(CSHPTRREF<ASession> _spSession)
 	{
 //		RETURN_CHECK(false == m_spCollider->IsCollision(_spSession->GetCollider()), false);
-		// Àç±Í ÇÔ¼ö·Î Insert ÇÑ´Ù. 
+		// ìž¬ê·€ í•¨ìˆ˜ë¡œ Insert í•œë‹¤. 
 		if (true == m_isChildNode) {
 			_spSession->BringSpaceIndex(ThisShared<ASpace>());
 			m_SessionContainer.Insert(_spSession);
@@ -76,4 +76,4 @@ namespace Core {
 	{
 	}
 
-}
+}

@@ -1,12 +1,12 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_COREENUM_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_COREENUM_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_COREENUM_H
 
 
 namespace Core
 {
 	/*
-	@ Date: 2024-01-09,  Writer: ¹ÚÅÂÇö
-	@ Explain:  LOGTYPEÀÇ enum 
+	@ Date: 2024-01-09,  Writer: ë°•íƒœí˜„
+	@ Explain:  LOGTYPEì˜ enum 
 	*/
 	enum class LOGTYPE : unsigned int
 	{
@@ -19,8 +19,8 @@ namespace Core
 	namespace Sql
 	{
 		/*
-		@ Date: 2024-03-24,  Writer: ¹ÚÅÂÇö
-		@ Explain:  MSSql¿¡ Á¸ÀçÇÏ´Â DataType, °¢°¢ µ¥ÀÌÅÍ¿¡ ´ëÀÀÇÏ´Â ¹øÈ£¸¦ ³ªÅ¸³½´Ù. 
+		@ Date: 2024-03-24,  Writer: ë°•íƒœí˜„
+		@ Explain:  MSSqlì— ì¡´ì¬í•˜ëŠ” DataType, ê°ê° ë°ì´í„°ì— ëŒ€ì‘í•˜ëŠ” ë²ˆí˜¸ë¥¼ ë‚˜íƒ€ë‚¸ë‹¤. 
 		*/
 		enum class  DATATYPE
 		{
@@ -41,8 +41,8 @@ namespace Core
 			DATATYPE_END
 		};
 		/*
-		@ Date: 2024-03-24,  Writer: ¹ÚÅÂÇö
-		@ Explain:  µ¥ÀÌÅÍ¸¦ ¾î¶»°Ô Á¤·ÄÇÒÁö Á¤ÇÏ´Â enum 
+		@ Date: 2024-03-24,  Writer: ë°•íƒœí˜„
+		@ Explain:  ë°ì´í„°ë¥¼ ì–´ë–»ê²Œ ì •ë ¬í• ì§€ ì •í•˜ëŠ” enum 
 		*/
 		enum class INDEXTYPE
 		{
@@ -51,8 +51,8 @@ namespace Core
 			INDEX_END
 		};		
 		/*
-		@ Date: 2024-03-24,  Writer: ¹ÚÅÂÇö
-		@ Explain:  TableÀÇ Type 
+		@ Date: 2024-03-24,  Writer: ë°•íƒœí˜„
+		@ Explain:  Tableì˜ Type 
 		*/
 		enum TABLETYPE
 		{
@@ -60,8 +60,8 @@ namespace Core
 			TABLE_END
 		};
 		/*
-		@ Date: 2024-03-31,  Writer: ¹ÚÅÂÇö
-		@ Explain:  Query TypeÀ» Á¤ÀÇÇÑ´Ù. 
+		@ Date: 2024-03-31,  Writer: ë°•íƒœí˜„
+		@ Explain:  Query Typeì„ ì •ì˜í•œë‹¤. 
 		*/
 		enum class QUERYTYPE
 		{
@@ -93,9 +93,9 @@ namespace Core
 	};
 
 	/*
-@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 @ Explain
-- . ¾Ö´Ï¸ŞÀÌ¼Ç Ä«Å×°í¸®¸¦ Á¤ÀÇÇÑ´Ù.
+- . ì• ë‹ˆë©”ì´ì…˜ ì¹´í…Œê³ ë¦¬ë¥¼ ì •ì˜í•œë‹¤.
 */
 	enum class ANIMEVENTCATEGORY : _int {
 		CATEGROY_SECTION,
@@ -103,16 +103,16 @@ namespace Core
 		CATEGROY_END
 	};
 	/*
-	@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¾Ö´Ï¸ŞÀÌ¼Ç Event¸¦ À§ÇØ ÇÊ¿äÇÑ °´Ã¼¸¦ Á¤ÀÇÇÔ
+	- ì• ë‹ˆë©”ì´ì…˜ Eventë¥¼ ìœ„í•´ í•„ìš”í•œ ê°ì²´ë¥¼ ì •ì˜í•¨
 	*/
 	enum ANIMEVENTTYPE : _int {
-		ANIMEVENT_EFFECT,     // ÀÌÆåÆ® ¹ß»ı 			
-		ANIMEVENT_SOUND,     // ¼Ò¸® ¹ß»ı 
-		ANIMEVENT_COLLIDER,	  // Äİ¶óÀÌ´õ ¹ß»ı
-		ANIMEVENT_CAMERA,    // Ä«¸Ş¶ó µû¶ó´Ù´Ô
-		ANIMEVENT_OBJACTIVE, // OBJÈ°¼ºÈ­
+		ANIMEVENT_EFFECT,     // ì´í™íŠ¸ ë°œìƒ 			
+		ANIMEVENT_SOUND,     // ì†Œë¦¬ ë°œìƒ 
+		ANIMEVENT_COLLIDER,	  // ì½œë¼ì´ë” ë°œìƒ
+		ANIMEVENT_CAMERA,    // ì¹´ë©”ë¼ ë”°ë¼ë‹¤ë‹˜
+		ANIMEVENT_OBJACTIVE, // OBJí™œì„±í™”
 		ANIMEVENT_ANIMCHANGESBETWEEN,
 		ANIMEVENT_ANIMOCCURSTIMEPASS,
 		ANIMEVENT_END
@@ -157,4 +157,4 @@ namespace Core
 
 
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_COREENUM_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_COREENUM_H

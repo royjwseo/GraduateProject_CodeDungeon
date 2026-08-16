@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+﻿#include "EngineDefines.h"
 #include "UDefferedCamera.h"
 
 UDefferedCamera::UDefferedCamera(CSHPTRREF<UDevice> _spDevice, const _wstring& _wstrLayer, const CLONETYPE& _eCloneType)

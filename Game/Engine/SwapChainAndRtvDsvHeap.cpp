@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "SwapChainAndRtvDsvHeap.h"
 
 //---------------------------
@@ -76,7 +76,7 @@ void SwapChainAndRtvDsvHeap::CreateDepthStencilView(const ComPtr<ID3D12Device>& 
 
 	D3D12_HEAP_PROPERTIES d3dHeapProperties;
 	::ZeroMemory(&d3dHeapProperties, sizeof(D3D12_HEAP_PROPERTIES));
-	d3dHeapProperties.Type = D3D12_HEAP_TYPE_DEFAULT;//CPU´Â Á¢±ÙÇÒ ¼ö ¾ø°í GPU´Â ÀĞ°í¾²±â °¡´ÉÇÑ Å¸ÀÔ
+	d3dHeapProperties.Type = D3D12_HEAP_TYPE_DEFAULT;//CPUëŠ” ì ‘ê·¼í•  ìˆ˜ ì—†ê³  GPUëŠ” ì½ê³ ì“°ê¸° ê°€ëŠ¥í•œ íƒ€ì…
 	d3dHeapProperties.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
 	d3dHeapProperties.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
 	d3dHeapProperties.CreationNodeMask = 1;
@@ -89,7 +89,7 @@ void SwapChainAndRtvDsvHeap::CreateDepthStencilView(const ComPtr<ID3D12Device>& 
 	DX::ThrowIfFailed(_Device->CreateCommittedResource(&d3dHeapProperties, D3D12_HEAP_FLAG_NONE,
 		&d3dResourceDesc, D3D12_RESOURCE_STATE_DEPTH_WRITE, &d3dClearValue,
 		IID_PPV_ARGS(&m_pd3dDepthStencilBuffer)));
-	//±íÀÌ-½ºÅÙ½Ç ¹öÆÛ¸¦ »ı¼ºÇÑ´Ù. 
+	//ê¹Šì´-ìŠ¤í…ì‹¤ ë²„í¼ë¥¼ ìƒì„±í•œë‹¤. 
 	D3D12_CPU_DESCRIPTOR_HANDLE d3dDsvCPUDescriptorHandle =
 		m_pd3dDsvDescriptorHeap->GetCPUDescriptorHandleForHeapStart();
 
@@ -99,12 +99,12 @@ void SwapChainAndRtvDsvHeap::CreateDepthStencilView(const ComPtr<ID3D12Device>& 
 	depthStencilViewDesc.Flags = D3D12_DSV_FLAG_NONE;
 	_Device->CreateDepthStencilView(m_pd3dDepthStencilBuffer.Get(), &depthStencilViewDesc,
 		d3dDsvCPUDescriptorHandle);
-	//±íÀÌ-½ºÅÙ½Ç ¹öÆÛ ºä¸¦ »ı¼ºÇÑ´Ù.
+	//ê¹Šì´-ìŠ¤í…ì‹¤ ë²„í¼ ë·°ë¥¼ ìƒì„±í•œë‹¤.
 
 
 }
 
-//->¿©±â °³³äºÎÅÍ º¸°í ÀÛ¼º
+//->ì—¬ê¸° ê°œë…ë¶€í„° ë³´ê³  ì‘ì„±
 void SwapChainAndRtvDsvHeap::CreateRtvAndDsvDescriptorHeaps(const ComPtr<ID3D12Device>& _Device) {
 
 	D3D12_DESCRIPTOR_HEAP_DESC d3dDescriptorHeapDesc;
@@ -114,9 +114,9 @@ void SwapChainAndRtvDsvHeap::CreateRtvAndDsvDescriptorHeaps(const ComPtr<ID3D12D
 	d3dDescriptorHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;
 	d3dDescriptorHeapDesc.NodeMask = 0;
 	DX::ThrowIfFailed(_Device->CreateDescriptorHeap(&d3dDescriptorHeapDesc, IID_PPV_ARGS(&m_pd3dRtvDescriptorHeap)));
-	//·£´õ Å¸°Ù ¼­¼úÀÚ Èü(¼­¼úÀÚ °³¼ö= ½º¿ÒÃ¼ÀÎ ¹öÆÛ °³¼ö) À» »ı¼º
+	//ëœë” íƒ€ê²Ÿ ì„œìˆ ì í™(ì„œìˆ ì ê°œìˆ˜= ìŠ¤ì™‘ì²´ì¸ ë²„í¼ ê°œìˆ˜) ì„ ìƒì„±
 	m_nRtvDescriptorIncrementSize = _Device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
-	//·»´õ Å¸°Ù ¼­¼úÀÚ ÈüÀÇ ¿ø¼ÒÀÇ Å©±â¸¦ ÀúÀåÇÑ´Ù.
+	//ë Œë” íƒ€ê²Ÿ ì„œìˆ ì í™ì˜ ì›ì†Œì˜ í¬ê¸°ë¥¼ ì €ì¥í•œë‹¤.
 
 	d3dDescriptorHeapDesc.NumDescriptors = 1;
 	d3dDescriptorHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_DSV;
@@ -139,21 +139,21 @@ void SwapChainAndRtvDsvHeap::CreateSwapChain(const ComPtr<IDXGIFactory4>& _Facto
 	dxgiSwapChainDesc.SampleDesc.Count = (MssaaEnable) ? 4 : 1;
 	dxgiSwapChainDesc.SampleDesc.Quality = (MssaaEnable) ? (MsaaQualityLevels - 1) : 0;
 	dxgiSwapChainDesc.Windowed = TRUE;
-	//ÀüÃ¼È­¸é ¸ğµå¿¡¼­ ¹ÙÅÁÈ­¸éÀÇ ÇØ»óµµ¸¦ ½º¿ÒÃ¼ÀÎ(ÈÄ¸é¹öÆÛ)ÀÇ Å©±â¿¡ ¸Â°Ô º¯°æÇÑ´Ù. 
+	//ì „ì²´í™”ë©´ ëª¨ë“œì—ì„œ ë°”íƒ•í™”ë©´ì˜ í•´ìƒë„ë¥¼ ìŠ¤ì™‘ì²´ì¸(í›„ë©´ë²„í¼)ì˜ í¬ê¸°ì— ë§ê²Œ ë³€ê²½í•œë‹¤. 
 	dxgiSwapChainDesc.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
 
-	// CreateSwapChain ÇÔ¼ö¸¦ È£ÃâÇÏ¿© IDXGISwapChainÀ» ¸¸µì´Ï´Ù.
+	// CreateSwapChain í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ì—¬ IDXGISwapChainì„ ë§Œë“­ë‹ˆë‹¤.
 	ComPtr<IDXGISwapChain> pdxgiSwapChain;
 	DX::ThrowIfFailed(_Factory->CreateSwapChain(_CmdQueue.Get(),
 		&dxgiSwapChainDesc, pdxgiSwapChain.GetAddressOf()));
 
 
-	// IDXGISwapChain3·Î º¯È¯
+	// IDXGISwapChain3ë¡œ ë³€í™˜
 	ComPtr<IDXGISwapChain3> pdxgiSwapChain3;
 	DX::ThrowIfFailed(pdxgiSwapChain.As(&pdxgiSwapChain3));
 
 
-	// m_pdxgiSwapChain¿¡ IDXGISwapChain3 ÇÒ´ç
+	// m_pdxgiSwapChainì— IDXGISwapChain3 í• ë‹¹
 	m_cpdxgiSwapChain = pdxgiSwapChain3;
 
 	m_nSwapChainBufferIndex = m_cpdxgiSwapChain->GetCurrentBackBufferIndex();
@@ -161,4 +161,4 @@ void SwapChainAndRtvDsvHeap::CreateSwapChain(const ComPtr<IDXGIFactory4>& _Facto
 #ifndef _WITH_SWAPCHAIN_FULLSCREEN_STATE
 	CreateRenderTargetViews(_Device);
 #endif
-}
+}

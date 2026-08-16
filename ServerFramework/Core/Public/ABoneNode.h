@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ABONENODE_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ABONENODE_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ABONENODE_H
 
 #include "ACoreBase.h"
@@ -8,9 +8,9 @@ class AAnimator;
 
 /*
 @ Date: 2024-07-03
-@ Writer: ¹ÚÅÂÇö
+@ Writer: ë°•íƒœí˜„
 @ Explain
-- ¼­¹ö¿¡¼­ »ç¿ëÇÏ´Â º» ³ëµå
+- ì„œë²„ì—ì„œ ì‚¬ìš©í•˜ëŠ” ë³¸ ë…¸ë“œ
 */
 class ABoneNode : public ACoreBase {
 public:
@@ -62,4 +62,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ABONENODE_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ABONENODE_H

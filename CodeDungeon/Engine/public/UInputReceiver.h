@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UComponent.h"
 
 BEGIN(Engine)
@@ -23,7 +23,7 @@ public:
 	virtual HRESULT NativeConstructClone(const VOIDDATAS& _tDatas) override PURE;
 	// TickActive
 	virtual void Tick(const _double& _dTimeDelta, UController* _pController);
-	// ³×Æ®¿öÅ© Á¤º¸¸¦ ¹Ş¾Æ¿À´Â ÇÔ¼ö
+	// ë„¤íŠ¸ì›Œí¬ ì •ë³´ë¥¼ ë°›ì•„ì˜¤ëŠ” í•¨ìˆ˜
 	virtual void ReceiveNetworkProcessData(void* _pData);
 	// Enable Keys
 	_bool IsCheckEnableKey(_int _iIndex);

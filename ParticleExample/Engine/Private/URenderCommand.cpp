@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+﻿#include "EngineDefines.h"
 #include "URenderCommand.h"
 #include "UDevice.h"
 #include "UGameInstance.h"
@@ -45,4 +45,4 @@ void URenderCommand::Clear()
 	GetGpuCmdList()->Reset(m_arrRenderAllocators[m_iAllocatorIndex].Get(), nullptr);
 
 	m_iAllocatorIndex = (m_iAllocatorIndex + 1) % m_arrRenderAllocators.size();
-}
+}

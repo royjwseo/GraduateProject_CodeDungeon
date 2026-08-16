@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UPawn.h"
 
@@ -23,9 +23,9 @@ enum ANIM_TABLE {
 };
 
 /*
-@ Date: 2024-02-06, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-06, Writer: ë°•íƒœí˜„
 @ Explain
-- Animation µ¥ÀÌÅÍµéÀ» ModifyÇÏ°í Animation°ú AnimationÀ» ÀÌ¾îÁÖ´Â ToolÀ» ¸¸µé±â À§ÇØ ÇÊ¿äÇÑ °´Ã¼
+- Animation ë°ì´í„°ë“¤ì„ Modifyí•˜ê³  Animationê³¼ Animationì„ ì´ì–´ì£¼ëŠ” Toolì„ ë§Œë“¤ê¸° ìœ„í•´ í•„ìš”í•œ ê°ì²´
 */
 class TAnimControlModel final : public UPawn {
 public:
@@ -33,7 +33,7 @@ public:
 	TAnimControlModel(const TAnimControlModel& _rhs);
 	DESTRUCTOR(TAnimControlModel)
 public:
-	// UPawnÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UPawnì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(TAnimControlModel, "TAnimControlModel::Clone To Failed")
 	virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UObject.h"
 
@@ -7,8 +7,8 @@ class UDevice;
 class UGpuCommand;
 
 /*
-Actor, Resource, Component µîÀÇ ºÎ¸ğ Å¬·¡½º
-º¹Á¦°¡ ÇÊ¿äÇÑ Å¬·¡½º´Â ¹İµå½Ã ÀÌ Å¬·¡½º¸¦ »ó¼Ó ¹Ş¾Æ¾ß ÇÑ´Ù.
+Actor, Resource, Component ë“±ì˜ ë¶€ëª¨ í´ë˜ìŠ¤
+ë³µì œê°€ í•„ìš”í•œ í´ë˜ìŠ¤ëŠ” ë°˜ë“œì‹œ ì´ í´ë˜ìŠ¤ë¥¼ ìƒì† ë°›ì•„ì•¼ í•œë‹¤.
 */
 
 class UCloneObject  abstract : public UObject {

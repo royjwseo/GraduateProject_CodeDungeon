@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UVIBufferGrid.h"
 
 UVIBufferGrid::UVIBufferGrid(CSHPTRREF<UDevice> _spDevice, const VIBUFFERTYPE _eBufferType)
@@ -20,7 +20,7 @@ HRESULT UVIBufferGrid::NativeConstruct()
 	RETURN_CHECK_FAILED(__super::NativeConstruct(), E_FAIL);
 	// Vertex 
 	{
-		// Vertex °³¼ö
+		// Vertex ê°œìˆ˜
 		const _uint VERTEX_CNT = GRID_SIZE * GRID_SIZE;
 		if (VIBUFFERTYPE::GENERIC == GetBufferType())
 		{
@@ -61,21 +61,21 @@ HRESULT UVIBufferGrid::NativeConstruct()
 	}
 	// Index
 	{
-		// Index °³¼ö
-		const _uint INDICES_CNT = (GRID_SIZE - 1) * (GRID_SIZE - 1) * 6; // °¢ Á¤Á¡¸¶´Ù 6°³ÀÇ ÀÎµ¦½º°¡ ÇÊ¿äÇÔ (2°³ÀÇ »ï°¢ÇüÀ» ÀÌ·ë)
+		// Index ê°œìˆ˜
+		const _uint INDICES_CNT = (GRID_SIZE - 1) * (GRID_SIZE - 1) * 6; // ê° ì •ì ë§ˆë‹¤ 6ê°œì˜ ì¸ë±ìŠ¤ê°€ í•„ìš”í•¨ (2ê°œì˜ ì‚¼ê°í˜•ì„ ì´ë£¸)
 
-		// ¸ñ·Ï
+		// ëª©ë¡
 		INDICIES32* pIndices = Make::AllocBuffer<INDICIES32>(INDICES_CNT);
 		ZeroMemory(pIndices, sizeof(INDICIES32) * INDICES_CNT);
 
 		for (int z = 0, index = 0; z < GRID_SIZE - 1; ++z) {
 			for (int x = 0; x < GRID_SIZE - 1; ++x) {
-				// ÇöÀç Á¤Á¡ÀÇ ÀÎµ¦½º
+				// í˜„ì¬ ì •ì ì˜ ì¸ë±ìŠ¤
 				_uint currentIndex = z * GRID_SIZE + x;
 
-				// Ã¹ ¹øÂ° »ï°¢Çü
+				// ì²« ë²ˆì§¸ ì‚¼ê°í˜•
 				pIndices[index++] = { currentIndex, currentIndex + 1, currentIndex + GRID_SIZE };
-				// µÎ ¹øÂ° »ï°¢Çü
+				// ë‘ ë²ˆì§¸ ì‚¼ê°í˜•
 				pIndices[index++] = { currentIndex + 1, currentIndex + GRID_SIZE + 1, currentIndex + GRID_SIZE };
 			}
 		}

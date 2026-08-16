@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UBase.h"
 
 /*
-@ Date: 2024-04-24, Writer: ÀÌ¼ºÇö
+@ Date: 2024-04-24, Writer: ì´ì„±í˜„
 @ Explain
-- ¸ğµ¨, ³×ºñ°ÔÀÌ¼Ç µî µ¥ÀÌÅÍ¸¦ °ü¸®ÇÏ°í ·ÎµåÇÏ´Â ¸Å´ÏÀú °´Ã¼
+- ëª¨ë¸, ë„¤ë¹„ê²Œì´ì…˜ ë“± ë°ì´í„°ë¥¼ ê´€ë¦¬í•˜ê³  ë¡œë“œí•˜ëŠ” ë§¤ë‹ˆì € ê°ì²´
 */
 BEGIN(ENGINE)
 class UStageManager;
@@ -21,7 +21,7 @@ public:
 	NO_COPY(CDataManager)
 	DESTRUCTOR(CDataManager)
 
-	// UBaseÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UBaseì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	void Free() override;
 public:
 	HRESULT NativeConstruct();

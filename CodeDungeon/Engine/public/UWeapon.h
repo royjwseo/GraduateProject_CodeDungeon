@@ -1,12 +1,12 @@
-#pragma once
+ï»¿#pragma once
 #include "UEquipment.h"
 
 BEGIN(Engine)
 
 /*
-@ Date: 2024-04-27, Writer: ¹ÚÅÂÇö
+@ Date: 2024-04-27, Writer: ë°•íƒœí˜„
 @ Explain
--  Ä³¸¯ÅÍ°¡ µé°í ÀÖ°Ô ÇÏ´Â ¹«±â¿¡ ´ëÇÑ Å¬·¡½º
+-  ìºë¦­í„°ê°€ ë“¤ê³  ìˆê²Œ í•˜ëŠ” ë¬´ê¸°ì— ëŒ€í•œ í´ë˜ìŠ¤
 */
 
 class UWeapon : public UEquipment {
@@ -16,7 +16,7 @@ public:
 	UWeapon(const UWeapon& _rhs);
 	DESTRUCTOR(UWeapon)
 public:
-	// UPawnÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UPawnì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(UWeapon, "UWeapon::Clone To Failed")
 	virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;

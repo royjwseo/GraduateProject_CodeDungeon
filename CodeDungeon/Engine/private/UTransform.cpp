@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UTransform.h"
 #include "UMethod.h"
 #include "UShaderConstantBuffer.h"
@@ -108,7 +108,7 @@ HRESULT UTransform::NativeConstruct()
 {
 	RETURN_CHECK_FAILED(__super::NativeConstruct(), E_FAIL);
 	SHPTR<UGameInstance> spGameInstance = GET_INSTANCE(UGameInstance);
-	// ÀÌ¹Ì ¸¸µé¾îÁø Shader ConstnatBuffer¸¦ °¡Á®¿È
+	// ì´ë¯¸ ë§Œë“¤ì–´ì§„ Shader ConstnatBufferë¥¼ ê°€ì ¸ì˜´
 	spGameInstance->GetPreAllocatedConstantBuffer(PREALLOCATED_TRANSFORM, m_TransformBuffer);
 	return S_OK;
 }
@@ -514,7 +514,7 @@ void UTransform::LookAt(const _float3& _vTargetPos)
 	_float4 vRight = DirectX::XMVector3Normalize(XMVector3Cross(_float3::Up, vLook));
 	_float4 vUp = DirectX::XMVector3Normalize(XMVector3Cross(vLook, vRight));
 
-	// È¸Àü Çà·Ä °è»ê
+	// íšŒì „ í–‰ë ¬ ê³„ì‚°
 	_float4x4 rotationMatrix(
 		vRight,
 		vUp,
@@ -550,14 +550,14 @@ void UTransform::LookAtWithFixedUp(const _float3& _vTargetPos, float DeltaTime, 
 	_float3 vLook = DirectX::XMVector3Normalize(DirectX::XMVectorSubtract(_vTargetPos, MyPosition));
 	_float3 vRight = DirectX::XMVector3Normalize(XMVector3Cross(vLook, FixedUp));
 
-	// ÇöÀç °´Ã¼ÀÇ ½Ã¼± ¹æÇâ°ú ¸ñÇ¥ ¹æÇâ »çÀÌÀÇ °¢µµ¸¦ ±¸ÇÕ´Ï´Ù.
+	// í˜„ì¬ ê°ì²´ì˜ ì‹œì„  ë°©í–¥ê³¼ ëª©í‘œ ë°©í–¥ ì‚¬ì´ì˜ ê°ë„ë¥¼ êµ¬í•©ë‹ˆë‹¤.
 	 
 	float AngleBetween = acosf(GetLook().Dot(vLook));
 
-	// È¸Àü ¼Óµµ¿¡ ½Ã°£À» °öÇÏ¿© È¸ÀüÇÒ °¢µµ¸¦ °è»êÇÕ´Ï´Ù.
+	// íšŒì „ ì†ë„ì— ì‹œê°„ì„ ê³±í•˜ì—¬ íšŒì „í•  ê°ë„ë¥¼ ê³„ì‚°í•©ë‹ˆë‹¤.
 	float RotationAngle = RotationSpeed * DeltaTime;
 
-	// È¸ÀüÇÒ °¢µµ°¡ ½ÇÁ¦ °¢µµº¸´Ù ÀÛ°Å³ª °°À¸¸é ¹Ù·Î ¸ñÇ¥ ¹æÇâÀ» ÇâÇÏµµ·Ï ¼³Á¤ÇÕ´Ï´Ù.
+	// íšŒì „í•  ê°ë„ê°€ ì‹¤ì œ ê°ë„ë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ìœ¼ë©´ ë°”ë¡œ ëª©í‘œ ë°©í–¥ì„ í–¥í•˜ë„ë¡ ì„¤ì •í•©ë‹ˆë‹¤.
 	if (RotationAngle >= AngleBetween)
 	{
 		SetRight(vRight * m_vScale.x);
@@ -566,7 +566,7 @@ void UTransform::LookAtWithFixedUp(const _float3& _vTargetPos, float DeltaTime, 
 	}
 	else
 	{
-		// ¼±Çü º¸°£(Lerp)À» »ç¿ëÇÏ¿© ÇöÀç °¢µµ¿¡¼­ ¸ñÇ¥ °¢µµ·Î ºÎµå·´°Ô È¸ÀüÇÕ´Ï´Ù.
+		// ì„ í˜• ë³´ê°„(Lerp)ì„ ì‚¬ìš©í•˜ì—¬ í˜„ì¬ ê°ë„ì—ì„œ ëª©í‘œ ê°ë„ë¡œ ë¶€ë“œëŸ½ê²Œ íšŒì „í•©ë‹ˆë‹¤.
 		_float3 NewLook = DirectX::XMVector3Normalize(DirectX::XMVectorLerp(GetLook(), vLook, DeltaTime));
 		_float3 NewRight = DirectX::XMVector3Normalize(XMVector3Cross(NewLook, FixedUp));
 

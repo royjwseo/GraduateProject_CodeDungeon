@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UBase.h"
 
 BEGIN(Engine)
@@ -8,9 +8,9 @@ class UCommand;
 class UModelMaterial;
 class URenderer;
 /*
-@ Date: 2024-04-13, Writer: ¹ÚÅÂÇö
+@ Date: 2024-04-13, Writer: ë°•íƒœí˜„
 @ Explain
--  ¸ÓÅÍ¸®¾óÀ» °ü¸®ÇÏ´Â ¸Å´ÏÀú
+-  ë¨¸í„°ë¦¬ì–¼ì„ ê´€ë¦¬í•˜ëŠ” ë§¤ë‹ˆì €
 */
 class UMaterialManager final : public UBase {
 public:

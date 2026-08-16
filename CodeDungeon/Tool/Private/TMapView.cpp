@@ -1,4 +1,4 @@
-#include "ToolDefines.h"
+ï»¿#include "ToolDefines.h"
 #include "TMapView.h"
 #include "UGameInstance.h"
 #include "UMethod.h"
@@ -85,7 +85,7 @@ void TMapView::LateTickActive(const _double& _dTimeDetla)
 	{
 		for (auto& ShowModel : m_ShowMapModelContainer)
 		{
-			//ÇÈÅ·ÀÌ °¡´ÉÇÏµµ·Ï ÇÈÅ·¸ñ·Ï¿¡ Ãß°¡
+			//í”½í‚¹ì´ ê°€ëŠ¥í•˜ë„ë¡ í”½í‚¹ëª©ë¡ì— ì¶”ê°€
 			SHPTR<UModel> spModel = ShowModel.second->GetShowModel();
 			for (auto& Mesh : spModel->GetMeshContainers())
 			{
@@ -115,9 +115,9 @@ void TMapView::DockBuildInitSetting()
 		ImGui::DockBuilderRemoveNode(m_stMainDesc.iDockSpaceID);
 		ImGui::DockBuilderAddNode(m_stMainDesc.iDockSpaceID);
 
-		// ÀÌ¹Ì µ¶ ³ëµå°¡ ÀÖÀ¸¸é »õ·Î¿î ÅÇÀ¸·Î Ãß°¡
+		// ì´ë¯¸ ë… ë…¸ë“œê°€ ìˆìœ¼ë©´ ìƒˆë¡œìš´ íƒ­ìœ¼ë¡œ ì¶”ê°€
 		m_stMapView.iDockSpaceID = ImGui::DockBuilderSplitNode(dock_main_id, ImGuiDir_Up, 0.5f, NULL, &dock_main_id);
-		ImGui::DockBuilderDockWindow(m_stMapView.strName.c_str(), dock_main_id); // ±âÁ¸ ³ëµå¿¡ µµÅ·
+		ImGui::DockBuilderDockWindow(m_stMapView.strName.c_str(), dock_main_id); // ê¸°ì¡´ ë…¸ë“œì— ë„í‚¹
 		ImGui::DockBuilderFinish(m_stMainDesc.iDockSpaceID);
 	}
 	m_isInitSetting = true;
@@ -142,13 +142,13 @@ void TMapView::RenderActive()
 void TMapView::MapView()
 {
 	static bool firstrun = true;
-	static std::future<void> loadFuture; // ºñµ¿±â ·Îµù »óÅÂ ÃßÀû¿ë
+	static std::future<void> loadFuture; // ë¹„ë™ê¸° ë¡œë”© ìƒíƒœ ì¶”ì ìš©
 
 	ImGui::Begin(m_stMapView.strName.c_str(), GetOpenPointer(), m_stMapView.imgWindowFlags);
 	{
 		if (ImGui::TreeNodeEx("ShowMap", ImGuiTreeNodeFlags_DefaultOpen))
 		{
-			// ·Îµù ÁßÀÏ ¶§ ·Îµù Ã¢ Ç¥½Ã
+			// ë¡œë”© ì¤‘ì¼ ë•Œ ë¡œë”© ì°½ í‘œì‹œ
 			if (!m_bisMapModelsLoaded)
 			{
 				ImGui::OpenPopup("Loading##MapLoadingDialog");
@@ -158,27 +158,27 @@ void TMapView::MapView()
 					ImGui::Text("Map models are loading. Please wait...");
 					ImGui::Separator();
 
-					// ·Îµù ÀÛ¾÷ È®ÀÎ
+					// ë¡œë”© ì‘ì—… í™•ì¸
 					if (loadFuture.valid() && loadFuture.wait_for(std::chrono::milliseconds(0)) == std::future_status::ready)
 					{
-						m_bisMapModelsLoaded = true; // ·Îµù ¿Ï·á
-						loadFuture.get();           // ºñµ¿±â °á°ú °¡Á®¿À±â (¿¹¿Ü ¹ß»ı ½Ã Ã³¸®)
+						m_bisMapModelsLoaded = true; // ë¡œë”© ì™„ë£Œ
+						loadFuture.get();           // ë¹„ë™ê¸° ê²°ê³¼ ê°€ì ¸ì˜¤ê¸° (ì˜ˆì™¸ ë°œìƒ ì‹œ ì²˜ë¦¬)
 					}
 
 					ImGui::EndPopup();
 				}
 			}
 
-			// ·Îµù Æ®¸®°Å
+			// ë¡œë”© íŠ¸ë¦¬ê±°
 			if (!m_bisMapModelsLoaded && !firstrun && !loadFuture.valid())
 			{
 				loadFuture = std::async(std::launch::async, [this]()
 					{
-						LoadMapModels(); // ºñµ¿±â ·Îµù
+						LoadMapModels(); // ë¹„ë™ê¸° ë¡œë”©
 					});
 			}
 
-			// ·ÎµùÀÌ ¿Ï·áµÈ °æ¿ì UI È°¼ºÈ­
+			// ë¡œë”©ì´ ì™„ë£Œëœ ê²½ìš° UI í™œì„±í™”
 			if (m_bisMapModelsLoaded)
 			{
 				ShowModelList();
@@ -252,13 +252,13 @@ void TMapView::ShowModelList()
 				_bool isTrue{ false };
 				if (ImGui::Selectable(Model.first.c_str(), &isTrue))
 				{
-					//numStr¸¦ È°¿ëÇÏ¿© Áßº¹µÈ ¸ğµ¨ ±¸ºĞ
+					//numStrë¥¼ í™œìš©í•˜ì—¬ ì¤‘ë³µëœ ëª¨ë¸ êµ¬ë¶„
 					_string uniqueName = Model.first;
 					_string numStr = std::to_string(m_iModelSuffix);
 					while (m_ShowMapModelContainer.find(uniqueName) != m_ShowMapModelContainer.end())
 						uniqueName.append(numStr);
 
-					//ShowModelÀ» ÄÁÅ×ÀÌ³Ê¿¡ Ãß°¡
+					//ShowModelì„ ì»¨í…Œì´ë„ˆì— ì¶”ê°€
 					SHPTR<TShowModelObject> newModel = std::static_pointer_cast<TShowModelObject>(GetGameInstance()->CloneActorAdd(PROTO_ACTOR_SHOWMODELOBJECT));
 					newModel->SetShowModel(Model.second);
 					
@@ -271,7 +271,7 @@ void TMapView::ShowModelList()
 
 					m_ShowMapModelContainer.emplace(uniqueName, newModel);
 
-					// numStrÀ» ´Ù½Ã Á¦°Å
+					// numStrì„ ë‹¤ì‹œ ì œê±°
 					size_t pos = uniqueName.find(numStr);
 					if (pos != _wstring::npos)
 						uniqueName.erase(pos, numStr.length());
@@ -285,13 +285,13 @@ void TMapView::ShowModelList()
 			using MODELPAIR = std::pair < _string, SHPTR<UModel>>;
 			for (const MODELPAIR& Model : m_MapModelContainer)
 			{
-				//numStr¸¦ È°¿ëÇÏ¿© Áßº¹µÈ ¸ğµ¨ ±¸ºĞ
+				//numStrë¥¼ í™œìš©í•˜ì—¬ ì¤‘ë³µëœ ëª¨ë¸ êµ¬ë¶„
 				_string uniqueName = Model.first;
 				_string numStr = std::to_string(m_iModelSuffix);
 				while (m_ShowMapModelContainer.find(uniqueName) != m_ShowMapModelContainer.end())
 					uniqueName.append(numStr);
 
-				//ShowModelÀ» ÄÁÅ×ÀÌ³Ê¿¡ Ãß°¡
+				//ShowModelì„ ì»¨í…Œì´ë„ˆì— ì¶”ê°€
 				SHPTR<TShowModelObject> newModel = std::static_pointer_cast<TShowModelObject>(GetGameInstance()->CloneActorAdd(PROTO_ACTOR_SHOWMODELOBJECT));
 				newModel->SetShowModel(Model.second);
 
@@ -304,7 +304,7 @@ void TMapView::ShowModelList()
 
 				m_ShowMapModelContainer.emplace(uniqueName, newModel);
 
-				// numStrÀ» ´Ù½Ã Á¦°Å
+				// numStrì„ ë‹¤ì‹œ ì œê±°
 				size_t pos = uniqueName.find(numStr);
 				if (pos != _wstring::npos)
 					uniqueName.erase(pos, numStr.length());

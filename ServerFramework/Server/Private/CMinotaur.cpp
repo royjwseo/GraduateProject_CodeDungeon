@@ -1,4 +1,4 @@
-#include "ServerDefines.h"
+﻿#include "ServerDefines.h"
 #include "CMinotaur.h"
 #include "ATransform.h"
 #include "CMinotaurAnimController.h"
@@ -70,4 +70,4 @@ namespace Server {
 	{
 	}
 
-}
+}

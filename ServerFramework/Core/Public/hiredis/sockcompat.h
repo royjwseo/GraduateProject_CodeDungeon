@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2019, Marcus Geelnard <m at bitsnbites dot eu>
  *
  * All rights reserved.

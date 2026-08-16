@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UEquipment.h"
 
 BEGIN(Tool)
@@ -9,7 +9,7 @@ public:
 	TEquipModel(const TEquipModel& _rhs);
 	DESTRUCTOR(TEquipModel)
 public:
-	// UPawnÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UPawnì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(TEquipModel, "TEquipModel::Clone To Failed")
 	virtual void Free() override;
 public:

@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+﻿#include "EngineDefines.h"
 #include "UResource.h"
 
 UResource::UResource(CSHPTRREF<UDevice> _spDevice) :

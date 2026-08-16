@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "AStressClientService.h"
 #include "ASession.h"
 #include "ACoreInstance.h"
@@ -48,4 +48,4 @@ namespace Core {
 	{
 	}
 
-}
+}

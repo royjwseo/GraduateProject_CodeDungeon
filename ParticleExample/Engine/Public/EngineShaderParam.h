@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINESHADERPARAM_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINESHADERPARAM_H
 
@@ -257,10 +257,10 @@ namespace Engine {
 
 	struct WATERIFNODESC
 	{
-		_float2 vWaterNormalMapOffset{}; // ¹° Ç¥¸éÀÇ ³ë¸» ¸Ê ÀÌµ¿ ¿ÀÇÁ¼Â
-		_float fWaveAmplitude{ 0.f }; // ÆÄ°í
-		_float fWaveFrequency{ 0.f }; // ÆÄµ¿ ºóµµ
-		_float fWaveSpeed{ 0.f }; // ÆÄµ¿ ¼Óµµ
+		_float2 vWaterNormalMapOffset{}; // ë¬¼ í‘œë©´ì˜ ë…¸ë§ ë§µ ì´ë™ ì˜¤í”„ì…‹
+		_float fWaveAmplitude{ 0.f }; // íŒŒê³ 
+		_float fWaveFrequency{ 0.f }; // íŒŒë™ ë¹ˆë„
+		_float fWaveSpeed{ 0.f }; // íŒŒë™ ì†ë„
 
 		_float Padding;
 	};
@@ -295,4 +295,4 @@ namespace Engine {
 #pragma endregion  DEFAULTOBEJCT
 }
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINESHADERPARAM_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINESHADERPARAM_H

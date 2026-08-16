@@ -1,4 +1,4 @@
-#include "ServerDefines.h"
+﻿#include "ServerDefines.h"
 #include "CMobLayoutLoader.h"
 
 namespace Server {
@@ -52,4 +52,4 @@ namespace Server {
 		}
 		int a = 0;
 	}
-}
+}

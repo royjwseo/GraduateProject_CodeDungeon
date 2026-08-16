@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UShaderStructedBuffer.h"
 #include "UGameInstance.h"
 #include "UDevice.h"
@@ -28,7 +28,7 @@ HRESULT UShaderStructedBuffer::NativeConstruct(CSHPTRREF<UDevice> _spDevice, con
 	m_iElementCount = _iElementCnt;
 
 	m_stD3DResourceState = D3D12_RESOURCE_STATE_COMMON;
-	// UAV ¸¸µê 
+	// UAV ë§Œë“¦ 
 	{
 		_ulong BufferSize{ static_cast<_ulong>(_iElementCnt * _iElementSize) };
 		D3D12_RESOURCE_DESC desc = CD3DX12_RESOURCE_DESC::Buffer(BufferSize, D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS);

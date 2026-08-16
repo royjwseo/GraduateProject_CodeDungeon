@@ -1,4 +1,4 @@
-#include "ServerDefines.h"
+﻿#include "ServerDefines.h"
 #include "CAnubis.h"
 #include "ATransform.h"
 #include "CAnubisAnimController.h"
@@ -69,4 +69,4 @@ namespace Server
 	{
 	}
 
-}
+}

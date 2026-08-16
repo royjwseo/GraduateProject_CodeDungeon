@@ -1,14 +1,14 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ACELL_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ACELL_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ACELL_H
 
 #include "ACoreBase.h"
 
 BEGIN(Core)
 /*
-@ Date: 2023-01-14, Writer: ¹ÚÅÂÇö
+@ Date: 2023-01-14, Writer: ë°•íƒœí˜„
 @ Explain
-- NavigationÀ¸·Î ÁöÇü Ãæµ¹À» ¼öÇàÇÒ ¿¹Á¤ÀÎµ¥ ±×°ÍÀ» À§ÇÑ Å¬·¡½º·Î 3°³ÀÇ Á¡À» ÀÌ·ç¾î¼­
-»ï°¢ÇüÀ» ÀÌ·ç°í ±× À§¿¡¼­ ÇÃ·¹ÀÌ¾î°¡ ¹þ¾î³ª´ÂÁö ¹þ¾î³ªÁö ¾Ê´ÂÁö È®ÀÎÇÏ´Â Å¬·¡½ºÀÌ´Ù.
+- Navigationìœ¼ë¡œ ì§€í˜• ì¶©ëŒì„ ìˆ˜í–‰í•  ì˜ˆì •ì¸ë° ê·¸ê²ƒì„ ìœ„í•œ í´ëž˜ìŠ¤ë¡œ 3ê°œì˜ ì ì„ ì´ë£¨ì–´ì„œ
+ì‚¼ê°í˜•ì„ ì´ë£¨ê³  ê·¸ ìœ„ì—ì„œ í”Œë ˆì´ì–´ê°€ ë²—ì–´ë‚˜ëŠ”ì§€ ë²—ì–´ë‚˜ì§€ ì•ŠëŠ”ì§€ í™•ì¸í•˜ëŠ” í´ëž˜ìŠ¤ì´ë‹¤.
 */
 class CORE_DLL  ACell final : public ACoreBase {
 public:
@@ -82,4 +82,4 @@ private:
 };
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ACELL_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ACELL_H

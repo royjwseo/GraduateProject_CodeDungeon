@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 namespace Engine {
 	template <typename... Args>
 	constexpr char* GetArgsTypeName()
@@ -80,7 +80,7 @@ namespace Engine {
 		MessageBoxA(0, typeid(T).name(), nullptr, MB_OK);
 	}
 
-	// »ı¼ºÀÚ°¡ µ¿ÀÛÇÏ´ÂÁö Ã¼Å©ÇÏ°í µ¿ÀÛÇÏ¸é ¸®ÅÏÇÏ´Â ÇÔ¼ö NativeConstruct ÇÔ¼ö°¡ ¾ø¾îµµ µÈ´Ù. 
+	// ìƒì„±ìê°€ ë™ì‘í•˜ëŠ”ì§€ ì²´í¬í•˜ê³  ë™ì‘í•˜ë©´ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜ NativeConstruct í•¨ìˆ˜ê°€ ì—†ì–´ë„ ëœë‹¤. 
 	template<class T, class ...Args>
 		requires ConstructWidthArgsCheck<T, Args...>
 	static SHPTR<T> Create(Args&&... args) {
@@ -88,11 +88,11 @@ namespace Engine {
 		return pInstance;
 	}
 
-	// ÇÔ¼ö¿¡¼­ °ªÀ» ¹Ş¾Æ¿Í¼­ °´Ã¼¸¦ ¸¸µé¾î ³»´Â °Í
+	// í•¨ìˆ˜ì—ì„œ ê°’ì„ ë°›ì•„ì™€ì„œ ê°ì²´ë¥¼ ë§Œë“¤ì–´ ë‚´ëŠ” ê²ƒ
 	template<class T, class ...Args>
 		requires	CheckToSameMethodArgs<T, Args...>
 	static SHPTR<T> CreateNative(Args&&... args) {
-		static_assert(CheckToSameMethodArgs<T, Args...>, "NativeConstructÀÇ ÀÎÀÚ°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+		static_assert(CheckToSameMethodArgs<T, Args...>, "NativeConstructì˜ ì¸ìê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		SHPTR<T> pInstance{ Make::MakeShared<T>() };
 		if (FAILED(pInstance->NativeConstruct(args...))) {
 			ErrorToCreateClass(pInstance);
@@ -101,11 +101,11 @@ namespace Engine {
 		return pInstance;
 	}
 
-	// ÇÔ¼ö¿¡¼­ °ªÀ» ¹Ş¾Æ¿Í¼­ °´Ã¼¸¦ ¸¸µé¾î ³»´Â °Í
+	// í•¨ìˆ˜ì—ì„œ ê°’ì„ ë°›ì•„ì™€ì„œ ê°ì²´ë¥¼ ë§Œë“¤ì–´ ë‚´ëŠ” ê²ƒ
 	template<class T, class ...Args>
 		requires CheckToSameMethodArgs<T, Args...>
 	static SHPTR<T> CreateNativeNotMsg(Args&&... args) {
-		static_assert(CheckToSameMethodArgs<T, Args...>, "NativeConstructÀÇ ÀÎÀÚ°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+		static_assert(CheckToSameMethodArgs<T, Args...>, "NativeConstructì˜ ì¸ìê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		SHPTR<T> pInstance{ Make::MakeShared<T>() };
 		if (FAILED(pInstance->NativeConstruct(args...))) {
 			pInstance.reset();
@@ -113,7 +113,7 @@ namespace Engine {
 		return pInstance;
 	}
 
-	// »ı¼ºÀÚ·Î Device, GpuCommand¸¦ ¹Ş°í ³ª¸ÓÁö °ªµéÀ» NativeCosntruct ÇÔ¼ö¿¡¼­ ¹Ş´Â °Í
+	// ìƒì„±ìë¡œ Device, GpuCommandë¥¼ ë°›ê³  ë‚˜ë¨¸ì§€ ê°’ë“¤ì„ NativeCosntruct í•¨ìˆ˜ì—ì„œ ë°›ëŠ” ê²ƒ
 	template<class T, class ...Args>
 		requires  CheckToSameMethodArgs<T, Args...>
 	static SHPTR<T> CreateConstructorNative(CSHPTRREF<class UDevice> _pDevice, Args&&... args) {
@@ -125,7 +125,7 @@ namespace Engine {
 		return pInstance;
 	}
 
-	// »ı¼ºÀÚ·Î Device, GpuCommand¸¦ ¹Ş°í ³ª¸ÓÁö °ªµéÀ» NativeCosntruct ÇÔ¼ö¿¡¼­ ¹Ş´Â °Í
+	// ìƒì„±ìë¡œ Device, GpuCommandë¥¼ ë°›ê³  ë‚˜ë¨¸ì§€ ê°’ë“¤ì„ NativeCosntruct í•¨ìˆ˜ì—ì„œ ë°›ëŠ” ê²ƒ
 	template<class T, class ...Args>
 		requires CheckToSameMethodArgs<T, Args...>
 	static SHPTR<T> CreateConstructorNativeNotMsg(CSHPTRREF<class UDevice> _pDevice, Args&&... args) {
@@ -136,13 +136,13 @@ namespace Engine {
 		return pInstance;
 	}
 
-	// »ı¼ºÀÚ¿¡¼­¸¸ °ªÀ» ¹Ş¾Æ¿À´Â °Í
+	// ìƒì„±ìì—ì„œë§Œ ê°’ì„ ë°›ì•„ì˜¤ëŠ” ê²ƒ
 	template<class T, class ...Args>
 		requires ConstructWidthArgsCheck<T, Args...>
 	&& CheckToSameMethodArgs<T>
 		static SHPTR<T> CreateConstructorToNative(Args&&... args) {
 		;
-		static_assert(ConstructWidthArgsCheck<T, Args...>, "»ı¼ºÀÚÀÇ ÀÎÀÚ°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+		static_assert(ConstructWidthArgsCheck<T, Args...>, "ìƒì„±ìì˜ ì¸ìê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		SHPTR<T> pInstance{ Make::MakeShared<T>(args...) };
 		if (FAILED(pInstance->NativeConstruct())) {
 			ErrorToCreateClass(pInstance);
@@ -151,12 +151,12 @@ namespace Engine {
 		return pInstance;
 	}
 
-	// »ı¼ºÀÚ¿¡¼­¸¸ °ªÀ» ¹Ş¾Æ¿À´Â °Í
+	// ìƒì„±ìì—ì„œë§Œ ê°’ì„ ë°›ì•„ì˜¤ëŠ” ê²ƒ
 	template<class T, class ...Args>
 		requires ConstructWidthArgsCheck<T, Args...>
 	&& CheckToSameMethodArgs<T>
 		static SHPTR<T> CreateConstructorToNativeNotMsg(Args&&... args) {
-		static_assert(ConstructWidthArgsCheck<T, Args...>, "»ı¼ºÀÚÀÇ ÀÎÀÚ°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+		static_assert(ConstructWidthArgsCheck<T, Args...>, "ìƒì„±ìì˜ ì¸ìê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		SHPTR<T> pInstance{ Make::MakeShared<T>(args...) };
 		if (FAILED(pInstance->NativeConstruct())) {
 			pInstance.reset();
@@ -164,7 +164,7 @@ namespace Engine {
 		return pInstance;
 	}
 
-	// ÀÚ±â ÀÚ½ÅÀ» Å¬·ĞÇÏ´Â ÇÔ¼ö 
+	// ìê¸° ìì‹ ì„ í´ë¡ í•˜ëŠ” í•¨ìˆ˜ 
 	template<class T>
 	static SHPTR<T> CloneThis(const T& _rhs)
 	{
@@ -173,9 +173,9 @@ namespace Engine {
 	}
 
 	/*
-	@ Date: 2023-01-09,  Writer: ¹ÚÅÂÇö
+	@ Date: 2023-01-09,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ÇöÀç ¹Ğ¸®¼¼ÄÁµå¸¦ ±¸ÇÏ´Â ÇÔ¼öÀÌ´Ù.
+	- í˜„ì¬ ë°€ë¦¬ì„¸ì»¨ë“œë¥¼ êµ¬í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
 	*/
 	static _llong CurrentMilliseconds()
 	{
@@ -184,9 +184,9 @@ namespace Engine {
 	}
 
 	/*
-	@ Date: 2023-01-05,  Writer: ¹ÚÅÂÇö
+	@ Date: 2023-01-05,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ÇØ´ç Thread¸¦ nanoseconds¸¸Å­ ½¬´Â ÇÔ¼öÀÌ´Ù.
+	- í•´ë‹¹ Threadë¥¼ nanosecondsë§Œí¼ ì‰¬ëŠ” í•¨ìˆ˜ì´ë‹¤.
 	*/
 	template<class T>
 		requires std::is_integral_v<T>
@@ -195,9 +195,9 @@ namespace Engine {
 		std::this_thread::sleep_for(std::chrono::nanoseconds(_data));
 	}
 	/*
-	@ Date: 2024-01-05,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-01-05,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ÇØ´ç Thread¸¦ MicroSeconds¸¸Å­ ½¬´Â ÇÔ¼öÀÌ´Ù.
+	- í•´ë‹¹ Threadë¥¼ MicroSecondsë§Œí¼ ì‰¬ëŠ” í•¨ìˆ˜ì´ë‹¤.
 	*/
 	template<class T>
 		requires std::is_integral_v<T>
@@ -206,9 +206,9 @@ namespace Engine {
 		std::this_thread::sleep_for(std::chrono::microseconds(_data));
 	}
 		/*
-	@ Date: 2024-01-05,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-01-05,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ÇØ´ç Thread¸¦ MiliSeconds¸¸Å­ ½¬´Â ÇÔ¼öÀÌ´Ù.
+	- í•´ë‹¹ Threadë¥¼ MiliSecondsë§Œí¼ ì‰¬ëŠ” í•¨ìˆ˜ì´ë‹¤.
 	*/
 	template<class T>
 		requires std::is_integral_v<T>
@@ -218,30 +218,30 @@ namespace Engine {
 	}
 
 	/*
-	@ Date: 2024-02-04,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-04,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- std::make_pair¸¦ ¾²±â ½È¾î¼­ »ç¿ëÇÏ´Â ÇÔ¼ö
+	- std::make_pairë¥¼ ì“°ê¸° ì‹«ì–´ì„œ ì‚¬ìš©í•˜ëŠ” í•¨ìˆ˜
 	*/
 	template<class T1, class T2>
 	static std::pair<T1, T2> MakePair(const T1& _t1, const T2& _t2) { return std::move(std::pair<T1, T2>(_t1, _t2)); }
 
 	/*
-	@ Date: 2024-02-04,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-04,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- sizeof¸¦ ¾²¸é, Áö¿ª º¯¼ö È£ÃâÀÎµ¥ ÀÌ ÇÔ¼ö¸¦ ¾²¸é Àü¿ª º¯¼ö È£ÃâÀÌ¶ó »õ·Î¿î ÀÓ½Ã º¯¼ö¸¦ ¸¸µéÁö ¾Ê´Â´Ù. 
+	- sizeofë¥¼ ì“°ë©´, ì§€ì—­ ë³€ìˆ˜ í˜¸ì¶œì¸ë° ì´ í•¨ìˆ˜ë¥¼ ì“°ë©´ ì „ì—­ ë³€ìˆ˜ í˜¸ì¶œì´ë¼ ìƒˆë¡œìš´ ì„ì‹œ ë³€ìˆ˜ë¥¼ ë§Œë“¤ì§€ ì•ŠëŠ”ë‹¤. 
 	*/
 	template<class Type>
 	static int GetTypeSize() { static SIZESTRUCTINT<Type> size; return size.VALUE_SIZE; }
 
 	/*
-	@ Date: 2024-02-04,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-04,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- µé¾î¿Â ¼ö¸¦ numÀÇ ¹è¼ö¸¸Å­ÀÇ ¼ö¸¦ ¸®ÅÏÇÏ´Â ÇÔ¼ö
+	- ë“¤ì–´ì˜¨ ìˆ˜ë¥¼ numì˜ ë°°ìˆ˜ë§Œí¼ì˜ ìˆ˜ë¥¼ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜
 	*/
 	template<int Number, class T>
 	requires CheckNumber<T>
 	static T MakeMultipleNumber(T number) {
-		// 16ÀÇ ¹è¼ö·Î ¸¸µé±â À§ÇØ 15¸¦ ´õÇÏ°í 16À¸·Î ³ª´¯´Ï´Ù.
+		// 16ì˜ ë°°ìˆ˜ë¡œ ë§Œë“¤ê¸° ìœ„í•´ 15ë¥¼ ë”í•˜ê³  16ìœ¼ë¡œ ë‚˜ëˆ•ë‹ˆë‹¤.
 		T remainder = number % Number;
 		if (remainder != 0) {
 			number += (Number - remainder);
@@ -249,9 +249,9 @@ namespace Engine {
 		return number;
 	}
 	/*
-	@ Date: 2024-02-04,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-04,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- µé¾î¿Â ¼ö¸¦ Divine ÇØÁÖ´Â ÇÔ¼ö
+	- ë“¤ì–´ì˜¨ ìˆ˜ë¥¼ Divine í•´ì£¼ëŠ” í•¨ìˆ˜
 	*/
 	template<int Number, class T>
 	requires CheckNumber<T>
@@ -259,9 +259,9 @@ namespace Engine {
 		return static_cast<T>(number / Number);
 	}
 	/*
-	@ Date: 2024-02-23,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-23,  Writer: ë°•íƒœí˜„
 	@ Explain
-	-  const °¡ ºÙÀº Æ÷ÀÎÅÍ¿¡¼­ const¸¦ Á¦°ÅÇÏ¿© ´Ù¸¥ ÀÚ½Ä Æ÷ÀÎÅÍ·Î Ä³½ºÆÃÇØÁÖ´Â ÇÔ¼öÀÌ´Ù.
+	-  const ê°€ ë¶™ì€ í¬ì¸í„°ì—ì„œ constë¥¼ ì œê±°í•˜ì—¬ ë‹¤ë¥¸ ìì‹ í¬ì¸í„°ë¡œ ìºìŠ¤íŒ…í•´ì£¼ëŠ” í•¨ìˆ˜ì´ë‹¤.
 	*/
 	template<class ChangeT, class OriginT, class ConstT>
 	static ChangeT remove_const(ConstT _Desc) {

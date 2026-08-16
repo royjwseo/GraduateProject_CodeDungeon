@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AGAMETIMER_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AGAMETIMER_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_AGAMETIMER_H
 
 #include "ACoreBase.h"
@@ -10,9 +10,9 @@ public:
 	AGameTimer();
 	DESTRUCTOR(AGameTimer)
 public:
-	// ÇÔ¼ö Æ÷ÀÎÅÍ È£Ãâ
+	// í•¨ìˆ˜ í¬ì¸í„° í˜¸ì¶œ
 	void	 Tick() { (this->*m_pRunningFunc)(); }
-	// Stop, RunÀ» È£Ãâ
+	// Stop, Runì„ í˜¸ì¶œ
 	void StopTimer();
 	void RunTimer();
 public: /* get set*/

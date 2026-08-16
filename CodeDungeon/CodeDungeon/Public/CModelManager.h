@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UBase.h"
 
 BEGIN(Engine)
@@ -7,9 +7,9 @@ class UDevice;
 class UCommand;
 END
 /*
-@ Date: 2024-04-23, Writer: ÀÌ¼ºÇö
+@ Date: 2024-04-23, Writer: ì´ì„±í˜„
 @ Explain
-- ¸ğµ¨À» ÀĞ¾î¼­ ºÒ·¯¿À´Â ¸Å´ÏÀú °´Ã¼
+- ëª¨ë¸ì„ ì½ì–´ì„œ ë¶ˆëŸ¬ì˜¤ëŠ” ë§¤ë‹ˆì € ê°ì²´
 */
 
 BEGIN(Client)
@@ -21,7 +21,7 @@ public:
 	NO_COPY(CModelManager)
 	DESTRUCTOR(CModelManager)
 
-	// UBaseÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UBaseì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	void Free() override;
 public:
 	HRESULT CreateModelProtos(CSHPTRREF<UGameInstance> _spGameInstance, CSHPTRREF<UDevice> _spDevice);

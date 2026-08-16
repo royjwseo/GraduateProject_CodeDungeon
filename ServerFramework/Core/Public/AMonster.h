@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "APawn.h"
 
 BEGIN(Core)
@@ -65,7 +65,7 @@ private:
 private:
 	virtual void Free() override;
 private:
-	// °¡¾ßÇÒ ´ÙÀ½ Àå¼Ò
+	// ê°€ì•¼í•  ë‹¤ìŒ ì¥ì†Œ
 	Vector3											m_vNextPos;
 	CUSTIMER										m_FindNextPosTimer;
 
@@ -103,4 +103,4 @@ private:
 };
 
 
-END
+END

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UAnimationController.h"
 
 BEGIN(Client)
@@ -17,7 +17,7 @@ public:
 	virtual HRESULT NativeConstructClone(const VOIDDATAS& _tDatas) override;
 	// Tick
 	virtual void Tick(const _double& _dTimeDelta) override;
-	// ³×Æ®¿öÅ© Á¤º¸¸¦ ¹Ş¾Æ¿À´Â ÇÔ¼ö
+	// ë„¤íŠ¸ì›Œí¬ ì •ë³´ë¥¼ ë°›ì•„ì˜¤ëŠ” í•¨ìˆ˜
 	virtual void ReceiveNetworkProcessData(void* _pData) override;
 private:
 

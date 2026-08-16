@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 #include "UGameInstance.h"
 #include "UGraphicRenderManager.h"
 #include "UShaderBufferManager.h"
@@ -214,7 +214,7 @@ void UGameInstance::RenderBegin()
 
 void UGameInstance::RenderEnd()
 {
-	/* Gpu µ¿±âÈ­ ½ÃÅ°´Â ºÎºÐ */
+	/* Gpu ë™ê¸°í™” ì‹œí‚¤ëŠ” ë¶€ë¶„ */
 	m_spGraphicDevice->MainRenderEnd();
 }
 
@@ -1135,7 +1135,7 @@ HRESULT UGameInstance::ReadyRenderTarget(const OUTPUTDATA& _stData)
 
 #ifdef _USE_DEBUGGING
 	/*
-	·»´õ Å¸°Ù µð¹ö±ëÀ» À§ÇÑ °Í
+	ë Œë” íƒ€ê²Ÿ ë””ë²„ê¹…ì„ ìœ„í•œ ê²ƒ
 	*/
 	m_spRenderTargetManager->AddDebugRenderObjects(RTGROUPID::NONALPHA_DEFFERED, RTOBJID::NONALPHA_POSITION_DEFFERED,
 		_float2(100.f, 100.f), _float2(100.f, 100.f), m_spGraphicDevice->GetGraphicDesc());

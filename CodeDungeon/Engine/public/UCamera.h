@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UActor.h"
 
 BEGIN(Engine)
@@ -8,8 +8,8 @@ class UCamera abstract : public UActor{
 public:
 	enum class PROJECTION_TYPE
 	{
-		PERSPECTIVE, // ¿ø±Ù Åõ¿µ
-		ORTHOGRAPHIC, // Á÷±³ Åõ¿µ
+		PERSPECTIVE, // ì›ê·¼ íˆ¬ì˜
+		ORTHOGRAPHIC, // ì§êµ íˆ¬ì˜
 		PROJ_END
 	};
 	// Cam Proj

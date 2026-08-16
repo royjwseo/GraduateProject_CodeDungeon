@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UPawn.h"
 
 BEGIN(Engine)
@@ -8,9 +8,9 @@ END
 
 BEGIN(Tool)
 /*
-@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 @ Explain
-- ModelÀ» º¸¿©ÁÖ±â À§ÇÑ Å¬·¡½º
+- Modelì„ ë³´ì—¬ì£¼ê¸° ìœ„í•œ í´ë˜ìŠ¤
 */
 class TShowModelObject final : public UPawn {
 public:
@@ -18,7 +18,7 @@ public:
 		const _wstring& _wstrLayer, const CLONETYPE& _eCloneType);
 	TShowModelObject(const TShowModelObject& _rhs);
 	DESTRUCTOR(TShowModelObject)
-		// UPawnÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+		// UPawnì„(ë¥¼) í†µí•´ ìƒì†ë¨
 		CLONE_MACRO(TShowModelObject, "TShowModelObject::Clone To Failed")
 		virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;

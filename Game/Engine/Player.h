@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "GameObject.h"
 #include "Camera.h"
@@ -80,7 +80,7 @@ public:
 };
 
 
-//2024-01-17 ÀÌ¼ºÇö µğ¹ö±×¿ë ÇÃ·¹ÀÌ¾î.
+//2024-01-17 ì´ì„±í˜„ ë””ë²„ê·¸ìš© í”Œë ˆì´ì–´.
 
 class CDebugPlayer : public CPlayer
 {
@@ -91,4 +91,4 @@ public:
 	virtual void InitCamera(const ComPtr<ID3D12Device>& _Device, const ComPtr<ID3D12GraphicsCommandList>& _CommandList, const ComPtr<ID3D12RootSignature>& _RootSignature);
 	virtual void OnCameraUpdateCallback(float fTimeElapsed);
 	virtual shared_ptr<CCamera> ChangeCamera(CameraMode enMode, float fTimeElapsed);
-};
+};

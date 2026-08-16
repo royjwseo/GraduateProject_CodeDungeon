@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UComponent.h"
 #include "UCell.h"
@@ -77,16 +77,16 @@ public:
 	HRESULT ReadyNeighbor();
 
 	/*
-	@ Date: 2024-05-14, Writer: ÀÌ¼ºÇö
+	@ Date: 2024-05-14, Writer: ì´ì„±í˜„
 	@ Explain
-	-  ½½¶óÀÌµù º¤ÅÍ °è»ê ÇÔ¼ö.
+	-  ìŠ¬ë¼ì´ë”© ë²¡í„° ê³„ì‚° í•¨ìˆ˜.
 	*/
 	_float3 ClampPositionToCell(const _float3& position);
 
 	/*
-	@ Date: 2024-06-03, Writer: ÀÌ¼ºÇö
+	@ Date: 2024-06-03, Writer: ì´ì„±í˜„
 	@ Explain
-	-  A* ¾Ë°í¸®Áò
+	-  A* ì•Œê³ ë¦¬ì¦˜
 	*/
 	_float Heuristic(const _float3& a, const _float3& b);
 	UNavigation::PathFindingState StartPathFinding(const _float3& start, const _float3& end, CSHPTRREF<UCell> _startCell, CSHPTRREF<UCell> _destCell);

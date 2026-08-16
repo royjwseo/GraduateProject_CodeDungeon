@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 namespace Engine
 {
@@ -9,9 +9,9 @@ namespace Engine
 		PACKET_SIZE_CNT = 2
 	};
 	/*
-	@ Data: 2024-02-03, Writer: ¹ÚÅÂÇö
+	@ Data: 2024-02-03, Writer: ë°•íƒœí˜„
 	@ Explain
-	- PacketÀÇ ¾ÕÂÊ ºÎºĞÀ» ´ã´çÇÏ´Â Head ºÎºĞÀÌ´Ù.
+	- Packetì˜ ì•ìª½ ë¶€ë¶„ì„ ë‹´ë‹¹í•˜ëŠ” Head ë¶€ë¶„ì´ë‹¤.
 	*/
 	struct PACKETHEAD {
 		short		PacketSize;

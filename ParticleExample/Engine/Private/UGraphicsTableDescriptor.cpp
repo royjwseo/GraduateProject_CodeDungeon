@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 #include "UGraphicsTableDescriptor.h"
 #include "UDevice.h"
 #include "UGpuCommand.h"
@@ -14,6 +14,6 @@ void UGraphicsTableDescriptor::Free()
 
 void UGraphicsTableDescriptor::CommitTable(CSHPTRREF<UCommand> _spCommand)
 {
-	// CommitTable ->DescriptorHeapStart¸¦ °¡Á®¿Í¼­ Group¸¸Å­ Bind ÇÏ´Â °ÍÀÌ´Ù. 
+	// CommitTable ->DescriptorHeapStartë¥¼ ê°€ì ¸ì™€ì„œ Groupë§Œí¼ Bind í•˜ëŠ” ê²ƒì´ë‹¤. 
 	_spCommand->GetGpuCmdList()->SetGraphicsRootDescriptorTable(GetStaticValue(), ReturnCommitTableHandle(_spCommand));
-}
+}

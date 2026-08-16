@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+Ôªø#include "EngineDefine.h"
 #include "UCommand.h"
 #include "UDevice.h"
 #include "URootSignature.h"
@@ -25,7 +25,7 @@ HRESULT UCommand::NativeConstruct(CSHPTRREF<UDevice> _spDevice, const ComPtr<Dx1
 	RETURN_CHECK(nullptr == _spDevice, E_FAIL);
 	// CreateFence 
 	{
-		// CPU, GPU µø±‚»≠ ∫Œ∫–¿∏∑Œ ªÁøÎµ 
+		// CPU, GPU ÎèôÍ∏∞Ìôî Î∂ÄÎ∂ÑÏúºÎ°ú ÏÇ¨Ïö©Îê®
 		RETURN_CHECK_DXOBJECT(_spDevice->GetDV()->CreateFence(0, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(&m_cpFence)),
 			E_FAIL);
 		m_hFenceEvent = ::CreateEvent(nullptr, FALSE, FALSE, nullptr);
@@ -43,7 +43,7 @@ void UCommand::WaitForSynchronization()
 void UCommand::SubmitGpuData()
 {
 	GetGpuCmdList()->Close();
-	// ±◊∑°«»Ω∫ ƒø∏«µÂ Ω««‡
+	// Í∑∏ÎûòÌîΩÏä§ Ïª§Îß®Îìú Ïã§Ìñâ
 	ID3D12CommandList* CmdListArr[] = { GetGpuCmdList().Get() };
 	GetCmdQue()->ExecuteCommandLists(CMD_LIST_VALUE, CmdListArr);
 }
@@ -51,15 +51,15 @@ void UCommand::SubmitGpuData()
 void UCommand::GpuCpuSynchronization()
 {
 	++m_iCurrentFence;
-	// «ˆ¿Á øÔ≈∏∏Æ ¡ˆ¡°±Ó¡ˆ¿« ∏Ì∑…µÈ¿ª «•Ω√«œµµ∑œ øÔ≈∏∏Æ ∞™¿ª ¿¸¡¯ Ω√≈≤¥Ÿ.
+	// ÌòÑÏû¨ Ïö∏ÌÉÄÎ¶¨ ÏßÄÏ†êÍπåÏßÄÏùò Î™ÖÎ†πÎì§ÏùÑ ÌëúÏãúÌïòÎèÑÎ°ù Ïö∏ÌÉÄÎ¶¨ Í∞íÏùÑ Ï†ÑÏßÑ ÏãúÌÇ®Îã§.
 	// Signal
 	m_cpCommandQueue->Signal(m_cpFence.Get(), m_iCurrentFence);
-	// ≥—ƒ°¡ˆ æ ¥¬¡ˆ »Æ¿Œ 
+	// ÎÑòÏπòÏßÄ ÏïäÎäîÏßÄ ÌôïÏù∏ 
 	if (m_iCurrentFence > m_cpFence->GetCompletedValue())
 	{
-		// GPU∞° «ˆ¿Á øÔ≈∏∏Æ ¡ˆ¡°ø° µµ¥ﬁ«ﬂ¿∏∏È ¿Ã∫•∆Æ πﬂµø
+		// GPUÍ∞Ä ÌòÑÏû¨ Ïö∏ÌÉÄÎ¶¨ ÏßÄÏ†êÏóê ÎèÑÎã¨ÌñàÏúºÎ©¥ Ïù¥Î≤§Ìä∏ Î∞úÎèô
 		m_cpFence->SetEventOnCompletion(m_iCurrentFence, m_hFenceEvent);
-		// ¿Ã∫•∆Æ∏¶ ±‚¥Ÿ∏∞¥Ÿ.
+		// Ïù¥Î≤§Ìä∏Î•º Í∏∞Îã§Î¶∞Îã§.
 		WaitForSingleObject(m_hFenceEvent, INFINITE);
 	}
 }

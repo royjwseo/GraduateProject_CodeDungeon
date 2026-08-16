@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "AnimEventParents.h"
 #include "UMethod.h"
 #include "UAnimModel.h"
@@ -144,7 +144,7 @@ _bool UAnimOccurEvent::EventCheck(UPawn* _pPawn, UAnimModel* _pAnimModel, const 
 			if (!lstrcmp(m_AnimOccurDesc.wstrEventTrigger.c_str(), _wstrInputTrigger.c_str()) || 
 				!lstrcmp(m_AnimOccurDesc.wstrEventTrigger.c_str(), L""))
 			{
-				// Enable Lerp°¡ µÇ¸é ¸Ç ¸¶Áö¸· ¾ê¿Í ´ÙÀ½ ¾Ö´Ï¸ŞÀÌ¼Ç Ã¹ ¹øÂ° ³ëµå¿Í ÀÌÀ½ 
+				// Enable Lerpê°€ ë˜ë©´ ë§¨ ë§ˆì§€ë§‰ ì–˜ì™€ ë‹¤ìŒ ì• ë‹ˆë©”ì´ì…˜ ì²« ë²ˆì§¸ ë…¸ë“œì™€ ì´ìŒ 
 				EventSituation(_pPawn, _pAnimModel, _dTimeDelta, _dTimeAcc);
 				m_AnimOccurDesc.isActiveEvent = true;
 				m_AnimOccurDesc.isAnimChangeActive = true;

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UWeapon.h"
 
 BEGIN(Engine)
@@ -7,9 +7,9 @@ END
 
 BEGIN(Client)
 /*
-@ Date: 2024-07-13 Writer: ÀÌ¼ºÇö
+@ Date: 2024-07-13 Writer: ì´ì„±í˜„
 @ Explain
-- ¾Æ´©ºñ½ºÀÇ ¹«±â
+- ì•„ëˆ„ë¹„ìŠ¤ì˜ ë¬´ê¸°
 */
 class CAnubisStaff final : public UWeapon {
 public:
@@ -17,7 +17,7 @@ public:
 	CAnubisStaff(const CAnubisStaff& _rhs);
 	DESTRUCTOR(CAnubisStaff)
 public:
-	// UPlayerÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UPlayerì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(CAnubisStaff, "CAnubisStaff::CloneToFailed")
 		virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;

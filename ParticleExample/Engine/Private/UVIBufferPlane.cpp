@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 #include "UVIBufferPlane.h"
 
 UVIBufferPlane::UVIBufferPlane(CSHPTRREF<UDevice> _spDevice, const VIBUFFERTYPE& _eBufferType)
@@ -20,7 +20,7 @@ HRESULT UVIBufferPlane::NativeConstruct()
 	RETURN_CHECK_FAILED(__super::NativeConstruct(), E_FAIL);
 	// Vertex 
 	{
-		// Vertex °³¼ö
+		// Vertex ê°œìˆ˜
 		const _uint VERTEX_CNT = 4;
 		if (VIBUFFERTYPE::GENERIC == GetBufferType())
 		{
@@ -39,7 +39,7 @@ HRESULT UVIBufferPlane::NativeConstruct()
 				// 4 -X, -Y
 				Vertecies[3] = VTXDEFAULT{ _float3(-0.5f, 0.f, -0.5f), _float2(0.f, 1.f) };
 			}
-			// Position º¹Á¦
+			// Position ë³µì œ
 			for (_uint i = 0; i < VERTEX_CNT; ++i)
 				VertexPos[i] = Vertecies[i].vPosition;
 
@@ -63,7 +63,7 @@ HRESULT UVIBufferPlane::NativeConstruct()
 				// 4 -X, -Y
 				Vertecies[3] = VTXNORMAL{ _float3(-0.5f, 0.f, -0.5f),  _float3{0.f, 1.f, 0.f}, _float2(0.f, 1.f) };
 			}
-			// Position º¹Á¦
+			// Position ë³µì œ
 			for (_uint i = 0; i < VERTEX_CNT; ++i)
 				VertexPos[i] = Vertecies[i].vPosition;
 
@@ -73,9 +73,9 @@ HRESULT UVIBufferPlane::NativeConstruct()
 	}
 	// Index
 	{
-		// Index °³¼ö
+		// Index ê°œìˆ˜
 		const _uint INDICES_CNT = 2;
-		// ¸ñ·Ï
+		// ëª©ë¡
 		INDICIES16* pIndices = new INDICIES16[INDICES_CNT];
 		ZeroMemory(pIndices, sizeof(INDICIES16) * INDICES_CNT);
 		{

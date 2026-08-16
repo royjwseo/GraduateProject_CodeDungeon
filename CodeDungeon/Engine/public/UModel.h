@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UResource.h"
 
 BEGIN(Engine)
@@ -10,9 +10,9 @@ class URootBoneNode;
 class UModelMaterial;
 class UShaderConstantBuffer;
 /*
-@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 @ Explain
-- ¸ğµ¨ÀÇ ¸Ş½¬, »À Á¤º¸, ¸ğµ¨ÀÇ ÅØ½ºÃÄ Á¤º¸µéÀ» VECTOR ÄÁÅ×ÀÌ³Êµé·Î ´ã°í ÀÖ´Â Å¬·¡½ºÀÌ´Ù. 
+- ëª¨ë¸ì˜ ë©”ì‰¬, ë¼ˆ ì •ë³´, ëª¨ë¸ì˜ í…ìŠ¤ì³ ì •ë³´ë“¤ì„ VECTOR ì»¨í…Œì´ë„ˆë“¤ë¡œ ë‹´ê³  ìˆëŠ” í´ë˜ìŠ¤ì´ë‹¤. 
 */
 class  UModel : public UResource{
 public:
@@ -55,19 +55,19 @@ public:
 	CLONE_MACRO(UModel, "UModel::Clone To Failed")
 	virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;
-	// ÇØ´ç PATH·Î ¸ğµ¨ ·Îµå
+	// í•´ë‹¹ PATHë¡œ ëª¨ë¸ ë¡œë“œ
 	 HRESULT NativeConstruct(const _wstring& _wstrPath);
-	 // ÇØ´ç Æú´õ¿Í ÆÄÀÏ µ¥ÀÌÅÍ·Î ·Îµå
+	 // í•´ë‹¹ í´ë”ì™€ íŒŒì¼ ë°ì´í„°ë¡œ ë¡œë“œ
 	 HRESULT NativeConstruct(CSHPTRREF<FILEGROUP> _spFileGroup, CSHPTRREF<FILEDATA> _spFileData);
-	 // PATH¸¦ ÀÔ·ÂÇÏ°í ÆÄÀÏ ÀÌ¸§À» ÀÔ·ÂÇÏ¸é Ã£¾Æ¼­ ¿Â´Ù. 
+	 // PATHë¥¼ ì…ë ¥í•˜ê³  íŒŒì¼ ì´ë¦„ì„ ì…ë ¥í•˜ë©´ ì°¾ì•„ì„œ ì˜¨ë‹¤. 
 	 HRESULT NativeConstruct(const PATHS& _vecPaths, const _wstring& _wstrFileName);
-	 // ¸ğµ¨ÀÇ Æú´õ ÀÌ¸§, ÆÄÀÏ ÀÌ¸§À» ÀÔ·ÂÇÏ¸é Ã£¾Æ¼­ ¸ğµ¨ ·Îµå
+	 // ëª¨ë¸ì˜ í´ë” ì´ë¦„, íŒŒì¼ ì´ë¦„ì„ ì…ë ¥í•˜ë©´ ì°¾ì•„ì„œ ëª¨ë¸ ë¡œë“œ
 	 HRESULT NativeConstruct(const _wstring& _wstrModelFolder, const _wstring& _wstrFileName);
 	virtual HRESULT NativeConstructClone(const VOIDDATAS& _vecDatas) override;
-	// ¸ğµ¨¿¡ ÅØ½ºÃ³¸¦ ¹ÙÀÎµå ÇÏ´Â ÇÔ¼ö
+	// ëª¨ë¸ì— í…ìŠ¤ì²˜ë¥¼ ë°”ì¸ë“œ í•˜ëŠ” í•¨ìˆ˜
 	 HRESULT BindTexture(const _uint _iMeshIndex,  const SRV_REGISTER _eRegister,
 		const TEXTYPE& _eTextureType,CSHPTRREF<UShader> _spShader);
-	 // ¸ğµ¨À» ±×¸®´Â ÇÔ¼ö
+	 // ëª¨ë¸ì„ ê·¸ë¦¬ëŠ” í•¨ìˆ˜
 	virtual HRESULT Render(const _uint _iMeshIndex, CSHPTRREF<UShader> _spShader, CSHPTRREF<UCommand> _spCommand);
 protected:
 	HRESULT CreateBoneNode(void* _pData, const _wstring& _wstrBoneNodeName = L"");

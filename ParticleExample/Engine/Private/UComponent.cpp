@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+﻿#include "EngineDefines.h"
 #include "UComponent.h"
 
 UComponent::UComponent(CSHPTRREF<UDevice> _spDevice)

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UBase.h"
 
@@ -7,9 +7,9 @@ BEGIN(Engine)
 
 using THREAD = std::thread;
 /*
-@ Date: 2024-02-02, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-02, Writer: ë°•íƒœí˜„
 @ Explain
-- Background ¾²·¹µå³ª ±âÅ¸ ´Ù¸¥ ¹é ±×¶ó¿îµå ÀÛ¾÷¿¡ ÇÊ¿äÇÑ Å¬·¡½º¸¦ Á¤ÀÇ
+- Background ì“°ë ˆë“œë‚˜ ê¸°íƒ€ ë‹¤ë¥¸ ë°± ê·¸ë¼ìš´ë“œ ì‘ì—…ì— í•„ìš”í•œ í´ë˜ìŠ¤ë¥¼ ì •ì˜
 */
 class UWorkThread final : public UBase {
 public:

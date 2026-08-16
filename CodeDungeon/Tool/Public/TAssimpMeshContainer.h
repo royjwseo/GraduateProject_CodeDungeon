@@ -1,4 +1,4 @@
-#pragma once 
+ï»¿#pragma once 
 #include "UVIBuffer.h"
 
 BEGIN(Engine)
@@ -9,9 +9,9 @@ BEGIN(Tool)
 class TAssimpBoneNode;
 class TAssimpModel;
 /*
-@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 @ Explain
-- Assimp¸¦ ·ÎµåÇÏ±â À§ÇÑ meshContainer
+- Assimpë¥¼ ë¡œë“œí•˜ê¸° ìœ„í•œ meshContainer
 */
 class TAssimpMeshContainer : public UVIBuffer {
 public:

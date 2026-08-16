@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "ARootBoneNode.h"
 
 namespace  Core
@@ -84,4 +84,4 @@ namespace  Core
 	{
 	}
 
-}
+}

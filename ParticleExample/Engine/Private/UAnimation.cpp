@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+﻿#include "EngineDefines.h"
 #include <fstream>
 #include "UAnimation.h"
 #include "UChannel.h"
@@ -167,4 +167,4 @@ void UAnimation::LoadSections(const _wstring& _wstrPath)
 ====================================================
 Save
 ====================================================
-*/
+*/

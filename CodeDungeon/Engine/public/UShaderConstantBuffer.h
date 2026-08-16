@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UBase.h"
 
 BEGIN(Engine)
@@ -7,11 +7,11 @@ class UGpuCommand;
 class UTableDescriptor;
 
 /*
-°¢ ½¦ÀÌ´õ¸¶´Ù °ªÀÌ ´Ş¶ó¾ß ÇÏ´Â BufferµéÀ» ShaderFile¿¡ BindÇÏ±â À§ÇÑ Å¬·¡½º·Î
-°¢ ½¦ÀÌ´õ¿¡ Àü´ŞÇÏ±â À§ÇØ¼­´Â ¹İµå½Ã ÇØ´ç °´Ã¼¸¦ ÇÑ ¹ø »ı¼ºÇÏ°Å³ª »ı¼ºÇØ ³õÀº °ªÀ» ÀÌ¿ëÇÑ´Ù.
+ê° ì‰ì´ë”ë§ˆë‹¤ ê°’ì´ ë‹¬ë¼ì•¼ í•˜ëŠ” Bufferë“¤ì„ ShaderFileì— Bindí•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ë¡œ
+ê° ì‰ì´ë”ì— ì „ë‹¬í•˜ê¸° ìœ„í•´ì„œëŠ” ë°˜ë“œì‹œ í•´ë‹¹ ê°ì²´ë¥¼ í•œ ë²ˆ ìƒì„±í•˜ê±°ë‚˜ ìƒì„±í•´ ë†“ì€ ê°’ì„ ì´ìš©í•œë‹¤.
 
-ÀÚÁÖ »ç¿ëÇÏ´Â °ªµéÀº _iNum °ªÀ» 1ÀÌ»ó ÁÖ¾î ¹Ì¸® ÇÒ´ç ÇØ ³õÀº Buffer¸¦ »ç¿ëÇÏ°í
-ÀÚÁÖ »ç¿ëÇÏÁö ¾Ê°í ¸¹ÀÌ ÇÒ´ç µÇÁöµµ ¾Ê´Â °ÍµéÀº ±×¶§ ±×¶§¸¶´Ù ShaderConstantBuffer¸¦ ÇÒ´çÇÑ´Ù.
+ìì£¼ ì‚¬ìš©í•˜ëŠ” ê°’ë“¤ì€ _iNum ê°’ì„ 1ì´ìƒ ì£¼ì–´ ë¯¸ë¦¬ í• ë‹¹ í•´ ë†“ì€ Bufferë¥¼ ì‚¬ìš©í•˜ê³ 
+ìì£¼ ì‚¬ìš©í•˜ì§€ ì•Šê³  ë§ì´ í• ë‹¹ ë˜ì§€ë„ ì•ŠëŠ” ê²ƒë“¤ì€ ê·¸ë•Œ ê·¸ë•Œë§ˆë‹¤ ShaderConstantBufferë¥¼ í• ë‹¹í•œë‹¤.
 */
 class UShaderConstantBuffer final : public UBase{
 public:
@@ -21,7 +21,7 @@ public:
 public:
 	virtual void Free() override;
 	HRESULT NativeConstruct(CSHPTRREF<UDevice> _spDevice, 	const CBV_REGISTER& _eReg,   const _uint& _iSize, const _uint& _iNum = 1,const _bool& UseDefault=false);
-	// Shader¿¡ °ªÀ» ¹Ğ¾î ³Ö´Â ÇÔ¼öÀÌ´Ù. 
+	// Shaderì— ê°’ì„ ë°€ì–´ ë„£ëŠ” í•¨ìˆ˜ì´ë‹¤. 
 	HRESULT PushData(CSHPTRREF<UCommand> _spCommand,CSHPTRREF< UTableDescriptor> _spTableDescriptor, const void* _pBuffer, const _uint& _iSize);
 private:
 	D3D12_CPU_DESCRIPTOR_HANDLE GetCpuDescriptorHandle(const _uint& _iIndex);

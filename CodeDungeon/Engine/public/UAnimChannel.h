@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UBase.h"
 
 BEGIN(Engine)
@@ -6,9 +6,9 @@ class UAnimModel;
 class UAnimation;
 class UBoneNode;
 /*
-@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 @ Explain
-- Animation Frame ¸¶´Ù ÀÖ´Â Channel Å¬·¡½º
+- Animation Frame ë§ˆë‹¤ ìˆëŠ” Channel í´ë˜ìŠ¤
 */
 class  UAnimChannel : public UBase {
 public:
@@ -38,7 +38,7 @@ private:
 	_uint												m_iCurrentKeyFrames;
 	VECTOR<KEYFRAME>				m_vecKeyFrames;
 	_double											m_dCurTimeAcc;
-	// »ç¿ëÇÏ´Â °Íµé
+	// ì‚¬ìš©í•˜ëŠ” ê²ƒë“¤
 	_float3											m_vScale;
 	_float4											m_vRotation;
 	_float4											m_vPosition;

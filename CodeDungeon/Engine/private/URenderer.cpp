@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "URenderer.h"
 #include "UPipeLine.h"
 #include "USceneManager.h"
@@ -126,7 +126,7 @@ HRESULT URenderer::NativeConstruct()
 
         {
 
-            // Create Shadow Camera (±íÀÌ ÃßÃâ¿ë Ä«¸Ş¶ó)
+            // Create Shadow Camera (ê¹Šì´ ì¶”ì¶œìš© ì¹´ë©”ë¼)
             UCamera::CAMDESC tDesc;
             tDesc.stCamProj = UCamera::CAMPROJ(UCamera::PROJECTION_TYPE::PERSPECTIVE, _float3(0.f, 0.f, 0.f),
                 _float3(0.f, 0.f, 0.f),
@@ -147,7 +147,7 @@ HRESULT URenderer::NativeConstruct()
         }
         {
 
-            // Create Deffered Camera (µğÆÛµå¿ë Ä«¸Ş¶ó)
+            // Create Deffered Camera (ë””í¼ë“œìš© ì¹´ë©”ë¼)
             UCamera::CAMDESC tDesc;
             tDesc.stCamProj = UCamera::CAMPROJ(UCamera::PROJECTION_TYPE::ORTHOGRAPHIC, _float3(0.f, 0.f, 0.f),
                 _float3(0.f, 0.f, 0.f),
@@ -164,7 +164,7 @@ HRESULT URenderer::NativeConstruct()
         }
         {
 
-            // Create Small Deffered Camera (´Ù¿î»ùÇÃ¸µ ¿ëµğÆÛµå¿ë Ä«¸Ş¶ó)
+            // Create Small Deffered Camera (ë‹¤ìš´ìƒ˜í”Œë§ ìš©ë””í¼ë“œìš© ì¹´ë©”ë¼)
             UCamera::CAMDESC tDesc;
             tDesc.stCamProj = UCamera::CAMPROJ(UCamera::PROJECTION_TYPE::ORTHOGRAPHIC, _float3(0.f, 0.f, 0.f),
                 _float3(0.f, 0.f, 0.f),
@@ -183,14 +183,14 @@ HRESULT URenderer::NativeConstruct()
             m_spTurnShaderConstantBuffer = CreateNative<UShaderConstantBuffer>(GetDevice(), CBV_REGISTER::TURNSHADERBOOL, static_cast<_int>(sizeof(DRAWSHADERBUFFER)));
         }
         m_spShadowCamera->GetTransform()->SetPos(_float3(-875.66, - 135.805, 852.));
-        m_spShadowCamera->GetTransform()->LookAt(_float3(-629.466, -135.805,991.156)); //y¸¦ È®¿Ã¸®±â
+        m_spShadowCamera->GetTransform()->LookAt(_float3(-629.466, -135.805,991.156)); //yë¥¼ í™•ì˜¬ë¦¬ê¸°
       
         m_stFinalRenderTransformParam.iCamIndex = m_spDefferedCamera->GetCamID();
         m_stSmallRenderTransformParam.iCamIndex = m_spSmallDefferedCamera->GetCamID();
             
-        // ÀÌ¹Ì ¸¸µé¾îÁø Shader ConstnatBuffer¸¦ °¡Á®¿È
+        // ì´ë¯¸ ë§Œë“¤ì–´ì§„ Shader ConstnatBufferë¥¼ ê°€ì ¸ì˜´
         spGameInstance->GetGlobalConstantBuffer(GLOBAL_DEFFEREDPARAMS, m_spGlobalTransformConstantBuffer);
-        //Deffered Camera°ü·Ã Á¤º¸ ¹× transformÁ¤º¸ Àü¿ªÀ¸·Î b2¿¡ µĞ´Ù ¹İº¹ cbv»ı¼º ºñ¿ë ¶§¹®
+        //Deffered Cameraê´€ë ¨ ì •ë³´ ë° transformì •ë³´ ì „ì—­ìœ¼ë¡œ b2ì— ë‘”ë‹¤ ë°˜ë³µ cbvìƒì„± ë¹„ìš© ë•Œë¬¸
         // 
        // spGameInstance->GetPreAllocatedConstantBuffer(PREALLOCATED_TRANSFORM, m_spTransformConstantBuffer);
        
@@ -207,9 +207,9 @@ HRESULT URenderer::NativeConstructClone(const VOIDDATAS& _vectDatas)
 HRESULT URenderer::AddRenderGroup(const RENDERID _eID, CSHPTRREF<UShader> _spShader, CSHPTRREF<UPawn> _spPawn)
 {
     assert(_spPawn && _spShader);
-    // ½¦ÀÌ´õ ÀÌ¸§ ÀÖ´ÂÁö Ã£°í
+    // ì‰ì´ë” ì´ë¦„ ìˆëŠ”ì§€ ì°¾ê³ 
     const auto& findIter = m_arrActiveDrawRenderList[_eID].find(_spShader->GetShaderDesc().wstrShaderName);
-    // Ã£¾Æ¼­ Àú ½¦ÀÌ´õ ÀÌ¸§ÀÌ ¾øÀ¸¸é
+    // ì°¾ì•„ì„œ ì € ì‰ì´ë” ì´ë¦„ì´ ì—†ìœ¼ë©´
     if (findIter == m_arrActiveDrawRenderList[_eID].end())
     {
         LIST<SHPTR<UPawn>> PawnList;
@@ -235,7 +235,7 @@ HRESULT URenderer::AddDebugRenderGroup(const DEBUGRENDERID _eID, CSHPTRREF<UShad
         LIST<SHPTR<UPawn>> PawnList;
         PawnList.push_back(_spPawn);
         m_arrDrawDebugRenderList[_eID].emplace(std::pair<_wstring, LIST<SHPTR<UPawn>>>(_spShader->GetShaderDesc().wstrShaderName, PawnList));
-        // ½¦ÀÌ´õ ÀÌ¸§º°·Î 
+        // ì‰ì´ë” ì´ë¦„ë³„ë¡œ 
         // Pawn List 
         // 
     }
@@ -327,7 +327,7 @@ HRESULT URenderer::Render()
     Render2DUIMiddle();
     Render2DUILast();
     Render3DUI();
-    //¿ø»óº¹±¸ÇÏ·Á¸é BlurµÎ°³ Å°°í DownSample 2°³¸¦ ²¨¾ßÇÔ. ±×¸®°í UpsampleÀÔ·Â ÅØ½ºÃÄ¸¦ BlurResult·Î
+    //ì›ìƒë³µêµ¬í•˜ë ¤ë©´ Blurë‘ê°œ í‚¤ê³  DownSample 2ê°œë¥¼ êº¼ì•¼í•¨. ê·¸ë¦¬ê³  Upsampleì…ë ¥ í…ìŠ¤ì³ë¥¼ BlurResultë¡œ
 #ifdef _USE_DEBUGGING
     
     SHPTR<UGameInstance> spGameInstance = GET_INSTANCE(UGameInstance); 
@@ -339,7 +339,7 @@ HRESULT URenderer::Render()
     m_spShadowCamera->GetTransform()->SetPos(_float3(pos.x,pos.y+20,pos.z));
     m_spShadowCamera->GetTransform()->SetLook(pos);*/
     m_spShadowCamera->GetTransform()->SetPos(_float3(-883.653748, -125.2615, 847.1639));
-    m_spShadowCamera->GetTransform()->LookAt(_float3(-859.759, -154.805, 860.509)); //y¸¦ È®¿Ã¸®±â
+    m_spShadowCamera->GetTransform()->LookAt(_float3(-859.759, -154.805, 860.509)); //yë¥¼ í™•ì˜¬ë¦¬ê¸°
 
     if (spGameInstance->GetDIKeyPressing(DIK_F1)) {
         RenderDebug();
@@ -457,7 +457,7 @@ void URenderer::RenderPosNormal()
 
     for (auto& iter : m_arrActiveDrawRenderList[RENDERID::RI_NORPOS_FORABILITY])
     {
-        RenderOutlineObject(iter.first, iter.second, false); //false°¡ NorPos true°¡ depth
+        RenderOutlineObject(iter.first, iter.second, false); //falseê°€ NorPos trueê°€ depth
     }
     spRenderTargetGroup0->WaitTargetToResource(m_spCastingCommand);
 
@@ -470,7 +470,7 @@ void URenderer::RenderPosNormal()
   
     for (auto& iter : m_arrActiveDrawRenderList[RENDERID::RI_NORPOS])
     {
-        RenderOutlineObject(iter.first, iter.second,false); //false°¡ NorPos true°¡ depth
+        RenderOutlineObject(iter.first, iter.second,false); //falseê°€ NorPos trueê°€ depth
     }
     spRenderTargetGroup->WaitTargetToResource(m_spCastingCommand);
 
@@ -483,7 +483,7 @@ void URenderer::RenderPosNormal()
 
     for (auto& iter : m_arrActiveDrawRenderList[RENDERID::RI_DEPTHRECORD])
     {
-        RenderOutlineObject(iter.first, iter.second, true); //false°¡ NorPos true°¡ depth
+        RenderOutlineObject(iter.first, iter.second, true); //falseê°€ NorPos trueê°€ depth
     }
     spRenderTargetGroup1->WaitTargetToResource(m_spCastingCommand);
 
@@ -1010,7 +1010,7 @@ void URenderer::RenderEnd()
         spDefferedShader->SettingPipeLineState(m_spCastingCommand);
         spDefferedShader->SetTableDescriptor(m_spGraphicDevice->GetTableDescriptor());
         //spDefferedShader->BindCBVBuffer(m_spTransformConstantBuffer, &m_stFinalRenderTransformParam, GetTypeSize<TRANSFORMPARAM>());
-        //  Diffuse Texture °¡Á®¿Í¼­ Bind 
+        //  Diffuse Texture ê°€ì ¸ì™€ì„œ Bind 
        
             spDefferedShader->BindSRVBuffer(SRV_REGISTER::T0, m_spRenderTargetManager->
                 FindRenderTargetTexture(RTGROUPID::BLOOM,
@@ -1019,16 +1019,16 @@ void URenderer::RenderEnd()
        
             spDefferedShader->BindSRVBuffer(SRV_REGISTER::T6, m_spRenderTargetManager->
                 FindRenderTargetTexture(RTGROUPID::GRAY_SCALE,
-                    RTOBJID::GRAY_SCALE)); //Á×¾úÀ»¶§
+                    RTOBJID::GRAY_SCALE)); //ì£½ì—ˆì„ë•Œ
             spDefferedShader->BindSRVBuffer(SRV_REGISTER::T7, m_spRenderTargetManager->
                 FindRenderTargetTexture(RTGROUPID::BLUR_RESULT,
-                    RTOBJID::BLUR_RESULT)); //´É·Â ¾µ¶§
+                    RTOBJID::BLUR_RESULT)); //ëŠ¥ë ¥ ì“¸ë•Œ
             spDefferedShader->BindSRVBuffer(SRV_REGISTER::T8, m_spRenderTargetManager->
                 FindRenderTargetTexture(RTGROUPID::UPSAMPLEGRAY,
-                    RTOBJID::UPSAMPLEGRAY));//½Ç¸í, ¸Â¾ÒÀ» ¶§
-        //UPSAMPLEGRAY¾²¸é Èæ¹é ¾ÏÀü(¾Æ¿¹°ËÀº»ö ÅØ½ºÃÄ¿©¼­) , GrayScaleÀÌ Èæ¹é, BLUR_RESULT°¡ ¿©±â¿¡ ºí·¯
+                    RTOBJID::UPSAMPLEGRAY));//ì‹¤ëª…, ë§ì•˜ì„ ë•Œ
+        //UPSAMPLEGRAYì“°ë©´ í‘ë°± ì•”ì „(ì•„ì˜ˆê²€ì€ìƒ‰ í…ìŠ¤ì³ì—¬ì„œ) , GrayScaleì´ í‘ë°±, BLUR_RESULTê°€ ì—¬ê¸°ì— ë¸”ëŸ¬
         
-        //  Diffuse Texture °¡Á®¿Í¼­ Bind 
+        //  Diffuse Texture ê°€ì ¸ì™€ì„œ Bind 
         spDefferedShader->BindSRVBuffer(SRV_REGISTER::T1, m_spRenderTargetManager->
             FindRenderTargetTexture(RTGROUPID::ALPHA_DEFFERED,
                 RTOBJID::ALPHA_DIFFUSE_DEFFERED));
@@ -1054,7 +1054,7 @@ void URenderer::RenderEnd()
         {
             spDefferedShader->BindCBVBuffer(m_spTurnShaderConstantBuffer, &m_bTurnShader, sizeof(DRAWSHADERBUFFER));
         }
-        //  Diffuse Texture °¡Á®¿Í¼­ Bind 
+        //  Diffuse Texture ê°€ì ¸ì™€ì„œ Bind 
    /*     spDefferedShader->BindSRVBuffer(SRV_REGISTER::T2, m_spRenderTargetManager->
             FindRenderTargetTexture(RTGROUPID::UI2D_DEFFERED,
                 RTOBJID::UI2D_SCREEN_DEFFERED));*/
@@ -1091,7 +1091,7 @@ void URenderer::RenderObject(const _wstring& _wstrShaderName, PAWNLIST& _PawnLis
     SHPTR<UGameInstance> spGameInstance = GET_INSTANCE(UGameInstance);
     // Pipelinestate setting
     spGameInstance->SettingPipeLineState(_wstrShaderName, m_spCastingCommand);
-    // Shadr ÇÊ¿äÇÑ Pawn³¢¸® list Âß ±×·Á
+    // Shadr í•„ìš”í•œ Pawnë¼ë¦¬ list ì­‰ ê·¸ë ¤
     for (auto& iter : _PawnList)
     {
         iter->Render(m_spCastingCommand, m_spGraphicDevice->GetTableDescriptor());
@@ -1103,7 +1103,7 @@ void URenderer::RenderShadowObject(const _wstring& _wstrShaderName, PAWNLIST& _P
     SHPTR<UGameInstance> spGameInstance = GET_INSTANCE(UGameInstance);
     // Pipelinestate setting
     spGameInstance->SettingPipeLineState(_wstrShaderName, m_spCastingCommand);
-    // Shadr ÇÊ¿äÇÑ Pawn³¢¸® list Âß ±×·Á
+    // Shadr í•„ìš”í•œ Pawnë¼ë¦¬ list ì­‰ ê·¸ë ¤
     for (auto& iter : _PawnList)
     {
         iter->RenderShadow(m_spCastingCommand, m_spGraphicDevice->GetTableDescriptor());
@@ -1115,7 +1115,7 @@ void URenderer::RenderOutlineObject(const _wstring& _wstrShaderName, PAWNLIST& _
     SHPTR<UGameInstance> spGameInstance = GET_INSTANCE(UGameInstance);
     // Pipelinestate setting
     spGameInstance->SettingPipeLineState(_wstrShaderName, m_spCastingCommand);
-    // Shadr ÇÊ¿äÇÑ Pawn³¢¸® list Âß ±×·Á
+    // Shadr í•„ìš”í•œ Pawnë¼ë¦¬ list ì­‰ ê·¸ë ¤
     for (auto& iter : _PawnList)
     {
         iter->RenderOutline(m_spCastingCommand, m_spGraphicDevice->GetTableDescriptor(), _pass);

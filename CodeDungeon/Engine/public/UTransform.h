@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UComponent.h"
 
 BEGIN(Engine)
@@ -118,11 +118,11 @@ public:
 	// Compute Distance
 	const _float ComputeDistance(const _float3& _vPos);
 	const _float ComputeDistanceSq(const _float3& _vPos);
-	// Shader ÆÄÀÏÀ» ºÒ·¯¿Í¼­ ¹ÙÀÎµå ÇÏ´Â ÇÔ¼ö
+	// Shader íŒŒì¼ì„ ë¶ˆëŸ¬ì™€ì„œ ë°”ì¸ë“œ í•˜ëŠ” í•¨ìˆ˜
 	HRESULT BindTransformData(CSHPTRREF< UShader> _spShader);
-	// Shader ÆÄÀÏÀ» ºÒ·¯¿Í¼­ ¹ÙÀÎµå ÇÏ´Â ÇÔ¼ö
+	// Shader íŒŒì¼ì„ ë¶ˆëŸ¬ì™€ì„œ ë°”ì¸ë“œ í•˜ëŠ” í•¨ìˆ˜
 	HRESULT BindTransformData(CSHPTRREF< UShader> _spShader, const _float4x4& _mTransform);
-	// Shader ÆÄÀÏÀ» ºÒ·¯¿Í¼­ ¹ÙÀÎµå ÇÏ´Â ÇÔ¼ö
+	// Shader íŒŒì¼ì„ ë¶ˆëŸ¬ì™€ì„œ ë°”ì¸ë“œ í•˜ëŠ” í•¨ìˆ˜
 	HRESULT BindTransformData(CSHPTRREF<UShader> _spShader, CAMID _RenderCamID);
 
 	void GravityFall(const _double& _deltaTime);
@@ -153,7 +153,7 @@ private:
 	SHPTR<UTransform>							m_spParentsTransform;
 
 
-	//2024-05-24 ÀÌ¼ºÇö Áß·Â ±¸Çö
+	//2024-05-24 ì´ì„±í˜„ ì¤‘ë ¥ êµ¬í˜„
     _float3 m_vVelocity; 
 	const _float3 m_vGravity;
 	_float3 m_vJumpvelocity;

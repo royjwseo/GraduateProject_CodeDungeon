@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_SERVER_PUBLIC_CANUBIS_H
+﻿#ifndef _SERVERFRAMEWORK_SERVER_PUBLIC_CANUBIS_H
 #define _SERVERFRAMEWORK_SERVER_PUBLIC_CANUBIS_H
 
 #include "CServerMonster.h"
@@ -25,4 +25,4 @@ private:
 
 END
 
-#endif
+#endif

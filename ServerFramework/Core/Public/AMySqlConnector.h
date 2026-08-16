@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AMYSQLCONNECTOR_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AMYSQLCONNECTOR_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_AMYSQLCONNECTOR_H
 
 #include "ACoreBase.h"
@@ -7,10 +7,10 @@ BEGIN(Core)
 class AMySqlDriver;
 
 /*
-@ Date: 2023-01-28, Writer: ¹ÚÅÂÇö
+@ Date: 2023-01-28, Writer: ë°•íƒœí˜„
 @ Explain
--  MySqlConnector´Â Connector¸¦ ¿©·¯°³ ¾²±â À§ÇÑ Å¬·¡½º
-±×³É connector ÀÚÃ¼¸¦ Lapping ÇØ ³õÀº °Í
+-  MySqlConnectorëŠ” Connectorë¥¼ ì—¬ëŸ¬ê°œ ì“°ê¸° ìœ„í•œ í´ë˜ìŠ¤
+ê·¸ëƒ¥ connector ìì²´ë¥¼ Lapping í•´ ë†“ì€ ê²ƒ
 */
 class CORE_DLL AMySqlConnector final : public ACoreBase {
 public:
@@ -42,4 +42,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_AMYSQLCONNECTOR_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_AMYSQLCONNECTOR_H

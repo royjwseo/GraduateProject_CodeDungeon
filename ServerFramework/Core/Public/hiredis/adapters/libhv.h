@@ -1,4 +1,4 @@
-#ifndef __HIREDIS_LIBHV_H__
+﻿#ifndef __HIREDIS_LIBHV_H__
 #define __HIREDIS_LIBHV_H__
 
 #include <hv/hloop.h>

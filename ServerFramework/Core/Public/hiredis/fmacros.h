@@ -1,4 +1,4 @@
-#ifndef __HIREDIS_FMACRO_H
+﻿#ifndef __HIREDIS_FMACRO_H
 #define __HIREDIS_FMACRO_H
 
 #ifndef _AIX

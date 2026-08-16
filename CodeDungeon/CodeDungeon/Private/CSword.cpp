@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+﻿#include "ClientDefines.h"
 #include "CSword.h"
 
 CSword::CSword(CSHPTRREF<UDevice> _spDevice, const _wstring& _wstrLayer, const CLONETYPE& _eCloneType) :

@@ -1,13 +1,13 @@
-#pragma once
+ï»¿#pragma once
 #include "UAnimationController.h"
 
 BEGIN(Client)
 class CWarriorPlayer;
 class UAnimation;
 /*
-@ Date: 2024-04-30, Writer: ¹ÚÅÂÇö
+@ Date: 2024-04-30, Writer: ë°•íƒœí˜„
 @ Explain
--  Warrior¸¦ Á¶Á¾ÇÏ´Â Å¬·¡½º
+-  Warriorë¥¼ ì¡°ì¢…í•˜ëŠ” í´ë˜ìŠ¤
 */
 class CUserWarriorAnimController final : public UAnimationController {
 public:
@@ -28,7 +28,7 @@ public:
 	virtual HRESULT NativeConstructClone(const VOIDDATAS& _tDatas) override;
 	// Tick
 	virtual void Tick(const _double& _dTimeDelta) override;
-	// ³×Æ®¿öÅ© Á¤º¸¸¦ ¹Ş¾Æ¿À´Â ÇÔ¼ö
+	// ë„¤íŠ¸ì›Œí¬ ì •ë³´ë¥¼ ë°›ì•„ì˜¤ëŠ” í•¨ìˆ˜
 	virtual void ReceiveNetworkProcessData(void* _pData) override;
 
 	_float GetUltAttackOneCoolTime() {return UltimateAttackOneCoolTime;}

@@ -1,16 +1,16 @@
-
+ï»¿
 #include "Protocol.pb.h"
 #include "Tag.pb.h"
 
 /*
-@ Date: 2024-06-19, Writer: ¹ÚÅÂÇö
-@ Explain: Protocol Buffer°¡ È°¼ºÈ­ µÇ¾ú´ÂÁö¿¡ ´ëÇÑ ¿©ºÎ
+@ Date: 2024-06-19, Writer: ë°•íƒœí˜„
+@ Explain: Protocol Bufferê°€ í™œì„±í™” ë˜ì—ˆëŠ”ì§€ì— ëŒ€í•œ ì—¬ë¶€
 */
 #define _ENABLE_PROTOBUFF
 
 /*
-@ Date: 2024-06-19, Writer: ¹ÚÅÂÇö
-@ Explain: ProtocolBuffer¸¦ ÇÒ´çÇÏ±â À§ÇÑ °´Ã¼.
+@ Date: 2024-06-19, Writer: ë°•íƒœí˜„
+@ Explain: ProtocolBufferë¥¼ í• ë‹¹í•˜ê¸° ìœ„í•œ ê°ì²´.
 */
 #define PROTOALLOC(Type, Name) Type* Name = new Type();
 
@@ -55,4 +55,4 @@ namespace PROTOFUNC
 	};
 }
 
-static PROTOFUNC::PROTOCOL_MEMORY_LEAK_REMOVER MemoryRemover;
+static PROTOFUNC::PROTOCOL_MEMORY_LEAK_REMOVER MemoryRemover;

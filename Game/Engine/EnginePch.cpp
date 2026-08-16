@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "EnginePch.h"
 #include "Engine.h"
 #include "DDSTextureLoader12.h"
@@ -34,7 +34,7 @@ ComPtr<ID3D12Resource> CreateTextureResourceFromDDSFile(ID3D12Device* pd3dDevice
 
     D3D12_RESOURCE_DESC d3dResourceDesc;
     ::ZeroMemory(&d3dResourceDesc, sizeof(D3D12_RESOURCE_DESC));
-    d3dResourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER; //Upload Heap¿¡´Â ÅØ½ºÃÄ¸¦ »ı¼ºÇÒ ¼ö ¾øÀ½
+    d3dResourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER; //Upload Heapì—ëŠ” í…ìŠ¤ì³ë¥¼ ìƒì„±í•  ìˆ˜ ì—†ìŒ
     d3dResourceDesc.Alignment = 0;
     d3dResourceDesc.Width = nBytes;
     d3dResourceDesc.Height = 1;
@@ -202,7 +202,7 @@ namespace Util {
                     UpdateSubresources<1>(_CommandList.Get(), pd3dBuffer.Get(), *ppd3dUploadBuffer, 0, 0, 1, &d3dSubResourceData);
 
 #endif
-                    Util::SynchronizeResourceTransition(_CommandList, pd3dBuffer.Get(), D3D12_RESOURCE_STATE_COPY_DEST, d3dResourceStates); //»óÅÂ ÀüÀÌ ÇØÁØ´Ù COPY_DEST·Î
+                    Util::SynchronizeResourceTransition(_CommandList, pd3dBuffer.Get(), D3D12_RESOURCE_STATE_COPY_DEST, d3dResourceStates); //ìƒíƒœ ì „ì´ í•´ì¤€ë‹¤ COPY_DESTë¡œ
                 }
                 break;
             }
@@ -228,10 +228,10 @@ namespace Util {
         ComPtr<ID3D12Resource> buffer;
         const UINT bufferSize{ sizePerData * dataCount };
 
-        // µğÆúÆ® ¹öÆÛ¿¡ µ¥ÀÌÅÍ¸¦ ³ÖÀ» °æ¿ì ¾÷·Îµå ¹öÆÛ°¡ ÇÊ¿äÇÔ
+        // ë””í´íŠ¸ ë²„í¼ì— ë°ì´í„°ë¥¼ ë„£ì„ ê²½ìš° ì—…ë¡œë“œ ë²„í¼ê°€ í•„ìš”í•¨
         if (d3dHeapType == D3D12_HEAP_TYPE_DEFAULT)
         {
-            // µğÆúÆ® ¹öÆÛ »ı¼º
+            // ë””í´íŠ¸ ë²„í¼ ìƒì„±
             DX::ThrowIfFailed(_Device->CreateCommittedResource(
                 &CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT),
                 D3D12_HEAP_FLAG_NONE,
@@ -240,10 +240,10 @@ namespace Util {
                 NULL,
                 IID_PPV_ARGS(&buffer)));
 
-            // µ¥ÀÌÅÍ º¹»ç
+            // ë°ì´í„° ë³µì‚¬
             if (pData)
             {
-                // ¾÷·Îµå ¹öÆÛ »ı¼º
+                // ì—…ë¡œë“œ ë²„í¼ ìƒì„±
                 DX::ThrowIfFailed(_Device->CreateCommittedResource(
                     &CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD),
                     D3D12_HEAP_FLAG_NONE,
@@ -252,7 +252,7 @@ namespace Util {
                     NULL,
                     IID_PPV_ARGS(ppd3dUploadBuffer)));
 
-                // ¾÷·Îµå ¹öÆÛ¿¡¼­ µğÆúÆ® ¹öÆÛ·Î º¹»ç
+                // ì—…ë¡œë“œ ë²„í¼ì—ì„œ ë””í´íŠ¸ ë²„í¼ë¡œ ë³µì‚¬
                 D3D12_SUBRESOURCE_DATA bufferData{};
                 bufferData.pData = pData;
                 bufferData.RowPitch = bufferSize;
@@ -260,15 +260,15 @@ namespace Util {
                 UpdateSubresources<1>(_CommandList.Get(), buffer.Get(), *ppd3dUploadBuffer, 0, 0, 1, &bufferData);
             }
 
-            // ¹öÆÛ ¸®¼Ò½º º£¸®¾î ¼³Á¤
+            // ë²„í¼ ë¦¬ì†ŒìŠ¤ ë² ë¦¬ì–´ ì„¤ì •
             _CommandList->ResourceBarrier(1, &CD3DX12_RESOURCE_BARRIER::Transition(buffer.Get(), D3D12_RESOURCE_STATE_COPY_DEST, d3dResourceStates));
             return buffer;
         }
 
-        // ¾÷·Îµå ¹öÆÛ¿¡ µ¥ÀÌÅÍ¸¦ ³ÖÀ» °æ¿ì ¹Ù·Î º¹»çÇÔ
+        // ì—…ë¡œë“œ ë²„í¼ì— ë°ì´í„°ë¥¼ ë„£ì„ ê²½ìš° ë°”ë¡œ ë³µì‚¬í•¨
         if (d3dHeapType == D3D12_HEAP_TYPE_UPLOAD)
         {
-            // ¾÷·Îµå ¹öÆÛ »ı¼º
+            // ì—…ë¡œë“œ ë²„í¼ ìƒì„±
             DX::ThrowIfFailed(_Device->CreateCommittedResource(
                 &CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD),
                 D3D12_HEAP_FLAG_NONE,
@@ -277,7 +277,7 @@ namespace Util {
                 NULL,
                 IID_PPV_ARGS(&buffer)));
 
-            // µ¥ÀÌÅÍ º¹»ç
+            // ë°ì´í„° ë³µì‚¬
             if (pData)
             {
                 UINT8* pBufferDataBegin{ NULL };
@@ -292,7 +292,7 @@ namespace Util {
 
         if (d3dHeapType == D3D12_HEAP_TYPE_READBACK)
         {
-            // ¸®µå¹é ¹öÆÛ »ı¼º
+            // ë¦¬ë“œë°± ë²„í¼ ìƒì„±
             DX::ThrowIfFailed(_Device->CreateCommittedResource(
                 &CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_READBACK),
                 D3D12_HEAP_FLAG_NONE,
@@ -301,7 +301,7 @@ namespace Util {
                 NULL,
                 IID_PPV_ARGS(&buffer)));
 
-            // µ¥ÀÌÅÍ º¹»ç
+            // ë°ì´í„° ë³µì‚¬
             if (pData)
             {
                 UINT8* pBufferDataBegin{ NULL };
@@ -339,10 +339,10 @@ namespace Util {
 
         D3D12_RESOURCE_DESC d3dResourceDesc;
         ::ZeroMemory(&d3dResourceDesc, sizeof(D3D12_RESOURCE_DESC));
-        d3dResourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER; //Upload Heap¿¡´Â ÅØ½ºÃÄ¸¦ »ı¼ºÇÒ ¼ö ¾øÀ½ . ¾÷·Îµå ÈüÀ¸·Î CPU->GPU¸Ş¸ğ¸®·Î ¿Å±â±â À§ÇÑ ¸ñÀûÀÌ¹Ç·Î ÅØ½ºÃÄ 2D´Â Á÷Á¢ GPU¿¡ ÅØ½ºÃÄ µ¥ÀÌÅÍ ¹Ğ¾î³ÖÀ¸¹Ç·Î ÀûÇÕÇÏÁö ¾ÊÀ½.
+        d3dResourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER; //Upload Heapì—ëŠ” í…ìŠ¤ì³ë¥¼ ìƒì„±í•  ìˆ˜ ì—†ìŒ . ì—…ë¡œë“œ í™ìœ¼ë¡œ CPU->GPUë©”ëª¨ë¦¬ë¡œ ì˜®ê¸°ê¸° ìœ„í•œ ëª©ì ì´ë¯€ë¡œ í…ìŠ¤ì³ 2DëŠ” ì§ì ‘ GPUì— í…ìŠ¤ì³ ë°ì´í„° ë°€ì–´ë„£ìœ¼ë¯€ë¡œ ì í•©í•˜ì§€ ì•ŠìŒ.
         d3dResourceDesc.Alignment = 0;
         d3dResourceDesc.Width = nBytes;
-        d3dResourceDesc.Height = 1;  //È¿À²ÀûÀ¸·Î µ¥ÀÌÅÍ º¸³»±â À§ÇØ ¿¬¼ÓÀûÀÎ ¸Ş¸ğ¸® ±¸Á¶ 1Â÷¿øÇüÅÂ·Î ¹öÆÛ ¸¸µé±â
+        d3dResourceDesc.Height = 1;  //íš¨ìœ¨ì ìœ¼ë¡œ ë°ì´í„° ë³´ë‚´ê¸° ìœ„í•´ ì—°ì†ì ì¸ ë©”ëª¨ë¦¬ êµ¬ì¡° 1ì°¨ì›í˜•íƒœë¡œ ë²„í¼ ë§Œë“¤ê¸°
         d3dResourceDesc.DepthOrArraySize = 1;
         d3dResourceDesc.MipLevels = 1;
         d3dResourceDesc.Format = DXGI_FORMAT_UNKNOWN;
@@ -391,7 +391,7 @@ namespace Util {
 
         D3D12_RESOURCE_DESC d3dResourceDesc;
         ::ZeroMemory(&d3dResourceDesc, sizeof(D3D12_RESOURCE_DESC));
-        d3dResourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER; //Upload Heap¿¡´Â ÅØ½ºÃÄ¸¦ »ı¼ºÇÒ ¼ö ¾øÀ½
+        d3dResourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER; //Upload Heapì—ëŠ” í…ìŠ¤ì³ë¥¼ ìƒì„±í•  ìˆ˜ ì—†ìŒ
         d3dResourceDesc.Alignment = 0;
         d3dResourceDesc.Width = nBytes;
         d3dResourceDesc.Height = 1;
@@ -486,4 +486,4 @@ namespace Util {
 
         WaitForGpuComplete(_CmdQueue, _Fence, nFenceValue, hFenceEvent);
     }
-}
+}

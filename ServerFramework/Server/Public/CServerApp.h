@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_SERVER_PUBLIC_CSERVERAPP_H
+ï»¿#ifndef _SERVERFRAMEWORK_SERVER_PUBLIC_CSERVERAPP_H
 #define _SERVERFRAMEWORK_SERVER_PUBLIC_CSERVERAPP_H
 
 #include "ACoreApp.h"
@@ -6,9 +6,9 @@
 BEGIN(Server)
 class CServerAdiminstor;
 /*
-@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
+@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
 @ Explain
-- ServerAppÀ» °ü¸®ÇÏ´Â Å¬·¡½º
+- ServerAppì„ ê´€ë¦¬í•˜ëŠ” í´ë˜ìŠ¤
 */
 class CServerApp : public Core::ACoreApp {
 public:
@@ -21,4 +21,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_SERVER_PUBLIC_CSERVERAPP_H
+#endif // _SERVERFRAMEWORK_SERVER_PUBLIC_CSERVERAPP_H

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UScene.h"
 BEGIN(Engine)
 class UGuard;
@@ -77,7 +77,7 @@ private:
 	_float r_AbilityDurationTime = 0;
 	_bool r_AbilityisAvailable = true;
 private:
-	//------------Á¶ÀÛ¹ý Controll Keys UI-----------
+	//------------ì¡°ìž‘ë²• Controll Keys UI-----------
 	SHPTR<CImageUI>			m_spBOOKPAGEUI;
 	SHPTR<CImageUI>			m_spKEYBOARDCONTROLSUI;
 

@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AANIMATION_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AANIMATION_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_AANIMATION_H
 
 #include "ACoreBase.h"
@@ -14,9 +14,9 @@ using ANIMFASTSECTIONS = VECTOR<ANIMFASTSECTION>;
 using ANIMEVENTCONTAINER = CONUNORMAP<ANIMEVENTTYPE, VECTOR<SHPTR<AAnimEvent>>>;
 /*
 @ Date: 2024-07-03
-@ Writer: ¹ÚÅÂÇö
+@ Writer: ë°•íƒœí˜„
 @ Explain
-- ¼­¹ö¿¡¼­ »ç¿ëÇÏ´Â ¾Ö´Ï¸ŞÀÌ¼Ç Å¬·¡½º
+- ì„œë²„ì—ì„œ ì‚¬ìš©í•˜ëŠ” ì• ë‹ˆë©”ì´ì…˜ í´ë˜ìŠ¤
 */
 class CORE_DLL AAnimation final : public ACoreBase {
 public:
@@ -24,13 +24,13 @@ public:
 	DESTRUCTOR(AAnimation)
 public:
 	_bool NativeConstruct(AAnimator* _pAnimator, std::ifstream& _read);
-	// ¾Ö´Ï¸ŞÀÌ¼Ç°ú ¿¬°áµÈ »À Á¤º¸µéÀ» ¾÷µ¥ÀÌÆ®
+	// ì• ë‹ˆë©”ì´ì…˜ê³¼ ì—°ê²°ëœ ë¼ˆ ì •ë³´ë“¤ì„ ì—…ë°ì´íŠ¸
 	void UpdateBoneMatrices(const _double& _dTimeDelta);
-	// TimeAcc·Î ¾Ö´Ï¸ŞÀÌ¼Ç°ú ¿¬°áµÈ »À Á¤º¸µéÀ» ¾÷µ¥ÀÌÆ®
+	// TimeAccë¡œ ì• ë‹ˆë©”ì´ì…˜ê³¼ ì—°ê²°ëœ ë¼ˆ ì •ë³´ë“¤ì„ ì—…ë°ì´íŠ¸
 	void UpdateboneMatricesToRatio(const _double& _Ratio);
-	// ´ÙÀ½ ¾Ö´Ï¸ŞÀÌ¼ÇÀ¸·Î º¯°æ
+	// ë‹¤ìŒ ì• ë‹ˆë©”ì´ì…˜ìœ¼ë¡œ ë³€ê²½
 	void UpdateNextAnimTransformMatrices(const _double& _dTimeDelta, const _float _fSupplyValue, CSHPTRREF<AAnimation> _spAnimation);
-	// ÇØ´ç ÇÁ·¹ÀÓÀ¸·Î ¾Ö´Ï¸ŞÀÌ¼Ç º¯°æ
+	// í•´ë‹¹ í”„ë ˆì„ìœ¼ë¡œ ì• ë‹ˆë©”ì´ì…˜ ë³€ê²½
 	void UpdateTimeAccToChannelIndex(const _double& _dTimeAcc);
 	// Animation Event Tick 
 	void TickAnimEvent(APawn* _pPawn, AAnimator* _pAnimator, const _double& _TimeDelta, const _string& _strInputTrigger);
@@ -80,4 +80,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_AANIMATION_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_AANIMATION_H

@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 #include "UCell.h"
 
 UCell::UCell(CSHPTRREF<UDevice> _spDevice) : UObject(_spDevice),
@@ -143,7 +143,7 @@ void UCell::CalculateCrossResult(ARRAY<_float3, POINT_END>& _arrPointsEnd)
 void UCell::ResortPoints()
 {	
 	// Resort Points
-	// °°Àº ½Ã°è ¹æÇâÀ¸·Î Á¡µéÀÌ ¹èÄ¡µÇµµ·Ï ÇÏ´Â °Í
+	// ê°™ì€ ì‹œê³„ ë°©í–¥ìœ¼ë¡œ ì ë“¤ì´ ë°°ì¹˜ë˜ë„ë¡ í•˜ëŠ” ê²ƒ
 	bool bIsTrue = true;
 	while (bIsTrue) {
 		ARRAY<_float3, POINT_END> arrPosList;

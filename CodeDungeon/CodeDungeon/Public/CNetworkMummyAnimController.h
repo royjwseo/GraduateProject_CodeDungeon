@@ -1,12 +1,12 @@
-#pragma once
+ï»¿#pragma once
 #include "CMonsterAnimController.h"
 
 BEGIN(Client)
 class CMummy;
 /*
-@ Date: 2024-05-13, Writer: ÀÌ¼ºÇö
+@ Date: 2024-05-13, Writer: ì´ì„±í˜„
 @ Explain
--  Mummy¸¦ Á¶Á¾ÇÏ´Â Å¬·¡½º
+-  Mummyë¥¼ ì¡°ì¢…í•˜ëŠ” í´ë˜ìŠ¤
 */
 class CNetworkMummyAnimController final : public CMonsterAnimController {
 public:

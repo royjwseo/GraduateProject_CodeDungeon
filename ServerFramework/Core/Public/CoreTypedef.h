@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_CORETYPEDEF_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_CORETYPEDEF_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_CORETYPEDEF_H
 
 namespace Core
@@ -6,9 +6,9 @@ namespace Core
 
 	/*
 	@ Date: 2023-12-26
-	@ Writer: ¹ÚÅÂÇö
+	@ Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¼­¹ö ÇÁ·¹ÀÓ¿öÅ© ±¸Ãà¿¡¼­ »ç¿ëÇÒ º¯¼ö Å¸ÀÔµé Á¤ÀÇ
+	- ì„œë²„ í”„ë ˆì„ì›Œí¬ êµ¬ì¶•ì—ì„œ ì‚¬ìš©í•  ë³€ìˆ˜ íƒ€ì…ë“¤ ì •ì˜
 	*/
 	using _ubyte = unsigned char;
 	using _byte = signed char;
@@ -38,7 +38,7 @@ namespace Core
 	using _tchar = wchar_t;
 
 	/*
-	GLM (OpenGl¿ë ¼öÇĞ ¶óÀÌºê·¯¸®)
+	GLM (OpenGlìš© ìˆ˜í•™ ë¼ì´ë¸ŒëŸ¬ë¦¬)
 	*/
 	using Vector2 = DirectX::PTH::Vector2;
 	using Vector3 = DirectX::PTH::Vector3;
@@ -154,4 +154,4 @@ namespace Core
 	using UDPSOCKET = Asio::ip::udp::socket;
 }
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_CORETYPEDEF_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_CORETYPEDEF_H

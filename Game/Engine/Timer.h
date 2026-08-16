@@ -1,24 +1,24 @@
-#pragma once
+ï»¿#pragma once
 
 #include <timeapi.h>
 const unsigned long MAX_SAMPLE_COUNT = 50;
 class CGameTimer
 {
 private:
-	bool m_bHardwareHasPerformanceCounter;//ÄÄÇ»ÅÍ°¡ Performance Counter¸¦ °¡Áö°í ÀÖ´Â °¡
-	float m_fTimeScalse;//Scale CounterÀÇ ¾ç
-	float m_fTimeElapsed;//¸¶Áö¸· ÇÁ·¹ÀÓ ÀÌÈÄ Áö³ª°£ ½Ã°£
-	__int64 m_nCurrentTime;//ÇöÀçÀÇ ½Ã°£
-	__int64 m_nLastTime;//¸¶Áö¸· ÇÁ·¹ÀÓÀÇ ½Ã°£
-	__int64 m_nPerformanceFrequency;//ÄÄÇ»ÅÍÀÇ Performance Frequency
+	bool m_bHardwareHasPerformanceCounter;//ì»´í“¨í„°ê°€ Performance Counterë¥¼ ê°€ì§€ê³  ìˆëŠ” ê°€
+	float m_fTimeScalse;//Scale Counterì˜ ì–‘
+	float m_fTimeElapsed;//ë§ˆì§€ë§‰ í”„ë ˆì„ ì´í›„ ì§€ë‚˜ê°„ ì‹œê°„
+	__int64 m_nCurrentTime;//í˜„ì¬ì˜ ì‹œê°„
+	__int64 m_nLastTime;//ë§ˆì§€ë§‰ í”„ë ˆì„ì˜ ì‹œê°„
+	__int64 m_nPerformanceFrequency;//ì»´í“¨í„°ì˜ Performance Frequency
 
-	float m_fFrameTime[MAX_SAMPLE_COUNT];//ÇÁ·¹ÀÓ ½Ã°£À» ´©ÀûÇÏ±â À§ÇÑ ¹è¿­
-	ULONG m_nSampleCount;//´©ÀûµÈ ÇÁ·¹ÀÓ È½¼ö
+	float m_fFrameTime[MAX_SAMPLE_COUNT];//í”„ë ˆì„ ì‹œê°„ì„ ëˆ„ì í•˜ê¸° ìœ„í•œ ë°°ì—´
+	ULONG m_nSampleCount;//ëˆ„ì ëœ í”„ë ˆì„ íšŸìˆ˜
 
 
-	unsigned long m_nCurrentFrameRate;//ÇöÀçÀÇ ÇÁ·¹ÀÓ ·¹ÀÌÆ®
-	unsigned long m_nFramesPerSecond;//ÃÊ´ç ÇÁ·¹ÀÓ ¼ö
-	float m_fFPSTimeElapsed;//ÇÁ·¹ÀÓ ·¹ÀÌÆ® °è»ê ¼Ò¿ä ½Ã°£
+	unsigned long m_nCurrentFrameRate;//í˜„ì¬ì˜ í”„ë ˆì„ ë ˆì´íŠ¸
+	unsigned long m_nFramesPerSecond;//ì´ˆë‹¹ í”„ë ˆì„ ìˆ˜
+	float m_fFPSTimeElapsed;//í”„ë ˆì„ ë ˆì´íŠ¸ ê³„ì‚° ì†Œìš” ì‹œê°„
 
 	bool m_bStopped;//
 public:
@@ -28,9 +28,9 @@ public:
 	void Start() {}
 	void Stop() {}
 	void Reset();
-	void Tick(float fLockFPS = 0.0f);//Å¸ÀÌ¸Ó ½Ã°£À» °»½Å
-	unsigned long GetFrameRate(LPTSTR lpszString = NULL, int nCharacters = 0);//ÇÁ·¹ÀÓ·¹ÀÌÆ®¹İÈ¯
-	float GetTimeElapsed();//ÇÁ·¹ÀÓÀÇ Æò±Õ°æ°ú ½Ã°£ ¹İÈ¯
+	void Tick(float fLockFPS = 0.0f);//íƒ€ì´ë¨¸ ì‹œê°„ì„ ê°±ì‹ 
+	unsigned long GetFrameRate(LPTSTR lpszString = NULL, int nCharacters = 0);//í”„ë ˆì„ë ˆì´íŠ¸ë°˜í™˜
+	float GetTimeElapsed();//í”„ë ˆì„ì˜ í‰ê· ê²½ê³¼ ì‹œê°„ ë°˜í™˜
 };
 
 

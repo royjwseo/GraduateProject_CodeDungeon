@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UAnimModel.h"
 #include "UMethod.h"
 #include "UAnimation.h"
@@ -130,7 +130,7 @@ HRESULT UAnimModel::NativeConstructClone(const VOIDDATAS& _vecDatas)
 
 	if (m_vecAnimations.size() > 0)
 	{
-		// ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ nullptrÀÏ ¶§, Animation 0À¸·Î ÃÊ±âÈ­ 
+		// ì• ë‹ˆë©”ì´ì…˜ì´ nullptrì¼ ë•Œ, Animation 0ìœ¼ë¡œ ì´ˆê¸°í™” 
 		SetAnimation(0);
 	}
 	// BondMatrix
@@ -176,7 +176,7 @@ void UAnimModel::TickAnimation(const _double& _dTimeDelta)
 		m_isChangeAnim = false;
 	}
 
-	/* ºÎ¸ð·ÎºÎÅÍ ÀÚ½Ä»À¿¡°Ô ´©Àû½ÃÄÑ Àü´ÞÇÑ´Ù.(CombinedTransformationMatrix) */
+	/* ë¶€ëª¨ë¡œë¶€í„° ìžì‹ë¼ˆì—ê²Œ ëˆ„ì ì‹œì¼œ ì „ë‹¬í•œë‹¤.(CombinedTransformationMatrix) */
 	{
 		for (auto& BoneNode : GetBoneNodes())
 			BoneNode->UpdateCombinedMatrix(m_mPivotMatrix);
@@ -186,7 +186,7 @@ void UAnimModel::TickAnimation(const _double& _dTimeDelta)
 void UAnimModel::UpdateCurAnimationToRatio(const _double& _dRatio)
 {
 	m_spCurAnimation->UpdateboneMatricesToRatio(_dRatio);
-	/* ºÎ¸ð·ÎºÎÅÍ ÀÚ½Ä»À¿¡°Ô ´©Àû½ÃÄÑ Àü´ÞÇÑ´Ù.(CombinedTransformationMatrix) */
+	/* ë¶€ëª¨ë¡œë¶€í„° ìžì‹ë¼ˆì—ê²Œ ëˆ„ì ì‹œì¼œ ì „ë‹¬í•œë‹¤.(CombinedTransformationMatrix) */
 	{
 		for (auto& BoneNode : GetBoneNodes())
 			BoneNode->UpdateCombinedMatrix(m_mPivotMatrix);
@@ -250,12 +250,12 @@ HRESULT UAnimModel::Render(const _uint _iMeshIndex, CSHPTRREF<UShader> _spShader
 	RETURN_CHECK(GetMeshContainerCnt() <= _iMeshIndex, E_FAIL);
 	RETURN_CHECK(nullptr == GetMeshContainers()[_iMeshIndex], E_FAIL);
 	CSHPTRREF<UMeshContainer> spMeshContainer{ GetMeshContainers()[_iMeshIndex] };
-	// ÀÌÀü º» °ª ¼¼ÆÃ
+	// ì´ì „ ë³¸ ê°’ ì„¸íŒ…
 	_spShader->BindCBVBuffer(m_spPrevBoneMatrixShaderConstantBuffer, m_vecSetupBonMatrix[_iMeshIndex].data(), GetTypeSize<BONEMATRIXPARAM>());
 	spMeshContainer->SetUpBoneMatrix(m_vecSetupBonMatrix[_iMeshIndex]);
-	// ÇöÀç º» °ª ¼¼ÆÃ
+	// í˜„ìž¬ ë³¸ ê°’ ì„¸íŒ…
 	_spShader->BindCBVBuffer(m_spBoneMatrixShaderConstantBuffer, m_vecSetupBonMatrix[_iMeshIndex].data(), GetTypeSize<BONEMATRIXPARAM>());
-	// ¾Ö´Ï¸ÞÀÌ¼Ç ¼¼ÆÃ
+	// ì• ë‹ˆë©”ì´ì…˜ ì„¸íŒ…
 	_spShader->BindCBVBuffer(m_spAnimShaderConstantBuffer, &m_stAnimParam, GetTypeSize<ANIMATIONPARAM>());
 	
 	_spShader->BindCBVBuffer(m_spDrawRimLightBuffer, &m_DrawRim, GetTypeSize<RIMDRAW>());
@@ -266,14 +266,14 @@ HRESULT UAnimModel::Render(const _uint _iMeshIndex, CSHPTRREF<UShader> _spShader
 void UAnimModel::SetAnimation(const _uint& _iAnimIndex)
 {
 	ChangeAnimIndex(_iAnimIndex, m_iCurAnimIndex);
-	// ÇöÀç ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ ¼¼ÆÃµÇ´Â »óÈ²ÀÏ ¶§ÀÇ ÇÔ¼ö ½ÇÇà
+	// í˜„ìž¬ ì• ë‹ˆë©”ì´ì…˜ì´ ì„¸íŒ…ë˜ëŠ” ìƒí™©ì¼ ë•Œì˜ í•¨ìˆ˜ ì‹¤í–‰
 	SettingCurAnimSituation();
 }
 
 void UAnimModel::SetAnimation(const _wstring& _wstrAnimName)
 {
 	ChangeAnimIndex(_wstrAnimName, m_iCurAnimIndex);
-	// ÇöÀç ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ ¼¼ÆÃµÇ´Â »óÈ²ÀÏ ¶§ÀÇ ÇÔ¼ö ½ÇÇà
+	// í˜„ìž¬ ì• ë‹ˆë©”ì´ì…˜ì´ ì„¸íŒ…ë˜ëŠ” ìƒí™©ì¼ ë•Œì˜ í•¨ìˆ˜ ì‹¤í–‰
 	SettingCurAnimSituation();
 }
 
@@ -306,7 +306,7 @@ void UAnimModel::ChangeAnimation(const _uint& _iAnimIndex, const _double& _dNext
 {
 	ResetCurAnimEvent();
 	ChangeAnimIndex(_iAnimIndex, m_iNextAnimIndex);
-	// ´ÙÀ½ ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ ¼¼ÆÃµÇ´Â »óÈ²ÀÏ ¶§ÀÇ ÇÔ¼ö ½ÇÇà
+	// ë‹¤ìŒ ì• ë‹ˆë©”ì´ì…˜ì´ ì„¸íŒ…ë˜ëŠ” ìƒí™©ì¼ ë•Œì˜ í•¨ìˆ˜ ì‹¤í–‰
 	SettingNextAnimSituation();
 	// Change Time Acc
 	m_spNextAnimation->UpdateTimeAccToChannelIndex(_dNextTimeAcc);
@@ -315,7 +315,7 @@ void UAnimModel::ChangeAnimation(const _uint& _iAnimIndex, const _double& _dNext
 void UAnimModel::ChangeAnimation(const _wstring& _wstrAnimName, const _double& _dNextTimeAcc)
 {
 	ChangeAnimIndex(_wstrAnimName, m_iCurAnimIndex);
-	// ÇöÀç ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ ¼¼ÆÃµÇ´Â »óÈ²ÀÏ ¶§ÀÇ ÇÔ¼ö ½ÇÇà
+	// í˜„ìž¬ ì• ë‹ˆë©”ì´ì…˜ì´ ì„¸íŒ…ë˜ëŠ” ìƒí™©ì¼ ë•Œì˜ í•¨ìˆ˜ ì‹¤í–‰
 	SettingNextAnimSituation();
 	// Change Time Acc
 	m_spNextAnimation->UpdateTimeAccToChannelIndex(_dNextTimeAcc);

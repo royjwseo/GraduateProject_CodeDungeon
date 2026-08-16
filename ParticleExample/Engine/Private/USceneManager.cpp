@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+﻿#include "EngineDefines.h"
 #include "USceneManager.h"
 #include "UGraphicDevice.h"
 #include "ULight.h"
@@ -162,4 +162,4 @@ HRESULT USceneManager::ClearLight()
 {
 	RETURN_CHECK(nullptr == m_spCurScene, E_FAIL);
 	return m_spCurScene->ClearLight();
-}
+}

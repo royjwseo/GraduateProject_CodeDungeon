@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ACOLLIDER_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ACOLLIDER_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ACOLLIDER_H
 
 #include "ACoreBase.h"
@@ -6,9 +6,9 @@
 BEGIN(Core)
 class ATransform;
 /*
-@ Date: 2023-01-18, Writer: ¹ÚÅÂÇö
+@ Date: 2023-01-18, Writer: ë°•íƒœí˜„
 @ Explain
-- °´Ã¼ÀÇ Ãæµ¹Ã³¸®¸¦ ÇÏ±â À§ÇÑ Å¬·¡½ºÀÌ´Ù. 
+- ê°ì²´ì˜ ì¶©ëŒì²˜ë¦¬ë¥¼ í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ì´ë‹¤. 
 */
 class CORE_DLL ACollider final : public ACoreBase {
 public:
@@ -36,20 +36,20 @@ public:
 	void SetTransform(const Vector3& _vPos, const Vector4& _vQuaternion);
 	void SetTransform(CSHPTRREF< ATransform> _spTransform);
 	void SetTransform(const _float4x4& _Matrix);
-	// UComponentÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UComponentì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual void Free() override;
 	_bool IsCollision(CSHPTRREF<ACollider> _pCollider);
 	/*
-	@ Date: 2024-03-11, Writer: ÀÌ¼ºÇö
+	@ Date: 2024-03-11, Writer: ì´ì„±í˜„
 	@ Explain
-	- collider¿Í rayÀÇ Ãæµ¹Ã³¸®¸¦ À§ÇÑ ÇÔ¼ö
+	- colliderì™€ rayì˜ ì¶©ëŒì²˜ë¦¬ë¥¼ ìœ„í•œ í•¨ìˆ˜
 	*/
 	_bool IsCollisionWithRay(const Vector3& _vOrigin, const Vector3& _vDirection, _float* _pDist);
 
 	/*
-	@ Date: 2024-06-11, Writer: ÀÌ¼ºÇö
+	@ Date: 2024-06-11, Writer: ì´ì„±í˜„
 	@ Explain
-	- Äİ¶óÀÌ´õ ³ë¸» Ãß°¡
+	- ì½œë¼ì´ë” ë…¸ë§ ì¶”ê°€
 	*/
 	void SetOBBNormals(const _float4x4& transformMatrix);
 	Vector3 CalculateOBBCollisionNormal(const DirectX::BoundingOrientedBox& box1, const DirectX::BoundingOrientedBox& box2) const;
@@ -84,4 +84,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ACOLLIDER_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ACOLLIDER_H

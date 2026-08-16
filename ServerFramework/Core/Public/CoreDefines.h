@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_COREDEFINES_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_COREDEFINES_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_COREDEFINES_H
 
 #pragma warning (disable : 4251)
@@ -13,9 +13,9 @@
 
 /*
 @ Date: 2023-12-30
-@ Writer: ¹ÚÅÂÇö
+@ Writer: ë°•íƒœí˜„
 @ Explain
-- ÇöÀç ½ÇÇàµÇ´Â ÄÚµåÀÇ »óÈ²ÀÌ Window OSÀÎÁö Linux OSÀÎÁö Á¤ÀÇÇÑ´Ù.
+- í˜„ì¬ ì‹¤í–‰ë˜ëŠ” ì½”ë“œì˜ ìƒí™©ì´ Window OSì¸ì§€ Linux OSì¸ì§€ ì •ì˜í•œë‹¤.
 */
 
 #ifdef _WIN32
@@ -27,9 +27,9 @@
 
 /*
 @ Date: 2023-12-26
-@ Writer: ¹ÚÅÂÇö
+@ Writer: ë°•íƒœí˜„
 @ Explain
-- DLL ÆÄÀÏ °ü¸®ÇÏ´Â ¸ÅÅ©·Î, EXPORT ÀÏ¶§¿Í Exprot ¾Æ´Ò ¶§ ±¸ºĞÇÏ°Ô ÇØÁØ´Ù.
+- DLL íŒŒì¼ ê´€ë¦¬í•˜ëŠ” ë§¤í¬ë¡œ, EXPORT ì¼ë•Œì™€ Exprot ì•„ë‹ ë•Œ êµ¬ë¶„í•˜ê²Œ í•´ì¤€ë‹¤.
 */
 #ifdef CORE_EXPORTS
 #define CORE_DLL   _declspec(dllexport)
@@ -125,4 +125,4 @@ namespace Asio = boost::asio;
 
 using namespace DirectX;
 
-#endif 
+#endif 

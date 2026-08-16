@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "AAnimator.h"
 #include "ABoneNode.h"
 #include "ARootBoneNode.h"
@@ -25,7 +25,7 @@ namespace Core
 		read.read((_char*)&boneNodeCnt, sizeof(size_t));
 		read.read((_char*)&AnimCnt, sizeof(size_t));
 		read.read((_char*)&AnimIndex, sizeof(_int));
-		// Root Bone ÇÒ´ç
+		// Root Bone í• ë‹¹
 		for (_int i = 0; i < boneNodeCnt; ++i)
 		{
 			SHPTR<ABoneNode> spBoneNode = nullptr;
@@ -98,7 +98,7 @@ namespace Core
 			spCurAnim->UpdateBoneMatrices(_dTimeDelta);
 		}
 
-		/* ºÎ¸ğ·ÎºÎÅÍ ÀÚ½Ä»À¿¡°Ô ´©Àû½ÃÄÑ Àü´ŞÇÑ´Ù.(CombinedTransformationMatrix) */
+		/* ë¶€ëª¨ë¡œë¶€í„° ìì‹ë¼ˆì—ê²Œ ëˆ„ì ì‹œì¼œ ì „ë‹¬í•œë‹¤.(CombinedTransformationMatrix) */
 		{
 			for (auto& BoneNode : m_BoneContainer)
 				BoneNode->UpdateCombinedMatrix(m_PivotMatirx);
@@ -145,7 +145,7 @@ namespace Core
 	{
 		SHPTR<AAnimation> spCurAnim = m_spCurAnimation;
 		spCurAnim->UpdateboneMatricesToRatio(_dRatio);
-		/* ºÎ¸ğ·ÎºÎÅÍ ÀÚ½Ä»À¿¡°Ô ´©Àû½ÃÄÑ Àü´ŞÇÑ´Ù.(CombinedTransformationMatrix) */
+		/* ë¶€ëª¨ë¡œë¶€í„° ìì‹ë¼ˆì—ê²Œ ëˆ„ì ì‹œì¼œ ì „ë‹¬í•œë‹¤.(CombinedTransformationMatrix) */
 		{
 			for (auto& BoneNode : m_BoneContainer)
 				BoneNode->UpdateCombinedMatrix(m_PivotMatirx);
@@ -175,14 +175,14 @@ namespace Core
 	void AAnimator::SetAnimation(const _int& _iAnimIndex)
 	{
 		ChangeAnimIndex(_iAnimIndex, m_iCurAnimIndex);
-		// ÇöÀç ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ¼¼ÆÃµÇ´Â »óÈ²ÀÏ ¶§ÀÇ ÇÔ¼ö ½ÇÇà
+		// í˜„ì¬ ì• ë‹ˆë©”ì´ì…˜ì´ ì„¸íŒ…ë˜ëŠ” ìƒí™©ì¼ ë•Œì˜ í•¨ìˆ˜ ì‹¤í–‰
 		SettingCurAnimSituation();
 	}
 
 	void AAnimator::SetAnimation(const _string& _strAnimName)
 	{
 		ChangeAnimIndex(_strAnimName, m_iCurAnimIndex);
-		// ÇöÀç ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ¼¼ÆÃµÇ´Â »óÈ²ÀÏ ¶§ÀÇ ÇÔ¼ö ½ÇÇà
+		// í˜„ì¬ ì• ë‹ˆë©”ì´ì…˜ì´ ì„¸íŒ…ë˜ëŠ” ìƒí™©ì¼ ë•Œì˜ í•¨ìˆ˜ ì‹¤í–‰
 		SettingCurAnimSituation();
 	}
 
@@ -216,7 +216,7 @@ namespace Core
 	{
 		SHPTR<AAnimation> spNextAnim = m_spNextAnimation;
 		ChangeAnimIndex(_iAnimIndex, m_iNextAnimIndex);
-		// ´ÙÀ½ ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ¼¼ÆÃµÇ´Â »óÈ²ÀÏ ¶§ÀÇ ÇÔ¼ö ½ÇÇà
+		// ë‹¤ìŒ ì• ë‹ˆë©”ì´ì…˜ì´ ì„¸íŒ…ë˜ëŠ” ìƒí™©ì¼ ë•Œì˜ í•¨ìˆ˜ ì‹¤í–‰
 		SettingNextAnimSituation();
 		// Change Time Acc
 		spNextAnim->UpdateTimeAccToChannelIndex(_dNextTimeAcc);
@@ -226,7 +226,7 @@ namespace Core
 	{
 		SHPTR<AAnimation> spNextAnim = m_spNextAnimation;
 		ChangeAnimIndex(_strAnimName, m_iCurAnimIndex);
-		// ÇöÀç ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ¼¼ÆÃµÇ´Â »óÈ²ÀÏ ¶§ÀÇ ÇÔ¼ö ½ÇÇà
+		// í˜„ì¬ ì• ë‹ˆë©”ì´ì…˜ì´ ì„¸íŒ…ë˜ëŠ” ìƒí™©ì¼ ë•Œì˜ í•¨ìˆ˜ ì‹¤í–‰
 		SettingNextAnimSituation();
 		// Change Time Acc
 		spNextAnim->UpdateTimeAccToChannelIndex(_dNextTimeAcc);
@@ -293,4 +293,4 @@ namespace Core
 	void AAnimator::Free()
 	{
 	}
-}
+}

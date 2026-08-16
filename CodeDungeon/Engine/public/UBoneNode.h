@@ -1,12 +1,12 @@
-#pragma once 
+ï»¿#pragma once 
 #include "UBase.h"
 
 BEGIN(Engine)
 class UModel;
 /*
-@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 @ Explain
-- ¸ğµ¨ÀÇ »À Á¤º¸¸¦ ´ã°í ÀÖ´Â Å¬·¡½º
+- ëª¨ë¸ì˜ ë¼ˆ ì •ë³´ë¥¼ ë‹´ê³  ìˆëŠ” í´ë˜ìŠ¤
 */
 class  UBoneNode : public UBase{
 public:
@@ -46,7 +46,7 @@ protected: /* get set*/
 	const _float3& GetCombineMatrixLook() const { return *((_float3*)&m_mCombineTransformMatirx.m[DirectX::PTH::MATROW_LOOK][0]); }
 	const _float3& GetCombineMatrixPos() const { return *((_float3*)&m_mCombineTransformMatirx.m[DirectX::PTH::MATROW_POS][0]); }
 private:
-	// »ÀÀÇ °¡Àå ±âº»ÀÌ µÇ´Â °ÍÀÇ ÀÌ¸§ (Áß¿äÇÑ °Í)
+	// ë¼ˆì˜ ê°€ì¥ ê¸°ë³¸ì´ ë˜ëŠ” ê²ƒì˜ ì´ë¦„ (ì¤‘ìš”í•œ ê²ƒ)
 	static	_wstring					BASE_BONENODE_NAME;
 
 	_bool									m_isRootBoneNode;

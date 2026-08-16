@@ -1,4 +1,4 @@
-#include "ServerDefines.h"
+﻿#include "ServerDefines.h"
 #include "CMummy.h"
 #include "ATransform.h"
 #include "CMummyAnimController.h"
@@ -131,4 +131,4 @@ namespace Server
 	{
 	}
 
-}
+}

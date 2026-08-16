@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "UBase.h"
 
 BEGIN(Engine)
@@ -58,7 +58,7 @@ public:
 	HRESULT MainRenderBegin();
 	HRESULT MainRenderEnd();
 
-	//4-27 �߰�
+	//4-27 추가
 	void SetTemporaryViewPort(D3D12_VIEWPORT _viewport,D3D12_RECT _rect);
 	void SetDefaultViewPort();
 private:

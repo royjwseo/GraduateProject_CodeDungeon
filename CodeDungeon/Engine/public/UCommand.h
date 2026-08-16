@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UBase.h"
 
 BEGIN(Engine)
@@ -47,7 +47,7 @@ private:
 	// Fences 
 	_uint																	m_iCurrentFence;
 	static	_uint														s_iRenderFence;
-	// FameContext °ü·Ã
+	// FameContext ê´€ë ¨
 	HANDLE																m_hFenceEvent;
 	// Graphic Commands
 	ComPtr<Dx12CommandQueue>			m_cpCommandQueue;

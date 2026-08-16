@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UModelMaterial.h"
 #include "UMethod.h"
 #include "UShader.h"
@@ -7,7 +7,7 @@
 
 // Material Draw Number 
  _int									UModelMaterial::s_AllMaterialDrawLength;
-// ³Ñ¹ö¸µÀ» ÁÖ±â À§ÇÑ ÄÁÅ×ÀÌ³Ê
+// ë„˜ë²„ë§ì„ ì£¼ê¸° ìœ„í•œ ì»¨í…Œì´ë„ˆ
  VECTOR<_int>				UModelMaterial::s_RemainMaterialDrawNumber;
 
 UModelMaterial::UModelMaterial(CSHPTRREF<UDevice> _spDevice, const DESC& _MaterialDesc) :
@@ -32,7 +32,7 @@ void UModelMaterial::Free()
 
 HRESULT UModelMaterial::NativeConstruct()
 {
-	// ¸¸¾à ³²¾ÆÀÖ´Â ¸ÓÅÍ¸®¾ó DrawNumber°¡ ³²¾ÆÀÖÀ¸¸é, Remain NumberingºÎÅÍ Ã£¾Æ¿Â´Ù. 
+	// ë§Œì•½ ë‚¨ì•„ìˆëŠ” ë¨¸í„°ë¦¬ì–¼ DrawNumberê°€ ë‚¨ì•„ìˆìœ¼ë©´, Remain Numberingë¶€í„° ì°¾ì•„ì˜¨ë‹¤. 
 	if (s_RemainMaterialDrawNumber.size() > 0)
 	{
 		m_iMaterialIndex = s_RemainMaterialDrawNumber.front();

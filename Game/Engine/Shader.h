@@ -1,4 +1,4 @@
-#include "GameObject.h"
+Ôªø#include "GameObject.h"
 #include "Camera.h"
 
 struct CB_GAMEOBJECT_INFO
@@ -20,7 +20,7 @@ public:
 	virtual void UpdateShaderVariable(const ComPtr<ID3D12GraphicsCommandList>& _CommandList,
 		XMFLOAT4X4* pxmf4x4World);*/
 
-	//2024-01-15 ¿Ãº∫«ˆ √ﬂ∞°
+	//2024-01-15 Ïù¥ÏÑ±ÌòÑ Ï∂îÍ∞Ä
 	D3D12_SHADER_BYTECODE ReadCompiledShaderFromFile(const wchar_t* pszFileName, ComPtr<ID3DBlob>& pd3dShaderBlob);
 	
 virtual void SetPipelineState(const ComPtr<ID3D12GraphicsCommandList>& _CommandList);

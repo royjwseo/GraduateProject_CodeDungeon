@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Timer.h"
 #include "Shader.h"
 #include "Player.h"
@@ -12,7 +12,7 @@ class CScene
 public:
 	CScene();
 	~CScene();
-	//¾À¿¡¼­ ¸¶¿ì½º¿Í Å°º¸µå ¸Ş½ÃÁö¸¦ Ã³¸®ÇÑ´Ù. 
+	//ì”¬ì—ì„œ ë§ˆìš°ìŠ¤ì™€ í‚¤ë³´ë“œ ë©”ì‹œì§€ë¥¼ ì²˜ë¦¬í•œë‹¤. 
 	bool OnProcessingMouseMessage(HWND hWnd, UINT nMessageID, WPARAM wParam, LPARAM lParam);
 	bool OnProcessingKeyboardMessage(HWND hWnd, UINT nMessageID, WPARAM wParam, LPARAM lParam);
 	void BuildObjects(const ComPtr<ID3D12Device>& _Device, const ComPtr<ID3D12GraphicsCommandList>& _CommandList,const ComPtr<ID3D12RootSignature>& _RootSignature);
@@ -23,11 +23,11 @@ public:
 	void ReleaseUploadBuffers();
 	virtual void UpdateShaderVariables(const ComPtr<ID3D12GraphicsCommandList>& _CommandList) {}
 	virtual void ReleaseShaderVariables() {}
-	//±×·¡ÇÈ ·çÆ® ½Ã±×³ÊÃÄ¸¦ »ı¼ºÇÑ´Ù. 
+	//ê·¸ë˜í”½ ë£¨íŠ¸ ì‹œê·¸ë„ˆì³ë¥¼ ìƒì„±í•œë‹¤. 
 	vector<shared_ptr<CGameObject>> GetObjects() { return m_ppObjects;}
 
 protected:
-	//¾ÀÀº ¼ÎÀÌ´õµéÀÇ ÁıÇÕÀÌ´Ù. ¼ÎÀÌ´õµéÀº °ÔÀÓ °´Ã¼µéÀÇ ÁıÇÕÀÌ´Ù.
+	//ì”¬ì€ ì…°ì´ë”ë“¤ì˜ ì§‘í•©ì´ë‹¤. ì…°ì´ë”ë“¤ì€ ê²Œì„ ê°ì²´ë“¤ì˜ ì§‘í•©ì´ë‹¤.
 	vector<shared_ptr<CGameObject>> m_ppObjects;
 	shared_ptr<CPlayer> m_pPlayer;
 public:
@@ -43,4 +43,4 @@ public:
 	static void CreateShaderResourceViews( CTexture* pTexture, UINT nDescriptorHeapIndex, UINT nRootParameterStartIndex);
 	static void CreateShaderResourceView(CTexture* pTexture, int nIndex, UINT nRootParameterStartIndex);
 	static void CreateShaderResourceView(CTexture* pTexture, int nIndex);
-};
+};

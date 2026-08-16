@@ -1,13 +1,13 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UComponent.h"
 
 BEGIN(Engine)
 class UCollider;
 /*
-@ Date: 2024-04-27, Writer: ¹ÚÅÂÇö
+@ Date: 2024-04-27, Writer: ë°•íƒœí˜„
 @ Explain
--  ¹èÆ²À» À§ÇÑ Äİ¶óÀÌ´õµé¿¡ ´ëÇÑ Á¤º¸¸¦ ¸ğ¾Æ³õÀº Å¬·¡½ºÀÌ´Ù. 
+-  ë°°í‹€ì„ ìœ„í•œ ì½œë¼ì´ë”ë“¤ì— ëŒ€í•œ ì •ë³´ë¥¼ ëª¨ì•„ë†“ì€ í´ë˜ìŠ¤ì´ë‹¤. 
 */
 class UCombatCollGroupComp final : public UComponent{
 public:

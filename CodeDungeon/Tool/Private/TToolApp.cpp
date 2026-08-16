@@ -1,4 +1,4 @@
-#include "ToolDefines.h"
+﻿#include "ToolDefines.h"
 #include "TToolApp.h"
 #include "UGameInstance.h"
 #include "UTimer.h"

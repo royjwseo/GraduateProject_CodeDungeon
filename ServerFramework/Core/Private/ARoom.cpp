@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "ARoom.h"
 #include "ASession.h"
 
@@ -12,7 +12,7 @@ namespace Core {
 	_bool ARoom::InsertSession(SHPTR<ASession> _spSession)
 	{
 		RETURN_CHECK(nullptr == _spSession, false);
-		// ÀÌ¹Ì ÀÖÀ¸¸é ¸®ÅÏ
+		// ì´ë¯¸ ìžˆìœ¼ë©´ ë¦¬í„´
 		RETURN_CHECK(nullptr != FindSession(_spSession->GetSessionID()), false)
 		SESSIONID id = _spSession->GetSessionID();
 		m_SessionContainer.emplace(MakePair(id, _spSession));

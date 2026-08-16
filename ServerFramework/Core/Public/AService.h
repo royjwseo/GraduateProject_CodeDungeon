@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ASERVICE_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ASERVICE_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ASERVICE_H
 
 #include "ACoreObject.h"
@@ -7,9 +7,9 @@ BEGIN(Core)
 class AMonster;
 class ASession;
 /*
-@ Date: 2024-01-06, Writer: ¹ÚÅÂÇö
+@ Date: 2024-01-06, Writer: ë°•íƒœí˜„
 @ Explain
-- PlayerSession »ı¼º, ±­¸® ¹× AWS ¿¬°á °ü¸®
+- PlayerSession ìƒì„±, ê´¸ë¦¬ ë° AWS ì—°ê²° ê´€ë¦¬
 */
 class CORE_DLL AService abstract : public ACoreObject {
 public:
@@ -20,24 +20,24 @@ public:
 	DESTRUCTOR(AService)
 public:
 	virtual _bool NativeConstruct() PURE;
-	// ÇØ´ç ÇÔ¼ö°¡ 
+	// í•´ë‹¹ í•¨ìˆ˜ê°€ 
 	virtual _bool Start() PURE;
 public:
-	// ID¸¦ ÅëÇØ¼­ SessionID
+	// IDë¥¼ í†µí•´ì„œ SessionID
 	SHPTR<ASession> FindSession(const SESSIONID _SessionID) ;
-	// ID¸¦ ÅëÇØ¼­ GameObject¸¦ Ã£¾Æ¿Â´Ù. 
+	// IDë¥¼ í†µí•´ì„œ GameObjectë¥¼ ì°¾ì•„ì˜¨ë‹¤. 
 	SHPTR<AMonster> FindMobObject(const SESSIONID _SessionID);
-	// ÀüÃ¼ ¼­¹ö Âü¿©ÀÚ¿¡°Ô ¸Ş½ÃÁö¸¦ º¸³»´Â ÇÔ¼öÀÌ´Ù. 
+	// ì „ì²´ ì„œë²„ ì°¸ì—¬ìì—ê²Œ ë©”ì‹œì§€ë¥¼ ë³´ë‚´ëŠ” í•¨ìˆ˜ì´ë‹¤. 
 	void BroadCastMessage(_char* _pPacket, const PACKETHEAD& _PacketHead) ;
-	// ÇØ´ç Session ID¸¦ Á¦¿ÜÇÑ ÀüÃ¼ ¼­¹ö Âü¿©ÀÚ¿¡°Ô ¸Ş½ÃÁö¸¦ º¸³»´Â ÇÔ¼ö
+	// í•´ë‹¹ Session IDë¥¼ ì œì™¸í•œ ì „ì²´ ì„œë²„ ì°¸ì—¬ìì—ê²Œ ë©”ì‹œì§€ë¥¼ ë³´ë‚´ëŠ” í•¨ìˆ˜
 	void BroadCastMessageExcludingSession(const SESSIONID _SessionID, _char* _pPacket, const PACKETHEAD& _PacketHead) ;
-	// Direct·Î ¸Ş½ÃÁö º¸³»´Â ÇÔ¼ö
+	// Directë¡œ ë©”ì‹œì§€ ë³´ë‚´ëŠ” í•¨ìˆ˜
 	void DirectSendMessage(const SESSIONID _SessionID, _char* _pPacket, const PACKETHEAD& _PacketHead) ;
-	// SessionÀÇ TCP Socket ¿¬°á¸¸ ²÷°í Insert³ª ±âÅ¸ ´Ù¸¥ ÇÔ¼öµéÀ» Á¤ÀÇÇØ¼­ Socketµé Á¦°Å
+	// Sessionì˜ TCP Socket ì—°ê²°ë§Œ ëŠê³  Insertë‚˜ ê¸°íƒ€ ë‹¤ë¥¸ í•¨ìˆ˜ë“¤ì„ ì •ì˜í•´ì„œ Socketë“¤ ì œê±°
 	void LeaveService(const SESSIONID _SessionID) ;
-	// SessionÀ» Container¿¡ ÀúÀåÇÏ´Â ÇÔ¼öÀÌ´Ù. 
+	// Sessionì„ Containerì— ì €ì¥í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤. 
 	void InsertSession(SESSIONID _SessionID, SHPTR<ASession> _spSession) ;
-	// GameObject¸¦ Áı¾î³Ö´Â ÇÔ¼ö
+	// GameObjectë¥¼ ì§‘ì–´ë„£ëŠ” í•¨ìˆ˜
 	void InsertMobObject(SESSIONID _SessionID, SHPTR<AMonster> _spMobObject);
 public: /* get set */
 	const SESSIONCONTAINER& GetSessionContainer() const { return m_SessionContainer; }
@@ -70,4 +70,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ASERVICE_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ASERVICE_H

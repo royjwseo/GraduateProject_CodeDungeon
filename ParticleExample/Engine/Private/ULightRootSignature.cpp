@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 #include "ULightRootSignature.h"
 
 ULightRootSignature::ULightRootSignature()
@@ -12,30 +12,30 @@ void ULightRootSignature::Free()
 HRESULT ULightRootSignature::CreateRootSignature(CSHPTRREF<UDevice> _spDevice)
 {
 	{
-		// B0 ´Â Àü¿ª »óÅÂ
+		// B0 ëŠ” ì „ì—­ ìƒíƒœ
 		ARRAY< CD3DX12_DESCRIPTOR_RANGE, 2> Ranges{};
 		Ranges[0].Init(D3D12_DESCRIPTOR_RANGE_TYPE_CBV, CBV_REGISTER_END - LIGHT_CONSTANT_BUFFER_VALUE,
 			LIGHT_CONSTANT_BUFFER_VALUE, GetRegisterSpace());
 		Ranges[1].Init(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, SRV_REGISTER_END, 0, GetRegisterSpace());
 
-		// ConstantBuffer View¸¦ ¸¸µé°í
+		// ConstantBuffer Viewë¥¼ ë§Œë“¤ê³ 
 		const _uint PARAM_SIZE = 2;
 		ARRAY<CD3DX12_ROOT_PARAMETER, PARAM_SIZE> Param = {};
 		Param[0].InitAsConstantBufferView(static_cast<_uint>(CBV_REGISTER::B0), GetRegisterSpace());
-		// DescriptorTableÀ» Range ¸¸Å­ ¸¸µç´Ù. 
-		Param[1].InitAsDescriptorTable(static_cast<_uint>(Ranges.size()), Ranges.data()); // 0¹ø -> b0 -> CBV
+		// DescriptorTableì„ Range ë§Œí¼ ë§Œë“ ë‹¤. 
+		Param[1].InitAsDescriptorTable(static_cast<_uint>(Ranges.size()), Ranges.data()); // 0ë²ˆ -> b0 -> CBV
 		Param[1].Descriptor.RegisterSpace = GetRegisterSpace();
 
 
 		D3D12_ROOT_SIGNATURE_DESC tDesc = CD3DX12_ROOT_SIGNATURE_DESC(static_cast<_uint>(Param.size()), Param.data(),
 			static_cast<_uint>(GetSamplers().size()), GetSamplers().data());
 
-		// ÀÔ·Â Á¶¸³±â ´Ü°è »ç¿ë
-		tDesc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT; // ÀÔ·Â Á¶¸³±â ´Ü°è
+		// ì…ë ¥ ì¡°ë¦½ê¸° ë‹¨ê³„ ì‚¬ìš©
+		tDesc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT; // ì…ë ¥ ì¡°ë¦½ê¸° ë‹¨ê³„
 
 		ComPtr<DxBlob> BlobSignature = nullptr;
 		ComPtr<DxBlob> BlobError = nullptr;
-		// RootSignature »óÅÂ¸¦ ¾Ë¸®°í 
+		// RootSignature ìƒíƒœë¥¼ ì•Œë¦¬ê³  
 		RETURN_CHECK_DXOBJECT(::D3D12SerializeRootSignature(&tDesc, D3D_ROOT_SIGNATURE_VERSION_1,
 			&BlobSignature, &BlobError), E_FAIL);
 		RETURN_CHECK(nullptr != BlobError, E_FAIL);

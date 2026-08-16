@@ -1,4 +1,4 @@
-#pragma once 
+﻿#pragma once 
 
 #pragma warning (disable : 4244)
 #pragma warning (disable : 4018)
@@ -17,4 +17,4 @@ namespace Core {}
 
 using namespace Core;
 
-static const std::string IP_ADDRESS = "3.39.11.88";
+static const std::string IP_ADDRESS = "3.39.11.88";

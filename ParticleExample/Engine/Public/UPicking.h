@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UPICKING_H
+Ôªø#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UPICKING_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UPICKING_H
 
 #include "UBase.h"
@@ -36,7 +36,7 @@ END
 
 namespace std
 {
-	// Atomic «‘ºˆ ¿Á¡§¿«
+	// Atomic Ìï®Ïàò Ïû¨Ï†ïÏùò
 	template<>
 	struct hash<Engine::WAITCHECKACTOR> {
 		size_t operator()(WAITCHECKACTOR ptr) const {
@@ -91,4 +91,4 @@ private:
 
 END
 
-#endif //_PTH_FRAMEWORK_ENGIEN_PUBLIC_UPICKING_H
+#endif //_PTH_FRAMEWORK_ENGIEN_PUBLIC_UPICKING_H

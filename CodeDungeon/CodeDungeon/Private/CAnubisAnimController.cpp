@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+﻿#include "ClientDefines.h"
 #include "CAnubisAnimController.h"
 #include "CAnubis.h"
 #include "UGameInstance.h"

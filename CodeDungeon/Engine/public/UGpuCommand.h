@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UCommand.h"
 
 BEGIN(Engine)
@@ -37,7 +37,7 @@ private:
 	static constexpr _uint										FRAME_CNT{3};
 	static constexpr  _uint									RESOURCE_LOADER_CNT{5};
 	using  GRAPHICGROUPS = ARRAY<GRAPHICGROUP, RESOURCE_LOADER_CNT>;
-	// FameContext °ü·Ã
+	// FameContext ê´€ë ¨
 	ARRAY<FRAMECONTEXT, FRAME_CNT>	m_arrFrameContexts;
 	_uint																	m_iFrameValue;
 	_uint																	m_iFenceLastSignaledValue;

@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AMYSQLTABLE_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AMYSQLTABLE_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_AMYSQLTABLE_H
 
 #include "ACoreBase.h"
@@ -6,9 +6,9 @@
 BEGIN(Core)
 class AMySqlConnector;
 /*
-@ Date: 2024-01-28, Writer: ¹ÚÅÂÇö
+@ Date: 2024-01-28, Writer: ë°•íƒœí˜„
 @ Explain
--  Table º°·Î µ¥ÀÌÅÍ¸¦ °ü¸®ÇÏ±â À§ÇÑ Å¬·¡½ºÀÌ´Ù. 
+-  Table ë³„ë¡œ ë°ì´í„°ë¥¼ ê´€ë¦¬í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ì´ë‹¤. 
 */
 class AMySqlTable abstract : public ACoreBase {
 public:
@@ -51,4 +51,4 @@ private: // prepare
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_AMYSQLTABLE_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_AMYSQLTABLE_H

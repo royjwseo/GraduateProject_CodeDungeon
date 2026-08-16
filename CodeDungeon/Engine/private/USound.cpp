@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "USound.h"
 #include "UAudioSystem.h"
 #include "UTransform.h"
@@ -131,7 +131,7 @@ void USound::StopWithInputChannel(IN FMOD::Channel** _ppChannel)
 	if (_ppChannel && *_ppChannel)
 	{
 		(*_ppChannel)->stop();
-		*_ppChannel = nullptr;  // Ã¤³Î Æ÷ÀÎÅÍ¸¦ ÇØÁ¦
+		*_ppChannel = nullptr;  // ì±„ë„ í¬ì¸í„°ë¥¼ í•´ì œ
 	}
 }
 
@@ -150,7 +150,7 @@ void USound::StopBGM(IN FMOD::Channel** _ppChannel)
 	if (_ppChannel && *_ppChannel)
 	{
 		(*_ppChannel)->stop();
-		*_ppChannel = nullptr;  // Ã¤³Î Æ÷ÀÎÅÍ¸¦ ÇØÁ¦
+		*_ppChannel = nullptr;  // ì±„ë„ í¬ì¸í„°ë¥¼ í•´ì œ
 	}
 }
 
@@ -226,7 +226,7 @@ void USound::Unmute()
 	m_pChannel->setMute(false);
 }
 
-void USound::FadeIn(float fadeDuration)// º¼·ý ¼­¼­È÷ Áõ°¡
+void USound::FadeIn(float fadeDuration)// ë³¼ë¥¨ ì„œì„œížˆ ì¦ê°€
 {
 	RETURN_CHECK(nullptr == m_pChannel, ;);
 	m_pChannel->setVolume(0.0f);

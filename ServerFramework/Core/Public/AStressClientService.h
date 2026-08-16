@@ -1,13 +1,13 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ASTRESSCLIENTSERVICE_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ASTRESSCLIENTSERVICE_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ASTRESSCLIENTSERVICE_H
 
 #include "AService.h"
 
 BEGIN(Core)
 /*
-@ Date: 2024-01-31, Writer: ¹ÚÅÂÇö
+@ Date: 2024-01-31, Writer: ë°•íƒœí˜„
 @ Explain
--  StressClient¿¡¼­ »ç¿ëÇÒ ¼­ºñ½º¸¦ Á¤ÀÇÇÔ 
+-  StressClientì—ì„œ ì‚¬ìš©í•  ì„œë¹„ìŠ¤ë¥¼ ì •ì˜í•¨ 
 */
 class CORE_DLL AStressClientService abstract : public AService {
 public: /* USING */
@@ -27,7 +27,7 @@ protected:
 	virtual void Tick() PURE;
 	virtual void Connect() PURE;
 	virtual SESSIONID GiveID() override;
-	// ¿¬°áÀÌ ²÷¾îÁø ¼ÒÄÏµéÀ» Á¦°ÅÇÏ¿© ¸Ş¸ğ¸® È®º¸
+	// ì—°ê²°ì´ ëŠì–´ì§„ ì†Œì¼“ë“¤ì„ ì œê±°í•˜ì—¬ ë©”ëª¨ë¦¬ í™•ë³´
 	void RemoveDisconnectSockets();
 private:
 	virtual void Free() PURE;
@@ -38,4 +38,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ASTRESSCLIENTSERVICE_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ASTRESSCLIENTSERVICE_H

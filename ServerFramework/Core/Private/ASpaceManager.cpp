@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "ASpaceManager.h"
 #include "ASpace.h"
 
@@ -38,7 +38,7 @@ namespace Core {
 					SPACEINFO SpaceInfo{ vChildCenter, vHalfExtents, _SpaceInfo.Depths - 1, static_cast<_int>(m_SpaceContainer.size())};
 					SHPTR<ASpace> spSpace = _spParents->MakeChild(i * 4 + j * 2 + k, SpaceInfo);
 					m_SpaceContainer.push_back(spSpace);
-					// Àç±ÍÀûÀ¸·Î È£ÃâÇÑ´Ù. 
+					// ì¬ê·€ì ìœ¼ë¡œ í˜¸ì¶œí•œë‹¤. 
 					BuildTreeRecursively(SpaceInfo, spSpace);
 				}
 			}
@@ -49,4 +49,4 @@ namespace Core {
 	{
 	}
 
-}
+}

@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "ALogger.h"
 
 namespace Core {

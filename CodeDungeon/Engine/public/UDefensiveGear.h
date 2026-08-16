@@ -1,12 +1,12 @@
-#pragma once
+ï»¿#pragma once
 #include "UEquipment.h"
 
 BEGIN(Engine)
 
 /*
-@ Date: 2024-04-27, Writer: ¹ÚÅÂÇö
+@ Date: 2024-04-27, Writer: ë°•íƒœí˜„
 @ Explain
--  Ä³¸¯ÅÍ°¡ ÀÔ´Â °©¿Ê¿¡ ´ëÇÑ Å¬·¡½º
+-  ìºë¦­í„°ê°€ ì…ëŠ” ê°‘ì˜·ì— ëŒ€í•œ í´ë˜ìŠ¤
 */
 
 class UDefensiveGear : public UEquipment {
@@ -15,7 +15,7 @@ public:
 	UDefensiveGear(const UDefensiveGear& _rhs);
 	DESTRUCTOR(UDefensiveGear)
 public:
-	// UPawnÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UPawnì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(UDefensiveGear, "UDefensiveGear::Clone To Failed")
 	virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;

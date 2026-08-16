@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AJOBTIMER_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AJOBTIMER_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_AJOBTIMER_H
 
 #include "ACoreObject.h"
@@ -8,10 +8,10 @@ BEGIN(Core)
 using TIMEREVENTQUEUE = CONPRIORITYQUEUE<TIMEREVENT>;
 
 /*
-@ Date: 2024-01-23, Writer: ¹ÚÅÂÇö
+@ Date: 2024-01-23, Writer: ë°•íƒœí˜„
 @ Explain
-- ÀÏÀ» »ý¼ºÇÏ´Â Å¬·¡½º·Î ÇØ´ç Å¬·¡½º¸¦ ÅëÇØ ¸ó½ºÅÍÀÇ AI, ½Ç½Ã°£À¸·Î DB¿¡ ÀúÀåÀÌ ÇÊ¿äÇÑ °ªµéÀ» 
-ÀúÀåÇÒ ¼ö ÀÖ´Ù. 
+- ì¼ì„ ìƒì„±í•˜ëŠ” í´ëž˜ìŠ¤ë¡œ í•´ë‹¹ í´ëž˜ìŠ¤ë¥¼ í†µí•´ ëª¬ìŠ¤í„°ì˜ AI, ì‹¤ì‹œê°„ìœ¼ë¡œ DBì— ì €ìž¥ì´ í•„ìš”í•œ ê°’ë“¤ì„ 
+ì €ìž¥í•  ìˆ˜ ìžˆë‹¤. 
 */
 class CORE_DLL AJobTimer abstract : public ACoreObject {
 public:
@@ -34,4 +34,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_AJOBTIMER_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_AJOBTIMER_H

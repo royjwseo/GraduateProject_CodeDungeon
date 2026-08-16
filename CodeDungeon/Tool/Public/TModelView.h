@@ -1,4 +1,4 @@
-#pragma once 
+ï»¿#pragma once 
 #include "TImGuiView.h"
 
 BEGIN(Engine)
@@ -13,9 +13,9 @@ class TShowModelObject;
 class TShowAnimModelObject;
 class TGuizmoManager;
 /*
-@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 @ Explain
-- ModelµéÀ» ·ÎµåÇØ¼­ º¸¿©ÁÖ±â À§ÇÑ Å¬·¡½º
+- Modelë“¤ì„ ë¡œë“œí•´ì„œ ë³´ì—¬ì£¼ê¸° ìœ„í•œ í´ë˜ìŠ¤
 */
 class TModelView final : public TImGuiView {
 public:

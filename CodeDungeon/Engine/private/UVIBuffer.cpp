@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UVIBuffer.h"
 #include "UShader.h"
 #include "UMethod.h"
@@ -93,7 +93,7 @@ HRESULT UVIBuffer::CreateVtxBuffer(const _uint& _iVertexCnt, const _uint& _iBuff
 	//	spGpuCommand->GetResCmdList().Get(), BUFFER_SIZE, _pVertexData,
 	//	m_cpVertexGpuBuffer, m_cpVertexUploadBuffer, D3D12_HEAP_TYPE_DEFAULT, D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER), E_FAIL);
 
-	//// ÀÚ¿ø µ¿±âÈ­
+	//// ìì› ë™ê¸°í™”
 	//spGpuCommand->WaitForGpuResourceUpload();
 
 	{
@@ -104,7 +104,7 @@ HRESULT UVIBuffer::CreateVtxBuffer(const _uint& _iVertexCnt, const _uint& _iBuff
 			&defaultHeapProperties,
 			D3D12_HEAP_FLAG_NONE,
 			&bufferDesc,
-			D3D12_RESOURCE_STATE_COMMON,  // ÃÊ±â¿¡´Â º¹»ç »óÅÂ
+			D3D12_RESOURCE_STATE_COMMON,  // ì´ˆê¸°ì—ëŠ” ë³µì‚¬ ìƒíƒœ
 			nullptr,
 			IID_PPV_ARGS(&m_cpVertexGpuBuffer)), E_FAIL);
 
@@ -121,7 +121,7 @@ HRESULT UVIBuffer::CreateVtxBuffer(const _uint& _iVertexCnt, const _uint& _iBuff
 			nullptr,
 			IID_PPV_ARGS(&m_cpVertexUploadBuffer)), E_FAIL);
 
-		// ¾÷·Îµå ¹öÆÛ¿¡ µ¥ÀÌÅÍ¸¦ Á÷Á¢ º¹»ç
+		// ì—…ë¡œë“œ ë²„í¼ì— ë°ì´í„°ë¥¼ ì§ì ‘ ë³µì‚¬
 		void* pMappedData = nullptr;
 		D3D12_RANGE readRange = { 0, 0 };
 		m_cpVertexUploadBuffer->Map(0, &readRange, &pMappedData);
@@ -177,7 +177,7 @@ HRESULT UVIBuffer::CreateVtxBuffer(const _uint& _iVertexCnt, const _uint& _iBuff
 	//	spGpuCommand->GetResCmdList().Get(), BUFFER_SIZE, _pVertexData,
 	//	m_cpVertexGpuBuffer, m_cpVertexUploadBuffer, D3D12_HEAP_TYPE_DEFAULT, D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER), E_FAIL);
 
-	//// ÀÚ¿ø µ¿±âÈ­
+	//// ìì› ë™ê¸°í™”
 	//spGpuCommand->WaitForGpuResourceUpload();
 
 	{
@@ -188,7 +188,7 @@ HRESULT UVIBuffer::CreateVtxBuffer(const _uint& _iVertexCnt, const _uint& _iBuff
 			&defaultHeapProperties,
 			D3D12_HEAP_FLAG_NONE,
 			&bufferDesc,
-			D3D12_RESOURCE_STATE_COMMON,  // ÃÊ±â¿¡´Â º¹»ç »óÅÂ
+			D3D12_RESOURCE_STATE_COMMON,  // ì´ˆê¸°ì—ëŠ” ë³µì‚¬ ìƒíƒœ
 			nullptr,
 			IID_PPV_ARGS(&m_cpVertexGpuBuffer)), E_FAIL);
 
@@ -205,7 +205,7 @@ HRESULT UVIBuffer::CreateVtxBuffer(const _uint& _iVertexCnt, const _uint& _iBuff
 			nullptr,
 			IID_PPV_ARGS(&m_cpVertexUploadBuffer)), E_FAIL);
 
-		// ¾÷·Îµå ¹öÆÛ¿¡ µ¥ÀÌÅÍ¸¦ Á÷Á¢ º¹»ç
+		// ì—…ë¡œë“œ ë²„í¼ì— ë°ì´í„°ë¥¼ ì§ì ‘ ë³µì‚¬
 		void* pMappedData = nullptr;
 		D3D12_RANGE readRange = { 0, 0 };
 		m_cpVertexUploadBuffer->Map(0, &readRange, &pMappedData);
@@ -253,7 +253,7 @@ HRESULT UVIBuffer::CreateVtxBufferWithNoData(const _uint& _iVertexCnt, const _ui
 		spGpuCommand->GetResCmdList().Get(), BUFFER_SIZE, _pVertexData,
 		m_cpVertexGpuBuffer, nullptr, d3dHeapType, d3dResourceStates), E_FAIL);
 
-	// ÀÚ¿ø µ¿±âÈ­
+	// ìì› ë™ê¸°í™”
 	spGpuCommand->WaitForGpuResourceUpload();
 
 
@@ -276,7 +276,7 @@ HRESULT UVIBuffer::CreateIndexBuffer(const _uint& _iIndexCnt, const _uint& _iBuf
 
 	spGpuCommand->WaitForGpuResourceUpload();*/
 
-	// 1. Default Buffer »ı¼º (GPU Àü¿ë ¸Ş¸ğ¸®)
+	// 1. Default Buffer ìƒì„± (GPU ì „ìš© ë©”ëª¨ë¦¬)
 	{
 		D3D12_HEAP_PROPERTIES defaultHeapProperties = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT);
 		D3D12_RESOURCE_DESC bufferDesc = CD3DX12_RESOURCE_DESC::Buffer(BUFFER_SIZE);
@@ -285,12 +285,12 @@ HRESULT UVIBuffer::CreateIndexBuffer(const _uint& _iIndexCnt, const _uint& _iBuf
 			&defaultHeapProperties,
 			D3D12_HEAP_FLAG_NONE,
 			&bufferDesc,
-			D3D12_RESOURCE_STATE_COMMON,  // ÃÊ±â »óÅÂ: º¹»ç ´ë±â
+			D3D12_RESOURCE_STATE_COMMON,  // ì´ˆê¸° ìƒíƒœ: ë³µì‚¬ ëŒ€ê¸°
 			nullptr,
 			IID_PPV_ARGS(&m_cpIndexGpuBuffer)), E_FAIL);
 	}
 
-	// 2. Upload Buffer »ı¼º ¹× µ¥ÀÌÅÍ º¹»ç (CPU ¸Ş¸ğ¸®)
+	// 2. Upload Buffer ìƒì„± ë° ë°ì´í„° ë³µì‚¬ (CPU ë©”ëª¨ë¦¬)
 	{
 		D3D12_HEAP_PROPERTIES uploadHeapProperties = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
 		D3D12_RESOURCE_DESC bufferDesc = CD3DX12_RESOURCE_DESC::Buffer(BUFFER_SIZE);
@@ -299,11 +299,11 @@ HRESULT UVIBuffer::CreateIndexBuffer(const _uint& _iIndexCnt, const _uint& _iBuf
 			&uploadHeapProperties,
 			D3D12_HEAP_FLAG_NONE,
 			&bufferDesc,
-			D3D12_RESOURCE_STATE_GENERIC_READ,  // CPU¿¡¼­ Á¢±Ù °¡´É
+			D3D12_RESOURCE_STATE_GENERIC_READ,  // CPUì—ì„œ ì ‘ê·¼ ê°€ëŠ¥
 			nullptr,
 			IID_PPV_ARGS(&m_cpIndexUploadBuffer)), E_FAIL);
 
-		// Upload ¹öÆÛ¿¡ µ¥ÀÌÅÍ Á÷Á¢ º¹»ç
+		// Upload ë²„í¼ì— ë°ì´í„° ì§ì ‘ ë³µì‚¬
 		void* pMappedData = nullptr;
 		D3D12_RANGE readRange = { 0, 0 };
 		m_cpIndexUploadBuffer->Map(0, &readRange, &pMappedData);
@@ -311,7 +311,7 @@ HRESULT UVIBuffer::CreateIndexBuffer(const _uint& _iIndexCnt, const _uint& _iBuf
 		m_cpIndexUploadBuffer->Unmap(0, nullptr);
 	}
 
-	// 3. Upload ¹öÆÛ¿¡¼­ Default ¹öÆÛ·Î º¹»ç (GPU ¸Ş¸ğ¸®¿¡ µ¥ÀÌÅÍ ¿Ã¸®±â)
+	// 3. Upload ë²„í¼ì—ì„œ Default ë²„í¼ë¡œ ë³µì‚¬ (GPU ë©”ëª¨ë¦¬ì— ë°ì´í„° ì˜¬ë¦¬ê¸°)
 	{
 		CD3DX12_RESOURCE_BARRIER barrier = CD3DX12_RESOURCE_BARRIER::Transition(
 			m_cpIndexGpuBuffer.Get(),
@@ -346,8 +346,8 @@ HRESULT UVIBuffer::CreateIndexBuffer(const _uint& _iIndexCnt, const _uint& _iBuf
 void UVIBuffer::BindVertexAndIndex(const ComPtr<Dx12GraphicsCommandList>& _cpGraphicCmdList, const _uint& _iInstanceCnt)
 {
 	// TODO
-	// Buffer¿¡´Ù ¼¼ÆÃ
-	// BufferÀÇ ÁÖ¼Ò¸¦ Register¿¡ Àü¼Û 
+	// Bufferì—ë‹¤ ì„¸íŒ…
+	// Bufferì˜ ì£¼ì†Œë¥¼ Registerì— ì „ì†¡ 
 	const ComPtr<Dx12GraphicsCommandList>& pGraphicCmdList = _cpGraphicCmdList;
 	pGraphicCmdList->IASetPrimitiveTopology(m_ePrimitiveTopology);
 	// Vertex

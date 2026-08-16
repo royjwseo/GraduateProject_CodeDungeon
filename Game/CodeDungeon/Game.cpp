@@ -1,21 +1,21 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "Game.h"
 #include "Engine.h"
 
 void Game::Init(HINSTANCE hInstance, HWND hWnd)
 {
 	gGameFrameWork->OnCreate(hInstance,hWnd);
-	//2024-01-18 ÀÌ¼ºÇö ÇÁ·ÎÁ§Æ®º° Å¸ÀÌ¸Ó ºĞ¸®.
+	//2024-01-18 ì´ì„±í˜„ í”„ë¡œì íŠ¸ë³„ íƒ€ì´ë¨¸ ë¶„ë¦¬.
 	gGameFrameWork->GetTimer().Reset();
 	gGameFrameWork->BuildObjects();
 }
 
 void Game::Update()
 {
-	//2024-01-07 ÀÌ¼ºÇö
-	//Tool¿¡¼­ÀÇ ·»´õ¸µ °úÁ¤À» RenderBegin°ú RenderEnd »çÀÌ¿¡ Àû¿ë½ÃÅ°±â À§ÇÑ
-	//Render¿Í RenderBegin, RenderEndÀÇ ºĞ¸®.
-	//2024-01-18 ÀÌ¼ºÇö ÇÁ·ÎÁ§Æ®º° Å¸ÀÌ¸Ó ºĞ¸®.
+	//2024-01-07 ì´ì„±í˜„
+	//Toolì—ì„œì˜ ë Œë”ë§ ê³¼ì •ì„ RenderBeginê³¼ RenderEnd ì‚¬ì´ì— ì ìš©ì‹œí‚¤ê¸° ìœ„í•œ
+	//Renderì™€ RenderBegin, RenderEndì˜ ë¶„ë¦¬.
+	//2024-01-18 ì´ì„±í˜„ í”„ë¡œì íŠ¸ë³„ íƒ€ì´ë¨¸ ë¶„ë¦¬.
 	gGameFrameWork->RenderBegin();
 	gGameFrameWork->GetTimer().Tick(0.0f);
 	gGameFrameWork->Render();

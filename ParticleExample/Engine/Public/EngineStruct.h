@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINESTRUCT_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINESTRUCT_H
 
@@ -260,7 +260,7 @@ namespace Engine {
 	typedef VECTOR<SHADERMAININFO> SHADERLIST;
 	typedef struct tagShaderDesc
 	{
-		// ÀÌ¸§¸¸ ÀÖÀ¸¸é Compute Shader¸¦ ºôµåÇÑ´Ù.
+		// ì´ë¦„ë§Œ ìˆìœ¼ë©´ Compute Shaderë¥¼ ë¹Œë“œí•œë‹¤.
 		tagShaderDesc(const _wstring& _wstrShaderName, const D3D_PRIMITIVE_TOPOLOGY
 		_eTopology = D3D_PRIMITIVE_TOPOLOGY::D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST) :
 			eType(GRAPHICISCONTROLTYPE::COMPUTE),
@@ -273,7 +273,7 @@ namespace Engine {
 			eBlendType(BLEND_TYPE::DEFAULT)
 		{}
 
-		// ·»´õ Å¸°Ù¿¡ ±×¸± ¼ö ÀÖ°Ô ÇØÁÖ´Â ½¦ÀÌ´õÀÌ´Ù. 
+		// ë Œë” íƒ€ê²Ÿì— ê·¸ë¦´ ìˆ˜ ìˆê²Œ í•´ì£¼ëŠ” ì‰ì´ë”ì´ë‹¤. 
 		 tagShaderDesc(const _wstring& _wstrShaderName,
 			D3D12_INPUT_ELEMENT_DESC* _pDesc,
 			const _uint& _iNumElement,
@@ -294,7 +294,7 @@ namespace Engine {
 			eDepthStencilType(_eDepthStencilType),
 			eBlendType(_eBlendType)
 		{}
-		// ÀÏ¹İ È­¸é¿¡ ±×¸®´Â ½¦ÀÌ´õ 1°³ÀÇ ·»´õ Å¸°Ù¿¡ Format¸¸ ¸ÂÀ¸¸é ±×¸± ¼ö ÀÖµû. 
+		// ì¼ë°˜ í™”ë©´ì— ê·¸ë¦¬ëŠ” ì‰ì´ë” 1ê°œì˜ ë Œë” íƒ€ê²Ÿì— Formatë§Œ ë§ìœ¼ë©´ ê·¸ë¦´ ìˆ˜ ìˆë”°. 
 		 tagShaderDesc(const _wstring& _wstrShaderName,
 			D3D12_INPUT_ELEMENT_DESC* _pDesc,
 			const _uint& _iNumElement,
@@ -552,4 +552,4 @@ namespace Engine {
 	}FONTDESC;
 }
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_STRUCT_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_STRUCT_H

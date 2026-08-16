@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_CLIENT_PUBLIC_CPLAYER_H
+ï»¿#ifndef _PTH_FRAMEWORK_CLIENT_PUBLIC_CPLAYER_H
 #define _PTH_FRAMEWORK_CLIENT_PUBLIC_CPLAYER_H
 
 #include "UCharacter.h"
@@ -43,7 +43,7 @@ private:
 	SHPTR<UTexGroup>							m_spTexGroup;
 	SHPTR<UTerrain>								m_spTerrain;
 	SHPTR<CMainCamera>						m_spMainCamera;
-	// ¼øÈ¯ ÂüÁ¶ ¿À·ù ¶§¹®¿¡ Weak_Ptr
+	// ìˆœí™˜ ì°¸ì¡° ì˜¤ë¥˜ ë•Œë¬¸ì— Weak_Ptr
 	WKPTR<CPlayerGun>							m_wpPlayerGun;
 
 	_float3													m_vPrevPos;
@@ -54,4 +54,4 @@ private:
 
 END
 
-#endif // _PTH_FRAMEWORK_CLIENT_PUBLIC_CPLAYER_H
+#endif // _PTH_FRAMEWORK_CLIENT_PUBLIC_CPLAYER_H

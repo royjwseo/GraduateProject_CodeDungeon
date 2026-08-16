@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 namespace Engine {
 
@@ -284,7 +284,7 @@ namespace Engine {
 	typedef VECTOR<SHADERMAININFO> SHADERLIST;
 	typedef struct tagShaderDesc
 	{
-		// ÀÌ¸§¸¸ ÀÖÀ¸¸é Compute Shader¸¦ ºôµåÇÑ´Ù.
+		// ì´ë¦„ë§Œ ìˆìœ¼ë©´ Compute Shaderë¥¼ ë¹Œë“œí•œë‹¤.
 		tagShaderDesc(const _wstring& _wstrShaderName, const D3D_PRIMITIVE_TOPOLOGY
 			_eTopology = D3D_PRIMITIVE_TOPOLOGY::D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST) :
 			eType(GRAPHICISCONTROLTYPE::COMPUTE),
@@ -297,7 +297,7 @@ namespace Engine {
 			eBlendType(BLEND_TYPE::DEFAULT)
 		{}
 
-		// ·»´õ Å¸°Ù¿¡ ±×¸± ¼ö ÀÖ°Ô ÇØÁÖ´Â ½¦ÀÌ´õÀÌ´Ù. 
+		// ë Œë” íƒ€ê²Ÿì— ê·¸ë¦´ ìˆ˜ ìˆê²Œ í•´ì£¼ëŠ” ì‰ì´ë”ì´ë‹¤. 
 		tagShaderDesc(const _wstring& _wstrShaderName,
 			D3D12_INPUT_ELEMENT_DESC* _pDesc,
 			const _uint& _iNumElement,
@@ -318,7 +318,7 @@ namespace Engine {
 			eDepthStencilType(_eDepthStencilType),
 			eBlendType(_eBlendType)
 		{}
-		// ÀÏ¹İ È­¸é¿¡ ±×¸®´Â ½¦ÀÌ´õ 1°³ÀÇ ·»´õ Å¸°Ù¿¡ Format¸¸ ¸ÂÀ¸¸é ±×¸± ¼ö ÀÖµû. 
+		// ì¼ë°˜ í™”ë©´ì— ê·¸ë¦¬ëŠ” ì‰ì´ë” 1ê°œì˜ ë Œë” íƒ€ê²Ÿì— Formatë§Œ ë§ìœ¼ë©´ ê·¸ë¦´ ìˆ˜ ìˆë”°. 
 		tagShaderDesc(const _wstring& _wstrShaderName,
 			D3D12_INPUT_ELEMENT_DESC* _pDesc,
 			const _uint& _iNumElement,
@@ -419,9 +419,9 @@ namespace Engine {
 #pragma region MODEL
 
 	/*
-	@ Date: 2024-04-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-04-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	-  ¸ÓÅÍ¸®¾ó °ªµéÀ» ÃßÃâÇÏ±â À§ÇÑ ±¸Á¶Ã¼ÀÌ´Ù. 
+	-  ë¨¸í„°ë¦¬ì–¼ ê°’ë“¤ì„ ì¶”ì¶œí•˜ê¸° ìœ„í•œ êµ¬ì¡°ì²´ì´ë‹¤. 
 	*/
 	struct MODELMATERIALINFO {
 		_float4			vDiffuse;
@@ -563,9 +563,9 @@ namespace Engine {
 
 
 	/*
-	@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¾Ö´Ï¸ŞÀÌ¼Ç ÀÌº¥Æ® ±¸Á¶Ã¼ÀÇ »óÀ§ ±¸Á¶Ã¼
+	- ì• ë‹ˆë©”ì´ì…˜ ì´ë²¤íŠ¸ êµ¬ì¡°ì²´ì˜ ìƒìœ„ êµ¬ì¡°ì²´
 	*/
 	struct ANIMEVENTDESC abstract {
 	public:
@@ -577,10 +577,10 @@ namespace Engine {
 		{ wstrEventTrigger.resize(MAX_BUFFER_LENGTH); }
 	};
 	/*
-	@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¾Ö´Ï¸ŞÀÌ¼Ç Event¸¦ À§ÇÑ ±¸°£À» Á¤ÀÇÇÏ´Â ±¸Á¶Ã¼
-	- ¾Ö´Ï¸ŞÀÌ¼Ç Event¿Í ChangeDesc¸¦ »ó¼Ó ¹Ş¾Æ¼­ ±× °ªµéÀ» »ç¿ëÇÑ´Ù.
+	- ì• ë‹ˆë©”ì´ì…˜ Eventë¥¼ ìœ„í•œ êµ¬ê°„ì„ ì •ì˜í•˜ëŠ” êµ¬ì¡°ì²´
+	- ì• ë‹ˆë©”ì´ì…˜ Eventì™€ ChangeDescë¥¼ ìƒì† ë°›ì•„ì„œ ê·¸ ê°’ë“¤ì„ ì‚¬ìš©í•œë‹¤.
 	*/
 	struct ANIMEVENTSECTIONDESC : public ANIMEVENTDESC {
 		_double dStartTime;
@@ -592,10 +592,10 @@ namespace Engine {
 		_bool IsAnimEventActive(const _double& _dTimeAcc) const;
 	};
 	/*
-	@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¾Ö´Ï¸ŞÀÌ¼Ç Event°¡ ¹ß»ıµÈ ÁöÁ¡À» Á¤ÀÇÇÏ´Â ±¸Á¶Ã¼
-	- ¾Ö´Ï¸ŞÀÌ¼Ç Event¿Í ChangeDesc¸¦ »ó¼Ó ¹Ş¾Æ¼­ ±× °ªµéÀ» »ç¿ëÇÑ´Ù.
+	- ì• ë‹ˆë©”ì´ì…˜ Eventê°€ ë°œìƒëœ ì§€ì ì„ ì •ì˜í•˜ëŠ” êµ¬ì¡°ì²´
+	- ì• ë‹ˆë©”ì´ì…˜ Eventì™€ ChangeDescë¥¼ ìƒì† ë°›ì•„ì„œ ê·¸ ê°’ë“¤ì„ ì‚¬ìš©í•œë‹¤.
 	*/
 	struct ANIMOCURRESDESC : public ANIMEVENTDESC {
 		_double		dAnimOccursTime;
@@ -605,17 +605,17 @@ namespace Engine {
 		bool IsAnimOcurrs(const _double& _dTimeAcc) const;
 	};
 	/*
-	@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	-  ¾Ö´Ï¸ŞÀÌ¼ÇÀÇ Event Desc ¸»°í °¢ÀÚÀÇ Other Event¸¦ ´ã°í ÀÖ´Â ±¸Á¶Ã¼·Î 
-		ÇØ´ç ±¸Á¶Ã¼¸¦ Á¤ÀÇÇÔÀ¸·Î½á, ´Ù¸¥ POINTERµéÀÌ °³ÀÔÇÒ ¿©Áö¸¦ ¾ø¾Ö±â À§ÇØ¼­ Á¤ÀÇÇÔ
+	-  ì• ë‹ˆë©”ì´ì…˜ì˜ Event Desc ë§ê³  ê°ìì˜ Other Eventë¥¼ ë‹´ê³  ìˆëŠ” êµ¬ì¡°ì²´ë¡œ 
+		í•´ë‹¹ êµ¬ì¡°ì²´ë¥¼ ì •ì˜í•¨ìœ¼ë¡œì¨, ë‹¤ë¥¸ POINTERë“¤ì´ ê°œì…í•  ì—¬ì§€ë¥¼ ì—†ì• ê¸° ìœ„í•´ì„œ ì •ì˜í•¨
 	*/
 	struct ANIMOTHEREVENTDESC abstract{ };
 
 	/*
-	@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	-  ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ´ÙÀ½À¸·Î ³Ñ¾î°¡±â À§ÇÑ ±¸Á¶Ã¼
+	-  ì• ë‹ˆë©”ì´ì…˜ì´ ë‹¤ìŒìœ¼ë¡œ ë„˜ì–´ê°€ê¸° ìœ„í•œ êµ¬ì¡°ì²´
 	*/
 	struct ANIMCHANGEDESC : public ANIMOTHEREVENTDESC {
 		_int				iNextAnimIndex;
@@ -634,9 +634,9 @@ namespace Engine {
 		{}
 	};
 	/*
-	@ Date: 2024-02-21, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-21, Writer: ë°•íƒœí˜„
 	@ Explain
-	-  ¾Ö´Ï¸ŞÀÌ¼Ç Æ¯Á¤ ±¸¿ª¿¡ Collider¸¦ ºÙÀÌ±â À§ÇÑ ±¸Á¶Ã¼ÀÌ´Ù. 
+	-  ì• ë‹ˆë©”ì´ì…˜ íŠ¹ì • êµ¬ì—­ì— Colliderë¥¼ ë¶™ì´ê¸° ìœ„í•œ êµ¬ì¡°ì²´ì´ë‹¤. 
 	*/
 	struct ANIMCOLLIDERDESC : public ANIMOTHEREVENTDESC {
 		_int												iColliderType;
@@ -654,9 +654,9 @@ namespace Engine {
 		{}
 	};
 	/*
-	@ Date: 2024-02-21, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-21, Writer: ë°•íƒœí˜„
 	@ Explain
-	-  ¾Ö´Ï¸ŞÀÌ¼Ç Æ¯Á¤ ±¸¿ª¿¡ Collider¸¦ ºÙÀÌ±â À§ÇÑ ±¸Á¶Ã¼ÀÌ´Ù.
+	-  ì• ë‹ˆë©”ì´ì…˜ íŠ¹ì • êµ¬ì—­ì— Colliderë¥¼ ë¶™ì´ê¸° ìœ„í•œ êµ¬ì¡°ì²´ì´ë‹¤.
 	*/
 	struct ANIMSOUNDDESC : public ANIMOTHEREVENTDESC {
 		_wstring			wstrSoundName;
@@ -676,7 +676,7 @@ namespace Engine {
 
 	struct ITEMINFO
 	{
-		// ÁöºÒÇØ¾ßÇÒ µ·
+		// ì§€ë¶ˆí•´ì•¼í•  ëˆ
 		_float		fPayGold;
 
 		ITEMINFO() : fPayGold{0} {}

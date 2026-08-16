@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 namespace Engine {
 
@@ -186,22 +186,22 @@ namespace Engine {
 	template<class T>
 	using CUNPTRREF = const UNPTR<T>&;
 	/*
-	@ Date: 2024-02-02, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-02, Writer: ë°•íƒœí˜„
 	@ Explain
-	- thread¸¦ µî·ÏÇÏ±â À§ÇÑ ÇÔ¼ö 
+	- threadë¥¼ ë“±ë¡í•˜ê¸° ìœ„í•œ í•¨ìˆ˜ 
 	*/
 	using THREADFUNC = std::function<void(void*)>;
 	/*
-	@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	- Key Çàµ¿À» µî·ÏÇÏ±â À§ÇÑ ÇÔ¼ö
+	- Key í–‰ë™ì„ ë“±ë¡í•˜ê¸° ìœ„í•œ í•¨ìˆ˜
 	*/
 	using KEYACTIONFUNC = UDelegate<void, const _double&>;
 
 	/*
-	@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	- Animation Event¿¡¼­ Mouse È¤Àº Keyboard°¡ ´­¸° ÇÔ¼ö¸¦ µî·ÏÇÏ´Â º¯¼ö
+	- Animation Eventì—ì„œ Mouse í˜¹ì€ Keyboardê°€ ëˆŒë¦° í•¨ìˆ˜ë¥¼ ë“±ë¡í•˜ëŠ” ë³€ìˆ˜
 	*/
 	using MKEVENTFUNC = std::function<_bool(_ubyte)>;
 }

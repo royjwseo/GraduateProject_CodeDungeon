@@ -1,4 +1,4 @@
-#include "ClientDefine.h"
+ï»¿#include "ClientDefine.h"
 #include "CClientApp.h"
 #include "UGameInstance.h"
 #include "UTimer.h"
@@ -74,7 +74,7 @@ void CClientApp::Render()
 	ZeroMemory(&msg, sizeof(MSG));
 
 
-	// ±âº» ¸Þ½ÃÁö ·çÇÁÀÔ´Ï´Ù:
+	// ê¸°ë³¸ ë©”ì‹œì§€ ë£¨í”„ìž…ë‹ˆë‹¤:
 	while (m_spGameInstance->IsGamming())
 	{
 		// if PeekMeesage

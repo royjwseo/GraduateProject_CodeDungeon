@@ -1,4 +1,4 @@
-#include "ClientDefine.h"
+﻿#include "ClientDefine.h"
 #include "CPlayer.h"
 #include "UTexGroup.h"
 #include "UMethod.h"
@@ -195,4 +195,4 @@ HRESULT CPlayer::RenderActive(CSHPTRREF<UCommand> _spCommand, CSHPTRREF<UTableDe
 void CPlayer::Collision(CSHPTRREF<UPawn> _pEnemy)
 {
 	
-}
+}

@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "AAnimation.h"
 #include "AAnimator.h"
 #include "AChannel.h"
@@ -116,7 +116,7 @@ namespace Core
 	void AAnimation::TickAnimEvent(APawn* _pPawn, AAnimator* _pAnimator, const _double& _TimeDelta,
 		const _double& _Ratio, const _string& _strInputTrigger)
 	{
-		// ¸¸¾à ActiveAnimChagneEvent°¡ È°¼ºÈ­µÇÁö ¾Ê¾Ò´Ù¸é, È°¼ºÈ­ÇÒ¶§±îÁö Ã£¾Æ¶ó
+		// ë§Œì•½ ActiveAnimChagneEventê°€ í™œì„±í™”ë˜ì§€ ì•Šì•˜ë‹¤ë©´, í™œì„±í™”í• ë•Œê¹Œì§€ ì°¾ì•„ë¼
 		if (nullptr == m_spActiveAnimChangeEvent)
 		{
 			for (auto& Event : m_AnimEventContainer[ANIMEVENTTYPE::ANIMEVENT_ANIMCHANGESBETWEEN])
@@ -130,7 +130,7 @@ namespace Core
 		}
 		else
 		{
-			// ÀÌº¥Æ® È°¼ºÈ­
+			// ì´ë²¤íŠ¸ í™œì„±í™”
 			m_spActiveAnimChangeEvent->EventCheck(_pPawn, _pAnimator, _TimeDelta, _Ratio, _strInputTrigger);
 		}
 		// Collider Event 
@@ -250,4 +250,4 @@ namespace Core
 		return std::move(spAnimEvent);
 	}
 
-}
+}

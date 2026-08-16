@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCHARACTER_H
+Ôªø#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCHARACTER_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCHARACTER_H
 
 #include "UPawn.h"
@@ -10,7 +10,7 @@ public:
 	UCharacter(CSHPTRREF<UDevice> _spDevice, 	const _wstring& _wstrLayer, const CLONETYPE& _eCloneType);
 	UCharacter(const UCharacter& _rhs);
 	DESTRUCTOR(UCharacter)
-	// UPawn¿ª(∏¶) ≈Î«ÿ ªÛº”µ 
+	// UPawnÏùÑ(Î•º) ÌÜµÌï¥ ÏÉÅÏÜçÎê®
 	virtual SHPTR<UCloneObject> Clone(const VOIDDATAS& _vecDatas) override PURE;
 	virtual void Free() override  PURE;
 	virtual HRESULT NativeConstruct() override  PURE;
@@ -26,4 +26,4 @@ protected:
 END
 
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCHARACTER_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCHARACTER_H

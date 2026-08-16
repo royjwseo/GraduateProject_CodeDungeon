@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "Material.h"
 #include "GameObject.h"
 #include "Texture.h"
@@ -37,4 +37,4 @@ void CMaterial::UpdateShaderVariables(const ComPtr<ID3D12GraphicsCommandList>& _
 void CMaterial::ReleaseShaderVariables()
 {
 	if (m_pTexture) m_pTexture->ReleaseShaderVariables();
-}
+}

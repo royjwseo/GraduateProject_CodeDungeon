@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 #include "UVIBuffer.h"
 #include "UShader.h"
 #include "UMethod.h"
@@ -139,8 +139,8 @@ HRESULT UVIBuffer::CreateIndexBuffer(const _uint& _iIndexCnt, const _uint& _iBuf
 void UVIBuffer::BindVertexAndIndex(const ComPtr<Dx12GraphicsCommandList>& _cpGraphicCmdList, const _uint& _iInstanceCnt)
 {  
 	// TODO
-	// Buffer¿¡´Ù ¼¼ÆÃ
-	// BufferÀÇ ÁÖ¼Ò¸¦ Register¿¡ Àü¼Û 
+	// Bufferì—ë‹¤ ì„¸íŒ…
+	// Bufferì˜ ì£¼ì†Œë¥¼ Registerì— ì „ì†¡ 
 	const ComPtr<Dx12GraphicsCommandList>& pGraphicCmdList = _cpGraphicCmdList;
 	pGraphicCmdList->IASetPrimitiveTopology(m_ePrimitiveTopology);
 	// Vertex

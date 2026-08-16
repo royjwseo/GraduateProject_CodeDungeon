@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+﻿#include "ClientDefines.h"
 #include "CClientAdiminstor.h"
 #include "ACoreInstance.h"
 #include "CClientSession.h"

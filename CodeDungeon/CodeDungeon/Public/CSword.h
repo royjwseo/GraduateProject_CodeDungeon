@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UWeapon.h"
 
 BEGIN(Engine)
@@ -7,9 +7,9 @@ END
 
 BEGIN(Client)
 /*
-@ Date: 2024-05-02, Writer: ¹ÚÅÂÇö
+@ Date: 2024-05-02, Writer: ë°•íƒœí˜„
 @ Explain
--  »ç¿ëÀÚ°¡ Á÷Á¢ Á¶Á¾ÇÏ´Â Å¬·¡½ºÀÌ´Ù.
+-  ì‚¬ìš©ìê°€ ì§ì ‘ ì¡°ì¢…í•˜ëŠ” í´ë˜ìŠ¤ì´ë‹¤.
 */
 class CSword  final : public UWeapon {
 public:
@@ -17,7 +17,7 @@ public:
 	CSword(const CSword& _rhs);
 	DESTRUCTOR(CSword)
 public:
-	// UPlayerÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UPlayerì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(CSword, "CSword::CloneToFailed")
 	virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;

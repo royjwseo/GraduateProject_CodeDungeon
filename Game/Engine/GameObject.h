@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Mesh.h"
 
 class CShader;
@@ -33,7 +33,7 @@ public:
 	virtual ~CGameObject();
 	
 public:
-	//2024-01-20 ÀÌ¼ºÇö ¿ÀºêÁ§Æ® ±¸ºĞ¿ë ÅÂ±× Ãß°¡
+	//2024-01-20 ì´ì„±í˜„ ì˜¤ë¸Œì íŠ¸ êµ¬ë¶„ìš© íƒœê·¸ ì¶”ê°€
 	void SetType(OBJECT_TYPE pType) { m_eType = pType; }
 	OBJECT_TYPE GetType() { return m_eType; }
 

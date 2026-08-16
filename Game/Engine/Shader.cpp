@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Shader.h"
 
 CShader::CShader()
@@ -6,15 +6,15 @@ CShader::CShader()
 
 }
 
-//2024-01-15 ÀÌ¼ºÇö 
-//ÄÄÆÄÀÏµÈ cso¿¡¼­ ½¦ÀÌ´õ Á¤º¸ ÀĞ´Â ÇÔ¼ö Ãß°¡. ¾ÕÀ¸·Ğ ÀÌ ÇÔ¼ö¸¦ ÅëÇØ ½¦ÀÌ´õ¸¦ »ı¼ºÇÏ´Â °ÍÀ» ÁöÇâÇÑ´Ù.
+//2024-01-15 ì´ì„±í˜„ 
+//ì»´íŒŒì¼ëœ csoì—ì„œ ì‰ì´ë” ì •ë³´ ì½ëŠ” í•¨ìˆ˜ ì¶”ê°€. ì•ìœ¼ë¡  ì´ í•¨ìˆ˜ë¥¼ í†µí•´ ì‰ì´ë”ë¥¼ ìƒì„±í•˜ëŠ” ê²ƒì„ ì§€í–¥í•œë‹¤.
 D3D12_SHADER_BYTECODE CShader::ReadCompiledShaderFromFile(const wchar_t* pszFileName, ComPtr<ID3DBlob>& pd3dShaderBlob)
 {
 	ifstream file(pszFileName, ios::binary | ios::ate);
 	if (!file.is_open())
 	{
-		// ÆÄÀÏ ¿­±â ½ÇÆĞ Ã³¸®
-		return {}; // ºó D3D12_SHADER_BYTECODE ¹İÈ¯
+		// íŒŒì¼ ì—´ê¸° ì‹¤íŒ¨ ì²˜ë¦¬
+		return {}; // ë¹ˆ D3D12_SHADER_BYTECODE ë°˜í™˜
 	}
 
 	streamsize size = file.tellg();
@@ -23,8 +23,8 @@ D3D12_SHADER_BYTECODE CShader::ReadCompiledShaderFromFile(const wchar_t* pszFile
 	vector<char> buffer(size);
 	if (!file.read(buffer.data(), size))
 	{
-		// ÆÄÀÏ ÀĞ±â ½ÇÆĞ Ã³¸®
-		return {}; // ºó D3D12_SHADER_BYTECODE ¹İÈ¯
+		// íŒŒì¼ ì½ê¸° ì‹¤íŒ¨ ì²˜ë¦¬
+		return {}; // ë¹ˆ D3D12_SHADER_BYTECODE ë°˜í™˜
 	}
 	// Create a smart pointer to manage the blob
 	pd3dShaderBlob.Reset();
@@ -38,7 +38,7 @@ D3D12_SHADER_BYTECODE CShader::ReadCompiledShaderFromFile(const wchar_t* pszFile
 	return d3dShaderByteCode;
 }
 
-//±×·¡ÇÈ½º ÆÄÀÌÇÁ¶óÀÎ »óÅÂ °´Ã¼¸¦ »ı¼ºÇÑ´Ù.
+//ê·¸ë˜í”½ìŠ¤ íŒŒì´í”„ë¼ì¸ ìƒíƒœ ê°ì²´ë¥¼ ìƒì„±í•œë‹¤.
 CShader::CShader(const ComPtr<ID3D12Device>& _Device, const ComPtr<ID3D12RootSignature>& _RootSignature, const wstring& vs, const wstring& ps)
 {
 	ComPtr<ID3DBlob> pd3dVertexShaderBlob, pd3dPixelShaderBlob;
@@ -73,7 +73,7 @@ CShader::~CShader()
 
 void CShader::SetPipelineState(const ComPtr<ID3D12GraphicsCommandList>& _CommandList)
 {
-	//ÆÄÀÌÇÁ¶óÀÎ¿¡ ±×·¡ÇÈ½º »óÅÂ °´Ã¼¸¦ ¼³Á¤ÇÑ´Ù. 
+	//íŒŒì´í”„ë¼ì¸ì— ê·¸ë˜í”½ìŠ¤ ìƒíƒœ ê°ì²´ë¥¼ ì„¤ì •í•œë‹¤. 
 	_CommandList->SetPipelineState(m_pd3dPipelineStates.Get());
 }
 

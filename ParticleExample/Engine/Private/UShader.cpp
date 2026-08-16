@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 #include "UShader.h"
 #include "UMethod.h"
 #include "UGameInstance.h"
@@ -102,13 +102,13 @@ HRESULT UShader::CreateShader()
 	
 	for (auto& iter : m_stShaderDesc.ShaderList)
 	{
-		// ½¦ÀÌ´õ cso ÆÄÀÏÀ» ·ÎµåÇÔ
+		// ì‰ì´ë” cso íŒŒì¼ì„ ë¡œë“œí•¨
 		_wstring wstrPath{ L"..\\Bin\\" };
 		wstrPath += m_stShaderDesc.wstrShaderName + L"_" + GetShaderType(iter) + L".cso";
-		// ½¦ÀÌ´õ ÆÄÀÏÀ» ºÒ·¯¿È
+		// ì‰ì´ë” íŒŒì¼ì„ ë¶ˆëŸ¬ì˜´
 		ComPtr<DxBlob> ShaderFile {UMethod::LoadBinary(wstrPath) };
 		m_ShaderBlopContainer.insert(std::pair<SHADERMAININFO, ComPtr<DxBlob>>(iter, ShaderFile));
-		// ByteCode¿¡ Áı¾î ³Ö°í PipeLine ½¦ÀÌ´õ Á¾·ù¿¡ ¸Â°Ô Áı¾î ³Ö´Â´Ù. 
+		// ByteCodeì— ì§‘ì–´ ë„£ê³  PipeLine ì‰ì´ë” ì¢…ë¥˜ì— ë§ê²Œ ì§‘ì–´ ë„£ëŠ”ë‹¤. 
 		D3D12_SHADER_BYTECODE ByteCode{};
 		ZeroMemory(&ByteCode, sizeof(D3D12_SHADER_BYTECODE));
 		ByteCode = { ShaderFile->GetBufferPointer(), ShaderFile->GetBufferSize() };
@@ -133,7 +133,7 @@ HRESULT UShader::CreateShader()
 	}
 	// Get Instance
 	SHPTR<UGameInstance> pGameInstance = GET_INSTANCE(UGameInstance);
-	// ÆÄÀÌÇÁ¶óÀÎ ½ºÅ×ÀÌÆ®¸¦ ¸¸µé±â À§ÇØ °ªµéÀ» ¼¼ÆÃÇÑ´Ù. 
+	// íŒŒì´í”„ë¼ì¸ ìŠ¤í…Œì´íŠ¸ë¥¼ ë§Œë“¤ê¸° ìœ„í•´ ê°’ë“¤ì„ ì„¸íŒ…í•œë‹¤. 
 	d3dGraphicsPipeLineStateDesc.InputLayout = { m_stShaderDesc.pElement, m_stShaderDesc.iNumElement };
 	d3dGraphicsPipeLineStateDesc.pRootSignature = m_spRootSignature->GetRootSignature().Get();
 	d3dGraphicsPipeLineStateDesc.RasterizerState = CD3DX12_RASTERIZER_DESC(D3D12_DEFAULT);
@@ -141,8 +141,8 @@ HRESULT UShader::CreateShader()
 	d3dGraphicsPipeLineStateDesc.DepthStencilState = CD3DX12_DEPTH_STENCIL_DESC(D3D12_DEFAULT);
 	d3dGraphicsPipeLineStateDesc.SampleMask = UINT_MAX;
 	d3dGraphicsPipeLineStateDesc.PrimitiveTopologyType = GetToplologyType(m_stShaderDesc.eTopology);
-	// RenderTargets µéÀÌ ÀÖ´Ù¸é ±×°ÍµéÀ» Shader ÆÄÀÏ¿¡¼­ »ç¿ëÇÏ±â À§ÇØ Ãß°¡ÇÑ´Ù. 
-	// ±âº» NumRenderTargetsÀÇ °ªÀº 1ÀÌ´Ù. 
+	// RenderTargets ë“¤ì´ ìˆë‹¤ë©´ ê·¸ê²ƒë“¤ì„ Shader íŒŒì¼ì—ì„œ ì‚¬ìš©í•˜ê¸° ìœ„í•´ ì¶”ê°€í•œë‹¤. 
+	// ê¸°ë³¸ NumRenderTargetsì˜ ê°’ì€ 1ì´ë‹¤. 
 	d3dGraphicsPipeLineStateDesc.NumRenderTargets = m_stShaderDesc.iRenderTargets;
 	for (_uint i = 0; i < m_stShaderDesc.iRenderTargets; ++i) {
 		d3dGraphicsPipeLineStateDesc.RTVFormats[i] = m_stShaderDesc.RenderFormats[i];
@@ -151,7 +151,7 @@ HRESULT UShader::CreateShader()
 	d3dGraphicsPipeLineStateDesc.SampleDesc.Quality = pGameInstance->IsMssa4xState() ? pGameInstance->GetMssa4xQuality() : 0;
 	d3dGraphicsPipeLineStateDesc.DSVFormat = DXGI_FORMAT_D32_FLOAT;
 
-	// °¢ Å¸ÀÔ¿¡ ¸Â°Ô °ªµéÀ» ¼¼ÆÃÇØÁØ´Ù. 
+	// ê° íƒ€ì…ì— ë§ê²Œ ê°’ë“¤ì„ ì„¸íŒ…í•´ì¤€ë‹¤. 
 	switch (m_stShaderDesc.eRasterRizerType)
 	{
 	case RASTERIZER_TYPE::CULL_BACK:
@@ -210,7 +210,7 @@ HRESULT UShader::CreateShader()
 	}
 
 	ComPtr<Dx12PipelineState> cpPipeLineState;
-	// ÆÄÀÌÇÁ¶óÀÎ »ı¼º
+	// íŒŒì´í”„ë¼ì¸ ìƒì„±
 	RETURN_CHECK_DXOBJECT(GetDevice()->GetDV()->CreateGraphicsPipelineState(&d3dGraphicsPipeLineStateDesc,
 		IID_PPV_ARGS(&cpPipeLineState)), E_FAIL);
 
@@ -299,7 +299,7 @@ D3D12_PRIMITIVE_TOPOLOGY_TYPE UShader::GetToplologyType(const D3D12_PRIMITIVE_TO
 /*
 typedef struct tagShaderDesc
 	{
-		// ÀÌ¸§¸¸ ÀÖÀ¸¸é Compute Shader¸¦ ºôµåÇÑ´Ù.
+		// ì´ë¦„ë§Œ ìˆìœ¼ë©´ Compute Shaderë¥¼ ë¹Œë“œí•œë‹¤.
 		tagShaderDesc(const _wstring& _wstrShaderName) :
 			eType(GRAPHICISCONTROLTYPE::COMPUTE),
 			wstrShaderName(_wstrShaderName), pElement(nullptr), iNumElement(0), ShaderList({ SHADERMAININFO::CS_MAIN}),
@@ -310,7 +310,7 @@ typedef struct tagShaderDesc
 			eBlendType(BLEND_TYPE::DEFAULT)
 		{}
 
-		// ·»´õ Å¸°Ù¿¡ ±×¸± ¼ö ÀÖ°Ô ÇØÁÖ´Â ½¦ÀÌ´õÀÌ´Ù.
+		// ë Œë” íƒ€ê²Ÿì— ê·¸ë¦´ ìˆ˜ ìˆê²Œ í•´ì£¼ëŠ” ì‰ì´ë”ì´ë‹¤.
 		 tagShaderDesc(const _wstring& _wstrShaderName,
 			D3D12_INPUT_ELEMENT_DESC* _pDesc,
 			const _uint& _iNumElement,
@@ -328,7 +328,7 @@ typedef struct tagShaderDesc
 			eDepthStencilType(_eDepthStencilType),
 			eBlendType(_eBlendType)
 		{}
-		// ÀÏ¹İ È­¸é¿¡ ±×¸®´Â ½¦ÀÌ´õ 1°³ÀÇ ·»´õ Å¸°Ù¿¡ Format¸¸ ¸ÂÀ¸¸é ±×¸± ¼ö ÀÖµû.
+		// ì¼ë°˜ í™”ë©´ì— ê·¸ë¦¬ëŠ” ì‰ì´ë” 1ê°œì˜ ë Œë” íƒ€ê²Ÿì— Formatë§Œ ë§ìœ¼ë©´ ê·¸ë¦´ ìˆ˜ ìˆë”°.
 		 tagShaderDesc(const _wstring& _wstrShaderName,
 			D3D12_INPUT_ELEMENT_DESC* _pDesc,
 			const _uint& _iNumElement,
@@ -368,4 +368,4 @@ void UShader::ShowObjectInfo()
 		ImGui::TreePop();
 	}
 }
-#endif
+#endif

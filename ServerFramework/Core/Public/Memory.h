@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_MEMORY_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_MEMORY_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_MEMORY_H
 
 #include "Allocator.h"
@@ -6,9 +6,9 @@
 namespace Core {
 	/*
 	@ Date: 2023-12-31
-	@ Writer: ¹ÚÅÂÇö
+	@ Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¸Ş¸ğ¸®ÀÇ ¾Õ ºÎºĞÀ» ³ªÅ¸³»´Â HeaderÀÌ´Ù.
+	- ë©”ëª¨ë¦¬ì˜ ì• ë¶€ë¶„ì„ ë‚˜íƒ€ë‚´ëŠ” Headerì´ë‹¤.
 	*/
 	struct  MEMORYHEADER {
 
@@ -17,13 +17,13 @@ namespace Core {
 		static void* AttachHeader(MEMORYHEADER* _Header, _llong _Size)
 		{
 			new(_Header)MEMORYHEADER(_Size);
-			// ¸Ş¸ğ¸® Çì´õ ºÎºĞÀ» °Ç³Ê ¶Ú´Ù. 
+			// ë©”ëª¨ë¦¬ í—¤ë” ë¶€ë¶„ì„ ê±´ë„ˆ ë›´ë‹¤. 
 			return reinterpret_cast<void*>(++_Header);
 		}
 
 		static MEMORYHEADER* DetachHeader(void* _Ptr)
 		{
-			// ¸Ş¸ğ¸® Çì´õ ºÎºĞÀ» ÃßÃâÇÑ´Ù. 
+			// ë©”ëª¨ë¦¬ í—¤ë” ë¶€ë¶„ì„ ì¶”ì¶œí•œë‹¤. 
 			MEMORYHEADER* Header = reinterpret_cast<MEMORYHEADER*>(_Ptr) - 1;
 			return Header;
 		}
@@ -40,9 +40,9 @@ namespace Core {
 	*/
 
 	/*
-	@ Date: 2023-12-31, Writer: ¹ÚÅÂÇö
+	@ Date: 2023-12-31, Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¸Ş¸ğ¸®µéÀ» ÀúÀåÇÏ´Â Å¬·¡½º
+	- ë©”ëª¨ë¦¬ë“¤ì„ ì €ì¥í•˜ëŠ” í´ë˜ìŠ¤
 	*/
 	class CORE_DLL AMemoryPool {
 		using MEMORYQUEUE = CONQUEUE<MEMORYHEADER*>;
@@ -70,9 +70,9 @@ namespace Core {
 	*/
 	/*
 	@ Date: 2023-12-31
-	@ Writer: ¹ÚÅÂÇö
+	@ Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¸Ş¸ğ¸®¸¦ °ü¸®ÇÏ´Â °ü¸®ÀÚ Å¬·¡½º
+	- ë©”ëª¨ë¦¬ë¥¼ ê´€ë¦¬í•˜ëŠ” ê´€ë¦¬ì í´ë˜ìŠ¤
 	*/
 	class CORE_DLL AMemoryAdiminstor {
 		enum
@@ -94,7 +94,7 @@ namespace Core {
 			unsigned int& _TableIndex, const unsigned int  _Limited, const 	unsigned int  _AddValue);
 
 	private:
-		// ¸Ş¸ğ¸®¸¦ ºü¸£°Ô Ã£±â À§ÇÑ Ç® Å×ÀÌºíÀÌ´Ù. 
+		// ë©”ëª¨ë¦¬ë¥¼ ë¹ ë¥´ê²Œ ì°¾ê¸° ìœ„í•œ í’€ í…Œì´ë¸”ì´ë‹¤. 
 		POOLTABLE			m_PoolTable;
 		MEMORYTABLE	m_MemoryTable;
 	};
@@ -102,4 +102,4 @@ namespace Core {
 }
 
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_MEMORY_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_MEMORY_H

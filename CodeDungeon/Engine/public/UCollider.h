@@ -1,4 +1,4 @@
-
+ï»¿
 #include "UComponent.h"
 
 BEGIN(Engine)
@@ -36,23 +36,23 @@ public:
 	void SetTransform(const _float3& _vPos, const _float4& _vQuaternion);
 	void SetTransform(CSHPTRREF< UTransform> _spTransform);
 	void SetTransform(const _float4x4& _Matrix);
-	// UComponentÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UComponentì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual void Free() override;
 	CLONE_MACRO(UCollider, "UCollider::Clone To Failed")
 	virtual HRESULT NativeConstruct() override;
 	virtual HRESULT NativeConstructClone(const VOIDDATAS& _tDatas) override;
 	_bool IsCollision(CSHPTRREF<UCollider> _pCollider);
 	/*
-	@ Date: 2024-03-11, Writer: ÀÌ¼ºÇö
+	@ Date: 2024-03-11, Writer: ì´ì„±í˜„
 	@ Explain
-	- collider¿Í rayÀÇ Ãæµ¹Ã³¸®¸¦ À§ÇÑ ÇÔ¼ö
+	- colliderì™€ rayì˜ ì¶©ëŒì²˜ë¦¬ë¥¼ ìœ„í•œ í•¨ìˆ˜
 	*/
 	_bool IsCollisionWithRay(const _float3& _vOrigin, const _float3& _vDirection, _float* _pDist);
 
 	/*
-	@ Date: 2024-06-11, Writer: ÀÌ¼ºÇö
+	@ Date: 2024-06-11, Writer: ì´ì„±í˜„
 	@ Explain
-	- Äİ¶óÀÌ´õ ³ë¸» Ãß°¡
+	- ì½œë¼ì´ë” ë…¸ë§ ì¶”ê°€
 	*/
 	void SetOBBNormals(const _float4x4& transformMatrix);
 	_float3 CalculateOBBCollisionNormal(const DirectX::BoundingOrientedBox& box1, const DirectX::BoundingOrientedBox& box2) const;

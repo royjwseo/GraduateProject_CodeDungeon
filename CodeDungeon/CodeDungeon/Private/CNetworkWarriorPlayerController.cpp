@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+﻿#include "ClientDefines.h"
 #include "CNetworkWarriorPlayerController.h"
 #include "CWarriorPlayer.h"
 #include "UGameInstance.h"

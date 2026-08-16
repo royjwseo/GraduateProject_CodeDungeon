@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UController.h"
 
 
@@ -6,9 +6,9 @@ BEGIN(Engine)
 class UMeshContainer;
 using MESHCONTAINERS = VECTOR<SHPTR<UMeshContainer>>;
 /*
-@ Date: 2024-05-21, Writer: ¹ÚÅÂÇö
+@ Date: 2024-05-21, Writer: ë°•íƒœí˜„
 @ Explain
--   ¸Ş½¬ÀÇ º¸¿©ÁÜÀ» °üÀåÇÏ´Â ÄÁÆ®·Ñ·¯
+-   ë©”ì‰¬ì˜ ë³´ì—¬ì¤Œì„ ê´€ì¥í•˜ëŠ” ì»¨íŠ¸ë¡¤ëŸ¬
 */
 class UMeshFilter : public UController {
 	struct MESHFILTERINFO

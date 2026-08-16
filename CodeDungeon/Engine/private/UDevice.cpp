@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UDevice.h"
 
 UDevice::UDevice() :
@@ -33,13 +33,13 @@ HRESULT UDevice::NativeConstruct()
 	RETURN_CHECK_DXOBJECT(CreateDXGIFactory2(iDxGiFactoryFlags, IID_PPV_ARGS(&m_cpFactory)), E_FAIL);
 
 	m_cpFactory->EnumAdapters(0, (IDXGIAdapter**)m_cpAdaptor.GetAddressOf());
-	// ¸¸¾à ÇÏµå¿ş¾î ÀåÄ¡ »ı¼º ½ÇÆĞ
+	// ë§Œì•½ í•˜ë“œì›¨ì–´ ì¥ì¹˜ ìƒì„± ì‹¤íŒ¨
 	if (FAILED(D3D12CreateDevice(m_cpAdaptor.Get(), D3D_FEATURE_LEVEL_12_0, IID_PPV_ARGS(&m_cpDevice))))
 	{
-		// Enum Wrap Adapter¸¦ ÅëÇØ IDXGIAdapter °´Ã¼ °¡Á®¿È / ¼ÒÇÁÆ®¿ş¾î ¾îµªÅÍ
+		// Enum Wrap Adapterë¥¼ í†µí•´ IDXGIAdapter ê°ì²´ ê°€ì ¸ì˜´ / ì†Œí”„íŠ¸ì›¨ì–´ ì–´ëí„°
 		ComPtr<IDXGIAdapter> pWarpAdapter;
 		RETURN_CHECK_DXOBJECT(m_cpFactory->EnumWarpAdapter(IID_PPV_ARGS(&pWarpAdapter)), E_FAIL);
-		// ´Ù½Ã ÇÑ ¹ø ÀåÄ¡¸¦ »ı¼º
+		// ë‹¤ì‹œ í•œ ë²ˆ ì¥ì¹˜ë¥¼ ìƒì„±
 		RETURN_CHECK_DXOBJECT(D3D12CreateDevice(pWarpAdapter.Get(), D3D_FEATURE_LEVEL_12_0, IID_PPV_ARGS(&m_cpDevice)), E_FAIL);
 	}
 

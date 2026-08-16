@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "CoreGrobal.h"
 #include "UDeadLockProfiler.h"
 #include "Memory.h"
@@ -32,7 +32,7 @@ namespace Core
 		~CoreGlobal()
 		{
 			LOCKGUARD<MUTEX>	LL{ m_Mutex };
-			// ¸¸¾à Register AppÀÌ ºñ¾îÀÖÀ¸¸é Å©·¡½¬
+			// ë§Œì•½ Register Appì´ ë¹„ì–´ìˆìœ¼ë©´ í¬ë˜ì‰¬
 			if (nullptr == g_RegisterApp)
 			{
 				CRASH("NOT REGISTER APP")

@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCAMERA_H
+ï»¿#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCAMERA_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCAMERA_H
 
 #include "UActor.h"
@@ -10,8 +10,8 @@ class ENGINE_DLL DEF_CACHE_ALGIN  UCamera abstract : public UActor {
 public:
 	enum class PROJECTION_TYPE
 	{
-		PERSPECTIVE, // ¿ø±Ù Åõ¿µ
-		ORTHOGRAPHIC, // Á÷±³ Åõ¿µ
+		PERSPECTIVE, // ì›ê·¼ íˆ¬ì˜
+		ORTHOGRAPHIC, // ì§êµ íˆ¬ì˜
 		PROJ_END
 	};
 	// Cam Proj

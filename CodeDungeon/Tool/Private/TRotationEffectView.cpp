@@ -1,4 +1,4 @@
-#include "ToolDefines.h"
+ï»¿#include "ToolDefines.h"
 #include "TRotationEffectView.h"
 #include "UParticle.h"
 #include "UParticleSystem.h"
@@ -32,7 +32,7 @@ HRESULT TRotationEffectView::NativeConstruct()
 }
 
 //================================================================
-//**** ÆÄÆ¼Å¬ Á¾·ùº°·Î °ü¸®ÇÏ´Â ÄÁÅ×ÀÌ³Ê(º¤ÅÍ) Å©±â ¹Ì¸® ÇÒ´ç ****
+//**** íŒŒí‹°í´ ì¢…ë¥˜ë³„ë¡œ ê´€ë¦¬í•˜ëŠ” ì»¨í…Œì´ë„ˆ(ë²¡í„°) í¬ê¸° ë¯¸ë¦¬ í• ë‹¹ ****
 //================================================================
 
 
@@ -46,12 +46,12 @@ void TRotationEffectView::ResizeMultipleParticleVector(_uint _resizeAmount)
 
 
 //================================================================
-//**************** ÆÄÆ¼Å¬ Á¾·ùº°·Î ¸®¼Ò½º ÇÒ´ç ****************
+//**************** íŒŒí‹°í´ ì¢…ë¥˜ë³„ë¡œ ë¦¬ì†ŒìŠ¤ í• ë‹¹ ****************
 //================================================================
 
 void TRotationEffectView::LoadMultipleParticleResource()
 {
-	// Default¸¦ y°ª Áõ°¡ÇÏÁö¾Ê´Â ¿ø , AUTO¸¦ y°ª Áõ°¡ÇÏ´Â ¿ø
+	// Defaultë¥¼ yê°’ ì¦ê°€í•˜ì§€ì•ŠëŠ” ì› , AUTOë¥¼ yê°’ ì¦ê°€í•˜ëŠ” ì›
 	for (int i = 0; i < m_iMultipleParticleSize; i++) {
 		SHPTR<UGameInstance> spGameInstance = GET_INSTANCE(UGameInstance);
 		{
@@ -80,14 +80,14 @@ void TRotationEffectView::LoadMultipleParticleResource()
 		m_MultipleParticleType[0] = m_MultipleParticle[0]->GetParticleSystem()->GetParticleTypeParam();
 		m_MultipleParticleType[0]->fParticleType = PARTICLE_TYPE_DEFAULT;
 		m_MultipleParticleType[0]->fParticleLifeTimeType = PARTICLE_LIFETIME_TYPE_DEFAULT;
-		m_MultipleParticle[0]->SetTexture(L"RedDot"); // y°ª Áõ°¡ x ¿ø
+		m_MultipleParticle[0]->SetTexture(L"RedDot"); // yê°’ ì¦ê°€ x ì›
 	}
 	{
 		m_MultipleParticleParam[1] = m_MultipleParticle[1]->GetParticleSystem()->GetParticleParam();
 		m_MultipleParticleType[1] = m_MultipleParticle[1]->GetParticleSystem()->GetParticleTypeParam();
 		m_MultipleParticleType[1]->fParticleType = PARTICLE_TYPE_AUTO;
 		m_MultipleParticleType[1]->fParticleLifeTimeType = PARTICLE_LIFETIME_TYPE_DEFAULT;
-		m_MultipleParticle[1]->SetTexture(L"RedDot");// y°ª Áõ°¡ O ¿ø
+		m_MultipleParticle[1]->SetTexture(L"RedDot");// yê°’ ì¦ê°€ O ì›
 	}
 
 
@@ -124,14 +124,14 @@ for (int i = 0; i < m_iMultipleParticleSize; i++) {
 			m_MultipleParticleType[0] = m_MultipleParticle[0]->GetParticleSystem()->GetParticleTypeParam();
 			m_MultipleParticleType[0]->fParticleType = PARTICLE_TYPE_DEFAULT;
 			m_MultipleParticleType[0]->fParticleLifeTimeType = PARTICLE_LIFETIME_TYPE_DEFAULT;
-			m_MultipleParticle[0]->SetTexture(L"RedDot"); // y°ª Áõ°¡ x ¿ø
+			m_MultipleParticle[0]->SetTexture(L"RedDot"); // yê°’ ì¦ê°€ x ì›
 		}
 		{
 			m_MultipleParticleParam[1] = m_MultipleParticle[1]->GetParticleSystem()->GetParticleParam();
 			m_MultipleParticleType[1] = m_MultipleParticle[1]->GetParticleSystem()->GetParticleTypeParam();
 			m_MultipleParticleType[1]->fParticleType = PARTICLE_TYPE_AUTO;
 			m_MultipleParticleType[1]->fParticleLifeTimeType = PARTICLE_LIFETIME_TYPE_DEFAULT;
-			m_MultipleParticle[1]->SetTexture(L"RedDot");// y°ª Áõ°¡ O ¿ø
+			m_MultipleParticle[1]->SetTexture(L"RedDot");// yê°’ ì¦ê°€ O ì›
 		}
 
 
@@ -153,7 +153,7 @@ HRESULT TRotationEffectView::LoadResource()
 }
 
 //================================================================
-//**************** ÆÄÆ¼Å¬ Á¾·ùº°·Î ¸®¼Ò½º ÇØÁ¦ ****************
+//**************** íŒŒí‹°í´ ì¢…ë¥˜ë³„ë¡œ ë¦¬ì†ŒìŠ¤ í•´ì œ ****************
 //================================================================
 
 
@@ -162,7 +162,7 @@ void TRotationEffectView::ReleaseMultipleParticleResource()
 	for (auto& _particle : m_MultipleParticle) {
 		_particle.reset();
 		GetGameInstance()->RemoveActor(_particle);
-	}//¹®Á¦ À¯¹ßµÉ ¼ö ÀÖ´Â ÄÚµå RemoveActorÀÇ »ó¼¼ ±¸ÇöÀ» »ìÆìº¸¾Æ¾ßÇÔ.
+	}//ë¬¸ì œ ìœ ë°œë  ìˆ˜ ìˆëŠ” ì½”ë“œ RemoveActorì˜ ìƒì„¸ êµ¬í˜„ì„ ì‚´í´ë³´ì•„ì•¼í•¨.
 }
 
 
@@ -177,7 +177,7 @@ HRESULT TRotationEffectView::ReleaseResource()
 
 
 //================================================================
-//************ ÆÄÆ¼Å¬ Á¾·ùº°·Î Rendering ÇÏ´Â ºÎºĞ ************
+//************ íŒŒí‹°í´ ì¢…ë¥˜ë³„ë¡œ Rendering í•˜ëŠ” ë¶€ë¶„ ************
 //================================================================
 
 void TRotationEffectView::TickActive(const _double& _dTimeDelta)
@@ -199,7 +199,7 @@ void TRotationEffectView::RenderActive()
 		m_stMainDesc.iDockSpaceID = ImGui::GetID(GetName().c_str());
 		DockBuildInitSetting();
 		ImGui::DockSpace(m_stMainDesc.iDockSpaceID, ImVec2{}, m_stMainDesc.imgDockNodeFlags);
-		//¿©±âºÎÅÍ ³» ÀÔ·Â
+		//ì—¬ê¸°ë¶€í„° ë‚´ ì…ë ¥
 
 		MultipleParticleView();
 
@@ -269,7 +269,7 @@ void TRotationEffectView::MultipleParticleView()
 
 void TRotationEffectView::MultipleParticleCountSetting()
 {
-	//ÆÄÆ¼Å¬ ÇÑ »çÀÌÅ¬ »ı¼º °¹¼ö.
+	//íŒŒí‹°í´ í•œ ì‚¬ì´í´ ìƒì„± ê°¯ìˆ˜.
 	if (ImGui::CollapsingHeader("Multiple Particle Count Setting", ImGuiTreeNodeFlags_DefaultOpen)) {
 
 		_uint increment = 1;
@@ -286,7 +286,7 @@ void TRotationEffectView::MultipleParticleCountSetting()
 
 void TRotationEffectView::MultipleParticleTimeSetting()
 {
-	//ÆÄÆ¼Å¬ÀÇ »ı¼º ½Ã°£ Á¤ÇÏ±â
+	//íŒŒí‹°í´ì˜ ìƒì„± ì‹œê°„ ì •í•˜ê¸°
 	if (ImGui::CollapsingHeader("Multiple Particle Create Time Interval", ImGuiTreeNodeFlags_DefaultOpen)) {
 
 		ImGui::InputFloat("Enter Time Interval\n Min:0.f  Max :6.f", m_MultipleParticle[0]->GetParticleSystem()->GetCreateInterval(), 0.1f, 1.0f, "%.2f", ImGuiInputTextFlags_CharsDecimal);

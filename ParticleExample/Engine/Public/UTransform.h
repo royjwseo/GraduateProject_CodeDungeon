@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UTRANSFORM_H
+ï»¿#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UTRANSFORM_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UTRANSFORM_H
 
 #include "UComponent.h"
@@ -98,16 +98,16 @@ public:
 	// Compute Distance
 	const _float ComputeDistance(const _float3& _vPos);
 	const _float ComputeDistanceSq(const _float3& _vPos);
-	// Shader ÆÄÀÏÀ» ºÒ·¯¿Í¼­ ¹ÙÀÎµå ÇÏ´Â ÇÔ¼ö
+	// Shader íŒŒì¼ì„ ë¶ˆëŸ¬ì™€ì„œ ë°”ì¸ë“œ í•˜ëŠ” í•¨ìˆ˜
 	HRESULT BindTransformData(CSHPTRREF< UShader> _spShader, const CAMID _iCamID = MAIN_CAMERA_ID);
-	// Shader ÆÄÀÏÀ» ºÒ·¯¿Í¼­ ¹ÙÀÎµå ÇÏ´Â ÇÔ¼ö
+	// Shader íŒŒì¼ì„ ë¶ˆëŸ¬ì™€ì„œ ë°”ì¸ë“œ í•˜ëŠ” í•¨ìˆ˜
 	HRESULT BindTransformData(CSHPTRREF< UShader> _spShader, const _float4x4& _mTransform, const CAMID _iCamID = MAIN_CAMERA_ID);
 #ifdef _USE_IMGUI
 public:
 	virtual void ShowObjectInfo() override;
 #endif
 public:
-	// Transform ParamÀÇ Static value
+	// Transform Paramì˜ Static value
 	static constexpr _uint							TRANSFORMPARAM_SIZE{sizeof(TRANSFORMPARAM)};
 private:
 	// Shader 
@@ -128,4 +128,4 @@ private:
 
 END
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UTRANSFORM_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UTRANSFORM_H

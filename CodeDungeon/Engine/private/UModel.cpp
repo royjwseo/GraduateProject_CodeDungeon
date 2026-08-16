@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UModel.h"
 #include "UMethod.h"
 #include "UTexGroup.h"
@@ -69,7 +69,7 @@ _float3 UModel::GetMaxVertexPos()
 		maxVertexPos.z = max(maxVertexPos.z, maxMeshVertexPos.z);
 	}
 
-	return maxVertexPos; // ÃÖ´ë ¹öÅØ½º ¹İÈ¯
+	return maxVertexPos; // ìµœëŒ€ ë²„í…ìŠ¤ ë°˜í™˜
 }
 
 _float3 UModel::GetMinVertexPos()
@@ -84,16 +84,16 @@ _float3 UModel::GetMinVertexPos()
 		minVertexPos.z = min(minVertexPos.z, minMeshVertexPos.z);
 	}
 
-	return minVertexPos; // ÃÖ´ë ¹öÅØ½º ¹İÈ¯
+	return minVertexPos; // ìµœëŒ€ ë²„í…ìŠ¤ ë°˜í™˜
 }
 
 _float3 UModel::GetCenterPos()
 {
-	// ÃÖ¼Ò ¹öÅØ½º¿Í ÃÖ´ë ¹öÅØ½º¸¦ ¾ò¾î¿È
+	// ìµœì†Œ ë²„í…ìŠ¤ì™€ ìµœëŒ€ ë²„í…ìŠ¤ë¥¼ ì–»ì–´ì˜´
 	const _float3& minVertexPos = GetMinVertexPos();
 	const _float3& maxVertexPos = GetMaxVertexPos();
 
-	// Áß½É À§Ä¡ °è»ê
+	// ì¤‘ì‹¬ ìœ„ì¹˜ ê³„ì‚°
 	_float3 centerPos;
 	centerPos.x = (maxVertexPos.x + minVertexPos.x) * 0.5f;
 	centerPos.y = (maxVertexPos.y + minVertexPos.y) * 0.5f;
@@ -238,7 +238,7 @@ HRESULT UModel::CreateBoneNode(void* _pData, const _wstring& _wstrBoneNodeName)
 	}
 	else
 	{
-		// ¸¸¾à ¾Ö´Ï¸ŞÀÌ¼Ç »À°¡ Á¸ÀçÇÑ´Ù¸é
+		// ë§Œì•½ ì• ë‹ˆë©”ì´ì…˜ ë¼ˆê°€ ì¡´ì¬í•œë‹¤ë©´
 		_bool isFind = tDesc->BNodeDatas.end()!= (std::find_if(tDesc->BNodeDatas.begin(), tDesc->BNodeDatas.end(), [&](const BONENODEDESC& _Desc)	{
 				return _wstrBoneNodeName == _Desc.wstrName;
 			}));
@@ -261,18 +261,18 @@ HRESULT UModel::CreateBoneNode(void* _pData, const _wstring& _wstrBoneNodeName)
 		}
 		else
 		{
-			// ¾Æ¿¹ ÇÏ³ª »õ·Î¿î ·çÆ® º»À» ¸¸µç´Ù.  
+			// ì•„ì˜ˆ í•˜ë‚˜ ìƒˆë¡œìš´ ë£¨íŠ¸ ë³¸ì„ ë§Œë“ ë‹¤.  
 			{
 				m_spRootBoneNode = CreateNative<URootBoneNode>(_wstrBoneNodeName);
 				m_BoneNodeContainer.push_back(m_spRootBoneNode);
 			}
 			_int Index{ 0 };
-			// ·çÆ®º»¿¡ ´ëÇÑ Ã³¸®¸¦ ÇÑ´Ù. 
+			// ë£¨íŠ¸ë³¸ì— ëŒ€í•œ ì²˜ë¦¬ë¥¼ í•œë‹¤. 
 			for (auto& iter : tDesc->BNodeDatas) {
 				SHPTR<UBoneNode> spBoneNode{ nullptr };
 				if (0 == Index++)
 				{
-					// ¸Ç Ã¹¹øÂ°¿Í ¿¬°áÇØÁÜÀ¸·Î½á ·çÆ®º»À» »ç¿ëÇÒ ¼ö ÀÖµµ·Ï ¸¸µç´Ù. 
+					// ë§¨ ì²«ë²ˆì§¸ì™€ ì—°ê²°í•´ì¤Œìœ¼ë¡œì¨ ë£¨íŠ¸ë³¸ì„ ì‚¬ìš©í•  ìˆ˜ ìˆë„ë¡ ë§Œë“ ë‹¤. 
 					iter.wstrParentsName = _wstrBoneNodeName;
 					spBoneNode = CreateNative<UBoneNode>(iter);
 				}

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "CMob.h"
 #include "CMummy.h"
 #include "USound.h"
@@ -14,7 +14,7 @@ public:
 	};
 	DESTRUCTOR(CSarcophagus)
 public:
-	// UPlayerÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UPlayerì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(CSarcophagus, "CSarcophagus::CloneToFailed")
 		virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;

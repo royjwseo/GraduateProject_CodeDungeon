@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "ARandomManager.h"
 
 namespace Core
@@ -24,4 +24,4 @@ namespace Core
 	{
 	}
 
-}
+}

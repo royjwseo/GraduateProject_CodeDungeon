@@ -1,4 +1,4 @@
-#include "ServerDefines.h"
+﻿#include "ServerDefines.h"
 #include "CMobLayOutSaver.h"
 
 namespace Server {
@@ -15,4 +15,4 @@ namespace Server {
 			save.write((_char*)&iter, sizeof(MOBSERVERDATA));
 		}
 	}
-}
+}

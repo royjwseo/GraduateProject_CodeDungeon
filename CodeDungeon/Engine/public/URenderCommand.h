@@ -1,13 +1,13 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_URENDERCOMMAND_H
+ï»¿#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_URENDERCOMMAND_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_URENDERCOMMAND_H
 
 #include "UCommand.h"
 
 BEGIN(Engine)
 /*
-@ Date: 2024-04-28, Writer: ¹ÚÅÂÇö
+@ Date: 2024-04-28, Writer: ë°•íƒœí˜„
 @ Explain
--  main Command¿Í´Â ´Ù¸¥ Sub CommandÀÌ´Ù.
+-  main Commandì™€ëŠ” ë‹¤ë¥¸ Sub Commandì´ë‹¤.
 */
 class  URenderCommand : public UCommand{
 public:

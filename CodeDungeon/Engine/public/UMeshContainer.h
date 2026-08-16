@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UVIBuffer.h"
 
 BEGIN(Engine)
@@ -6,9 +6,9 @@ class UModel;
 class UBoneNode;
 class UMeshFilter;
 /*
-@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 @ Explain
-- ¸ğµ¨ÀÇ ¸Ş½¬ Á¤º¸¸¦ µé°í ÀÖ´Â ÄÁÅ×ÀÌ³Ê
+- ëª¨ë¸ì˜ ë©”ì‰¬ ì •ë³´ë¥¼ ë“¤ê³  ìˆëŠ” ì»¨í…Œì´ë„ˆ
 */
 class  UMeshContainer : public UVIBuffer{
 public:

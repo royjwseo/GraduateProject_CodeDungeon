@@ -1,22 +1,22 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UATOMICPTRH
+ï»¿#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UATOMICPTRH
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UATOMICPTRH
 
 namespace Engine {
 
 	/*
 	typename std::enable_if_t<std::is_convertible_v<U*, T*>, int> = 0
-	ÅÛÇÃ¸´ º°ÄªÀ¸·Î is_convertible_v´Â Å¸ÀÔ º¯È¯ÀÌ °¡´ÉÇÑÁö È®ÀÎÇÏ´Â ÅÛÇÃ¸´ À¯Æ¿¸®ÀÌ´Ù 
+	í…œí”Œë¦¿ ë³„ì¹­ìœ¼ë¡œ is_convertible_vëŠ” íƒ€ì… ë³€í™˜ì´ ê°€ëŠ¥í•œì§€ í™•ì¸í•˜ëŠ” í…œí”Œë¦¿ ìœ í‹¸ë¦¬ì´ë‹¤ 
 
-	enable_if_t´Â ÇØ´ç Å¸ÀÔÀ¸·Î º¯È¯ÀÌ °¡´ÉÇÑ °æ¿ì¿¡¸¸ »ı¼ºÀÚ°¡ »ı¼ºµÇµµ·Ï ÇÏ´Â °ÍÀÌ´Ù.
-	requiers´Â ¿¡·¯¸¦ ³»´Â °Í, ÅÛÇÃ¸´ º°Äªµµ ¸¶Âù°¡ÁöÀÌ´Ù. µÎ °³¸¦ Àß Á¶ÇÕÇØ¼­ »ç¿ëÇØ¾ß ÇÑ´Ù.
+	enable_if_tëŠ” í•´ë‹¹ íƒ€ì…ìœ¼ë¡œ ë³€í™˜ì´ ê°€ëŠ¥í•œ ê²½ìš°ì—ë§Œ ìƒì„±ìê°€ ìƒì„±ë˜ë„ë¡ í•˜ëŠ” ê²ƒì´ë‹¤.
+	requiersëŠ” ì—ëŸ¬ë¥¼ ë‚´ëŠ” ê²ƒ, í…œí”Œë¦¿ ë³„ì¹­ë„ ë§ˆì°¬ê°€ì§€ì´ë‹¤. ë‘ ê°œë¥¼ ì˜ ì¡°í•©í•´ì„œ ì‚¬ìš©í•´ì•¼ í•œë‹¤.
 	*/
 
-	// AtomicÀ» ¾º¿î smart Æ÷ÀÎÅÍ¸¦ »ç¿ëÇÏ±â À§ÇÑ Å¬·¡½ºÀÌ´Ù. 
+	// Atomicì„ ì”Œìš´ smart í¬ì¸í„°ë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ì´ë‹¤. 
 	template <typename T>
 	class  DEF_CACHE_ALGIN UAtomicSharedPtr {
 	public:
 		UAtomicSharedPtr() : ptr{ nullptr } {}
-		// º¹»ç »ı¼ºÀÚ
+		// ë³µì‚¬ ìƒì„±ì
 		UAtomicSharedPtr(const UAtomicSharedPtr& sharedPtr) {
 			std::shared_ptr<T> shared = sharedPtr.getShared();
 			ptr.store(shared);
@@ -46,7 +46,7 @@ namespace Engine {
 			return *this;
 		}
 
-		// ÀÌµ¿ ´ëÀÔ ¿¬»êÀÚ
+		// ì´ë™ ëŒ€ì… ì—°ì‚°ì
 		UAtomicSharedPtr<T>& operator=(UAtomicSharedPtr&& sharedPtr) noexcept {
 			std::shared_ptr<T> shared = sharedPtr.getShared();
 			ptr.store(shared);
@@ -231,7 +231,7 @@ namespace Engine {
 		return _lhs->get() != _rhs.get();
 	}
 
-	// AtomicÀ» ¾º¿î smart Æ÷ÀÎÅÍ¸¦ »ç¿ëÇÏ±â À§ÇÑ Å¬·¡½ºÀÌ´Ù. 
+	// Atomicì„ ì”Œìš´ smart í¬ì¸í„°ë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ì´ë‹¤. 
 	template <typename T>
 	class UAtomicWeakPtr {
 	public:
@@ -332,7 +332,7 @@ namespace Engine {
 
 namespace std
 {
-	// Atomic ÇÔ¼ö ÀçÁ¤ÀÇ
+	// Atomic í•¨ìˆ˜ ì¬ì •ì˜
 	template <typename T>
 	struct hash<Engine::UAtomicSharedPtr<T>> {
 		size_t operator()(const Engine::UAtomicSharedPtr<T>& ptr) const {
@@ -348,4 +348,4 @@ namespace std
 	};
 }
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UATOMICPTRH
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UATOMICPTRH

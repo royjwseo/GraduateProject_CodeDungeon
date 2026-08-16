@@ -1,4 +1,4 @@
-#include "ClientDefine.h"
+﻿#include "ClientDefine.h"
 #include "CLogoScene.h"
 
 CLogoScene::CLogoScene(CSHPTRREF<UDevice> _spDevice)

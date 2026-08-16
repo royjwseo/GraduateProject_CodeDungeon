@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "GameObject.h"
 
 class GridObject : public CGameObject
@@ -17,4 +17,4 @@ public:
 	float GetLength() { return(m_nLength * m_xmf3Scale.z); }
 
 
-};
+};

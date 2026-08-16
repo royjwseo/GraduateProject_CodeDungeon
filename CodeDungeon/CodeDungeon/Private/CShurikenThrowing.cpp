@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+ï»¿#include "ClientDefines.h"
 #include "UGameInstance.h"
 #include "UCollider.h"
 #include "UTransform.h"
@@ -78,24 +78,24 @@ void CShurikenThrowing::ThrowShurikens(const _double& _dTimeDelta, _float3 _dir)
 {
 	if(m_bisThrown)
 	{
-		// ¸ñÇ¥ ÁöÁ¡±îÁöÀÇ °Å¸® °è»ê
+		// ëª©í‘œ ì§€ì ê¹Œì§€ì˜ ê±°ë¦¬ ê³„ì‚°
 		_float ActiveDistance = 100;
 
-		// ÀÌµ¿ ¼Óµµ¿Í È¸Àü ¼Óµµ ¼³Á¤
+		// ì´ë™ ì†ë„ì™€ íšŒì „ ì†ë„ ì„¤ì •
 		_float moveSpeed = 250;
 		_float rotateSpeed = 720.0f; 
 
-		// ÀÌµ¿ ¹× È¸Àü ·ÎÁ÷ (ÇÁ·¹ÀÓ ´ÜÀ§·Î)
+		// ì´ë™ ë° íšŒì „ ë¡œì§ (í”„ë ˆì„ ë‹¨ìœ„ë¡œ)
 		if (m_ftraveledDistance < ActiveDistance)
 		{
 			_float3 movement = _dir * moveSpeed * _dTimeDelta;
 			m_ftraveledDistance += movement.Length();
 
-			// ¼ö¸®ÄË ÀÌµ¿
+			// ìˆ˜ë¦¬ì¼„ ì´ë™
 			GetTransform()->TranslateDir(_dir, _dTimeDelta, moveSpeed);
 			GetCurrentNavi()->FindCell(GetTransform()->GetPos());
 
-			// ¼ö¸®ÄË È¸Àü (zÃà ±âÁØ)
+			// ìˆ˜ë¦¬ì¼„ íšŒì „ (zì¶• ê¸°ì¤€)
 			GetTransform()->RotateTurn(_float3(1, 0, 0), rotateSpeed, _dTimeDelta);
 		}
 	}

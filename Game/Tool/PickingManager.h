@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "ToolDefines.h"
 #include "ToolManager.h"
 #include "ToolScene.h"

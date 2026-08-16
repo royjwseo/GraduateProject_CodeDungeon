@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "ATransform.h"
 
 namespace Core {
@@ -499,7 +499,7 @@ namespace Core {
 		Vector4 vRight = DirectX::XMVector3Normalize(XMVector3Cross(XMLoadFloat3(&Vector3::Up), vLook));
 		Vector4 vUp = DirectX::XMVector3Normalize(XMVector3Cross(vLook, vRight));
 
-		// È¸Àü Çà·Ä °è»ê
+		// íšŒì „ í–‰ë ¬ ê³„ì‚°
 		_float4x4 rotationMatrix(
 			vRight,
 			vUp,
@@ -539,14 +539,14 @@ namespace Core {
 		Vector3 vLook = DirectX::XMVector3Normalize(DirectX::XMVectorSubtract(_vTargetPos, MyPosition));
 		Vector3 vRight = DirectX::XMVector3Normalize(XMVector3Cross(vLook, FixedUp));
 
-		// ÇöÀç °´Ã¼ÀÇ ½Ã¼± ¹æÇâ°ú ¸ñÇ¥ ¹æÇâ »çÀÌÀÇ °¢µµ¸¦ ±¸ÇÕ´Ï´Ù.
+		// í˜„ì¬ ê°ì²´ì˜ ì‹œì„  ë°©í–¥ê³¼ ëª©í‘œ ë°©í–¥ ì‚¬ì´ì˜ ê°ë„ë¥¼ êµ¬í•©ë‹ˆë‹¤.
 
 		float AngleBetween = acosf(GetLook().Dot(vLook));
 
-		// È¸Àü ¼Óµµ¿¡ ½Ã°£À» °öÇÏ¿© È¸ÀüÇÒ °¢µµ¸¦ °è»êÇÕ´Ï´Ù.
+		// íšŒì „ ì†ë„ì— ì‹œê°„ì„ ê³±í•˜ì—¬ íšŒì „í•  ê°ë„ë¥¼ ê³„ì‚°í•©ë‹ˆë‹¤.
 		float RotationAngle = RotationSpeed * DeltaTime;
 
-		// È¸ÀüÇÒ °¢µµ°¡ ½ÇÁ¦ °¢µµº¸´Ù ÀÛ°Å³ª °°À¸¸é ¹Ù·Î ¸ñÇ¥ ¹æÇâÀ» ÇâÇÏµµ·Ï ¼³Á¤ÇÕ´Ï´Ù.
+		// íšŒì „í•  ê°ë„ê°€ ì‹¤ì œ ê°ë„ë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ìœ¼ë©´ ë°”ë¡œ ëª©í‘œ ë°©í–¥ì„ í–¥í•˜ë„ë¡ ì„¤ì •í•©ë‹ˆë‹¤.
 		if (RotationAngle >= AngleBetween)
 		{
 			SetRight(vRight * m_vScale.x);
@@ -555,7 +555,7 @@ namespace Core {
 		}
 		else
 		{
-			// ¼±Çü º¸°£(Lerp)À» »ç¿ëÇÏ¿© ÇöÀç °¢µµ¿¡¼­ ¸ñÇ¥ °¢µµ·Î ºÎµå·´°Ô È¸ÀüÇÕ´Ï´Ù.
+			// ì„ í˜• ë³´ê°„(Lerp)ì„ ì‚¬ìš©í•˜ì—¬ í˜„ì¬ ê°ë„ì—ì„œ ëª©í‘œ ê°ë„ë¡œ ë¶€ë“œëŸ½ê²Œ íšŒì „í•©ë‹ˆë‹¤.
 			Vector3 NewLook = DirectX::XMVector3Normalize(DirectX::XMVectorLerp(GetLook(), vLook, DeltaTime));
 			Vector3 NewRight = DirectX::XMVector3Normalize(XMVector3Cross(NewLook, FixedUp));
 
@@ -610,4 +610,4 @@ namespace Core {
 		OutMatrix = m_mChangeWorldMatrix.Get_OutMatrix();
 		return OutMatrix.vRot;
 	}
-}
+}

@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+﻿#include "EngineDefines.h"
 #include "UAnimatedParticle.h"
 #include "UParticleSystem.h"
 #include "UShader.h"
@@ -100,4 +100,4 @@ void UAnimatedParticle::Animated(const _double& _dTimeDelta)
 void UAnimatedParticle::ShowObjectInfo()
 {
 }
-#endif 
+#endif 

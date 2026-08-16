@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 namespace Engine
 {
 	class  UMethod {
@@ -6,25 +6,25 @@ namespace Engine
 
 		static int ConvertStrToNum(const _string& _var);
 		static int ConvertStrToNum(const _wstring& _var);
-		// WstringÀ» stringÀ¸·Î º¯È¯
+		// Wstringì„ stringìœ¼ë¡œ ë³€í™˜
 		static _string ConvertWToS(const _wstring& var);
-		// StringÀ» WstringÀ¸·Î º¯È¯
+		// Stringì„ Wstringìœ¼ë¡œ ë³€í™˜
 		static _wstring ConvertSToW(const _string& var);
-		// ´ë¹®ÀÚ¿¡¼­ ¼Ò¹®ÀÚ·Î º¯È¯
+		// ëŒ€ë¬¸ìì—ì„œ ì†Œë¬¸ìë¡œ ë³€í™˜
 		static _string ConvertBigToSmall(const _string& _var);
-		// ¼Ò¹®ÀÚ¿¡¼­ ´ë¹®ÀÚ·Î º¯È¯
+		// ì†Œë¬¸ìì—ì„œ ëŒ€ë¬¸ìë¡œ ë³€í™˜
 		static _string ConvertSmallToBig(const _string& _var);
-		// ´ë¹®ÀÚ¿¡¼­ ¼Ò¹®ÀÚ·Î º¯È¯
+		// ëŒ€ë¬¸ìì—ì„œ ì†Œë¬¸ìë¡œ ë³€í™˜
 		static _wstring ConvertBigToSmall(const _wstring& _var);
-		// ¼Ò¹®ÀÚ¿¡¼­ ´ë¹®ÀÚ·Î º¯È¯
+		// ì†Œë¬¸ìì—ì„œ ëŒ€ë¬¸ìë¡œ ë³€í™˜
 		static _wstring ConvertSmallToBig(const _wstring& _var);
-		// °°Àº ÀÌ¸§ Ã£±â(´ë¼Ò¹®ÀÚ ±¸ºĞ) (Origin ´ë»ó ¹®ÀÚ¿­, Find ÀÔ·Â ¹®ÀÚ¿­)
+		// ê°™ì€ ì´ë¦„ ì°¾ê¸°(ëŒ€ì†Œë¬¸ì êµ¬ë¶„) (Origin ëŒ€ìƒ ë¬¸ìì—´, Find ì…ë ¥ ë¬¸ìì—´)
 		static const _bool Is_Same_Text(const _string& _strOriginText, const _string& _strFindText);
-		// °°Àº ÀÌ¸§ Ã£±â(´ë¼Ò¹®ÀÚ ±¸ºĞ) (Origin ´ë»ó ¹®ÀÚ¿­, Find ÀÔ·Â ¹®ÀÚ¿­)
+		// ê°™ì€ ì´ë¦„ ì°¾ê¸°(ëŒ€ì†Œë¬¸ì êµ¬ë¶„) (Origin ëŒ€ìƒ ë¬¸ìì—´, Find ì…ë ¥ ë¬¸ìì—´)
 		static const _bool Is_Same_Text(const _wstring& _strOriginText, const _wstring& _strFindText);
-		// .(ÀÌÈÄ ¹®ÀÚ¿­À» °¡Á®¿È)
+		// .(ì´í›„ ë¬¸ìì—´ì„ ê°€ì ¸ì˜´)
 		static _string Find_Extension(const _string& _str);
-		// .(ÀÌÈÄ ¹®ÀÚ¿­À» °¡Á®¿È)
+		// .(ì´í›„ ë¬¸ìì—´ì„ ê°€ì ¸ì˜´)
 		static _wstring Find_Extension(const _wstring& _str);
 
 		template<typename T>
@@ -46,12 +46,12 @@ namespace Engine
 			const D3D12_RESOURCE_STATES _d3dResourceStates = D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER);
 
 		static _uint CalcConstantBufferByteSize(const _uint& _iByteSize);
-		// Shader ÆÄÀÏÀ» Binary·Î ÀĞ¾î¼­ ¸®ÅÏ
+		// Shader íŒŒì¼ì„ Binaryë¡œ ì½ì–´ì„œ ë¦¬í„´
 		static ComPtr<DxBlob> LoadBinary(const _wstring& _strFileName);
 
-		// void µ¥ÀÌÅÍ¸¦ T·Î Ä³½ºÆÃÇÏ¿© ¸®ÅÏ
-		// VOIDDATAS(vector<void*>)¿¡ ÀÖ´Â °ª¿¡ ¸Ç µÚ °ªÀ» ¸®ÅÏÇÑ´Ù. 
-		// VOIDDATAS(vector<void*>)¿¡ ÀÖ´Â °ª¿¡ ÀÎµ¦½º¸¦ º¯È¯ÇÏ¿© ¸®ÅÏ
+		// void ë°ì´í„°ë¥¼ Të¡œ ìºìŠ¤íŒ…í•˜ì—¬ ë¦¬í„´
+		// VOIDDATAS(vector<void*>)ì— ìˆëŠ” ê°’ì— ë§¨ ë’¤ ê°’ì„ ë¦¬í„´í•œë‹¤. 
+		// VOIDDATAS(vector<void*>)ì— ìˆëŠ” ê°’ì— ì¸ë±ìŠ¤ë¥¼ ë³€í™˜í•˜ì—¬ ë¦¬í„´
 		template<typename T>
 		static T ConvertTemplate_Index(const VOIDDATAS& _pDatas, const _uint& _iIndex);
 
@@ -63,17 +63,17 @@ namespace Engine
 		static void ReadString(std::ifstream& _if, _string& _str);
 		static void ReadStringUnity(std::ifstream& _if, _string& _str);
 		/*
-		@ Date: 2024-02-25, Writer: ¹ÚÅÂÇö
+		@ Date: 2024-02-25, Writer: ë°•íƒœí˜„
 		@ Explain
-		-  Save¸¦ ÆíÇÏ°Ô ¾²Áö À§ÇØ ÇÔ¼öÈ­ 
+		-  Saveë¥¼ í¸í•˜ê²Œ ì“°ì§€ ìœ„í•´ í•¨ìˆ˜í™” 
 		*/
 		template<class T>
 		requires IsNotPointer<T>
 		static void SaveOther(std::ofstream& _os, T*  _Others);
 		/*
-		@ Date: 2024-02-25, Writer: ¹ÚÅÂÇö
+		@ Date: 2024-02-25, Writer: ë°•íƒœí˜„
 		@ Explain
-		-  Read¸¦ ¾²±â À§ÇØ ÇÔ¼öÈ­
+		-  Readë¥¼ ì“°ê¸° ìœ„í•´ í•¨ìˆ˜í™”
 		*/
 		template<class T>
 		requires IsNotPointer<T>

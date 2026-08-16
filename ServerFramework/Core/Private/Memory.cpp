@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "Memory.h"
 
 namespace Core
@@ -13,7 +13,7 @@ namespace Core
 	{
 	}
 	/*
-	* ¹İ³³µÈ ¸Ş¸ğ¸®¸¦ Ç®¿¡ ÀúÀåÇÑ´Ù. 
+	* ë°˜ë‚©ëœ ë©”ëª¨ë¦¬ë¥¼ í’€ì— ì €ì¥í•œë‹¤. 
 	*/
 	void AMemoryPool::Push(MEMORYHEADER* _ptr)
 	{
@@ -67,7 +67,7 @@ namespace Core
 	------------------------------
 	*/
 
-	// ÀúÀåÇÒ ¸Ş¸ğ¸® ÇÒ´ç
+	// ì €ì¥í•  ë©”ëª¨ë¦¬ í• ë‹¹
 	AMemoryAdiminstor::AMemoryAdiminstor()
 	{
 		unsigned int TableIndex = 0;
@@ -89,7 +89,7 @@ namespace Core
 		}
 	}
 
-	// SIzeÀÇ Å©±â°¡ ÇØ´ç ¸Ş¸ğ¸®¿¡ ¾øÀ¸¸é ±×³É ÇÒ´ç, ¾Æ´Ï¶ó¸é ÇØÁ¦ÇÑ´Ù. 
+	// SIzeì˜ í¬ê¸°ê°€ í•´ë‹¹ ë©”ëª¨ë¦¬ì— ì—†ìœ¼ë©´ ê·¸ëƒ¥ í• ë‹¹, ì•„ë‹ˆë¼ë©´ í•´ì œí•œë‹¤. 
 	void* AMemoryAdiminstor::Allocate(_ullong _Size)
 	{
 		MEMORYHEADER* Header = nullptr;
@@ -97,20 +97,20 @@ namespace Core
 #ifdef USE_STOMP
 		Header = reinterpret_cast<MEMORYHEADER*>(UStompAllocator::Alloc(_Size));
 #else
-		// ¸Ş¸ğ¸® ÃÖ´ë Å©±â¸¦ ²¨³»¿À¸é ÀÏ¹İ ÇÒ´ç 
+		// ë©”ëª¨ë¦¬ ìµœëŒ€ í¬ê¸°ë¥¼ êº¼ë‚´ì˜¤ë©´ ì¼ë°˜ í• ë‹¹ 
 		if (AllocateSize > MAX_ALLOC_SIZE)
 		{
 			Header = reinterpret_cast<MEMORYHEADER*>(::malloc(AllocateSize));
 		}
 		else
 		{
-			// ¸Ş¸ğ¸® Ç®¿¡¼­ ²¨³»¿Â´Ù. 
+			// ë©”ëª¨ë¦¬ í’€ì—ì„œ êº¼ë‚´ì˜¨ë‹¤. 
 			Header = m_PoolTable[AllocateSize]->Pop();
 		}
 #endif
 		return MEMORYHEADER::AttachHeader(Header, AllocateSize);
 	}
-	// SIzeÀÇ Å©±â°¡ ÇØ´ç ¸Ş¸ğ¸®¿¡ ¾øÀ¸¸é ÇØÁ¦, ¾Æ´Ï¸é ¹İ³³ÇÑ´Ù. 
+	// SIzeì˜ í¬ê¸°ê°€ í•´ë‹¹ ë©”ëª¨ë¦¬ì— ì—†ìœ¼ë©´ í•´ì œ, ì•„ë‹ˆë©´ ë°˜ë‚©í•œë‹¤. 
 	void AMemoryAdiminstor::Release(void* _Ptr)
 	{
 		MEMORYHEADER* Header = MEMORYHEADER::DetachHeader(_Ptr);
@@ -132,7 +132,7 @@ namespace Core
 		}
 #endif
 	}
-	// ¸Ş¸ğ¸® ÇÒ´çÀ» ÇØÁÖ´Â ÇÔ¼öÀÌ´Ù. 
+	// ë©”ëª¨ë¦¬ í• ë‹¹ì„ í•´ì£¼ëŠ” í•¨ìˆ˜ì´ë‹¤. 
 	void AMemoryAdiminstor::MakeMemoryPool(unsigned int& _Size, unsigned int& _MemoryIndex,
 		unsigned int& _TableIndex, const unsigned int  _Limited, const 	unsigned int  _AddValue)
 	{
@@ -147,4 +147,4 @@ namespace Core
 			_Size += _AddValue;
 		}
 	}
-}
+}

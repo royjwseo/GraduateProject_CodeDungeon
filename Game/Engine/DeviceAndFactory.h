@@ -1,10 +1,10 @@
-#pragma once
+ï»¿#pragma once
 class DeviceAndFactory {
 public:
 
 	void InitDeviceAndFactory();
 	void CreateDxgiFactory();
-	void CreateDirect3DDevice(); //µğ¹ÙÀÌ½º »ı¼º ÇÔ¼ö
+	void CreateDirect3DDevice(); //ë””ë°”ì´ìŠ¤ ìƒì„± í•¨ìˆ˜
 
 public:
 	ComPtr<IDXGIFactory4> GetFactory() { return m_cpdxgiFactory; }
@@ -24,4 +24,4 @@ private:
 	ComPtr<ID3D12Debug>			m_pd3dDebugController;
 
 
-};
+};

@@ -1,10 +1,10 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "DBDataGroup.h"
 #include "AMySqlConnector.h"
 
 namespace Core
 {
-	// FormatÀ» ¸®ÅÏ
+	// Formatì„ ë¦¬í„´
 	_string ASqlHelpers::Format(const _char* _format, ...)
 	{
 		_char buf[4096];
@@ -17,7 +17,7 @@ namespace Core
 		return _string(buf);
 	}
 
-	// µ¥ÀÌÅÍ Å¸ÀÔÀ» String ÇüÅÂ·Î ¸®ÅÏ
+	// ë°ì´í„° íƒ€ì…ì„ String í˜•íƒœë¡œ ë¦¬í„´
 	_string ASqlHelpers::DataType2String(SQLDATATYPE _type)
 	{
 		switch (_type)
@@ -51,14 +51,14 @@ namespace Core
 		return ret;
 	}
 
-	// std::wregex: ³ĞÀº ¹®ÀÚ¸¦ »ç¿ëÇÏ´Â Á¤±Ô
-	//  Ç¥Çö½ÄÀ» Ã³¸®ÇÏ±â À§ÇÑ Å¬·¡½º·Î ¹®ÀÚ¿­¿¡¼­ Á¤±Ô Ç¥Çö½ÄÀ» »ç¿ëÇÏ¿© °Ë»öÇÏ°í ¸ÅÄªÇÏ´Â ±â´É Á¦°ø
+	// std::wregex: ë„“ì€ ë¬¸ìë¥¼ ì‚¬ìš©í•˜ëŠ” ì •ê·œ
+	//  í‘œí˜„ì‹ì„ ì²˜ë¦¬í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ë¡œ ë¬¸ìì—´ì—ì„œ ì •ê·œ í‘œí˜„ì‹ì„ ì‚¬ìš©í•˜ì—¬ ê²€ìƒ‰í•˜ê³  ë§¤ì¹­í•˜ëŠ” ê¸°ëŠ¥ ì œê³µ
 
-	// std::wcmatch: Á¤±Ô Ç¥Çö½Ä°ú ÀÏÄ¡ÇÏ´Â ¹®ÀÚ¿­ÀÇ °¢ ºÎºĞÀº wcmath °´Ã¼¿¡ ÀúÀåµÈ´Ù. 
+	// std::wcmatch: ì •ê·œ í‘œí˜„ì‹ê³¼ ì¼ì¹˜í•˜ëŠ” ë¬¸ìì—´ì˜ ê° ë¶€ë¶„ì€ wcmath ê°ì²´ì— ì €ì¥ëœë‹¤. 
 
 	SQLDATATYPE ASqlHelpers::String2DataType(const _char* _str, OUT _int& _maxLen)
 	{
-		// Á¤±Ô½Ä Ç¥Çö ¼³Á¤ 
+		// ì •ê·œì‹ í‘œí˜„ ì„¤ì • 
 		std::regex reg("([a-z]+)(\\((max|\\d+)\\))?");
 		std::cmatch ret;
 

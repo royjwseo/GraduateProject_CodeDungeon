@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <concepts>
 #include <iostream>
 
@@ -16,8 +16,8 @@ namespace Engine
 		{ std::shared_ptr<T>(std::move(t)) };
 	};
 	/*
-	@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
-	@ Explain: ProtoType Å¬·¡½ºÀÎÁö Ã¼Å©ÇÏ´Â concept
+	@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
+	@ Explain: ProtoType í´ë˜ìŠ¤ì¸ì§€ ì²´í¬í•˜ëŠ” concept
 	*/
 	template<typename T>
 	concept CheckProtoType = requires(T * _t) {
@@ -26,46 +26,46 @@ namespace Engine
 	template <typename T, typename U>
 	concept ConvertibleFrom = (SameType<T, U> || ParentsChildType<T, U> || Convertible<T, U>);
 
-	// ÀÌ ConCeptÀº »ı¼ºÀÚ ÀÎÀÚµéÀÌ Á¦´ë·Î ÀÖ´ÂÁö È®ÀÎÇÏ´Â ConCeptÀÌ´Ù. 
+	// ì´ ConCeptì€ ìƒì„±ì ì¸ìë“¤ì´ ì œëŒ€ë¡œ ìˆëŠ”ì§€ í™•ì¸í•˜ëŠ” ConCeptì´ë‹¤. 
 	template<typename T, class ...Args>
 	concept ConstructWidthArgsCheck = std::is_constructible_v<T, Args...>;
 
-	// »ı¼ºÀÚ°¡ ÀÖ´ÂÁö Ã¼Å©
+	// ìƒì„±ìê°€ ìˆëŠ”ì§€ ì²´í¬
 	template <typename T, typename DevicePtr, typename GpuCommandPtr>
 	concept ConstructArgsMatch = std::is_constructible_v<T, DevicePtr, GpuCommandPtr>;
 
-	// ÀÌ ConeceptÀº T::NativeConstructÀÇ ÀÎÀÚ°¡ ¸Â´ÂÁö È®ÀÎÇÏ´Â ConceptÀÌ´Ù. 
+	// ì´ Coneceptì€ T::NativeConstructì˜ ì¸ìê°€ ë§ëŠ”ì§€ í™•ì¸í•˜ëŠ” Conceptì´ë‹¤. 
 	template <typename T, typename... Args>
 
-	// ÇØ´ç ÇÔ¼ö°¡ ÀÖ´ÂÁö È®ÀÎÇØ¼­ ÀÎÀÚµéÀ» ºñ±³ÇÑ´Ù. ±×¸®°í HRESULT ¶ó´Â ¹İÈ¯ °ªÀÌ µ¿ÀÏÇÑÁö Ã¼Å©
+	// í•´ë‹¹ í•¨ìˆ˜ê°€ ìˆëŠ”ì§€ í™•ì¸í•´ì„œ ì¸ìë“¤ì„ ë¹„êµí•œë‹¤. ê·¸ë¦¬ê³  HRESULT ë¼ëŠ” ë°˜í™˜ ê°’ì´ ë™ì¼í•œì§€ ì²´í¬
 	concept CheckToSameMethodArgs = requires(T * t, Args&&... args) {
 		{ t->NativeConstruct(args...) } -> std::same_as<HRESULT>;
 	};
 
 	/*
-	@ Date: 2024-02-25, Writer: ¹ÚÅÂÇö
-	@ Explain: PointerÀÎÁö È®ÀÎÇÏ´Â Concept
+	@ Date: 2024-02-25, Writer: ë°•íƒœí˜„
+	@ Explain: Pointerì¸ì§€ í™•ì¸í•˜ëŠ” Concept
 	*/
 	template<class T>
 	concept IsPointer = true == std::is_pointer_v<T>;
 	/*
-	@ Date: 2024-02-25, Writer: ¹ÚÅÂÇö
-	@ Explain: Pointer°¡ ¾Æ´ÑÁö È®ÀÎÇÏ´Â Concept 
+	@ Date: 2024-02-25, Writer: ë°•íƒœí˜„
+	@ Explain: Pointerê°€ ì•„ë‹Œì§€ í™•ì¸í•˜ëŠ” Concept 
 	*/
 	template<class T>
 	concept IsNotPointer = false == IsPointer<T>;
 
 	/*
-	@ Date: 2024-02-05, Writer: ¹ÚÅÂÇö
-	@ Explain: filesystemÀ¸·Î º¯È¯ °¡´ÉÇÑÁö È®ÀÎÇÏ´Â concept
+	@ Date: 2024-02-05, Writer: ë°•íƒœí˜„
+	@ Explain: filesystemìœ¼ë¡œ ë³€í™˜ ê°€ëŠ¥í•œì§€ í™•ì¸í•˜ëŠ” concept
 	*/
 	template <class TChar>
 	concept ConvertibleTCharToPath= requires(const TChar * str) {
 		std::filesystem::path{ str };
 	};
 	/*
-	@ Date: 2024-02-05, Writer: ¹ÚÅÂÇö
-	@ Explain: filesystemÀ¸·Î º¯È¯ °¡´ÉÇÑÁö È®ÀÎÇÏ´Â concept
+	@ Date: 2024-02-05, Writer: ë°•íƒœí˜„
+	@ Explain: filesystemìœ¼ë¡œ ë³€í™˜ ê°€ëŠ¥í•œì§€ í™•ì¸í•˜ëŠ” concept
 	*/
 	template <class TString>
 	concept ConvertibleTStringToPath = requires(const TString& str) {
@@ -73,28 +73,28 @@ namespace Engine
 	};
 
 	/*
-	@ Date: 2024-02-05, Writer: ¹ÚÅÂÇö
-	@ Explain: StringÀÎÁö È®ÀÎÇÏ´Â concept
+	@ Date: 2024-02-05, Writer: ë°•íƒœí˜„
+	@ Explain: Stringì¸ì§€ í™•ì¸í•˜ëŠ” concept
 	*/
 	template<class T>
 	concept CheckStdStrings =  std::is_same_v<T, std::string> || std::is_same_v<T, std::wstring>;
 
 	/*
-	@ Date: 2024-02-05, Writer: ¹ÚÅÂÇö
-	@ Explain: char, wchar_t ÀÎÁö È®ÀÎÇÏ´Â concept 
+	@ Date: 2024-02-05, Writer: ë°•íƒœí˜„
+	@ Explain: char, wchar_t ì¸ì§€ í™•ì¸í•˜ëŠ” concept 
 	*/
 	template<class T>
 	concept CheckChar = std::is_same_v<T, char> || std::is_same_v<T, wchar_t>;
 	/*
-	@ Date: 2024-02-05, Writer: ¹ÚÅÂÇö
-	@ Explain: CustomString ¿ë ConceptÀ¸·Î filesystemÀ¸·Î º¯È¯ °¡´ÉÇÑÁö, TStringÀÇ °ªÀÌ std::string, std::wstring ¸Â´ÂÁö È®ÀÎ
+	@ Date: 2024-02-05, Writer: ë°•íƒœí˜„
+	@ Explain: CustomString ìš© Conceptìœ¼ë¡œ filesystemìœ¼ë¡œ ë³€í™˜ ê°€ëŠ¥í•œì§€, TStringì˜ ê°’ì´ std::string, std::wstring ë§ëŠ”ì§€ í™•ì¸
 	*/
 	template<class TChar, class TString>
 	concept CheckCustomString = CheckStdStrings<TString> || CheckChar<TChar> || ConvertibleTCharToPath<TChar> || ConvertibleTStringToPath<TString>;
 
 	/*
-	@ Date: 2024-02-03, Writer: ¹ÚÅÂÇö
-	@ Explain: ÇØ´çÇÏ´Â Template°¡ ¼ıÀÚÀÎÁö È®ÀÎ
+	@ Date: 2024-02-03, Writer: ë°•íƒœí˜„
+	@ Explain: í•´ë‹¹í•˜ëŠ” Templateê°€ ìˆ«ìì¸ì§€ í™•ì¸
 	*/
 	template<class T>
 	concept CheckNumber = std::is_integral_v<T> || std::is_floating_point_v<T>;

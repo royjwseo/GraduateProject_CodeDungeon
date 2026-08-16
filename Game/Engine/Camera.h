@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 class CPlayer;
 
@@ -10,12 +10,12 @@ struct VS_CB_CAMERA_INFO {
 class CCamera
 {
 protected:
-	//Ä«¸Ş¶ó º¯È¯ Çà·Ä
+	//ì¹´ë©”ë¼ ë³€í™˜ í–‰ë ¬
 	XMFLOAT4X4						m_xmf4x4View;
-	//Åõ¿µ º¯È¯ Çà·Ä
+	//íˆ¬ì˜ ë³€í™˜ í–‰ë ¬
 	XMFLOAT4X4						m_xmf4x4Projection;
 
-	//ºäÆ÷Æ®¿Í ¾¾Àú »ç°¢Çü
+	//ë·°í¬íŠ¸ì™€ ì”¨ì € ì‚¬ê°í˜•
 	D3D12_VIEWPORT					m_d3dViewport;
 	D3D12_RECT						m_d3dScissorRect;
 
@@ -92,4 +92,4 @@ public:
 	virtual void Rotate(float fPitch, float fYaw, float fRoll);
 	virtual void Update(XMFLOAT3& xmf3LookAt, float fTimeElapsed);
 	virtual void SetLookAt(XMFLOAT3& xmf3LookAt);
-};
+};

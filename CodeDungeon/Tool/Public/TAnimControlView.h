@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "TImGuiView.h"
 
@@ -19,7 +19,7 @@ using ANIMFILECONTAINER = UNORMAP<_string, SHPTR<FILEDATA>>;
 using ITEMMODELCONTAINER = UNORMAP<_string, SHPTR<UModel>>;
 
 /*
-@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 @ Explain
 - Imgui Animation Tool
 */
@@ -30,7 +30,7 @@ public:
 	NO_COPY(TAnimControlView)
 	DESTRUCTOR(TAnimControlView)
 public:
-	// TImGuiViewÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// TImGuiViewì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual void Free() override;
 
 	virtual HRESULT NativeConstruct() override;

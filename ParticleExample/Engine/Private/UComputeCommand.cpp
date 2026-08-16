@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+Ôªø#include "EngineDefines.h"
 #include "UComputeCommand.h"
 #include "UDevice.h"
 #include "URootSignature.h"
@@ -41,10 +41,10 @@ HRESULT UComputeCommand::NativeConstruct(CSHPTRREF<UDevice> _spDevice, const Com
 void UComputeCommand::WaitForSynchronization()
 {
 	GetGpuCmdList()->Close();
-	// ±◊∑°«»Ω∫ ƒø∏«µÂ Ω««‡
+	// Í∑∏ÎûòÌîΩÏä§ Ïª§Îß®Îìú Ïã§Ìñâ
 	ID3D12CommandList* CmdListArr[] = { GetGpuCmdList().Get() };
 	GetCmdQue()->ExecuteCommandLists(CMD_LIST_VALUE, CmdListArr);
-	// µø±‚»≠
+	// ÎèôÍ∏∞Ìôî
 	GpuCpuSynchronization();
 	++m_iAllocatorIndex;
 	Clear();

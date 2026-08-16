@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UComputeShader.h"
 #include "UMethod.h"
 #include "UGameInstance.h"
@@ -79,13 +79,13 @@ HRESULT UComputeShader::CreateShader()
 	ZeroMemory(&d3dComputePipeLineStateDesc, sizeof(D3D12_COMPUTE_PIPELINE_STATE_DESC));
 
 	SHADERMAININFO eMainInfo = GetShaderDesc().ShaderList.front();
-	// ½¦ÀÌ´õ cso ÆÄÀÏÀ» ·ÎµåÇÔ
+	// ì‰ì´ë” cso íŒŒì¼ì„ ë¡œë“œí•¨
 	_wstring wstrPath{ L"..\\Bin\\" };
 	wstrPath += GetShaderDesc().wstrShaderName + L"_" + GetShaderType(eMainInfo) + L".cso";
-	// ½¦ÀÌ´õ ÆÄÀÏÀ» ºÒ·¯¿È
+	// ì‰ì´ë” íŒŒì¼ì„ ë¶ˆëŸ¬ì˜´
 	ComPtr<DxBlob> ShaderFile{ UMethod::LoadBinary(wstrPath) };
 	InsertShaderBlopContainer(eMainInfo, ShaderFile);
-	// ByteCode¿¡ Áı¾î ³Ö°í PipeLine ½¦ÀÌ´õ Á¾·ù¿¡ ¸Â°Ô Áı¾î ³Ö´Â´Ù. 
+	// ByteCodeì— ì§‘ì–´ ë„£ê³  PipeLine ì‰ì´ë” ì¢…ë¥˜ì— ë§ê²Œ ì§‘ì–´ ë„£ëŠ”ë‹¤. 
 	D3D12_SHADER_BYTECODE ByteCode{};
 	ZeroMemory(&ByteCode, sizeof(D3D12_SHADER_BYTECODE));
 	ByteCode = { ShaderFile->GetBufferPointer(), ShaderFile->GetBufferSize() };
@@ -93,7 +93,7 @@ HRESULT UComputeShader::CreateShader()
 	d3dComputePipeLineStateDesc.pRootSignature = GetRootSignature()->GetRootSignature().Get();
 
 	ComPtr<Dx12PipelineState> cpPipeLineState{ nullptr };
-	// ÆÄÀÌÇÁ¶óÀÎ »ı¼º
+	// íŒŒì´í”„ë¼ì¸ ìƒì„±
 	RETURN_CHECK_DXOBJECT(GetDevice()->GetDV()->CreateComputePipelineState(&d3dComputePipeLineStateDesc,
 		IID_PPV_ARGS(&cpPipeLineState)), E_FAIL);
 

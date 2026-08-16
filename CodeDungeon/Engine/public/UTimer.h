@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UBase.h"
 
 BEGIN(Engine)
@@ -14,9 +14,9 @@ public:
 	virtual void Free() override;
 	HRESULT NativeConstruct();
 public:
-	// ÇÔ¼ö Æ÷ÀÎÅÍ È£Ãâ
+	// í•¨ìˆ˜ í¬ì¸í„° í˜¸ì¶œ
 	void	 Tick() { (this->*m_pRunningFunc)(); }
-	// Stop, RunÀ» È£Ãâ
+	// Stop, Runì„ í˜¸ì¶œ
 	void StopTimer();
 	void RunTimer();
 protected:

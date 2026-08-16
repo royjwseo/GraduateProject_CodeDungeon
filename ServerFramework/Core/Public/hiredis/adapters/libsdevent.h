@@ -1,4 +1,4 @@
-#ifndef HIREDIS_LIBSDEVENT_H
+﻿#ifndef HIREDIS_LIBSDEVENT_H
 #define HIREDIS_LIBSDEVENT_H
 #include <systemd/sd-event.h>
 #include "../hiredis.h"

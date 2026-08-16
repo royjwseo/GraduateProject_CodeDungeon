@@ -1,4 +1,4 @@
-#include "ToolDefines.h"
+ï»¿#include "ToolDefines.h"
 #include "TFogView.h"
 #include "UGameInstance.h"
 #include "UTexGroup.h"
@@ -53,7 +53,7 @@ HRESULT TFogView::LoadResource()
 }
 
 //================================================================
-//**************** ÆÄÆ¼Å¬ Á¾·ùº°·Î ¸®¼Ò½º ÇØÁ¦ ****************
+//**************** íŒŒí‹°í´ ì¢…ë¥˜ë³„ë¡œ ë¦¬ì†ŒìŠ¤ í•´ì œ ****************
 //================================================================
 
 
@@ -69,7 +69,7 @@ HRESULT TFogView::ReleaseResource()
 
 
 //================================================================
-//************ ÆÄÆ¼Å¬ Á¾·ùº°·Î Rendering ÇÏ´Â ºÎºĞ ************
+//************ íŒŒí‹°í´ ì¢…ë¥˜ë³„ë¡œ Rendering í•˜ëŠ” ë¶€ë¶„ ************
 //================================================================
 
 void TFogView::TickActive(const _double& _dTimeDelta)
@@ -91,7 +91,7 @@ void TFogView::RenderActive()
 		m_stMainDesc.iDockSpaceID = ImGui::GetID(GetName().c_str());
 		DockBuildInitSetting();
 		ImGui::DockSpace(m_stMainDesc.iDockSpaceID, ImVec2{}, m_stMainDesc.imgDockNodeFlags);
-		//¿©±âºÎÅÍ ³» ÀÔ·Â
+		//ì—¬ê¸°ë¶€í„° ë‚´ ì…ë ¥
 
 		FogView();
 		

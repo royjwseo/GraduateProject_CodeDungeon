@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 
 BEGIN(Tool)
 
 /*
-@ Date: 2024-03-18, Writer: ¹ÚÅÂÇö
+@ Date: 2024-03-18, Writer: ë°•íƒœí˜„
 @ Explain
-- Unity¿¡¼­ »Ì¾Æ¿Â µ¥ÀÌÅÍµéÀ» ExportÇÏ´Â Å¬·¡½º 
+- Unityì—ì„œ ë½‘ì•„ì˜¨ ë°ì´í„°ë“¤ì„ Exportí•˜ëŠ” í´ë˜ìŠ¤ 
 */
 class TUnityModelLoader {
 public:

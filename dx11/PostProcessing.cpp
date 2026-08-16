@@ -1,4 +1,4 @@
-#include "PostProcessing.h"
+ï»¿#include "PostProcessing.h"
 
 #include "ProcessHandler.h"
 #include "Target_Manager.h"
@@ -262,7 +262,7 @@ HRESULT CPostProcessing::DownScale4x4(ID3D11ShaderResourceView* pInput, ID3D11Un
 
 HRESULT CPostProcessing::Blur_Object(ID3D11ShaderResourceView* pInput, ID3D11UnorderedAccessView* pOutput, _float fBlur)
 {
-	// YÃà ºí·¯
+	// Yì¶• ë¸”ëŸ¬
 	_uint iScale = 4;
 	_uint vRes[2] = { m_iWinSizeX / iScale, m_iWinSizeY / iScale };
 	_uint iGroups = (UINT)ceil((_float)(m_iWinSizeX * m_iWinSizeY / 16) / 128.f);
@@ -283,7 +283,7 @@ HRESULT CPostProcessing::Blur_Object(ID3D11ShaderResourceView* pInput, ID3D11Uno
 	m_pContext->Dispatch(iGroups, 1, 1);
 	//m_pContext->Dispatch((_uint)ceil((m_iWinSizeX / iScale) / (128.f - 12.f)), (_uint)ceil(m_iWinSizeY / iScale), 1);
 
-	// XÃà ºí·¯
+	// Xì¶• ë¸”ëŸ¬
 	if (FAILED(m_pShader_Blur->Set_UAV("Output", pOutput)))
 		return E_FAIL;
 

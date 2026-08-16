@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "CModelObjects.h"
 
 BEGIN(Engine)
@@ -11,9 +11,9 @@ END
 BEGIN(Client)
 class CHarlequinn;
 /*
-@ Date: 2024-05-12, Writer: ÀÌ¼ºÇö
+@ Date: 2024-05-12, Writer: ì´ì„±í˜„
 @ Explain
-- ½´¸®ÄË
+- ìŠˆë¦¬ì¼„
 */
 class CShurikenThrowing final : public CModelObjects{
 public:

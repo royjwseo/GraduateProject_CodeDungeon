@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UController.h"
 
 BEGIN(Engine)
@@ -6,9 +6,9 @@ class UAnimModel;
 class UCharacter;
 class UProcessedData;
 /*
-@ Date: 2024-04-28, Writer: ¹ÚÅÂÇö
+@ Date: 2024-04-28, Writer: ë°•íƒœí˜„
 @ Explain
--  ¾Ö´Ï¸ÞÀÌ¼ÇÀ» ÄÁÆ®·ÑÇÏ´Â Å¬·¡½º
+-  ì• ë‹ˆë©”ì´ì…˜ì„ ì»¨íŠ¸ë¡¤í•˜ëŠ” í´ëž˜ìŠ¤
 */
 class UAnimationController abstract : public UController {
 public: 
@@ -37,7 +37,7 @@ public:
 	virtual HRESULT NativeConstructClone(const VOIDDATAS& _tDatas) override PURE;
 	// Tick
 	virtual void Tick(const _double& _dTimeDelta) override PURE;
-	// ³×Æ®¿öÅ© Á¤º¸¸¦ ¹Þ¾Æ¿À´Â ÇÔ¼ö
+	// ë„¤íŠ¸ì›Œí¬ ì •ë³´ë¥¼ ë°›ì•„ì˜¤ëŠ” í•¨ìˆ˜
 	virtual void ReceiveNetworkProcessData(void* _pData);
 protected:
 	void ClearTrigger() { this->m_wstrTrigger.clear(); }

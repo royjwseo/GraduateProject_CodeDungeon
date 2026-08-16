@@ -1,4 +1,4 @@
-#include "ToolDefines.h"
+﻿#include "ToolDefines.h"
 #include "TCameraView.h"
 
 TCameraView::TCameraView(CSHPTRREF<UDevice> _spDevice) :

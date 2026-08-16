@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #pragma warning (disable : 4244)
 #pragma warning (disable : 4018)
 #define _SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNING 

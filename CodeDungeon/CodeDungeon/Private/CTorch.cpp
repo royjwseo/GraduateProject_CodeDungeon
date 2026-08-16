@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+ï»¿#include "ClientDefines.h"
 #include "UGameInstance.h"
 #include "UCollider.h"
 #include "UTransform.h"
@@ -82,7 +82,7 @@ HRESULT CTorch::NativeConstructClone(const VOIDDATAS& _vecDatas)
 		m_stParticleType =  m_spParticle->GetParticleSystem()->GetParticleTypeParam();
 		m_stParticleType->fParticleType = PARTICLE_TYPE_DEFAULT;
 		m_stParticleType->fParticleLifeTimeType = PARTICLE_LIFETIME_TYPE_DEFAULT;
-		m_spParticle->SetTexture(L"Particle"); // y°ª Áõ°¡ x ¿ø
+		m_spParticle->SetTexture(L"Particle"); // yê°’ ì¦ê°€ x ì›
 	}
 	{
 		*m_spParticle->GetParticleSystem()->GetCreateInterval() = 0.15f;

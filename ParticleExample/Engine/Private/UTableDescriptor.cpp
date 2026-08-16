@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+﻿#include "EngineDefines.h"
 #include "UTableDescriptor.h"
 #include "UDevice.h"
 #include "UCommand.h"
@@ -110,4 +110,4 @@ const D3D12_CPU_DESCRIPTOR_HANDLE UTableDescriptor::ComputeCpuHandle(_uint _iReg
 	Handle.ptr += (m_iCurrentGroupIndex * m_iGroupSize);
 	Handle.ptr += ((_iReg - m_iStaticValue) * m_iHandleSize);
 	return Handle;
-}
+}

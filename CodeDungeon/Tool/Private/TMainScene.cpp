@@ -1,4 +1,4 @@
-#include "ToolDefines.h"
+ï»¿#include "ToolDefines.h"
 #include "TMainScene.h"
 #include "TMainCamera.h"
 #include "UGameInstance.h"
@@ -49,26 +49,26 @@ HRESULT TMainScene::LoadSceneData()
 		_float3(-883.653748, -145.2615, 847.1639), 60.f, 0.f ,
 		1.f, 32.f,0.f,0.f,0.f,_float3(1.f,0.01f,0.0001f) });
 		/*
-		* ÇöÀç ¸ÓÆ¼¸®¾óÀº Diffuse´Â ¹àÀº È¸»öÀ¸·Î °³¼ºÀÖ°Ô ³ª¿Í °öÇØµµ ¹«¹æ. Ambient, SpecularÃßÃâÁ¤º¸ ´ëºÎºÐ °ËÀº»öÀÌ¶ó, Á¶¸íÀÇ Ambient SpecularÀ» °öÇÏ¸é ¹«½ÃµÇ´Â ¼öÁØÀÌ¶ó Àû¿ë¾ÈÇÏ´Â°Ô ÁÁ¾Æº¸ÀÓ.
+		* í˜„ìž¬ ë¨¸í‹°ë¦¬ì–¼ì€ DiffuseëŠ” ë°ì€ íšŒìƒ‰ìœ¼ë¡œ ê°œì„±ìžˆê²Œ ë‚˜ì™€ ê³±í•´ë„ ë¬´ë°©. Ambient, Specularì¶”ì¶œì •ë³´ ëŒ€ë¶€ë¶„ ê²€ì€ìƒ‰ì´ë¼, ì¡°ëª…ì˜ Ambient Specularì„ ê³±í•˜ë©´ ë¬´ì‹œë˜ëŠ” ìˆ˜ì¤€ì´ë¼ ì ìš©ì•ˆí•˜ëŠ”ê²Œ ì¢‹ì•„ë³´ìž„.
 		* 
 		1. Directional Light
-		ÅÂÇö : ÇÊ¿äÀÎÀÚ vDiffuse , vAmbient, vSpecular, fLightPower,fSpecularPowValue
-		¿ëºü : ÇÊ¿äÀÎÀÚ vDiffuse, vAmbient, vSpecular
+		íƒœí˜„ : í•„ìš”ì¸ìž vDiffuse , vAmbient, vSpecular, fLightPower,fSpecularPowValue
+		ìš©ë¹  : í•„ìš”ì¸ìž vDiffuse, vAmbient, vSpecular
 		
 		2.SpotLight
-		ÅÂÇö: ÇÊ¿äÀÎÀÚ vDiffuse , vAmbient, vSpecular,vDirection, vPosition, fLightPower, fRange,fAngle, fLightPower, fSpecularPowValue
-		¿ëºü: ÇÊ¿äÀÎÀÚ vDiffuse , vAmbient, vSpecular,vDirection, vPosition, fRange,fSpecularPowValue, fFallOff,fPhi,fTheta, ¾÷µ¥ÀÌÆ® ¹öÀü(vAttenuation ºÒÇÊ¿ä) Àü¹öÀü: ÇÊ¿ä
+		íƒœí˜„: í•„ìš”ì¸ìž vDiffuse , vAmbient, vSpecular,vDirection, vPosition, fLightPower, fRange,fAngle, fLightPower, fSpecularPowValue
+		ìš©ë¹ : í•„ìš”ì¸ìž vDiffuse , vAmbient, vSpecular,vDirection, vPosition, fRange,fSpecularPowValue, fFallOff,fPhi,fTheta, ì—…ë°ì´íŠ¸ ë²„ì „(vAttenuation ë¶ˆí•„ìš”) ì „ë²„ì „: í•„ìš”
 
 		2.PointLight
-		ÅÂÇö: ÇÊ¿äÀÎÀÚ vDiffuse , vAmbient, vSpecular,vDirection, vPosition, fLightPower, fRange,fAngle, fLightPower, fSpecularPowValue
-		¿ëºü: ÇÊ¿äÀÎÀÚ vDiffuse , vAmbient, vSpecular, vPosition, fRange, vAttenuation 
+		íƒœí˜„: í•„ìš”ì¸ìž vDiffuse , vAmbient, vSpecular,vDirection, vPosition, fLightPower, fRange,fAngle, fLightPower, fSpecularPowValue
+		ìš©ë¹ : í•„ìš”ì¸ìž vDiffuse , vAmbient, vSpecular, vPosition, fRange, vAttenuation 
 
 		*/
-		//ÇöÀç ¿ëºü ¶óÀÌÆÃÀÌ³ª ÅÂÇöÀÌ ¶óÀÌÆÃÀÌ³ª Directional Light´Â MaterialÀû¿ëÇØµµ, DirectionalÀº Ambient¸¦ ±×´ë·Î È¥ÇÕ, ¿ëºü´Â Specular´Â MaterialÀÌ 0À¸·Î °á°ú°¡ 0À¸·Î ÃßÃâµÇ¾î
-		// ÅÂÇöÀÌ´Â Specular 0À» °öÇÏ¿© °á±¹ ¶È°°ÀÌ ³ª¿Â´Ù. ¿ëºü²¨´Â LightPowerÀû¿ëÀº¾ÈµÇ¾îÀÖ´Ù. ¶ÇÇÑ ¿ëºü´Â ÇöÀç ¿ùµå°ø°£¿¡¼­ °è»êÇÏ¸ç, ÅÂÇöÀÌ´Â ºä°ø°£¿¡¼­ °è»êÇÑ´Ù.
+		//í˜„ìž¬ ìš©ë¹  ë¼ì´íŒ…ì´ë‚˜ íƒœí˜„ì´ ë¼ì´íŒ…ì´ë‚˜ Directional LightëŠ” Materialì ìš©í•´ë„, Directionalì€ Ambientë¥¼ ê·¸ëŒ€ë¡œ í˜¼í•©, ìš©ë¹ ëŠ” SpecularëŠ” Materialì´ 0ìœ¼ë¡œ ê²°ê³¼ê°€ 0ìœ¼ë¡œ ì¶”ì¶œë˜ì–´
+		// íƒœí˜„ì´ëŠ” Specular 0ì„ ê³±í•˜ì—¬ ê²°êµ­ ë˜‘ê°™ì´ ë‚˜ì˜¨ë‹¤. ìš©ë¹ êº¼ëŠ” LightPowerì ìš©ì€ì•ˆë˜ì–´ìžˆë‹¤. ë˜í•œ ìš©ë¹ ëŠ” í˜„ìž¬ ì›”ë“œê³µê°„ì—ì„œ ê³„ì‚°í•˜ë©°, íƒœí˜„ì´ëŠ” ë·°ê³µê°„ì—ì„œ ê³„ì‚°í•œë‹¤.
 
-		//Diffuse Light´Â È®»êÁ¶¸íÀ¸·Î º¸Åë ¹°Ã¼ÀÇ ¸Å²ô·´Áö ¾ÊÀº Ç¥¸é, °ÅÄ£ Ç¥¸é¿¡¼­ ÀÏ¾î³².
-		//È®»ê Ç¥¸éÀº ¹°Ã¼ÀÇ Ç¥¸é¿¡¼­ ¸ðµç ¹æÇâÀ¸·Î ±ÕÀÏÇÏ°Ô ºûÀ» ¹Ý»çÇÑ´Ù°í °¡Á¤.
+		//Diffuse LightëŠ” í™•ì‚°ì¡°ëª…ìœ¼ë¡œ ë³´í†µ ë¬¼ì²´ì˜ ë§¤ë„ëŸ½ì§€ ì•Šì€ í‘œë©´, ê±°ì¹œ í‘œë©´ì—ì„œ ì¼ì–´ë‚¨.
+		//í™•ì‚° í‘œë©´ì€ ë¬¼ì²´ì˜ í‘œë©´ì—ì„œ ëª¨ë“  ë°©í–¥ìœ¼ë¡œ ê· ì¼í•˜ê²Œ ë¹›ì„ ë°˜ì‚¬í•œë‹¤ê³  ê°€ì •.
 
 	/*	AddLight(LIGHTINFO{ LIGHTTYPE::TYPE_SPOT,LIGHTACTIVE::ISACTIVE, {0.75f,0.75f,0.75f, 1.f}, {0.4f, 0.2f, 0.08f, 1.f}, {0.15f, 0.125f, 0.11f, 1.f}, {0.f, -1.f, 0.f,},
 		_float3(-355,-20,166), 100.f, 0.f ,
@@ -79,22 +79,22 @@ HRESULT TMainScene::LoadSceneData()
 			100.f, 32.f, 8.0f,(float)cos(DirectX::XMConvertToRadians(30.f)),(float)cos(DirectX::XMConvertToRadians(15.f)),_float3(1.0f, 0.01f, 0.0001f) });*/
 		
 		/*
-		* SpecularPowValue°¡ Å¬¼ö·Ï ±¹¼Ò¹üÀ§ ÁÙ¾îµë ´õ Á¼Àº¸éÀû¿¡¼­ ¹Ý»ç. ±ÇÀå 32 . 1·Î°¥¼ö·Ï Specular¹üÀ§ Ä¿Áü.
-		ÀÚ¿¬½º·¯¿î Á¶¸í:
+		* SpecularPowValueê°€ í´ìˆ˜ë¡ êµ­ì†Œë²”ìœ„ ì¤„ì–´ë“¬ ë” ì¢ì€ë©´ì ì—ì„œ ë°˜ì‚¬. ê¶Œìž¥ 32 . 1ë¡œê°ˆìˆ˜ë¡ Specularë²”ìœ„ ì»¤ì§.
+		ìžì—°ìŠ¤ëŸ¬ìš´ ì¡°ëª…:
 
-		Ambient: 0.2 ~ 0.4 »çÀÌÀÇ °ª. ÀÌ °ªÀº Àå¸é ÀüÃ¼ÀÇ Á¶¸í ¼öÁØÀ» Á¶ÀýÇÕ´Ï´Ù.
-		Diffuse: 0.6 ~ 0.8 »çÀÌÀÇ °ª. ÀÌ °ªÀº Á÷Á¢ÀûÀÎ Á¶¸íÀÇ °­µµ¸¦ °áÁ¤ÇÕ´Ï´Ù.
-		Specular: 0.3 ~ 0.5 »çÀÌÀÇ °ª. ÀÌ °ªÀº ÇÏÀÌ¶óÀÌÆ®ÀÇ °­µµ¸¦ Á¶ÀýÇÕ´Ï´Ù.
-		°­·ÄÇÑ Á¶¸í:
+		Ambient: 0.2 ~ 0.4 ì‚¬ì´ì˜ ê°’. ì´ ê°’ì€ ìž¥ë©´ ì „ì²´ì˜ ì¡°ëª… ìˆ˜ì¤€ì„ ì¡°ì ˆí•©ë‹ˆë‹¤.
+		Diffuse: 0.6 ~ 0.8 ì‚¬ì´ì˜ ê°’. ì´ ê°’ì€ ì§ì ‘ì ì¸ ì¡°ëª…ì˜ ê°•ë„ë¥¼ ê²°ì •í•©ë‹ˆë‹¤.
+		Specular: 0.3 ~ 0.5 ì‚¬ì´ì˜ ê°’. ì´ ê°’ì€ í•˜ì´ë¼ì´íŠ¸ì˜ ê°•ë„ë¥¼ ì¡°ì ˆí•©ë‹ˆë‹¤.
+		ê°•ë ¬í•œ ì¡°ëª…:
 		
-		Ambient: 0.1 ~ 0.3 »çÀÌÀÇ °ª. ³·Àº °ªÀ¸·Î Á¶¸íÀ» ´õ Á÷Á¢ÀûÀÌ°í ´ëºñ°¨ ÀÖ°Ô ¸¸µì´Ï´Ù.
-		Diffuse: 0.8 ~ 1.0 »çÀÌÀÇ °ª. ³ôÀº °ªÀ¸·Î Ç¥¸é¿¡ Á÷Á¢ÀûÀ¸·Î ´ê´Â ºûÀÇ °­µµ¸¦ ³ôÀÔ´Ï´Ù.
-		Specular: 0.5 ~ 0.7 »çÀÌÀÇ °ª. ³ôÀº °ªÀ¸·Î ÇÏÀÌ¶óÀÌÆ®¸¦ °­Á¶ÇÕ´Ï´Ù.
-		ºÎµå·¯¿î Á¶¸í:
+		Ambient: 0.1 ~ 0.3 ì‚¬ì´ì˜ ê°’. ë‚®ì€ ê°’ìœ¼ë¡œ ì¡°ëª…ì„ ë” ì§ì ‘ì ì´ê³  ëŒ€ë¹„ê° ìžˆê²Œ ë§Œë“­ë‹ˆë‹¤.
+		Diffuse: 0.8 ~ 1.0 ì‚¬ì´ì˜ ê°’. ë†’ì€ ê°’ìœ¼ë¡œ í‘œë©´ì— ì§ì ‘ì ìœ¼ë¡œ ë‹¿ëŠ” ë¹›ì˜ ê°•ë„ë¥¼ ë†’ìž…ë‹ˆë‹¤.
+		Specular: 0.5 ~ 0.7 ì‚¬ì´ì˜ ê°’. ë†’ì€ ê°’ìœ¼ë¡œ í•˜ì´ë¼ì´íŠ¸ë¥¼ ê°•ì¡°í•©ë‹ˆë‹¤.
+		ë¶€ë“œëŸ¬ìš´ ì¡°ëª…:
 		
-		Ambient: 0.4 ~ 0.6 »çÀÌÀÇ °ª. ³ôÀº °ªÀ¸·Î Á¶¸íÀ» ºÎµå·´°Ô ¸¸µì´Ï´Ù.
-		Diffuse: 0.5 ~ 0.7 »çÀÌÀÇ °ª. Áß°£ Á¤µµÀÇ °ªÀ¸·Î Á¶¸íÀÇ °­µµ¸¦ Àû´çÇÏ°Ô À¯ÁöÇÕ´Ï´Ù.
-		Specular: 0.2 ~ 0.4 »çÀÌÀÇ °ª. ³·Àº °ªÀ¸·Î ÇÏÀÌ¶óÀÌÆ®¸¦ ºÎµå·´°Ô À¯ÁöÇÕ´Ï´Ù.
+		Ambient: 0.4 ~ 0.6 ì‚¬ì´ì˜ ê°’. ë†’ì€ ê°’ìœ¼ë¡œ ì¡°ëª…ì„ ë¶€ë“œëŸ½ê²Œ ë§Œë“­ë‹ˆë‹¤.
+		Diffuse: 0.5 ~ 0.7 ì‚¬ì´ì˜ ê°’. ì¤‘ê°„ ì •ë„ì˜ ê°’ìœ¼ë¡œ ì¡°ëª…ì˜ ê°•ë„ë¥¼ ì ë‹¹í•˜ê²Œ ìœ ì§€í•©ë‹ˆë‹¤.
+		Specular: 0.2 ~ 0.4 ì‚¬ì´ì˜ ê°’. ë‚®ì€ ê°’ìœ¼ë¡œ í•˜ì´ë¼ì´íŠ¸ë¥¼ ë¶€ë“œëŸ½ê²Œ ìœ ì§€í•©ë‹ˆë‹¤.
 		*/
 	
 		

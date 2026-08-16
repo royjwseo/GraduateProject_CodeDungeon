@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_ENGINECONCEPT_H
+ï»¿#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_ENGINECONCEPT_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_ENGINECONCEPT_H
 
 namespace Engine
@@ -18,17 +18,17 @@ namespace Engine
 	template <typename T, typename U>
 	concept ConvertibleFrom = (SameType<T, U> || ParentsChildType<T, U> || Convertible<T, U>);
 
-	// ÀÌ ConCeptÀº »ı¼ºÀÚ ÀÎÀÚµéÀÌ Á¦´ë·Î ÀÖ´ÂÁö È®ÀÎÇÏ´Â ConCeptÀÌ´Ù. 
+	// ì´ ConCeptì€ ìƒì„±ì ì¸ìë“¤ì´ ì œëŒ€ë¡œ ìˆëŠ”ì§€ í™•ì¸í•˜ëŠ” ConCeptì´ë‹¤. 
 	template<typename T, class ...Args>
 	concept ConstructWidthArgsCheck = std::is_constructible_v<T, Args...>;
 
-	// »ı¼ºÀÚ°¡ ÀÖ´ÂÁö Ã¼Å©
+	// ìƒì„±ìê°€ ìˆëŠ”ì§€ ì²´í¬
 	template <typename T, typename DevicePtr, typename GpuCommandPtr>
 	concept ConstructArgsMatch = std::is_constructible_v<T, DevicePtr, GpuCommandPtr>;
 
-	// ÀÌ ConeceptÀº T::NativeConstructÀÇ ÀÎÀÚ°¡ ¸Â´ÂÁö È®ÀÎÇÏ´Â ConceptÀÌ´Ù. 
+	// ì´ Coneceptì€ T::NativeConstructì˜ ì¸ìê°€ ë§ëŠ”ì§€ í™•ì¸í•˜ëŠ” Conceptì´ë‹¤. 
 	template <typename T, typename... Args>
-	// ÇØ´ç ÇÔ¼ö°¡ ÀÖ´ÂÁö È®ÀÎÇØ¼­ ÀÎÀÚµéÀ» ºñ±³ÇÑ´Ù. ±×¸®°í HRESULT ¶ó´Â ¹İÈ¯ °ªÀÌ µ¿ÀÏÇÑÁö Ã¼Å©
+	// í•´ë‹¹ í•¨ìˆ˜ê°€ ìˆëŠ”ì§€ í™•ì¸í•´ì„œ ì¸ìë“¤ì„ ë¹„êµí•œë‹¤. ê·¸ë¦¬ê³  HRESULT ë¼ëŠ” ë°˜í™˜ ê°’ì´ ë™ì¼í•œì§€ ì²´í¬
 	concept CheckToSameMethodArgs = requires(T * t, Args&&... args) {
 		{ t->NativeConstruct(args...) } -> std::same_as<HRESULT>;
 	};
@@ -51,4 +51,4 @@ namespace Engine
 }
 
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_ENGINECONCEPT_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_ENGINECONCEPT_H

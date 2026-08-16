@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ASERVERSERVICE_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ASERVERSERVICE_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ASERVERSERVICE_H
 
 #include "AService.h"
@@ -6,9 +6,9 @@
 BEGIN(Core)
 class ANavigation;
 /*
-@ Date: 2024-01-05, Writer: ¹ÚÅÂÇö
+@ Date: 2024-01-05, Writer: ë°•íƒœí˜„
 @ Explain
--  ServerService·Î ÀçÁ¤ÀÇÇØ¼­ »ç¿ëÇÑ´Ù.  Server Framework¿¡¼­ ÀçÁ¤ÀÇ ÇØ¼­ »ç¿ëÇØ¾ßÇÑ´Ù. 
+-  ServerServiceë¡œ ì¬ì •ì˜í•´ì„œ ì‚¬ìš©í•œë‹¤.  Server Frameworkì—ì„œ ì¬ì •ì˜ í•´ì„œ ì‚¬ìš©í•´ì•¼í•œë‹¤. 
 */
 class CORE_DLL AServerService abstract  : public AService {
 public: /* USING */
@@ -20,7 +20,7 @@ public:
 	virtual _bool NativeConstruct() PURE;
 	virtual _bool Start() override;
 protected:
-	// Thread¿¡ Áı¾î³ÖÀ» ÇÔ¼ö
+	// Threadì— ì§‘ì–´ë„£ì„ í•¨ìˆ˜
 	static void ThreadFunc(void* _spService);
 protected: /* get set */
 	TCPACCEPTOR& GetTcpAccepctor(REF_RETURN) { return m_TcpAcceptor; }
@@ -35,4 +35,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ASERVERSERVICE_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ASERVERSERVICE_H

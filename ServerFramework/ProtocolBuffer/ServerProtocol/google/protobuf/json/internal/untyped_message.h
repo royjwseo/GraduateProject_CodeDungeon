@@ -1,4 +1,4 @@
-#include "absl/log/absl_check.h"
+﻿#include "absl/log/absl_check.h"
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
 //

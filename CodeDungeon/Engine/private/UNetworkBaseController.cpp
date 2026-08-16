@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UNetworkBaseController.h"
 #include "UGameInstance.h"
 #include "UActor.h"
@@ -129,20 +129,20 @@ void UNetworkBaseController::NativePacket()
 void UNetworkBaseController::CombineRecvPacket(UOverExp* _pOverExp, _llong _numBytes)
 {
 	std::lock_guard Lock{ m_Lock };
-	// ¹öÆÛ¸¦ Á¶ÇÕÇÑ´Ù. 
+	// ë²„í¼ë¥¼ ì¡°í•©í•œë‹¤. 
 	{
 		::memcpy(&m_TcpTotalBuffer[m_RemainBufferLength], _pOverExp->GetBufferAddress(0), _numBytes);
 	}
 	short moveBuffer{ 0 };
 	char* pBufferMove = &m_TcpTotalBuffer[0];
-	// ¸¸¾à BufferLocationÀÌ Á¸ÀçÇÒ ¶§
+	// ë§Œì•½ BufferLocationì´ ì¡´ì¬í•  ë•Œ
 	while (_numBytes != 0)
 	{
-		// PacketSize¸¦ ±¸ÇÑ´Ù. 
+		// PacketSizeë¥¼ êµ¬í•œë‹¤. 
 		PACKETHEAD PacketHead;
 		memcpy(&PacketHead, pBufferMove, PACKETHEAD_SIZE);
 		short CurrPacket = PacketHead.PacketSize + PACKETHEAD_SIZE;
-		// ÆĞÅ¶ÀÇ ÇöÀç À§Ä¡°¡ À½¼ö°¡ µÇ´Â °æ¿ì¸é 
+		// íŒ¨í‚·ì˜ í˜„ì¬ ìœ„ì¹˜ê°€ ìŒìˆ˜ê°€ ë˜ëŠ” ê²½ìš°ë©´ 
 		if ((_numBytes - CurrPacket) < 0)
 		{
 			::memcpy(&m_TcpTotalBuffer[0], pBufferMove, _numBytes);
@@ -150,7 +150,7 @@ void UNetworkBaseController::CombineRecvPacket(UOverExp* _pOverExp, _llong _numB
 			break;
 		}
 		ProcessPacket(&pBufferMove[PACKETHEAD_SIZE], PacketHead);
-		// BufferÀÇ À§Ä¡¸¦ ¿Å±ä´Ù. 
+		// Bufferì˜ ìœ„ì¹˜ë¥¼ ì˜®ê¸´ë‹¤. 
 		_numBytes -= CurrPacket;
 		pBufferMove += CurrPacket;
 		moveBuffer += CurrPacket;

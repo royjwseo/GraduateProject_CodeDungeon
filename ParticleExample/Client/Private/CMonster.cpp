@@ -1,4 +1,4 @@
-#include "ClientDefine.h"
+Ôªø#include "ClientDefine.h"
 #include "CMonster.h"
 #include "UTexGroup.h"
 #include "UMethod.h"
@@ -148,7 +148,7 @@ void CMonster::TickActive(const _double& _dTimeDelta)
 			m_vBackPos = vPosition - GetTransform()->GetLook() * 200.f;
 			m_spTerrain->TerrainHeightPos(m_vForwardPos);
 			m_spTerrain->TerrainHeightPos(m_vBackPos);
-			// ∫§≈Õ ªÁ¿Ã¿« ∞¢µµ∏¶ ∞ËªÍ
+			// Î≤°ÌÑ∞ ÏÇ¨Ïù¥Ïùò Í∞ÅÎèÑÎ•º Í≥ÑÏÇ∞
 			_float3 v1 = _float3::NormalizeValue(m_vBackPos - m_vForwardPos);
 			_float3 v2 = _float3::Up;
 			_float dot = _float3::Dot(v1, v2);

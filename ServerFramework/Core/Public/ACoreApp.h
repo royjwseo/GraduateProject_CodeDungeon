@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ACOREAPP_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ACOREAPP_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ACOREAPP_H
 
 BEGIN(Core)
@@ -7,9 +7,9 @@ class AService;
 
 /*
 @ Date: 2024-01-09
-@ Writer: ¹ÚÅÂÇö
+@ Writer: ë°•íƒœí˜„
 @ Explain
-- ÇÁ·Î±×·¥À» ½ÃÀÛÇÏ±â À§ÇÑ App Å¬·¡½ºÀÌ´Ù. 
+- í”„ë¡œê·¸ëž¨ì„ ì‹œìž‘í•˜ê¸° ìœ„í•œ App í´ëž˜ìŠ¤ì´ë‹¤. 
 */
 class CORE_DLL ACoreApp  {
 public:

@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "AMySqlConnector.h"
 
 namespace Core {
@@ -53,4 +53,4 @@ namespace Core {
 	{
 		delete m_pConnection;
 	}
-}
+}

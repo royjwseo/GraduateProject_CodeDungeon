@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UAnimation.h"
 #include "UAnimChannel.h"
 #include "UGameInstance.h"
@@ -180,7 +180,7 @@ void UAnimation::TickAnimEvent(UPawn* _pPawn, UAnimModel* _pAnimModel, const _do
 {
 	if (false == _pAnimModel->IsNotApplyAnimPosition())
 	{
-		// ¸¸¾à ActiveAnimChagneEvent°¡ È°¼ºÈ­µÇÁö ¾Ê¾Ò´Ù¸é, È°¼ºÈ­ÇÒ¶§±îÁö Ã£¾Æ¶ó
+		// ë§Œì•½ ActiveAnimChagneEventê°€ í™œì„±í™”ë˜ì§€ ì•Šì•˜ë‹¤ë©´, í™œì„±í™”í• ë•Œê¹Œì§€ ì°¾ì•„ë¼
 		if (nullptr == m_spActiveAnimChangeEvent)
 		{
 			for (auto& Event : m_AnimEventContainer[ANIMEVENTTYPE::ANIMEVENT_ANIMCHANGESBETWEEN])
@@ -194,7 +194,7 @@ void UAnimation::TickAnimEvent(UPawn* _pPawn, UAnimModel* _pAnimModel, const _do
 		}
 		else
 		{
-			// ÀÌº¥Æ® È°¼ºÈ­
+			// ì´ë²¤íŠ¸ í™œì„±í™”
 			m_spActiveAnimChangeEvent->EventCheck(_pPawn, _pAnimModel, _TimeDelta, _Ratio, _wstrInputTrigger);
 		}
 	}

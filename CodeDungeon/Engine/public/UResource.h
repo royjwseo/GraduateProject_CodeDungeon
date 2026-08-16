@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UCloneObject.h"
 
 BEGIN(Engine)
@@ -9,7 +9,7 @@ public:
 	UResource(const UResource& _rhs);
 	virtual ~UResource() = default;
 public:
-	// UObjectÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UObjectì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual SHPTR<UCloneObject> Clone(const VOIDDATAS& _stDatas) override PURE;
 
 	virtual void Free() override PURE;

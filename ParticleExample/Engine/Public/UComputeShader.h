@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOMPUTESHADER_H
+ï»¿#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOMPUTESHADER_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOMPUTESHADER_H
 
 #include "UShader.h"
@@ -27,10 +27,10 @@ public:
 protected:
 	virtual HRESULT CreateShader() override;
 private:
-	// Compute ¿ë
+	// Compute ìš©
 	SHPTR<UComputeTableDescriptor>					m_spComputeTableDescriptor;
 };
 
 END
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOMPUTESHADER_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOMPUTESHADER_H

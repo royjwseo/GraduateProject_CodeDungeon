@@ -1,1 +1,1 @@
-/* #undef REDIS_PLUS_PLUS_HAS_redisEnableKeepAliveWithInterval */
+﻿/* #undef REDIS_PLUS_PLUS_HAS_redisEnableKeepAliveWithInterval */

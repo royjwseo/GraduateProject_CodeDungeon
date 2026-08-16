@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UCell.h"
 #include "UVIBufferCell.h"
 #include "URenderer.h"
@@ -128,7 +128,7 @@ void UCell::ReRender()
 _bool UCell::IsIn(const _float3& _vPos, _int& _iNeightborIndex, _float3& _vLine)
 {
 	for (_uint i = 0; i < LINE_END; ++i) {
-		// º¯¿¡ ´ëÇÑ Á¡, ¹ı¼± º¤ÅÍ, º¯À» ±¸¼ºÇÏ´Â µÎ Á¡À» °¡Á®¿É´Ï´Ù.
+		// ë³€ì— ëŒ€í•œ ì , ë²•ì„  ë²¡í„°, ë³€ì„ êµ¬ì„±í•˜ëŠ” ë‘ ì ì„ ê°€ì ¸ì˜µë‹ˆë‹¤.
 		_float3 vPointA, vPointB;
 		_float3 vNormal = m_arrNormals[i];
 		_float3 vLine = m_arrLines[i];
@@ -148,10 +148,10 @@ _bool UCell::IsIn(const _float3& _vPos, _int& _iNeightborIndex, _float3& _vLine)
 			break;
 		}
 
-		// Á¡ _vPos¿Í º¯ÀÇ Á¡µé·ÎºÎÅÍ º¤ÅÍ¸¦ ¸¸µì´Ï´Ù.
+		// ì  _vPosì™€ ë³€ì˜ ì ë“¤ë¡œë¶€í„° ë²¡í„°ë¥¼ ë§Œë“­ë‹ˆë‹¤.
 		_float3 vDir = _vPos - vPointA;
 
-		// Æò¸é ¹æÁ¤½ÄÀ» »ç¿ëÇÏ¿© Á¡ÀÌ º¯ÀÇ ¾î´À ÂÊ¿¡ ÀÖ´ÂÁö È®ÀÎÇÕ´Ï´Ù.
+		// í‰ë©´ ë°©ì •ì‹ì„ ì‚¬ìš©í•˜ì—¬ ì ì´ ë³€ì˜ ì–´ëŠ ìª½ì— ìˆëŠ”ì§€ í™•ì¸í•©ë‹ˆë‹¤.
 		float dotProduct = vDir.Dot(vNormal);
 		if (dotProduct > 0) {
 			_iNeightborIndex = m_arrNeighbors[i];
@@ -255,7 +255,7 @@ void UCell::CalculateCrossResult(ARRAY<_float3, POINT_END>& _arrPointsEnd)
 void UCell::ResortPoints()
 {
 	// Resort Points
-	// °°Àº ½Ã°è ¹æÇâÀ¸·Î Á¡µéÀÌ ¹èÄ¡µÇµµ·Ï ÇÏ´Â °Í
+	// ê°™ì€ ì‹œê³„ ë°©í–¥ìœ¼ë¡œ ì ë“¤ì´ ë°°ì¹˜ë˜ë„ë¡ í•˜ëŠ” ê²ƒ
 	bool bIsTrue = true;
 	while (bIsTrue) {
 		ARRAY<_float3, POINT_END> arrPosList;
@@ -302,7 +302,7 @@ _float3 UCell::GetClosestPointOnEdges(const _float3& position) const
 	_float3 closestPoint = position;
 	_float minDistanceSquared = FLT_MAX;
 
-	// °¢ º¯¿¡ ´ëÇØ °¡Àå °¡±î¿î Á¡À» Ã£À½
+	// ê° ë³€ì— ëŒ€í•´ ê°€ì¥ ê°€ê¹Œìš´ ì ì„ ì°¾ìŒ
 	for (size_t i = 0; i < LINE_END; ++i) {
 		_float3 pointOnEdge = ClosestPointOnLine(m_arrPoints[i], m_arrPoints[(i + 1) % LINE_END], position);
 		_float distanceSquared = DirectX::PTH::Vector3::DistanceSquared(position, pointOnEdge);
@@ -317,16 +317,16 @@ _float3 UCell::GetClosestPointOnEdges(const _float3& position) const
 
 _float3 UCell::ClosestPointOnLine(const _float3& lineStart, const _float3& lineEnd, const _float3& point) const
 {
-	// ¶óÀÎ ½ÃÀÛÁ¡ºÎÅÍ ³¡Á¡±îÁöÀÇ º¤ÅÍ
+	// ë¼ì¸ ì‹œì‘ì ë¶€í„° ëì ê¹Œì§€ì˜ ë²¡í„°
 	_float3 lineDirection = lineEnd - lineStart;
 
-	// ¶óÀÎ ½ÃÀÛÁ¡ºÎÅÍ ÀÔ·ÂµÈ Á¡±îÁöÀÇ º¤ÅÍ
+	// ë¼ì¸ ì‹œì‘ì ë¶€í„° ì…ë ¥ëœ ì ê¹Œì§€ì˜ ë²¡í„°
 	_float3 pointToLineStart = point - lineStart;
 
-	// ¶óÀÎ ¹æÇâ°ú ÀÔ·ÂµÈ Á¡±îÁöÀÇ º¤ÅÍ »çÀÌÀÇ ³»Àû °ª
+	// ë¼ì¸ ë°©í–¥ê³¼ ì…ë ¥ëœ ì ê¹Œì§€ì˜ ë²¡í„° ì‚¬ì´ì˜ ë‚´ì  ê°’
 	float t = DirectX::PTH::Vector3::Dot(pointToLineStart, lineDirection) / DirectX::PTH::Vector3::Dot(lineDirection, lineDirection);
 
-	// t °ªÀ» »ç¿ëÇÏ¿© ÀÔ·ÂµÈ Á¡¿¡¼­ °¡Àå °¡±î¿î Á¡À» °è»ê
+	// t ê°’ì„ ì‚¬ìš©í•˜ì—¬ ì…ë ¥ëœ ì ì—ì„œ ê°€ì¥ ê°€ê¹Œìš´ ì ì„ ê³„ì‚°
 	_float3 closestPoint = lineStart + lineDirection * t;
 
 

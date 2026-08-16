@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "ABoneNode.h"
 #include "AAnimator.h"
 
@@ -61,4 +61,4 @@ namespace Core
 	void ABoneNode::Free()
 	{
 	}
-}
+}

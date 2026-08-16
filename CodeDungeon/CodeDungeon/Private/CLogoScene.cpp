@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+ï»¿#include "ClientDefines.h"
 #include "CLogoScene.h"
 #include "UGameInstance.h"
 #include "CMainScene.h"
@@ -36,7 +36,7 @@ HRESULT CLogoScene::LoadSceneData()
 		}
 		CImageUI::UIDESC tDesc1;
 		{
-			// ZBufferOrder´Â ÀÌ¹ÌÁö Order ¼ø¼­¸¦ Ç¥ÇöÇÑ´Ù. 0¿¡ °¡±î¿ï¼ö·Ï ¸Ç À§, 1¿¡ °¡±î¿ï¼ö·Ï ¸Ç µÚ¿¡ ÀÖ´Â´Ù. (0, 1)´Â »ç¿ë X
+			// ZBufferOrderëŠ” ì´ë¯¸ì§€ Order ìˆœì„œë¥¼ í‘œí˜„í•œë‹¤. 0ì— ê°€ê¹Œìš¸ìˆ˜ë¡ ë§¨ ìœ„, 1ì— ê°€ê¹Œìš¸ìˆ˜ë¡ ë§¨ ë’¤ì— ìˆëŠ”ë‹¤. (0, 1)ëŠ” ì‚¬ìš© X
 			tDesc1.fZBufferOrder = 0.97f;
 			tDesc1.strImgName = L"LoadingBar_Background";
 			tDesc1._shaderName = PROTO_RES_DEFAULTHIGHLIGHTUISHADER;
@@ -61,7 +61,7 @@ HRESULT CLogoScene::LoadSceneData()
 		}
 		CImageUI::UIDESC tDesc3;
 		{
-			// ZBufferOrder´Â ÀÌ¹ÌÁö Order ¼ø¼­¸¦ Ç¥ÇöÇÑ´Ù. 0¿¡ °¡±î¿ï¼ö·Ï ¸Ç À§, 1¿¡ °¡±î¿ï¼ö·Ï ¸Ç µÚ¿¡ ÀÖ´Â´Ù. (0, 1)´Â »ç¿ë X
+			// ZBufferOrderëŠ” ì´ë¯¸ì§€ Order ìˆœì„œë¥¼ í‘œí˜„í•œë‹¤. 0ì— ê°€ê¹Œìš¸ìˆ˜ë¡ ë§¨ ìœ„, 1ì— ê°€ê¹Œìš¸ìˆ˜ë¡ ë§¨ ë’¤ì— ìˆëŠ”ë‹¤. (0, 1)ëŠ” ì‚¬ìš© X
 			tDesc3.fZBufferOrder = 0.88f;
 			tDesc3.strImgName = L"MainTitle";
 			tDesc3._shaderName = PROTO_RES_DEFAULTHIGHLIGHTUISHADER;
@@ -99,7 +99,7 @@ HRESULT CLogoScene::LoadSceneData()
 		}
 		CImageUI::UIDESC tDesc5;
 		{
-			// ZBufferOrder´Â ÀÌ¹ÌÁö Order ¼ø¼­¸¦ Ç¥ÇöÇÑ´Ù. 0¿¡ °¡±î¿ï¼ö·Ï ¸Ç À§, 1¿¡ °¡±î¿ï¼ö·Ï ¸Ç µÚ¿¡ ÀÖ´Â´Ù. (0, 1)´Â »ç¿ë X
+			// ZBufferOrderëŠ” ì´ë¯¸ì§€ Order ìˆœì„œë¥¼ í‘œí˜„í•œë‹¤. 0ì— ê°€ê¹Œìš¸ìˆ˜ë¡ ë§¨ ìœ„, 1ì— ê°€ê¹Œìš¸ìˆ˜ë¡ ë§¨ ë’¤ì— ìˆëŠ”ë‹¤. (0, 1)ëŠ” ì‚¬ìš© X
 			tDesc5.fZBufferOrder = 0.8f;
 			tDesc5.strImgName = L"T_TitleLogo_Shadow_SmokeWave_UI";
 			tDesc5._shaderName = PROTO_RES_DEFAULTHIGHLIGHTUISHADER;
@@ -113,7 +113,7 @@ HRESULT CLogoScene::LoadSceneData()
 		}
 
 		{
-			// ZBufferOrder´Â ÀÌ¹ÌÁö Order ¼ø¼­¸¦ Ç¥ÇöÇÑ´Ù. 0¿¡ °¡±î¿ï¼ö·Ï ¸Ç À§, 1¿¡ °¡±î¿ï¼ö·Ï ¸Ç µÚ¿¡ ÀÖ´Â´Ù. (0, 1)´Â »ç¿ë X
+			// ZBufferOrderëŠ” ì´ë¯¸ì§€ Order ìˆœì„œë¥¼ í‘œí˜„í•œë‹¤. 0ì— ê°€ê¹Œìš¸ìˆ˜ë¡ ë§¨ ìœ„, 1ì— ê°€ê¹Œìš¸ìˆ˜ë¡ ë§¨ ë’¤ì— ìˆëŠ”ë‹¤. (0, 1)ëŠ” ì‚¬ìš© X
 			tDesc5.fZBufferOrder = 0.48f;
 			tDesc5.strImgName = L"T_TitleLogo_Shadow_Line_UI";
 			tDesc5._shaderName = PROTO_RES_DEFAULTHIGHLIGHTUISHADER;
@@ -126,7 +126,7 @@ HRESULT CLogoScene::LoadSceneData()
 
 		}
 		{
-			// ZBufferOrder´Â ÀÌ¹ÌÁö Order ¼ø¼­¸¦ Ç¥ÇöÇÑ´Ù. 0¿¡ °¡±î¿ï¼ö·Ï ¸Ç À§, 1¿¡ °¡±î¿ï¼ö·Ï ¸Ç µÚ¿¡ ÀÖ´Â´Ù. (0, 1)´Â »ç¿ë X
+			// ZBufferOrderëŠ” ì´ë¯¸ì§€ Order ìˆœì„œë¥¼ í‘œí˜„í•œë‹¤. 0ì— ê°€ê¹Œìš¸ìˆ˜ë¡ ë§¨ ìœ„, 1ì— ê°€ê¹Œìš¸ìˆ˜ë¡ ë§¨ ë’¤ì— ìˆëŠ”ë‹¤. (0, 1)ëŠ” ì‚¬ìš© X
 			tDesc5.fZBufferOrder = 0.43f;
 			tDesc5.strImgName = L"Loading";
 			tDesc5._shaderName = PROTO_RES_DEFAULTHIGHLIGHTUISHADER;
@@ -138,7 +138,7 @@ HRESULT CLogoScene::LoadSceneData()
 			m_spLoadingTextUI->SetActive(false);
 		}
 		{
-			// ZBufferOrder´Â ÀÌ¹ÌÁö Order ¼ø¼­¸¦ Ç¥ÇöÇÑ´Ù. 0¿¡ °¡±î¿ï¼ö·Ï ¸Ç À§, 1¿¡ °¡±î¿ï¼ö·Ï ¸Ç µÚ¿¡ ÀÖ´Â´Ù. (0, 1)´Â »ç¿ë X
+			// ZBufferOrderëŠ” ì´ë¯¸ì§€ Order ìˆœì„œë¥¼ í‘œí˜„í•œë‹¤. 0ì— ê°€ê¹Œìš¸ìˆ˜ë¡ ë§¨ ìœ„, 1ì— ê°€ê¹Œìš¸ìˆ˜ë¡ ë§¨ ë’¤ì— ìˆëŠ”ë‹¤. (0, 1)ëŠ” ì‚¬ìš© X
 			tDesc5.fZBufferOrder = 0.43f;
 			tDesc5.strImgName = L"LoadingDot";
 			tDesc5._shaderName = PROTO_RES_LOADINGDOTUISHADER;
@@ -150,7 +150,7 @@ HRESULT CLogoScene::LoadSceneData()
 			m_spLoadingDotsUI->SetActive(false);
 		}
 		{
-			// ZBufferOrder´Â ÀÌ¹ÌÁö Order ¼ø¼­¸¦ Ç¥ÇöÇÑ´Ù. 0¿¡ °¡±î¿ï¼ö·Ï ¸Ç À§, 1¿¡ °¡±î¿ï¼ö·Ï ¸Ç µÚ¿¡ ÀÖ´Â´Ù. (0, 1)´Â »ç¿ë X
+			// ZBufferOrderëŠ” ì´ë¯¸ì§€ Order ìˆœì„œë¥¼ í‘œí˜„í•œë‹¤. 0ì— ê°€ê¹Œìš¸ìˆ˜ë¡ ë§¨ ìœ„, 1ì— ê°€ê¹Œìš¸ìˆ˜ë¡ ë§¨ ë’¤ì— ìˆëŠ”ë‹¤. (0, 1)ëŠ” ì‚¬ìš© X
 			tDesc5.fZBufferOrder = 0.43f;
 			tDesc5.strImgName = L"PleaseWait";
 			tDesc5._shaderName = PROTO_RES_PLEASEWAITUISHADER;

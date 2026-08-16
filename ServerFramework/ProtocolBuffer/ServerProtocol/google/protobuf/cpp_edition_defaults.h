@@ -1,4 +1,4 @@
-#ifndef GOOGLE_PROTOBUF_CPP_EDITION_DEFAULTS_H__
+﻿#ifndef GOOGLE_PROTOBUF_CPP_EDITION_DEFAULTS_H__
 #define GOOGLE_PROTOBUF_CPP_EDITION_DEFAULTS_H__
 
 // This file contains the serialized FeatureSetDefaults object corresponding to

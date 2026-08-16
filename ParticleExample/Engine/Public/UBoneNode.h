@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UBONENODE_H
+ï»¿#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UBONENODE_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UBONENODE_H
 
 #include "UBase.h"
@@ -30,7 +30,7 @@ public:
 	void FindParents(CSHPTRREF<UModel> _spModel);
 	void UpdateCombinedMatrix();
 private:
-	// »ÀÀÇ °¡Àå ±âº»ÀÌ µÇ´Â °ÍÀÇ ÀÌ¸§ (Áß¿äÇÑ °Í)
+	// ë¼ˆì˜ ê°€ì¥ ê¸°ë³¸ì´ ë˜ëŠ” ê²ƒì˜ ì´ë¦„ (ì¤‘ìš”í•œ ê²ƒ)
 	static	_wstring					BASE_BONENODE_NAME;
 
 	_float4x4							m_mOffsetMatrix;

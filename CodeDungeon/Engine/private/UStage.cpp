@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UStage.h"
 #include "UGameInstance.h"
 #include "UCell.h"
@@ -253,7 +253,7 @@ _bool UStage::Save(const _wstring& _wstrPath)
 		str.append(RegionNameStr);
 		iter->Save(str);
 
-		// numStrÀ» ´Ù½Ã Á¦°Å
+		// numStrì„ ë‹¤ì‹œ ì œê±°
 		size_t pos = str.find(RegionNameStr);
 		if (pos != _wstring::npos)
 			str.erase(pos, RegionNameStr.length());

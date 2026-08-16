@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+﻿#include "EngineDefine.h"
 #include "UThreadManager.h"
 
 UThreadManager::UThreadManager() : m_RegisterThreadContainer{}/*, m_BackgroundThreadContainer{}*/

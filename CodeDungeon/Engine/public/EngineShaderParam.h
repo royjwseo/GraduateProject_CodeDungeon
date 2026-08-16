@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 namespace Engine {
 
 #pragma region VIEWPROJ
@@ -28,9 +28,9 @@ namespace Engine {
 #pragma region GROBADATA
 
 	/*
-	@ Date: 2024-04-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-04-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	-  ¸ÓÅÍ¸®¾óÀ» ´ã¾Æ³õÀº Param
+	-  ë¨¸í„°ë¦¬ì–¼ì„ ë‹´ì•„ë†“ì€ Param
 	*/
 	struct MATERIALGROBALINFO
 	{
@@ -143,9 +143,9 @@ namespace Engine {
 		_float						fLightPower{ 1.f };
 		// 4 =====================
 		_float						fSpecularPowValue{ 1.f };
-		//2024-4-8 ¼­Á¤¿ø ¿ëºü Á¶¸íÀ» À§ÇÑ Ãß°¡
+		//2024-4-8 ì„œì •ì› ìš©ë¹  ì¡°ëª…ì„ ìœ„í•œ ì¶”ê°€
 		_float						fFallOff=5.0f;
-		_float						fPhi= 0.f;//Phi °¡ ´õ Ä¿¾ßÇÔ
+		_float						fPhi= 0.f;//Phi ê°€ ë” ì»¤ì•¼í•¨
 		_float						fTheta=0.f;
 		_float3					vAttenuation=_float3(1.0f,0.001f,0.0001f);
 		
@@ -369,10 +369,10 @@ namespace Engine {
 
 	struct WATERIFNODESC
 	{
-		_float2 vWaterNormalMapOffset{}; // ¹° Ç¥¸éÀÇ ³ë¸» ¸Ê ÀÌµ¿ ¿ÀÇÁ¼Â
-		_float fWaveAmplitude{ 0.f }; // ÆÄ°í
-		_float fWaveFrequency{ 0.f }; // ÆÄµ¿ ºóµµ
-		_float fWaveSpeed{ 0.f }; // ÆÄµ¿ ¼Óµµ
+		_float2 vWaterNormalMapOffset{}; // ë¬¼ í‘œë©´ì˜ ë…¸ë§ ë§µ ì´ë™ ì˜¤í”„ì…‹
+		_float fWaveAmplitude{ 0.f }; // íŒŒê³ 
+		_float fWaveFrequency{ 0.f }; // íŒŒë™ ë¹ˆë„
+		_float fWaveSpeed{ 0.f }; // íŒŒë™ ì†ë„
 
 		_float Padding;
 	};

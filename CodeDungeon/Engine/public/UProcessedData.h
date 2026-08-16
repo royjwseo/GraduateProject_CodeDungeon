@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 
 
 BEGIN(Engine)
 /*
-@ Date: 2024-02-03,  Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-03,  Writer: ë°•íƒœí˜„
 @ Explain
-- Process¸¦ ÀÌ¿ëÇØ¼­ Ã³¸®µÈ µ¥ÀÌÅÍµéÀ» ÀúÀåÇÏ´Â Å¬·¡½ºÀÌ´Ù.
+- Processë¥¼ ì´ìš©í•´ì„œ ì²˜ë¦¬ëœ ë°ì´í„°ë“¤ì„ ì €ì¥í•˜ëŠ” í´ë˜ìŠ¤ì´ë‹¤.
 */
 class UProcessedData {
 	using BUFFER = ARRAY<_char, MAX_BUFFER_LENGTH>;
@@ -83,9 +83,9 @@ END
 
 namespace std {
 	/*
-	@ Date: 2024-02-03,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-03,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- HASH opeartor() ¿¬»ê¿¡ ´ëÇÑ UProcessedData ÀçÁ¤ÀÇ, concurrent_ ÄÁÅ×ÀÌ³Ê¿¡ »ç¿ëÇÏ±â À§ÇÔ
+	- HASH opeartor() ì—°ì‚°ì— ëŒ€í•œ UProcessedData ì¬ì •ì˜, concurrent_ ì»¨í…Œì´ë„ˆì— ì‚¬ìš©í•˜ê¸° ìœ„í•¨
 	*/
 	template <>
 	struct std::hash<Engine::UProcessedData> {
@@ -94,9 +94,9 @@ namespace std {
 		}
 	};
 	/*
-	@ Date: 2024-02-03,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-03,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- Equal ¿¬»ê¿¡ ´ëÇÑ UProcessedData ÀçÁ¤ÀÇ, concurrent_ ÄÁÅ×ÀÌ³Ê¿¡ »ç¿ëÇÏ±â À§ÇÔ
+	- Equal ì—°ì‚°ì— ëŒ€í•œ UProcessedData ì¬ì •ì˜, concurrent_ ì»¨í…Œì´ë„ˆì— ì‚¬ìš©í•˜ê¸° ìœ„í•¨
 	*/
 	template <>
 	struct std::equal_to<Engine::UProcessedData> {
@@ -105,9 +105,9 @@ namespace std {
 		}
 	};
 	/*
-	@ Date: 2024-02-03,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-03,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- less ¿¬»ê¿¡ ´ëÇÑ UProcessedData ÀçÁ¤ÀÇ, concurrent_ ÄÁÅ×ÀÌ³Ê¿¡ »ç¿ëÇÏ±â À§ÇÔ
+	- less ì—°ì‚°ì— ëŒ€í•œ UProcessedData ì¬ì •ì˜, concurrent_ ì»¨í…Œì´ë„ˆì— ì‚¬ìš©í•˜ê¸° ìœ„í•¨
 	*/
 	template <>
 	struct std::less<Engine::UProcessedData> {

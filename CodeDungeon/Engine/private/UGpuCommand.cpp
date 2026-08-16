@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UGpuCommand.h"
 #include "UDevice.h"
 
@@ -23,14 +23,14 @@ HRESULT UGpuCommand::NativeConstruct(CSHPTRREF<UDevice> _spDevice, const ComPtr<
 	RETURN_CHECK_FAILED(__super::NativeConstruct(_spDevice, _cpCommandQueue), E_FAIL);
 	// Create Command 
 	{
-		// Á÷Á¢ ¸í·É ÇÒ´çÀÚ »ı¼º
+		// ì§ì ‘ ëª…ë ¹ í• ë‹¹ì ìƒì„±
 		for (_uint i = 0; i < FRAME_CNT; ++i) {
 			RETURN_CHECK_DXOBJECT(_spDevice->GetDV()->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT,
 				IID_PPV_ARGS(&m_arrFrameContexts[i].cpAllocator)), E_FAIL);
 		}
 		{
-			// GPU°¡ ÇÏ³ªÀÎ ½Ã½ºÅÛ¿¡¼­´Â 0, Direct or Bundle ÃÊ±â »óÅÂ (±×¸®±â ¸í·ÉÀº nullptr ÁöÁ¤)
-			// Command List¿¡¼­´Â Open Close °³³äÀÌ ÀÖ´Âµ¥ Open¿¡´Â ¸í·É¾î Áı¾î ³Ö°í Close ÇÑ ´ÙÀ½ Á¦Ãâ
+			// GPUê°€ í•˜ë‚˜ì¸ ì‹œìŠ¤í…œì—ì„œëŠ” 0, Direct or Bundle ì´ˆê¸° ìƒíƒœ (ê·¸ë¦¬ê¸° ëª…ë ¹ì€ nullptr ì§€ì •)
+			// Command Listì—ì„œëŠ” Open Close ê°œë…ì´ ìˆëŠ”ë° Openì—ëŠ” ëª…ë ¹ì–´ ì§‘ì–´ ë„£ê³  Close í•œ ë‹¤ìŒ ì œì¶œ
 			// Create CommandList
 
 			RETURN_CHECK_FAILED(CreateGraphicsList(_spDevice, m_arrFrameContexts[0].cpAllocator,
@@ -40,11 +40,11 @@ HRESULT UGpuCommand::NativeConstruct(CSHPTRREF<UDevice> _spDevice, const ComPtr<
 		{
 			for (auto& ResourceUpLoader : m_arrResourceLoaderGroup)
 			{
-				// GPU°¡ ÇÏ³ªÀÎ ½Ã½ºÅÛ¿¡¼­´Â 0, Direct or Bundle ÃÊ±â »óÅÂ (±×¸®±â ¸í·ÉÀº nullptr ÁöÁ¤)
+				// GPUê°€ í•˜ë‚˜ì¸ ì‹œìŠ¤í…œì—ì„œëŠ” 0, Direct or Bundle ì´ˆê¸° ìƒíƒœ (ê·¸ë¦¬ê¸° ëª…ë ¹ì€ nullptr ì§€ì •)
 				// Create Command Allocator
 				RETURN_CHECK_FAILED(_spDevice->GetDV()->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT,
 					IID_PPV_ARGS(&ResourceUpLoader.cpCmdAlloc)), E_FAIL);
-				// Command List¿¡¼­´Â Open Close °³³äÀÌ ÀÖ´Âµ¥ Open¿¡´Â ¸í·É¾î Áı¾î ³Ö°í ÀÚ¿øÇÒ´çÀ» À§ÇØ close´Â ÇÏÁö ¾ÊÀ½
+				// Command Listì—ì„œëŠ” Open Close ê°œë…ì´ ìˆëŠ”ë° Openì—ëŠ” ëª…ë ¹ì–´ ì§‘ì–´ ë„£ê³  ìì›í• ë‹¹ì„ ìœ„í•´ closeëŠ” í•˜ì§€ ì•ŠìŒ
 				// Create CommandList
 				RETURN_CHECK_FAILED(_spDevice->GetDV()->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT,
 					ResourceUpLoader.cpCmdAlloc.Get(), nullptr, IID_PPV_ARGS(&ResourceUpLoader.cpGraphicCmdList)), E_FAIL);
@@ -63,10 +63,10 @@ void UGpuCommand::Clear()
 void UGpuCommand::WaitForSynchronization()
 {
 	GetGpuCmdList()->Close();
-	// ±×·¡ÇÈ½º Ä¿¸Çµå ½ÇÇà
+	// ê·¸ë˜í”½ìŠ¤ ì»¤ë§¨ë“œ ì‹¤í–‰
 	ID3D12CommandList* CmdListArr[] = { GetGpuCmdList().Get() };
 	GetCmdQue()->ExecuteCommandLists(CMD_LIST_VALUE, CmdListArr);
-	// µ¿±âÈ­
+	// ë™ê¸°í™”
 	GpuCpuSynchronization();
 
 	Clear();
@@ -143,7 +143,7 @@ void UGpuCommand::WaitForGpuResourceUpload()
 	GetCmdQue()->ExecuteCommandLists(_countof(cmdListArr), cmdListArr);
 	// Synchronization
 	GpuCpuSynchronization();
-	// 1¹Ğ¸® ¼¼ÄÁµå¸¸Å­ ±â´Ù¸°´Ù. 
+	// 1ë°€ë¦¬ ì„¸ì»¨ë“œë§Œí¼ ê¸°ë‹¤ë¦°ë‹¤. 
 	ThreadMiliRelax(1);
 
 	++m_iGraphicResourceUploadIndex;

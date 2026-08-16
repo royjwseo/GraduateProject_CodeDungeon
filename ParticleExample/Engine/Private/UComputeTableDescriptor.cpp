@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 #include "UComputeTableDescriptor.h"
 #include "UDevice.h"
 #include "UComputeCommand.h"
@@ -15,7 +15,7 @@ void UComputeTableDescriptor::BindUAV(const D3D12_CPU_DESCRIPTOR_HANDLE& _uavHan
 {
 	D3D12_CPU_DESCRIPTOR_HANDLE destHandle = GetCpuHandle(_eReg);
 	CopyDesc(destHandle, _uavHandle);
-	// ¸®¼Ò½º »óÅÂ º¯°æ
+	// ë¦¬ì†ŒìŠ¤ ìƒíƒœ ë³€ê²½
 }
 
 void UComputeTableDescriptor::CommitTable(CSHPTRREF<UCommand> _spCommand)

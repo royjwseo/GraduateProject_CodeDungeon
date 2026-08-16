@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+ο»Ώ#include "ClientDefines.h"
 #include "CMinotaur.h"
 #include "UGameInstance.h"
 #include "URenderer.h"
@@ -73,14 +73,14 @@ void CMinotaur::CreateParticles()
 		m_stParticleType = m_spBloodParticle->GetParticleSystem()->GetParticleTypeParam();
 		m_stParticleType->fParticleType = PARTICLE_TYPE_DEFAULT;
 		m_stParticleType->fParticleLifeTimeType = PARTICLE_LIFETIME_TYPE_DEFAULT;
-		m_spBloodParticle->SetBloodTexture(0, L"blood"); // y°ª Αυ°΅ x Ώψ
-		m_spBloodParticle->SetBloodTexture(1, L"blood1"); // y°ª Αυ°΅ x Ώψ
-		m_spBloodParticle->SetBloodTexture(2, L"blood2"); // y°ª Αυ°΅ x Ώψ
-		m_spBloodParticle->SetBloodTexture(3, L"blood3"); // y°ª Αυ°΅ x Ώψ
-		m_spBloodParticle->SetBloodTexture(4, L"blood4"); // y°ª Αυ°΅ x Ώψ
-		m_spBloodParticle->SetBloodTexture(5, L"blood5"); // y°ª Αυ°΅ x Ώψ
-		m_spBloodParticle->SetBloodTexture(6, L"blood6"); // y°ª Αυ°΅ x Ώψ
-		m_spBloodParticle->SetBloodTexture(7, L"blood7"); // y°ª Αυ°΅ x Ώψ
+		m_spBloodParticle->SetBloodTexture(0, L"blood"); // yκ°’ μ¦κ°€ x μ›
+		m_spBloodParticle->SetBloodTexture(1, L"blood1"); // yκ°’ μ¦κ°€ x μ›
+		m_spBloodParticle->SetBloodTexture(2, L"blood2"); // yκ°’ μ¦κ°€ x μ›
+		m_spBloodParticle->SetBloodTexture(3, L"blood3"); // yκ°’ μ¦κ°€ x μ›
+		m_spBloodParticle->SetBloodTexture(4, L"blood4"); // yκ°’ μ¦κ°€ x μ›
+		m_spBloodParticle->SetBloodTexture(5, L"blood5"); // yκ°’ μ¦κ°€ x μ›
+		m_spBloodParticle->SetBloodTexture(6, L"blood6"); // yκ°’ μ¦κ°€ x μ›
+		m_spBloodParticle->SetBloodTexture(7, L"blood7"); // yκ°’ μ¦κ°€ x μ›
 		m_spBloodParticle->SetParticleType(PARTICLE_BLOOD);
 		*m_spBloodParticle->GetParticleSystem()->GetCreateInterval() = 0.85f;
 		*m_spBloodParticle->GetParticleSystem()->GetAddParticleAmount() = 5;
@@ -124,7 +124,7 @@ void CMinotaur::CreateParticles()
 
 		tDesc.ParticleParam.stGlobalParticleInfo.fAccTime = 0.f;
 		//tDesc.ParticleParam.stGlobalParticleInfo.fDeltaTime = 2.f;
-		tDesc.ParticleParam.stGlobalParticleInfo.fEndScaleParticle = 0.45f;  //0.45f;  //0.85 scale ²ψ¶§
+		tDesc.ParticleParam.stGlobalParticleInfo.fEndScaleParticle = 0.45f;  //0.45f;  //0.85 scale λλ•
 		tDesc.ParticleParam.stGlobalParticleInfo.fStartScaleParticle = 0.05f;  //0.05f;  //1.0 
 		tDesc.ParticleParam.stGlobalParticleInfo.fMaxLifeTime = 1.5f;
 		tDesc.ParticleParam.stGlobalParticleInfo.fMinLifeTime = 0.1f;
@@ -536,7 +536,7 @@ void CMinotaur::Collision(CSHPTRREF<UPawn> _pEnemy, const _double& _dTimeDelta)
 					m_spBloodParticle->GetParticleSystem()->GetParticleParam()->stGlobalParticleInfo.fAccTime = 0.f;
 					m_spSlashParticle->GetParticleSystem()->GetParticleParam()->stGlobalParticleInfo.fAccTime = 0.f;
 					m_spAttackParticle->GetParticleSystem()->GetParticleParam()->stGlobalParticleInfo.fAccTime = 0.f;
-					m_spAttackParticleTwo->GetParticleSystem()->GetParticleParam()->stGlobalParticleInfo.fAccTime = 0.f;	//µξΐ» ΈΒΎÒΐ» ¶§Ώ΅ΈΈ
+					m_spAttackParticleTwo->GetParticleSystem()->GetParticleParam()->stGlobalParticleInfo.fAccTime = 0.f;	//λ“±μ„ λ§μ•μ„ λ•μ—λ§
 					if (dotProduct < -0.5f)
 					{
 						

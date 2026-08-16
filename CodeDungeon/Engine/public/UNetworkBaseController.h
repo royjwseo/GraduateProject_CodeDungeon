@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "ServerUtility.h"
 #include "UProcessedData.h"
@@ -13,9 +13,9 @@ using NETWORKINITDATACONTAINER = UNORMAP<_int, NETWORKRECEIVEINITDATA>;
 class UActor;
 class UNetworkQueryProcessing;
 /*
-@ Date: 2024-02-03,  Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-03,  Writer: ë°•íƒœí˜„
 @ Explain
-- NetworkBaseController·Î »ó¼Ó¹Ş¾Æ¼­ »ç¿ëÇÒ Server¿Í Åë½Å Å¬·¡½º
+- NetworkBaseControllerë¡œ ìƒì†ë°›ì•„ì„œ ì‚¬ìš©í•  Serverì™€ í†µì‹  í´ë˜ìŠ¤
 */
 class UNetworkBaseController abstract : public UBase {
 	using NETWORKACTORCONTAINER = CONUNOMAP<_int, SHPTR<UActor>>;
@@ -49,9 +49,9 @@ protected:
 	virtual void ProcessPacket(_char* _pPacket, PACKETHEAD _PacketHead) PURE;
 	void RecvTcpPacket();
 	/*
-	@ Date: 2023-01-05, Writer: ¹ÚÅÂÇö
+	@ Date: 2023-01-05, Writer: ë°•íƒœí˜„
 	@ Explain
-	- ProtocolBuffer¸¦ TCP¿¡ ¿¬°áµÈ »ó´ë¿¡°Ô º¸³»±â À§ÇÑ ÅÛÇÃ¸´ ÇÔ¼öÀÌ´Ù.
+	- ProtocolBufferë¥¼ TCPì— ì—°ê²°ëœ ìƒëŒ€ì—ê²Œ ë³´ë‚´ê¸° ìœ„í•œ í…œí”Œë¦¿ í•¨ìˆ˜ì´ë‹¤.
 	*/
 	template<class T>
 		requires CheckProtoType<T>

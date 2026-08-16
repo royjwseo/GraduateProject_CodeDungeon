@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "AAnimController.h"
 #include "AAnimator.h"
 #include "APawn.h"
@@ -175,4 +175,4 @@ namespace Core {
 	void AAnimController::Free()
 	{
 	}
-}
+}

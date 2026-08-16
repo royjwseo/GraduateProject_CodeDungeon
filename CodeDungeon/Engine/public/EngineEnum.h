@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 namespace Engine {
 
@@ -67,18 +67,18 @@ namespace Engine {
 	};
 
 	/*
-	@ Date: 2024-05-01 Writer: ¹ÚÅÂÇö
+	@ Date: 2024-05-01 Writer: ë°•íƒœí˜„
 	@ Explain
-	- . SoundÀÇ Á¾·ù¸¦ Á¤ÀÇÇÑ´Ù. 
+	- . Soundì˜ ì¢…ë¥˜ë¥¼ ì •ì˜í•œë‹¤. 
 	*/
 	enum SOUNDTYPE : _int {
 		SOUND_BACKGROUND, SOUND_GAME, SOUND_MUMMY, SOUND_PLAYER, SOUND_ANUBIS, SOUND_HARLEQUINN, SOUND_MINOTAUR, SOUND_MIMIC, SOUND_END
 	};
 
 	/*
-	@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	- . ¾Ö´Ï¸ÞÀÌ¼Ç Ä«Å×°í¸®¸¦ Á¤ÀÇÇÑ´Ù. 
+	- . ì• ë‹ˆë©”ì´ì…˜ ì¹´í…Œê³ ë¦¬ë¥¼ ì •ì˜í•œë‹¤. 
 	*/
 	enum class ANIMEVENTCATEGORY : _int {
 		CATEGROY_SECTION, 
@@ -86,16 +86,16 @@ namespace Engine {
 		CATEGROY_END
 	};
 	/*
-	@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¾Ö´Ï¸ÞÀÌ¼Ç Event¸¦ À§ÇØ ÇÊ¿äÇÑ °´Ã¼¸¦ Á¤ÀÇÇÔ
+	- ì• ë‹ˆë©”ì´ì…˜ Eventë¥¼ ìœ„í•´ í•„ìš”í•œ ê°ì²´ë¥¼ ì •ì˜í•¨
 	*/
 	enum ANIMEVENTTYPE : _int {
-		ANIMEVENT_EFFECT,     // ÀÌÆåÆ® ¹ß»ý 			
-		ANIMEVENT_SOUND,     // ¼Ò¸® ¹ß»ý 
-		ANIMEVENT_COLLIDER,	  // ÄÝ¶óÀÌ´õ ¹ß»ý
-		ANIMEVENT_CAMERA,    // Ä«¸Þ¶ó µû¶ó´Ù´Ô
-		ANIMEVENT_OBJACTIVE, // OBJÈ°¼ºÈ­
+		ANIMEVENT_EFFECT,     // ì´íŽ™íŠ¸ ë°œìƒ 			
+		ANIMEVENT_SOUND,     // ì†Œë¦¬ ë°œìƒ 
+		ANIMEVENT_COLLIDER,	  // ì½œë¼ì´ë” ë°œìƒ
+		ANIMEVENT_CAMERA,    // ì¹´ë©”ë¼ ë”°ë¼ë‹¤ë‹˜
+		ANIMEVENT_OBJACTIVE, // OBJí™œì„±í™”
 		ANIMEVENT_ANIMCHANGESBETWEEN,
 		ANIMEVENT_ANIMOCCURSTIMEPASS,
 		ANIMEVENT_END
@@ -103,7 +103,7 @@ namespace Engine {
 
 	typedef enum ERenderID : _ubyte
 	{
-		// Ã¹ ¹øÂ° ±×·ÁÁú °Í
+		// ì²« ë²ˆì§¸ ê·¸ë ¤ì§ˆ ê²ƒ
 		RI_NONALPHA_PRIORITY, RI_SHADOW,RI_NORPOS_FORABILITY, RI_NORPOS,RI_DEPTHRECORD, RI_NONALPHA_FIRST, RI_NONALPHA_LAST, RI_NONALPHA_MIDDLE, RI_ALPHA, RI_DISTORTION, RI_NOLIGHT, RI_3DUI, RI_2DUIPRIORITY, RI_2DUIMIDDLE, RI_2DUILAST, RI_TARGETS,
 		RI_END
 	}RENDERID;
@@ -121,7 +121,7 @@ namespace Engine {
 	enum  class ROOT_REGISTER_TYPE : unsigned short
 	{
 		COMMON, GRAPHI_LIGHT,
-		// Compute´Â µû·Î Á¤ÀÇ
+		// ComputeëŠ” ë”°ë¡œ ì •ì˜
 		COMPUTE_COMMON, ROOT_REGISTER_END
 	};
 
@@ -169,10 +169,10 @@ namespace Engine {
 		LESS_EQUAL,
 		GREATER,
 		GREATER_EQUAL,
-		NO_DEPTH_TEST, // ±íÀÌ Å×½ºÆ®(X) + ±íÀÌ ±â·Ï(O)
-		NO_DEPTH_TEST_NO_WRITE, // ±íÀÌ Å×½ºÆ®(X) + ±íÀÌ ±â·Ï(X)
-		LESS_NO_WRITE, // ±íÀÌ Å×½ºÆ®(O) + ±íÀÌ ±â·Ï(X)
-		LESS_EQUAL_NO_WRITE, // ±íÀÌ Å×½ºÆ®(O) + ±íÀÌ ±â·Ï(X)
+		NO_DEPTH_TEST, // ê¹Šì´ í…ŒìŠ¤íŠ¸(X) + ê¹Šì´ ê¸°ë¡(O)
+		NO_DEPTH_TEST_NO_WRITE, // ê¹Šì´ í…ŒìŠ¤íŠ¸(X) + ê¹Šì´ ê¸°ë¡(X)
+		LESS_NO_WRITE, // ê¹Šì´ í…ŒìŠ¤íŠ¸(O) + ê¹Šì´ ê¸°ë¡(X)
+		LESS_EQUAL_NO_WRITE, // ê¹Šì´ í…ŒìŠ¤íŠ¸(O) + ê¹Šì´ ê¸°ë¡(X)
 	};
 
 	enum class BLEND_TYPE : unsigned short {
@@ -443,7 +443,7 @@ namespace Engine {
 		MAX_BUFFER_LENGTH = 512,
 		MAX_PROCESSBUF_LENGTH = MAX_BUFFER_LENGTH * 10,
 		MAX_CHANNEL_CNT = 32,
-		// ¸ÓÅÍ¸®¾ó ÆÄ¶÷ÀÇ ¼ýÀÚ¸¦ Á¤ÇÏ´Â Enum 
+		// ë¨¸í„°ë¦¬ì–¼ íŒŒëžŒì˜ ìˆ«ìžë¥¼ ì •í•˜ëŠ” Enum 
 		MAX_MATERIALPARAM_CNT = 500,
 		MAX_ASSIMP_MATERIAL_TEXTURE_CNT = TEXTYPE::TextureType_END,
 		MAX_MOUSEBTN_CNT = DIMOUSEBUTTON::DIMB_END,

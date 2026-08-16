@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_LOCK_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_LOCK_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_LOCK_H
 
 namespace Core {
@@ -7,9 +7,9 @@ namespace Core {
 
 
 	/*
-	@ Date: 2024-01-06,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-01-06,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- AWS ¹öÀü¿¡¼­ µû¿Â SpinLock
+	- AWS ë²„ì „ì—ì„œ ë”°ì˜¨ SpinLock
 	*/
 	class CORE_DLL AFastSpinLock {
 	public:
@@ -57,4 +57,4 @@ namespace Core {
 	};
 
 }
-#endif 
+#endif 

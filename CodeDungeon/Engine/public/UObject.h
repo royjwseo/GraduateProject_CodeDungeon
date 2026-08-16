@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 #include "UBase.h"
 
 BEGIN(Engine)
 class UDevice;
 class UCommand;
 /*
-Device, GpuCommand¸¦ °¡Áö°í ÀÖ´Â Å¬·¡½ºÀÌ´Ù.
+Device, GpuCommandë¥¼ ê°€ì§€ê³  ìˆëŠ” í´ë˜ìŠ¤ì´ë‹¤.
 */
 
 

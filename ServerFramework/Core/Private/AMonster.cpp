@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "AMonster.h"
 #include "ASession.h"
 #include "ATransform.h"
@@ -231,4 +231,4 @@ namespace Core
 	{
 	}
 
-}
+}

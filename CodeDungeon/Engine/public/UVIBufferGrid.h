@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 #include "UVIBuffer.h"
 
 BEGIN(Engine)
 /*
-@ Date: 2024-02-08, Writer:ÀÌ¼ºÇö
+@ Date: 2024-02-08, Writer:ì´ì„±í˜„
 @ Explain
-- ÅøÀÇ ±âº» ±×¸®µå ¸Ş½¬¸¦ À§ÇÑ VI¹öÆÛ
+- íˆ´ì˜ ê¸°ë³¸ ê·¸ë¦¬ë“œ ë©”ì‰¬ë¥¼ ìœ„í•œ VIë²„í¼
 */
 
 const _uint GRID_SIZE = 300;

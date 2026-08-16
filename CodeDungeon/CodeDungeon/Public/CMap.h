@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UComponent.h"
 #include "UMapLayout.h"
 #include "UGuard.h"
@@ -10,9 +10,9 @@ class UMapLayout;
 END
 
 /*
-@ Date: 2024-04-23, Writer: ÀÌ¼ºÇö
+@ Date: 2024-04-23, Writer: ì´ì„±í˜„
 @ Explain
-- ¸ÊÀ» Ãë±ŞÇÏ´Â Å¬·¡½º
+- ë§µì„ ì·¨ê¸‰í•˜ëŠ” í´ë˜ìŠ¤
 */
 BEGIN(Client)
 class CRooms;
@@ -35,7 +35,7 @@ public:
 	CMap(const CMap& _rhs);
 	DESTRUCTOR(CMap)
 
-	// UComponentÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UComponentì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	void Free() override;
 	SHPTR<UCloneObject> Clone(const VOIDDATAS& _tDatas) override;
 	HRESULT NativeConstruct() override;

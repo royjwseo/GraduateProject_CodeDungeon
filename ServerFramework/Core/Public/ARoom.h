@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AROOM_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AROOM_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_AROOM_H
 
 #include "ACoreObject.h"
@@ -6,10 +6,10 @@
 BEGIN(Core)
 class ASession;
 /*
-@ Date: 2023-01-10, Writer: ¹ÚÅÂÇö
+@ Date: 2023-01-10, Writer: ë°•íƒœí˜„
 @ Explain
-- °¢ ÇÁ·¹ÀÓ¿öÅ©¿¡¼­ ÀçÁ¤ÀÇÇÏ´Â Room Å¬·¡½º·Î ÇØ´ç ·ë¿¡¼­ ¼¼¼ÇµéÀ» ¹Þ¾Æ¼­ ÇØ´ç ¼¼¼ÇµéÀÌ ¾ó¸¶³ª µé¾î¿Ô´ÂÁö 
-È®ÀÎÇÏ°í ÇØ´ç ·ë¿¡¼­ °ÔÀÓ¿¡ ´ëÇÑ Ã³¸®¸¦ ¼öÇàÇÑ´Ù. 
+- ê° í”„ë ˆìž„ì›Œí¬ì—ì„œ ìž¬ì •ì˜í•˜ëŠ” Room í´ëž˜ìŠ¤ë¡œ í•´ë‹¹ ë£¸ì—ì„œ ì„¸ì…˜ë“¤ì„ ë°›ì•„ì„œ í•´ë‹¹ ì„¸ì…˜ë“¤ì´ ì–¼ë§ˆë‚˜ ë“¤ì–´ì™”ëŠ”ì§€ 
+í™•ì¸í•˜ê³  í•´ë‹¹ ë£¸ì—ì„œ ê²Œìž„ì— ëŒ€í•œ ì²˜ë¦¬ë¥¼ ìˆ˜í–‰í•œë‹¤. 
 */
 class CORE_DLL ARoom abstract : public ACoreObject {
 public:

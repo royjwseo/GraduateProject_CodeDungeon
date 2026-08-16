@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UComponent.h"
 
@@ -11,9 +11,9 @@ class UShader;
 using BINDTEXTURECONTAINER = UNORMAP<SRV_REGISTER, SHPTR<UTexture>>;
 using MATERIALTEXCONTAINER = VECTOR<SHPTR<UTexGroup>>;
 /*
-@ Date: 2024-04-10, Writer: ¹ÚÅÂÇö
+@ Date: 2024-04-10, Writer: ë°•íƒœí˜„
 @ Explain
--  ¸ÓÅÍ¸®¾ó¿¡ ´ëÇÑ ÅØ½ºÃ³ ÄÁÅ×ÀÌ³ÊÀÌ´Ù. 
+-  ë¨¸í„°ë¦¬ì–¼ì— ëŒ€í•œ í…ìŠ¤ì²˜ ì»¨í…Œì´ë„ˆì´ë‹¤. 
 */
 class UModelMaterial final : public UComponent {
 public:
@@ -26,7 +26,7 @@ public:
 	UModelMaterial(const UModelMaterial& _rhs);
 	DESTRUCTOR(UModelMaterial)
 public:
-	// UObjectÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UObjectì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(UModelMaterial, "Material::Clone To Failed")
 	virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;
@@ -44,9 +44,9 @@ public: /* get set */
 private:
 	// Material Draw Number 
 	static _int									s_AllMaterialDrawLength;
-	// ³Ñ¹ö¸µÀ» ÁÖ±â À§ÇÑ ÄÁÅ×ÀÌ³Ê
+	// ë„˜ë²„ë§ì„ ì£¼ê¸° ìœ„í•œ ì»¨í…Œì´ë„ˆ
 	static VECTOR<_int>				s_RemainMaterialDrawNumber;
-	// ¸ÓÅÍ¸®¾ó 
+	// ë¨¸í„°ë¦¬ì–¼ 
 	_int												m_iMaterialIndex;
 
 	BINDTEXTURECONTAINER		m_BindTextureContainer;

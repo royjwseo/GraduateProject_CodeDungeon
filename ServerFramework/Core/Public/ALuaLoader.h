@@ -1,16 +1,16 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ALUALOADER_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ALUALOADER_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ALUALOADER_H
 
 BEGIN(Core)
 /*
-@ Date: 2024-01-13, Writer: ¹ÚÅÂÇö
+@ Date: 2024-01-13, Writer: ë°•íƒœí˜„
 @ Explain
-- Lua Script¸¦ ·ÎµåÇÏ´Â Loader Å¬·¡½ºÀÔ´Ï´Ù. 
- ÇØ´ç lua Script¸¦ ·ÎµåÇÒ ¶§, °æ·Î¿Í .lua¸¦ Á¦¿ÜÇÏ°í ÀÌ¸§¸¸ Àû¾î¼­ ·ÎµåÇÕ´Ï´Ù.
+- Lua Scriptë¥¼ ë¡œë“œí•˜ëŠ” Loader í´ë˜ìŠ¤ì…ë‹ˆë‹¤. 
+ í•´ë‹¹ lua Scriptë¥¼ ë¡œë“œí•  ë•Œ, ê²½ë¡œì™€ .luaë¥¼ ì œì™¸í•˜ê³  ì´ë¦„ë§Œ ì ì–´ì„œ ë¡œë“œí•©ë‹ˆë‹¤.
 */
 class ALuaLoader final {
 public:
-	// ÆÄÀÏ ÀÌ¸§¸¸ ÀûÀ¸¸é ·Îµå°¡ µË´Ï´Ù. 
+	// íŒŒì¼ ì´ë¦„ë§Œ ì ìœ¼ë©´ ë¡œë“œê°€ ë©ë‹ˆë‹¤. 
 	ALuaLoader(const _string& _strFilename);
 	~ALuaLoader();
 public:
@@ -28,7 +28,7 @@ public:
 
 	template<class T>
 	requires CheckNumber<T>
-	// -1Àº ½ºÅÃ ÃÖ»óÀ§¿¡ ÀÖ´Ù´Â ÀÌ¾ß±âÀÌ´Ù.
+	// -1ì€ ìŠ¤íƒ ìµœìƒìœ„ì— ìˆë‹¤ëŠ” ì´ì•¼ê¸°ì´ë‹¤.
 	T ToNumber(_int _order = -1) 
 	{ 
 		T value = lua_tonumber(m_pLuaState, _order); 
@@ -52,4 +52,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ULUALOADER_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ULUALOADER_H

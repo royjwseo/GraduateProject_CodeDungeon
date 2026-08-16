@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "AMySqlDriver.h"
 #include "AMySqlConnector.h"
 #include "AMySqlTable.h"
@@ -17,20 +17,20 @@ namespace Core {
 		// Connect My Sql 
 		m_pDriver = sql::mysql::get_driver_instance();
 		assert(nullptr != m_pDriver);
-		// ½ÇÁ¦ µ¥ÀÌÅÍº£ÀÌ½º°¡ Á¸ÀçÇÏ´ÂÁö È®ÀÎ 
+		// ì‹¤ì œ ë°ì´í„°ë² ì´ìŠ¤ê°€ ì¡´ì¬í•˜ëŠ”ì§€ í™•ì¸ 
 		{
-			// µ¥ÀÌÅÍº£ÀÌ½º ¼­¹ö¿¡ ¿¬°áÇÑ´Ù. 
+			// ë°ì´í„°ë² ì´ìŠ¤ ì„œë²„ì— ì—°ê²°í•œë‹¤. 
 			std::unique_ptr<sql::Connection> Conn(m_pDriver->connect(m_strAddress.c_str(), m_strSqlName.c_str(), m_strPassword.c_str()));
-			// Statement °´Ã¼¸¦ »ı¼º
+			// Statement ê°ì²´ë¥¼ ìƒì„±
 			std::unique_ptr<sql::Statement> Stmt(Conn->createStatement());
-			// Query¹® ÀÛ¼º 
+			// Queryë¬¸ ì‘ì„± 
 			_string CheckDBExistQuery = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '";
 			CheckDBExistQuery += SQL_DATABASE_NAME;
 			CheckDBExistQuery += "'";
 			// Make Result 
 			std::unique_ptr<sql::ResultSet> res(Stmt->executeQuery(CheckDBExistQuery.c_str()));
 			assert(res != nullptr);
-			// µ¥ÀÌÅÍº£ÀÌ½º°¡ Á¸ÀçÇÏÁö ¾Ê´Â´Ù¸é
+			// ë°ì´í„°ë² ì´ìŠ¤ê°€ ì¡´ì¬í•˜ì§€ ì•ŠëŠ”ë‹¤ë©´
 			if (false == res->next())
 			{
 				_string CreateDBQuery = "CREATE DATABASE ";
@@ -88,4 +88,4 @@ namespace Core {
 	void AMySqlDriver::Free() {
 		delete m_pDriver;
 	}
-}
+}

@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "AJobTimer.h"
 #include <functional>
 
@@ -16,7 +16,7 @@ namespace Core {
 	void AJobTimer::RegisterTimer(_int _RegisterTimer)
 	{
 		m_SteadyEvent.expires_from_now(std::chrono::microseconds(_RegisterTimer));
-		// Å¸ÀÌ¸ÓÀÇ ºñµ¿±â ´ë±â ¼³Á¤
+		// íƒ€ì´ë¨¸ì˜ ë¹„ë™ê¸° ëŒ€ê¸° ì„¤ì •
 		m_SteadyEvent.async_wait(std::bind(&AJobTimer::TimerThread, this, std::placeholders::_1));
 	}
 
@@ -46,4 +46,4 @@ namespace Core {
 	{
 		m_TimerEventQueue.push(_TimerEvent);
 	}
-}
+}

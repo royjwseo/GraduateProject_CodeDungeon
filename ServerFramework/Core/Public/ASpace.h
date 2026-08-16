@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ASPACE_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ASPACE_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ASPACE_H
 
 #include "ACoreBase.h"
@@ -9,11 +9,11 @@ class ACollider;
 class ASession;
 
 /*
-@ Date: 2023-01-22, Writer: ¹ÚÅÂÇö
+@ Date: 2023-01-22, Writer: ë°•íƒœí˜„
 @ Explain
-- °ÔÀÓ»óÀÇ °ø°£À» Á¤ÀÇÇÏ¿© ½Ã¾ß È®º¸¸¦ ÇÏ±â À§ÇÑ Å¬·¡½ºÀÌ´Ù.
-ÀüÃ¼ ¿ÀºêÁ§Æ®¸¦ °Ë»öÇÏ´Â °ÍÀº ³¶ºñ´Ù. ±×·¡¼­ ³í¸®ÀûÀÎ °ø°£À» ³ª´©¾î¼­ °Ë»öÀ» ÇÏ´Â °ÍÀÌ ÇÕ¸®ÀûÀÌ¶ó°í »ý°¢ÇØ¼­
-ÇØ´ç Å¬·¡½º¸¦ Á¤ÀÇÇß´Ù.
+- ê²Œìž„ìƒì˜ ê³µê°„ì„ ì •ì˜í•˜ì—¬ ì‹œì•¼ í™•ë³´ë¥¼ í•˜ê¸° ìœ„í•œ í´ëž˜ìŠ¤ì´ë‹¤.
+ì „ì²´ ì˜¤ë¸Œì íŠ¸ë¥¼ ê²€ìƒ‰í•˜ëŠ” ê²ƒì€ ë‚­ë¹„ë‹¤. ê·¸ëž˜ì„œ ë…¼ë¦¬ì ì¸ ê³µê°„ì„ ë‚˜ëˆ„ì–´ì„œ ê²€ìƒ‰ì„ í•˜ëŠ” ê²ƒì´ í•©ë¦¬ì ì´ë¼ê³  ìƒê°í•´ì„œ
+í•´ë‹¹ í´ëž˜ìŠ¤ë¥¼ ì •ì˜í–ˆë‹¤.
 */
 class CORE_DLL  ASpace final : public ACoreBase {
 public:
@@ -57,4 +57,4 @@ private:
 END
 
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ASPACE_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ASPACE_H

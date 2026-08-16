@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UShader.h"
 #include "UTexGroup.h"
 #include "UTexture.h"
@@ -57,7 +57,7 @@ HRESULT UTexGroup::NativeConstruct(const _wstring& _wstrPath, const _bool& _isUn
 {
 	RETURN_CHECK_FAILED(NativeConstruct(), E_FAIL);
 
-	// Resource ¾÷·Îµå ÁØºñ
+	// Resource ì—…ë¡œë“œ ì¤€ë¹„
 	DirectX::ResourceUploadBatch ResoureceUpLoad{ GetDevice()->GetDV().Get()};
 	ResoureceUpLoad.Begin();
 

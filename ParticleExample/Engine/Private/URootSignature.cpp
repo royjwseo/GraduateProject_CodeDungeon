@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 #include "URootSignature.h"
 #include "UDevice.h"
 #include "UGpuCommand.h"
@@ -29,11 +29,11 @@ void URootSignature::NativeSampler()
 	// Sampler
 	{
 		m_arrSamplerDescs[S0] = CD3DX12_STATIC_SAMPLER_DESC(S0);
-		m_arrSamplerDescs[S1] = CD3DX12_STATIC_SAMPLER_DESC(S1, // »ùÇÃ·¯ ·¹Áö½ºÅÍ ½½·Ô
-			D3D12_FILTER_MIN_MAG_MIP_LINEAR, // ÇÊÅÍ ¼³Á¤
-			D3D12_TEXTURE_ADDRESS_MODE_CLAMP, // U Ãà ÁÖ¼Ò ¸ğµå
-			D3D12_TEXTURE_ADDRESS_MODE_CLAMP, // V Ãà ÁÖ¼Ò ¸ğµå
-			D3D12_TEXTURE_ADDRESS_MODE_CLAMP  // W Ãà ÁÖ¼Ò ¸ğµå
+		m_arrSamplerDescs[S1] = CD3DX12_STATIC_SAMPLER_DESC(S1, // ìƒ˜í”ŒëŸ¬ ë ˆì§€ìŠ¤í„° ìŠ¬ë¡¯
+			D3D12_FILTER_MIN_MAG_MIP_LINEAR, // í•„í„° ì„¤ì •
+			D3D12_TEXTURE_ADDRESS_MODE_CLAMP, // U ì¶• ì£¼ì†Œ ëª¨ë“œ
+			D3D12_TEXTURE_ADDRESS_MODE_CLAMP, // V ì¶• ì£¼ì†Œ ëª¨ë“œ
+			D3D12_TEXTURE_ADDRESS_MODE_CLAMP  // W ì¶• ì£¼ì†Œ ëª¨ë“œ
 		);
 	}
 
@@ -46,23 +46,23 @@ void URootSignature::NativeSampler()
 HRESULT URootSignature::CreateRootSignature(CSHPTRREF<UDevice> _spDevice)
 {
 	{
-		// B0 ´Â Àü¿ª »óÅÂ
+		// B0 ëŠ” ì „ì—­ ìƒíƒœ
 		ARRAY< CD3DX12_DESCRIPTOR_RANGE, 2> Ranges =
 		{
-			// Constant Buffer °ªÀ» »« °ÍÀÌ´Ù. 
+			// Constant Buffer ê°’ì„ ëº€ ê²ƒì´ë‹¤. 
 			CD3DX12_DESCRIPTOR_RANGE(D3D12_DESCRIPTOR_RANGE_TYPE_CBV, CBV_REGISTER_END - GRAPHICS_CONSTANT_BUFFER_VALUE,
 			GRAPHICS_CONSTANT_BUFFER_VALUE, GetRegisterSpace()), 
 
 			CD3DX12_DESCRIPTOR_RANGE(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, SRV_REGISTER_END, 0, GetRegisterSpace()), 
 		};
 
-		// ConstantBuffer View¸¦ ¸¸µé°í
+		// ConstantBuffer Viewë¥¼ ë§Œë“¤ê³ 
 		const _uint PARAM_SIZE = 3;
 		ARRAY<CD3DX12_ROOT_PARAMETER, PARAM_SIZE> Param = {};
 		Param[0].InitAsConstantBufferView(static_cast<_uint>(CBV_REGISTER::B0));
 		Param[1].InitAsConstantBufferView(static_cast<_uint>(CBV_REGISTER::B1));
-		// DescriptorTableÀ» Range ¸¸Å­ ¸¸µç´Ù. 
-		Param[2].InitAsDescriptorTable(static_cast<_uint>(Ranges.size()), Ranges.data()); // 0¹ø -> b0 -> CBV
+		// DescriptorTableì„ Range ë§Œí¼ ë§Œë“ ë‹¤. 
+		Param[2].InitAsDescriptorTable(static_cast<_uint>(Ranges.size()), Ranges.data()); // 0ë²ˆ -> b0 -> CBV
 
 		for (auto& iter : Param)
 		{
@@ -73,12 +73,12 @@ HRESULT URootSignature::CreateRootSignature(CSHPTRREF<UDevice> _spDevice)
 		D3D12_ROOT_SIGNATURE_DESC tDesc = CD3DX12_ROOT_SIGNATURE_DESC(static_cast<_uint>(Param.size()), Param.data(),
 			static_cast<_uint>(m_arrSamplerDescs.size()), m_arrSamplerDescs.data());
 
-		// ÀÔ·Â Á¶¸³±â ´Ü°è »ç¿ë
-		tDesc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT; // ÀÔ·Â Á¶¸³±â ´Ü°è
+		// ì…ë ¥ ì¡°ë¦½ê¸° ë‹¨ê³„ ì‚¬ìš©
+		tDesc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT; // ì…ë ¥ ì¡°ë¦½ê¸° ë‹¨ê³„
 		
 		ComPtr<DxBlob> BlobSignature = nullptr;
 		ComPtr<DxBlob> BlobError = nullptr;
-		// RootSignature »óÅÂ¸¦ ¾Ë¸®°í 
+		// RootSignature ìƒíƒœë¥¼ ì•Œë¦¬ê³  
 		RETURN_CHECK_DXOBJECT(::D3D12SerializeRootSignature(&tDesc, D3D_ROOT_SIGNATURE_VERSION_1,
 			&BlobSignature, &BlobError), E_FAIL);
 		RETURN_CHECK(nullptr != BlobError, E_FAIL);

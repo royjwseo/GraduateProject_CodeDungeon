@@ -1,4 +1,4 @@
-#pragma once
+Ôªø#pragma once
 
 #include "UUserInterface.h"
 
@@ -25,7 +25,7 @@ protected:
 	virtual HRESULT RenderActive(CSHPTRREF<UCommand> _spCommand, CSHPTRREF<UTableDescriptor> _spTableDescriptor) override;
 	// Ready 
 	virtual HRESULT ReadyRectTransform(const VOIDDATAS& _vecDatas) override;
-	// UUserInterface¿ª(∏¶) ≈Î«ÿ ªÛº”µ 
+	// UUserInterfaceÏùÑ(Î•º) ÌÜµÌï¥ ÏÉÅÏÜçÎê®
 	HRESULT RenderShadowActive(CSHPTRREF<UCommand> _spCommand, CSHPTRREF<UTableDescriptor> _spTableDescriptor) override;
 	HRESULT RenderOutlineActive(CSHPTRREF<UCommand> _spCommand, CSHPTRREF<UTableDescriptor> _spTableDescriptor, _bool _pass) override;
 	void Collision(CSHPTRREF<UPawn> _pEnemy, const _double& _dTimeDelta) override;

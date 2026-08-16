@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UGPUCOMMAND_H
+ï»¿#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UGPUCOMMAND_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UGPUCOMMAND_H
 
 #include "UCommand.h"
@@ -39,7 +39,7 @@ private:
 	static constexpr _uint										FRAME_CNT{3};
 	static constexpr  _uint									RESOURCE_LOADER_CNT{5};
 	using  GRAPHICGROUPS = ARRAY<GRAPHICGROUP, RESOURCE_LOADER_CNT>;
-	// FameContext °ü·Ã
+	// FameContext ê´€ë ¨
 	ARRAY<FRAMECONTEXT, FRAME_CNT>	m_arrFrameContexts;
 	_uint																	m_iFrameValue;
 	_uint																	m_iFenceLastSignaledValue;

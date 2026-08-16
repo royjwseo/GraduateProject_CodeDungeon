@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UPipeLine.h"
 #include "UGameInstance.h"
 #include "UTransform.h"
@@ -41,7 +41,7 @@ void UPipeLine::RegisterCameraInPipeline(CSHPTRREF<UCamera> _spCamera, CAMID& _i
 
 	if (MAIN_CAMERA_ID == ID || DEFFERED_CAMERA_ID == ID || SMALL_DEFFERED_CAMERA_ID == ID || SHADOWLIGHT_CAMERA_ID == ID)
 	{
-		// Main Ä«¸Ş¶ó°¡ Á¸ÀçÇÏ¸é ¹Ù²Û´Ù. 
+		// Main ì¹´ë©”ë¼ê°€ ì¡´ì¬í•˜ë©´ ë°”ê¾¼ë‹¤. 
 		if (nullptr != m_arrCameras[MAIN_CAMERA_ID])
 		{
 			_uint OtherCamID = GetID(CAMERATYPE::OTHER);
@@ -94,7 +94,7 @@ _bool UPipeLine::IsFrustomContains(const _float3& _vPos, const _float _fRadius, 
 
 void UPipeLine::UpdateViewProjMatrix(const _float _fGrobalDeltaTime)
 {
-	// ±Û·Î¹ú ¹öÆÛÀÎ ViewProj¿¡ °ªÀ» ¸ğ¾Æ¼­ Àü´ŞÇÑ´Ù. 
+	// ê¸€ë¡œë²Œ ë²„í¼ì¸ ViewProjì— ê°’ì„ ëª¨ì•„ì„œ ì „ë‹¬í•œë‹¤. 
 	for (_uint i = 0; i < m_arrCameras.size(); ++i)
 	{
 		if (nullptr != m_arrCameras[i])
@@ -118,7 +118,7 @@ const _float4x4 UPipeLine::GetMainCamViewMatrix() const
 	return m_spMainCamera->GetTransform()->GetWorldMatrixInv();
 }
 
-//2024-04-09 ¼öÁ¤
+//2024-04-09 ìˆ˜ì •
 const _float4x4 UPipeLine::GetMainCamWorldMatrix() const
 {
 	RETURN_CHECK(nullptr == m_spMainCamera, _float4x4::Identity);

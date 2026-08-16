@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCHANNEL_H
+ï»¿#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCHANNEL_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCHANNEL_H
 
 #include "UBase.h"
@@ -32,7 +32,7 @@ private:
 	_uint												m_iCurrentKeyFrames;
 	VECTOR<KEYFRAME>		m_vecKeyFrames;
 	 _double											m_dCurTimeAcc;
-	 // »ç¿ëÇÏ´Â °Íµé
+	 // ì‚¬ìš©í•˜ëŠ” ê²ƒë“¤
 	 _float3											m_vScale;
 	 _float4											m_vRotation;
 	 _float4											m_vPosition;
@@ -41,4 +41,4 @@ private:
 END
 
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCHANNEL_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCHANNEL_H

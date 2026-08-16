@@ -1,4 +1,4 @@
-#include "PickingManager.h"
+ï»¿#include "PickingManager.h"
 #include "GridObject.h"
 
 PickingManager::PickingManager()
@@ -43,7 +43,7 @@ Ray PickingManager::CreateWorldRayFromScreenCoords(float screenX, float screenY,
     XMFLOAT3 worldSpace;
     XMStoreFloat3(&worldSpace, worldSpacePos);
 
-    //±¤¼± »ı¼º
+    //ê´‘ì„  ìƒì„±
     Ray ray;
     ray.origin = CameraPositionVector;
     XMFLOAT3 rayDirection;
@@ -66,7 +66,7 @@ RayHitResult PickingManager::ReturnScreenToWorldRayClosestHitResult(Ray pRay, co
     {
         RayHitResult currentHitResult = RayIntersectionWithWorldObject(pRay, sceneObject, sceneObject->GetWorld4X4());
 
-        //±¤¼±°úÀÇ ÃÖ´Ü °Å¸®ÀÇ HitResult¹İÈ¯
+        //ê´‘ì„ ê³¼ì˜ ìµœë‹¨ ê±°ë¦¬ì˜ HitResultë°˜í™˜
         if (currentHitResult.hit && (!closestHitResult.hit || currentHitResult.hitDistance < closestHitResult.hitDistance))
         {
             closestHitResult = currentHitResult;
@@ -80,7 +80,7 @@ RayHitResult PickingManager::RayIntersectionWithWorldObject(const Ray& ray, cons
     RayHitResult result;
     shared_ptr<CMesh> ObjectMesh = Object->GetMesh();
 
-    // ·¹ÀÌ¿Í ¹Ù¿îµù ¹Ú½º Ãæµ¹ °Ë»ç
+    // ë ˆì´ì™€ ë°”ìš´ë”© ë°•ìŠ¤ ì¶©ëŒ ê²€ì‚¬
     float objecthitdistance = 0;
     BoundingOrientedBox objectOrientedBox = ObjectMesh->GetBoundingBox();
 
@@ -115,7 +115,7 @@ RayHitResult PickingManager::RayIntersectionWithWorldObject(const Ray& ray, cons
             {
                 result.hit = true;
                 result.hitObject = Object;
-                //ÀÌÀü °Íº¸´Ù ¾Õ¿¡ ÀÖ´ÂÁö °Ë»ç
+                //ì´ì „ ê²ƒë³´ë‹¤ ì•ì— ìˆëŠ”ì§€ ê²€ì‚¬
                 if (meshhitdistance < result.hitDistance)
                 {
                     XMVECTOR intersectionPointVector = XMVectorAdd(ray.origin, XMVectorScale(ray.direction, meshhitdistance));

@@ -1,4 +1,4 @@
-#include "ToolDefines.h"
+ï»¿#include "ToolDefines.h"
 #include "TAnimControlView.h"
 #include "TAnimControlModel.h"
 #include "UGameInstance.h"
@@ -81,7 +81,7 @@ HRESULT TAnimControlView::LoadResource()
 	{
 		for (auto& iter : AnimModels->UnderFileGroupList)
 		{
-			// FBX¿¡¼­ Convert ¶ó´Â ÇÏÀ§ Æú´õ¸¦ Ã£´Â´Ù. 
+			// FBXì—ì„œ Convert ë¼ëŠ” í•˜ìœ„ í´ë”ë¥¼ ì°¾ëŠ”ë‹¤. 
 			SHPTR<FILEGROUP> spConvert = iter.second->FindGroup(L"Convert");
 			if (nullptr == spConvert)
 				continue;
@@ -95,7 +95,7 @@ HRESULT TAnimControlView::LoadResource()
 		SHPTR<UGameInstance> spGameInstance = GetGameInstance();
 		SHPTR<UAudioSystem> spAudioSystem = spGameInstance->GetAudioSystem(SOUND_HARLEQUINN);
 		m_FindSoundNames.clear();
-		// ¹Ì¸® ³Ö¾îµÎ±â 
+		// ë¯¸ë¦¬ ë„£ì–´ë‘ê¸° 
 		for (auto& Sound : spAudioSystem->GetSoundOrders())
 		{
 			m_FindSoundNames.push_back(UMethod::ConvertWToS(Sound.first));
@@ -424,7 +424,7 @@ void TAnimControlView::MakeAnimEvent()
 					spAnimEvent = Create< UAnimChangeBetweenEvent>();
 					break;
 				case ANIMEVENT_COLLIDER:
-					// 0¹øÀ» ¼±ÅÃÇÏ¿© Ã¤¿öÁÜ
+					// 0ë²ˆì„ ì„ íƒí•˜ì—¬ ì±„ì›Œì¤Œ
 				{
 					spAnimEvent = Create<UAnimColliderEvent>();
 					ANIMCOLLIDERDESC* ChangeDesc = remove_const<ANIMCOLLIDERDESC*, ANIMOTHEREVENTDESC*>(spAnimEvent->OutOtherEventDesc());
@@ -813,7 +813,7 @@ void TAnimControlView::AnimSoundShow(CSHPTRREF<UAnimation> _spAnim, ImGuiTableFl
 			if (true == ImGui::InputText("FindSName", &InputSoundName[0], MAX_BUFFER_LENGTH))
 			{
 				m_FindSoundNames.clear();
-				// AudioSystem ¸®½ºÆ® º¸±â 
+				// AudioSystem ë¦¬ìŠ¤íŠ¸ ë³´ê¸° 
 				_wstring wstrConvertInputSoundName = UMethod::ConvertSToW(InputSoundName);
 				for (auto& Sound : spAudioSystem->GetSoundOrders())
 				{
@@ -920,7 +920,7 @@ void TAnimControlView::FindEquipModel(CSHPTRREF<FILEGROUP> _spFileGroup)
 
 	for (auto& iter : _spFileGroup->UnderFileGroupList)
 	{
-		// FBX¿¡¼­ Convert ¶ó´Â ÇÏÀ§ Æú´õ¸¦ Ã£´Â´Ù. 
+		// FBXì—ì„œ Convert ë¼ëŠ” í•˜ìœ„ í´ë”ë¥¼ ì°¾ëŠ”ë‹¤. 
 		if (iter.second->wstrFolderName != L"Convert")
 		{
 			FindEquipModel(iter.second);
@@ -937,7 +937,7 @@ void TAnimControlView::FindEquipModel(CSHPTRREF<FILEGROUP> _spFileGroup)
 
 
 /*
-* Æó±â
+* íê¸°
 * 
 void TAnimControlView::AnimOccursShow(CSHPTRREF<UAnimation> _spAnim, ImGuiTableFlags _flags, const VECTOR<SHPTR<UAnimEvent>>& _AnimEvent)
 {

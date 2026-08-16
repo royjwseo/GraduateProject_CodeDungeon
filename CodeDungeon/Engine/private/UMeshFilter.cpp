@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UMeshFilter.h"
 #include "UMethod.h"
 #include "UMeshContainer.h"
@@ -82,7 +82,7 @@ void UMeshFilter::GroupDisable(const _int _iGroupIndex)
 _bool UMeshFilter::Load(const _wstring& _wstrPath)
 {
 	std::ifstream read{ _wstrPath, std::ios::binary };
-	// ÀĞ±â°¡ ½ÇÆĞÇßÀ» °æ¿ì
+	// ì½ê¸°ê°€ ì‹¤íŒ¨í–ˆì„ ê²½ìš°
 	if (false == read.is_open())
 	{
 		return false;

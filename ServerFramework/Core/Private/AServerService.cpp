@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "AServerService.h"
 #include "ASession.h"
 #include "ACoreInstance.h"
@@ -38,7 +38,7 @@ namespace Core {
 
 		IOContext* pService = static_cast<IOContext*>(_spService);
 		// Running 
-		// ½ÇÇà 
+		// ì‹¤í–‰ 
 		pService->run();
 	}
 
@@ -46,4 +46,4 @@ namespace Core {
 	{
 		m_TcpAcceptor.close();
 	}
-}
+}

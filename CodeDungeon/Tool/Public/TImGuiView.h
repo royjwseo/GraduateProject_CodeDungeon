@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UObject.h"
 
 /*
-@ Date: 2024-02-04, Writer: ÀÌ¼ºÇö, ¹ÚÅÂÇö
+@ Date: 2024-02-04, Writer: ì´ì„±í˜„, ë°•íƒœí˜„
 @ Explain
-- Imgui ºäµéÀÇ ºÎ¸ğ Å¬·¡½º
+- Imgui ë·°ë“¤ì˜ ë¶€ëª¨ í´ë˜ìŠ¤
 */
 
 BEGIN(Engine)
@@ -76,7 +76,7 @@ protected:
 	virtual void TickActive(const _double& _dTimeDelta) PURE;
 	virtual void LateTickActive(const _double& _dTimeDetla) PURE;
 	virtual void RenderActive() PURE;
-	// ÇØ´çÇÏ´Â ÇÔ¼ö°¡ ÀÖ¾î¾ßÁö »èÁ¦ÇÔ  @Writer: ¹ÚÅÂÇö
+	// í•´ë‹¹í•˜ëŠ” í•¨ìˆ˜ê°€ ìˆì–´ì•¼ì§€ ì‚­ì œí•¨  @Writer: ë°•íƒœí˜„
 	void ActiveResetSceneData();
 private:
 	void TickNonActive(const _double& _dTimeDelta) {}

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "USound.h"
 #include "UResource.h"
 
@@ -8,9 +8,9 @@ using SOUNDORDERS = UNORMAP<_wstring, _int>;
 using ACTIVESOUND = UNORSET<SHPTR<USound>>;
 using REMOVESOUND = LIST<SHPTR<USound>>;
 /*
-@ Date: 2024-02-25, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-25, Writer: ë°•íƒœí˜„
 @ Explain
-- Sound Æú´õ¸¦ ¹Ş¾Æ¿Í¼­ Sound ÀüÃ¼¸¦ ·ÎµåÇØ¼­ °ü¸®ÇÏ´Â Å¬·¡½ºÀÌ´Ù. 
+- Sound í´ë”ë¥¼ ë°›ì•„ì™€ì„œ Sound ì „ì²´ë¥¼ ë¡œë“œí•´ì„œ ê´€ë¦¬í•˜ëŠ” í´ë˜ìŠ¤ì´ë‹¤. 
 */
 class UAudioSystem final : public UResource {
 public:

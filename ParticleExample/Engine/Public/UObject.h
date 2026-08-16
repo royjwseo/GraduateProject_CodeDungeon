@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UOBJECT_H
+ï»¿#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UOBJECT_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UOBJECT_H
 
 #include "UBase.h"
@@ -7,7 +7,7 @@ BEGIN(Engine)
 class UDevice;
 class UCommand;
 /*
-Device, GpuCommand¸¦ °¡Áö°í ÀÖ´Â Å¬·¡½ºÀÌ´Ù. 
+Device, GpuCommandë¥¼ ê°€ì§€ê³  ìˆëŠ” í´ë˜ìŠ¤ì´ë‹¤. 
 */
 
 
@@ -31,4 +31,4 @@ private:
 
 END
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UOBJECT_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UOBJECT_H

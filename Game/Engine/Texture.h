@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 
 class CGameObject;
@@ -24,17 +24,17 @@ private:
 	int								m_nReferences = 0;
 	int								m_nTextures = 0;
 
-	vector<ComPtr<ID3D12Resource>> m_ppd3dTextures;	// Texture ¸®¼Ò½º
-	vector<ComPtr<ID3D12Resource>> m_ppd3dTextureUploadBuffers;	//Texture ¾÷·Îµå ¹öÆÛ
+	vector<ComPtr<ID3D12Resource>> m_ppd3dTextures;	// Texture ë¦¬ì†ŒìŠ¤
+	vector<ComPtr<ID3D12Resource>> m_ppd3dTextureUploadBuffers;	//Texture ì—…ë¡œë“œ ë²„í¼
 
-	vector<UINT> m_pnResourceTypes;		// °¢°¢ÀÇ Texture µéÀÇ Å¸ÀÔ
-	//vector<wstring> m_ppstrTextureNames;	// TextureÀÇ ÀÌ¸§
+	vector<UINT> m_pnResourceTypes;		// ê°ê°ì˜ Texture ë“¤ì˜ íƒ€ì…
+	//vector<wstring> m_ppstrTextureNames;	// Textureì˜ ì´ë¦„
 	_TCHAR(*m_ppstrTextureNames)[64] = NULL;
-	vector<DXGI_FORMAT> m_pdxgiBufferFormats;	// Texture Dxgi Æ÷¸Ë
+	vector<DXGI_FORMAT> m_pdxgiBufferFormats;	// Texture Dxgi í¬ë§·
 	vector<int> m_pnBufferElements;
 	vector<int> m_pnBufferStrides;
-	int m_nRootParameters = 0;		// ·çÆ®ÆÄ¶ó¹ÌÅÍ ¹øÈ£
-	vector<int> m_pnRootParameterIndices;		// ·çÆ®ÆÄ¶ó¹ÌÅÍ ÀÎµ¦½º
+	int m_nRootParameters = 0;		// ë£¨íŠ¸íŒŒë¼ë¯¸í„° ë²ˆí˜¸
+	vector<int> m_pnRootParameterIndices;		// ë£¨íŠ¸íŒŒë¼ë¯¸í„° ì¸ë±ìŠ¤
 	vector<D3D12_GPU_DESCRIPTOR_HANDLE> m_pd3dSrvGpuDescriptorHandles;
 	vector<D3D12_CPU_DESCRIPTOR_HANDLE> m_pd3dSrvCpuDescriptorHandles;
 
@@ -80,4 +80,4 @@ public:
 	D3D12_SHADER_RESOURCE_VIEW_DESC GetShaderResourceViewDesc(int nIndex);
 
 	void ReleaseUploadBuffers();
-};
+};

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UModel.h"
 
 BEGIN(Engine)
@@ -10,10 +10,10 @@ class UPawn;
 class UMeshFilter;
 class UCollider;
 /*
-@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 @ Explain
-- ¸ğµ¨ÀÇ ¸Ş½¬, »À Á¤º¸, ¸ğµ¨ÀÇ ÅØ½ºÃÄ Á¤º¸µéÀ» VECTOR ÄÁÅ×ÀÌ³Êµé·Î ´ã°í ÀÖ´Â Å¬·¡½ºÀÌ´Ù.
-¾Ö´Ï¸ŞÀÌ¼Ç Á¤º¸µµ µé°í ÀÖ¾î¼­ ¾Ö´Ï¸ŞÀÌ¼ÇÀ» ½ÇÇàÇÒ ¼ö ÀÖ´Ù.
+- ëª¨ë¸ì˜ ë©”ì‰¬, ë¼ˆ ì •ë³´, ëª¨ë¸ì˜ í…ìŠ¤ì³ ì •ë³´ë“¤ì„ VECTOR ì»¨í…Œì´ë„ˆë“¤ë¡œ ë‹´ê³  ìˆëŠ” í´ë˜ìŠ¤ì´ë‹¤.
+ì• ë‹ˆë©”ì´ì…˜ ì •ë³´ë„ ë“¤ê³  ìˆì–´ì„œ ì• ë‹ˆë©”ì´ì…˜ì„ ì‹¤í–‰í•  ìˆ˜ ìˆë‹¤.
 */
 class  UAnimModel : public UModel{
 	using ANIMEVENTCOLLIDERCONTAINER = UNORMAP<_int, SHPTR<UCollider>>;
@@ -29,13 +29,13 @@ public:
 	virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;
 	using UModel::NativeConstruct;
-	// ÇØ´ç PATH·Î ¸ğµ¨ ·Îµå
+	// í•´ë‹¹ PATHë¡œ ëª¨ë¸ ë¡œë“œ
 	HRESULT NativeConstruct(const _wstring& _wstrPath, const _float4x4& _PivotMatrix);
-	// ÇØ´ç Æú´õ¿Í ÆÄÀÏ µ¥ÀÌÅÍ·Î ·Îµå
+	// í•´ë‹¹ í´ë”ì™€ íŒŒì¼ ë°ì´í„°ë¡œ ë¡œë“œ
 	HRESULT NativeConstruct(CSHPTRREF<FILEGROUP> _spFileGroup, CSHPTRREF<FILEDATA> _spFileData, const _float4x4& _PivotMatrix);
-	// PATH¸¦ ÀÔ·ÂÇÏ°í ÆÄÀÏ ÀÌ¸§À» ÀÔ·ÂÇÏ¸é Ã£¾Æ¼­ ¿Â´Ù. 
+	// PATHë¥¼ ì…ë ¥í•˜ê³  íŒŒì¼ ì´ë¦„ì„ ì…ë ¥í•˜ë©´ ì°¾ì•„ì„œ ì˜¨ë‹¤. 
 	HRESULT NativeConstruct(const PATHS& _vecPaths, const _wstring& _wstrFileName, const _float4x4& _PivotMatrix);
-	// ¸ğµ¨ÀÇ Æú´õ ÀÌ¸§, ÆÄÀÏ ÀÌ¸§À» ÀÔ·ÂÇÏ¸é Ã£¾Æ¼­ ¸ğµ¨ ·Îµå
+	// ëª¨ë¸ì˜ í´ë” ì´ë¦„, íŒŒì¼ ì´ë¦„ì„ ì…ë ¥í•˜ë©´ ì°¾ì•„ì„œ ëª¨ë¸ ë¡œë“œ
 	HRESULT NativeConstruct(const _wstring& _wstrModelFolder, const _wstring& _wstrFileName, const _float4x4& _PivotMatrix);
 
 	virtual HRESULT NativeConstructClone(const VOIDDATAS& _vecDatas) override;
@@ -43,19 +43,19 @@ public:
 	void TickEvent(UPawn* _pPawn, const _wstring& _wstrInputTrigger, const _double& _TimeDelta);
 	// Tick Event 
 	void TickEventToRatio(UPawn* _pPawn, const _wstring& _wstrInputTrigger, const _double& _dRatio, const _double& _TimeDelta);
-	// ¾Ö´Ï¸ŞÀÌ¼ÇÀ» timedeltaÀÇ Èå¸§¿¡ µû¶ó¼­ Á¦¾îÇÏ´Â ÇÔ¼ö (TimeDelta´Â ÇöÀç °ÔÀÓ¿¡¼­ Èå¸£´Â ½Ã°£)
+	// ì• ë‹ˆë©”ì´ì…˜ì„ timedeltaì˜ íë¦„ì— ë”°ë¼ì„œ ì œì–´í•˜ëŠ” í•¨ìˆ˜ (TimeDeltaëŠ” í˜„ì¬ ê²Œì„ì—ì„œ íë¥´ëŠ” ì‹œê°„)
 	void TickAnimation(const _double& _dTimeDelta);
-	// ¾Ö´Ï¸ŞÀÌ¼ÇÀ» timeAcc¿¡ µû¶ó¼­ Á¦¾îÇÏ´Â ÇÔ¼ö (TimAcc´Â ¾Ö´Ï¸ŞÀÌ¼Ç Á¦¾îµµ)
+	// ì• ë‹ˆë©”ì´ì…˜ì„ timeAccì— ë”°ë¼ì„œ ì œì–´í•˜ëŠ” í•¨ìˆ˜ (TimAccëŠ” ì• ë‹ˆë©”ì´ì…˜ ì œì–´ë„)
 	void UpdateCurAnimationToRatio(const _double& _dRatio);
-	// ¾Ö´Ï¸ŞÀÌ¼ÇÀ» TickÇÏ¸é¼­ Eventµµ TickÇÏ´Â ÇÔ¼ö
+	// ì• ë‹ˆë©”ì´ì…˜ì„ Tickí•˜ë©´ì„œ Eventë„ Tickí•˜ëŠ” í•¨ìˆ˜
 	void TickAnimChangeTransform(CSHPTRREF<UTransform> _spTransform, const _double& _dTimeDelta);
-	// ÇöÀç ¾Ö´Ï¸ŞÀÌ¼ÇÀ» TimAcc °ª¿¡ µû¶ó¼­ Á¦¾îÇÏ´Â ÇÔ¼ö Evnetµµ TimeAcc¿¡ µû¶ó Á¦¾îÇÑ´Ù. 
+	// í˜„ì¬ ì• ë‹ˆë©”ì´ì…˜ì„ TimAcc ê°’ì— ë”°ë¼ì„œ ì œì–´í•˜ëŠ” í•¨ìˆ˜ Evnetë„ TimeAccì— ë”°ë¼ ì œì–´í•œë‹¤. 
 	void TickAnimToTimeAccChangeTransform(CSHPTRREF<UTransform> _spTransform, const _double& _dTimeDelta, const _double& _TimeAc);
-	// RootBone ³ëµåÀÇ TransformÀ» Àû¿ëÇÏ´Â ÇÔ¼ö
+	// RootBone ë…¸ë“œì˜ Transformì„ ì ìš©í•˜ëŠ” í•¨ìˆ˜
 	void ApplyRootBoneTransform(CSHPTRREF<UTransform> _spTransform);
-	// RootBone ³ëµåÀÇ TransformÀ» Àû¿ëÇÏ´Â ÇÔ¼ö
+	// RootBone ë…¸ë“œì˜ Transformì„ ì ìš©í•˜ëŠ” í•¨ìˆ˜
 	void ApplyRootBoneMatrix(_float4x4& _matrix);
-	// ¾Ö´Ï¸ŞÀÌ¼ÇÀ» ·»´õÇÏ´Â ÇÔ¼ö
+	// ì• ë‹ˆë©”ì´ì…˜ì„ ë Œë”í•˜ëŠ” í•¨ìˆ˜
 	virtual HRESULT Render(const _uint _iMeshIndex, CSHPTRREF<UShader> _spShader, CSHPTRREF<UCommand> _spCommand) override;
 	// Set Animation
 	void SetAnimation(const _uint& _iAnimIndex);

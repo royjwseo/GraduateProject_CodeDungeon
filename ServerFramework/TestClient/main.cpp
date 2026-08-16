@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+﻿#include "ClientDefines.h"
 #include "CClientApp.h"
 
 int main()
@@ -7,4 +7,4 @@ int main()
 
 	CClientApp* Client = CreateAndRegisterApp<CClientApp>();
 	Client->Start();
-}
+}

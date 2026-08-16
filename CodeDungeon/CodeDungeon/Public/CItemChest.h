@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "CMob.h"
 BEGIN(Engine)
 class UParticle;
@@ -15,7 +15,7 @@ public:
 		TYPE_MIMIC, TYPE_CHEST, TYPE_END
 	};
 public:
-	// UPlayerÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UPlayerì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(CItemChest, "CItemChest::CloneToFailed")
 		virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;

@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ASESSION_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ASESSION_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ASESSION_H
 
 #include "APawn.h"
@@ -11,10 +11,10 @@ class ACollider;
 class ASpace;
 
 /*
-@ Date: 2024-01-22, Writer: ¹ÚÅÂÇö
+@ Date: 2024-01-22, Writer: ë°•íƒœí˜„
 @ Explain
-- Å¬¶óÀÌ¾ğÆ®¿Í Åë½ÅÇÏ±â À§ÇÑ Session Å¬·¡½ºÀÌ°í °¡»óÇÔ¼ö·Î Server ¼Ö·ç¼Ç¿¡¼­ ÇØ´ç Å¬·¡½º¸¦ ºÎ¸ğ·Î ÀÚ½Ä Å¬·¡½º¸¦ 
-Á¤ÀÇÇØÁÖ¾î¾ß ÇÑ´Ù.
+- í´ë¼ì´ì–¸íŠ¸ì™€ í†µì‹ í•˜ê¸° ìœ„í•œ Session í´ë˜ìŠ¤ì´ê³  ê°€ìƒí•¨ìˆ˜ë¡œ Server ì†”ë£¨ì…˜ì—ì„œ í•´ë‹¹ í´ë˜ìŠ¤ë¥¼ ë¶€ëª¨ë¡œ ìì‹ í´ë˜ìŠ¤ë¥¼ 
+ì •ì˜í•´ì£¼ì–´ì•¼ í•œë‹¤.
 */
 class CORE_DLL ASession abstract : public APawn {
 public:
@@ -25,16 +25,16 @@ public:
 	DESTRUCTOR(ASession)
 public: 
 	virtual _bool Start(const VOIDDATAS& _ReceiveDatas = {}) PURE;
-	// Å¬¶óÀÌ¾ğÆ®¿¡¼­ Àü¼ÛµÈ ¹öÆÛ¸¦ ÀĞ´Â ÇÔ¼ö
+	// í´ë¼ì´ì–¸íŠ¸ì—ì„œ ì „ì†¡ëœ ë²„í¼ë¥¼ ì½ëŠ” í•¨ìˆ˜
 	virtual void RecvData() PURE;
-	// Å¬¶óÀÌ¾ğÆ®¿¡°Ô ¹öÆÛ¸¦ Á¶ÇÕÇÏ¿© Àü¼ÛÇÏ´Â ÇÔ¼ö
+	// í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ë²„í¼ë¥¼ ì¡°í•©í•˜ì—¬ ì „ì†¡í•˜ëŠ” í•¨ìˆ˜
 	virtual _bool SendData(_char* _pPacket, const PACKETHEAD& _PacketHead) PURE;
 	virtual void Disconnect() PURE;
 	virtual void ConnectTcpSocket() PURE;
 	/*
-	@ Date: 2024-01-05, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-01-05, Writer: ë°•íƒœí˜„
 	@ Explain
-	- ProtocolBuffer¸¦ TCP¿¡ ¿¬°áµÈ »ó´ë¿¡°Ô º¸³»±â À§ÇÑ ÅÛÇÃ¸´ ÇÔ¼öÀÌ´Ù. 
+	- ProtocolBufferë¥¼ TCPì— ì—°ê²°ëœ ìƒëŒ€ì—ê²Œ ë³´ë‚´ê¸° ìœ„í•œ í…œí”Œë¦¿ í•¨ìˆ˜ì´ë‹¤. 
 	*/
 	template<class T>
 	requires CheckProtoType<T>
@@ -59,7 +59,7 @@ private:
 private:
 	TCPSOCKET					m_TcpSocket;
 	_llong								m_CurBuffuerLocation;
-	// Buffer ¸ğÀ½
+	// Buffer ëª¨ìŒ
 	TOTALBUFFER				m_TotalBuffer;
 	BUFFER							m_RecvBuffer;
 	// SendBuffer

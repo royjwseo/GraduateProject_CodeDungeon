@@ -1,4 +1,4 @@
-#include "ServerDefines.h"
+ï»¿#include "ServerDefines.h"
 #include "CPlayerSession.h"
 #include "ACoreInstance.h"
 #include "AServerService.h"
@@ -122,17 +122,17 @@ namespace Server {
 
 	void CPlayerSession::LoginState(SHPTR<ACoreInstance> _spCoreInstance, SESSIONID _SessionID, _char* _pPacket, const Core::PACKETHEAD& _PacketHead)
 	{
-		// ÇöÀç ¹Ş¾Æ¿Â ÆĞÅ¶À» ÀçÇØ¼® ÇÑ´Ù. 
+		// í˜„ì¬ ë°›ì•„ì˜¨ íŒ¨í‚·ì„ ì¬í•´ì„ í•œë‹¤. 
 		CS_LOGIN Login;
 		Login.ParseFromArray(_pPacket, _PacketHead.PacketSize);
 #ifdef USE_DEBUG
 		std::cout << "Session ID Login Success Login [" << Login.id() << "]\nCurSession [" << _SessionID << "]\n";
 #endif
-		// ·Î±×ÀÎ µÈ ÇÃ·¹ÀÌ¾îÀÇ ÆĞÅ¶À» º¸³½´Ù. 
+		// ë¡œê·¸ì¸ ëœ í”Œë ˆì´ì–´ì˜ íŒ¨í‚·ì„ ë³´ë‚¸ë‹¤. 
 		{
 			// Make Sc Login 
 			SC_OTHERCLIENTLOGIN scOtherLogin;
-			// ´Ù¸¥ Å¬¶óÀÌ¾ğÆ®µé¿¡°Ô ÇØ´ç ÇÃ·¹ÀÌ¾î°¡ Á¢¼ÓÇßÀ½À» ¾Ë¸²
+			// ë‹¤ë¥¸ í´ë¼ì´ì–¸íŠ¸ë“¤ì—ê²Œ í•´ë‹¹ í”Œë ˆì´ì–´ê°€ ì ‘ì†í–ˆìŒì„ ì•Œë¦¼
 			PROTOFUNC::MakeScOtherClientLogin(OUT & scOtherLogin, _SessionID, m_iStartCellIndex, TAG_CHAR::TAG_OTHERPLAYER);
 			CombineProto(REF_OUT GetCopyBuffer(), REF_OUT GetPacketHead(), scOtherLogin, TAG_SC::TAG_SC_OTHERCLIENTLOGIN);
 			_spCoreInstance->BroadCastMessageExcludingSession(_SessionID, GetCopyBufferPointer(), GetPacketHead());
@@ -172,7 +172,7 @@ namespace Server {
 			vPosition = Vector3(csMove.posx(), csMove.posy(), csMove.posz());
 			GetTransform()->SetPos(vPosition);
 		}
-		//  ´Ù¸¥ ¸ğµç Å¬¶óÀÌ¾ğÆ®¿¡ ¸Ş½ÃÁö º¸³½´Ù. 
+		//  ë‹¤ë¥¸ ëª¨ë“  í´ë¼ì´ì–¸íŠ¸ì— ë©”ì‹œì§€ ë³´ë‚¸ë‹¤. 
 		{
 		//	PROTOFUNC::MakeCharState(OUT & csMove, _SessionID, vSendPosition, vSendRotate);
 			CombineProto(REF_OUT GetCopyBuffer(), REF_OUT GetPacketHead(), csMove, TAG_SC::TAG_SC_PLAYERSTATE);
@@ -184,11 +184,11 @@ namespace Server {
 			const MOBOBJCONTAINER& MobObjectContainer = _spCoreInstance->GetMobObjContainer();
 			for (auto& iter : MobObjectContainer)
 			{
-				// ¿µ±¸Àû ºñÈ°¼ºÈ­
+				// ì˜êµ¬ì  ë¹„í™œì„±í™”
 				if (true == iter.second->IsPermanentDisable())
 					continue;
 
-				// °Å¸®¸¦ ¹Ş¾Æ¿È
+				// ê±°ë¦¬ë¥¼ ë°›ì•„ì˜´
 				_float fDistanace = iter.second->GetTransform()->ComputeDistanceSq(vPosition);
 				if (true == iter.second->IsCanSee(iter.second->GetTransform()))
 				{
@@ -256,21 +256,21 @@ namespace Server {
 
 
 /*
-				// Login PacketÀ» Á¶ÇÕÇÏ°í ¸Ş½ÃÁö¸¦ º¸³½´Ù.
+				// Login Packetì„ ì¡°í•©í•˜ê³  ë©”ì‹œì§€ë¥¼ ë³´ë‚¸ë‹¤.
 				{
 					const MOBOBJCONTAINER& GameObjectContainer = spCoreInstance->GetMobObjContainer();
 					SC_VIEWINRANGE scViewInRange;
 					// GameObject
 					SET<AMonster*> GameObjectList;
 					{
-						// ½Ã¾ßÃ³¸®
+						// ì‹œì•¼ì²˜ë¦¬
 						for (auto& iter : GameObjectContainer)
 						{
 							GameObjectList.insert(iter.second.get());
 						}
 						SC_VIEWINRANGE scViewRange;
 						PROTOALLOC(VECTOR3, position);
-						// ÇØ´ç ³à¼®µéÀÌ ÀÖ´Ù°í º¸³½´Ù.
+						// í•´ë‹¹ ë…€ì„ë“¤ì´ ìˆë‹¤ê³  ë³´ë‚¸ë‹¤.
 						for (auto& iter : GameObjectList)
 						{
 							if (Login.id() == iter->GetSessionID())
@@ -287,4 +287,4 @@ namespace Server {
 						}
 					}
 				}
-*/
+*/

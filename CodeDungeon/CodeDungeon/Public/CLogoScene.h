@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UScene.h"
 BEGIN(Engine)
 
@@ -15,7 +15,7 @@ public:
 	NO_COPY(CLogoScene)
 	DESTRUCTOR(CLogoScene)
 public:
-	// USceneÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// USceneì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual void Free() override;
 	virtual HRESULT LoadSceneData() override;
 	virtual void Tick(const _double& _dTimeDelta) override;

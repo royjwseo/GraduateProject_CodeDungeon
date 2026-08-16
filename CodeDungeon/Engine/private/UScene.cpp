@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UScene.h"
 #include "ULight.h" 
 #include "ULoader.h"
@@ -81,7 +81,7 @@ void UScene::RenderLights()
     //    LightPair.second->BindSRVBuffer(SRV_REGISTER::T3, spShadowDepthGroup->GetRenderTargetTexture(RTOBJID::SHADOW_DEPTH_FOURBYFOUR));
 
     //    // Draw Light
-    //    //04-09 ¼öÁ¤
+    //    //04-09 ìˆ˜ì •
     //    for (CSHPTRREF<ULight> spLight : LightIterator->second)
     //    {
     //        spLight->Render(spCmdList, m_spVIBufferPlane, LightPair.second);

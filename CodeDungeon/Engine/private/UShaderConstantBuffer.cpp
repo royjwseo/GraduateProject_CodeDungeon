@@ -19,8 +19,8 @@ UShaderConstantBuffer::UShaderConstantBuffer() :
 	m_iShaderConstantBufferIndex{ 0 },
 	m_iShaderConstantBufferCpuLocation{ 0 },
 	m_iElementNum{ 1 },
-	m_bDataUpdated { true },
-	m_bUseDefaultBuffer { false }
+	m_bDataUpdated{ true },
+	m_bUseDefaultBuffer{ false }
 {
 }
 
@@ -151,20 +151,17 @@ HRESULT UShaderConstantBuffer::PushData(CSHPTRREF<UCommand> _spCommand,CSHPTRREF
 	_uint iIndex = m_iShaderConstantBufferIndex * m_iElementSize;
 	::memcpy(&m_pMapBuffer[iIndex], _pBuffer, _iSize);
 
-	if (m_bUseDefaultBuffer&& ::memcmp(&m_pPreviousBuffer[iIndex], _pBuffer, _iSize) != 0)
+	if (m_bUseDefaultBuffer && ::memcmp(&m_pPreviousBuffer[iIndex], _pBuffer, _iSize) != 0)
 	{
-		// Default Buffer를 COPY_DEST로 변경 (최초 1회)
 		CD3DX12_RESOURCE_BARRIER transitionToCopy = CD3DX12_RESOURCE_BARRIER::Transition(
 			m_cpDefaultBuffer.Get(),
-			D3D12_RESOURCE_STATE_COMMON,  // 기존 상태
-			D3D12_RESOURCE_STATE_COPY_DEST                   // 복사 상태
+			D3D12_RESOURCE_STATE_COMMON,
+			D3D12_RESOURCE_STATE_COPY_DEST
 		);
 		_spCommand->GetGpuCmdList()->ResourceBarrier(1, &transitionToCopy);
 
-		// 업로드 버퍼에서 디폴트 버퍼로 데이터 복사
 		_spCommand->GetGpuCmdList()->CopyResource(m_cpDefaultBuffer.Get(), m_cpUploadBuffer.Get());
 
-		// Default Buffer를 GPU가 읽을 수 있도록 상태 변경
 		CD3DX12_RESOURCE_BARRIER barrier = CD3DX12_RESOURCE_BARRIER::Transition(
 			m_cpDefaultBuffer.Get(),
 			D3D12_RESOURCE_STATE_COPY_DEST,

@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 #include "URenderer.h"
 #include "UPipeLine.h"
 #include "USceneManager.h"
@@ -75,7 +75,7 @@ HRESULT URenderer::NativeConstruct()
         m_stFinalRenderTransformParam.mWorldMatrix = m_stFinalRenderTransformParam.mWorldMatrix.Transpose();
         {
 
-            // Create Deffered Camera (µðÆÛµå¿ë Ä«¸Þ¶ó)
+            // Create Deffered Camera (ë””í¼ë“œìš© ì¹´ë©”ë¼)
             UCamera::CAMDESC tDesc;
             tDesc.stCamProj = UCamera::CAMPROJ(UCamera::PROJECTION_TYPE::ORTHOGRAPHIC, _float3(0.f, 0.f, 0.f),
                 _float3(0.f, 0.f, 0.f),
@@ -91,7 +91,7 @@ HRESULT URenderer::NativeConstruct()
                 PROTO_ACTOR_DEFFEREDCAMERA, vecDatas ));
         }
         m_stFinalRenderTransformParam.iCamIndex = m_spDefferedCamera->GetCamID();
-        // ÀÌ¹Ì ¸¸µé¾îÁø Shader ConstnatBuffer¸¦ °¡Á®¿È
+        // ì´ë¯¸ ë§Œë“¤ì–´ì§„ Shader ConstnatBufferë¥¼ ê°€ì ¸ì˜´
         spGameInstance->GetPreAllocatedConstantBuffer(PREALLOCATED_TRANSFORM, m_spTransformConstantBuffer);
     }
     // Initailize 
@@ -365,15 +365,15 @@ void URenderer::RenderEnd()
         spDefferedShader->SettingPipeLineState(m_spGraphicsRenderObject->GetCommand());
         spDefferedShader->SetTableDescriptor(m_spGraphicsRenderObject->GetTableDescriptor());
         spDefferedShader->BindCBVBuffer(m_spTransformConstantBuffer, &m_stFinalRenderTransformParam, UTransform::TRANSFORMPARAM_SIZE);
-        //  Diffuse Texture °¡Á®¿Í¼­ Bind 
+        //  Diffuse Texture ê°€ì ¸ì™€ì„œ Bind 
         spDefferedShader->BindSRVBuffer(SRV_REGISTER::T0, m_spRenderTargetManager->
             FindRenderTargetTexture(RTGROUPID::BLEND_DEFFERED,
                 RTOBJID::BLEND_SCREEN_DEFFERED));
-        //  Diffuse Texture °¡Á®¿Í¼­ Bind 
+        //  Diffuse Texture ê°€ì ¸ì™€ì„œ Bind 
         spDefferedShader->BindSRVBuffer(SRV_REGISTER::T1, m_spRenderTargetManager->
             FindRenderTargetTexture(RTGROUPID::ALPHA_DEFFERED,
                 RTOBJID::ALPHA_DIFFUSE_DEFFERED));
-        //  Diffuse Texture °¡Á®¿Í¼­ Bind 
+        //  Diffuse Texture ê°€ì ¸ì™€ì„œ Bind 
         spDefferedShader->BindSRVBuffer(SRV_REGISTER::T2, m_spRenderTargetManager->
             FindRenderTargetTexture(RTGROUPID::UI2D_DEFFERED,
                 RTOBJID::UI2D_SCREEN_DEFFERED));

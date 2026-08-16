@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 class CVertex
 {
 public:
@@ -12,7 +12,7 @@ public:
 class CDiffusedVertex : public CVertex
 {
 protected:
-	//Á¤Á¡ÀÇ »ö»óÀÌ´Ù. 
+	//ì •ì ì˜ ìƒ‰ìƒì´ë‹¤. 
 	XMFLOAT4 m_xmf4Diffuse;
 public:
 	CDiffusedVertex() {
@@ -28,4 +28,4 @@ public:
 			xmf3Position; m_xmf4Diffuse = xmf4Diffuse;
 	}
 	~CDiffusedVertex() { }
-};
+};

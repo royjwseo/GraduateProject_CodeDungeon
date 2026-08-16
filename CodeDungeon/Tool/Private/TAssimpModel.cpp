@@ -1,4 +1,4 @@
-#include "ToolDefines.h"
+ï»¿#include "ToolDefines.h"
 #include "TAssimpModel.h"
 #include "TAssimpAnimation.h"
 #include "TAssimpBoneNode.h"
@@ -162,7 +162,7 @@ void TAssimpModel::GetData(MODELDESC& _tModelDesc)
 				TexturePath += value->GetTextureName(0);
 				TexturePath += ext;
 				strTextureFileName.push_back(TexturePath);
-				// ¾ÕÀ» ³¯¸°´Ù. 
+				// ì•ì„ ë‚ ë¦°ë‹¤. 
 				m_lsTextureExts.pop_front();
 			}
 			else
@@ -205,7 +205,7 @@ void TAssimpModel::GetData(ANIMMODELDESC& _tAnimModelDesc)
 				TexturePath += value->GetTextureName(0);
 				TexturePath += ext;
 				strTextureFileName.push_back(TexturePath);
-				// ¾ÕÀ» ³¯¸°´Ù. 
+				// ì•ì„ ë‚ ë¦°ë‹¤. 
 				m_lsTextureExts.pop_front();
 			}
 			else
@@ -467,7 +467,7 @@ void TAssimpModel::LoadAnimationFBX(const _wstring& _wstrPath)
 	spImporter = std::make_shared<Assimp::Importer>();
 	pAIScene = spImporter->ReadFile(strFilePath, iFlag);
 	RETURN_CHECK(nullptr == pAIScene, ;);
-	// ¾Ö´Ï¸ŞÀÌ¼Ç ¸¸µé¾î¼­ Áı¾î ³Ö´Â´Ù.
+	// ì• ë‹ˆë©”ì´ì…˜ ë§Œë“¤ì–´ì„œ ì§‘ì–´ ë„£ëŠ”ë‹¤.
 	CreateAnimation(pAIScene);
 }
 
@@ -668,7 +668,7 @@ HRESULT TAssimpModel::CreateMaterials(CSHPTRREF<FILEGROUP> _spFileGroup)
 			pModelMaterial->arrMaterialTexture[j] = CreateConstructorNativeNotMsg<UTexGroup>(GetDevice(), Path);
 			if (nullptr == pModelMaterial->arrMaterialTexture[j])
 			{
-				// dds·Î ·Îµå ½ÇÆĞ½Ã ´Ù¸¥ texture·Î ·Îµå ½Ãµµ
+				// ddsë¡œ ë¡œë“œ ì‹¤íŒ¨ì‹œ ë‹¤ë¥¸ textureë¡œ ë¡œë“œ ì‹œë„
 				Path = wstrPath;
 				Path += L"\\";
 				Path += strRealName;

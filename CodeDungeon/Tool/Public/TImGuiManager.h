@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UBase.h"
 
 /*
-@ Date: 2024-02-03, Writer: ÀÌ¼ºÇö
+@ Date: 2024-02-03, Writer: ì´ì„±í˜„
 @ Explain
-- Imgui¸¦ °ü¸®ÇÏ´Â Manager
+- Imguië¥¼ ê´€ë¦¬í•˜ëŠ” Manager
 */
 
 BEGIN(Engine)

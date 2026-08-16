@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UTEXGROUP_H
+Ôªø#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UTEXGROUP_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UTEXGROUP_H
 
 #include "UResource.h"
@@ -22,7 +22,7 @@ public:
 
 	const _uint GetTextureCount() const { return static_cast<_uint>(m_vecTextureContainer.size()); }
 public:
-	// UResource¿ª(∏¶) ≈Î«ÿ ªÛº”µ 
+	// UResourceÏùÑ(Î•º) ÌÜµÌï¥ ÏÉÅÏÜçÎê®
 	CLONE_MACRO(UTexGroup, "UTexGroup::Clone To Failed");
 	virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;
@@ -52,4 +52,4 @@ private:
 
 END
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UTEXGROUP_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UTEXGROUP_H

@@ -1,4 +1,4 @@
-#include "InteractionManager.h"
+﻿#include "InteractionManager.h"
 #include "Engine.h"
 
 InteractionManager::InteractionManager()

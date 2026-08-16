@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+﻿#include "EngineDefines.h"
 #include "UTexGroup.h"
 #include "UTexture.h"
 #include "UShader.h"
@@ -167,4 +167,4 @@ void UTexGroup::ShowObjectInfo()
 		ImGui::TreePop();
 	}
 }
-#endif
+#endif

@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "ACoreObject.h"
 
 namespace Core {
@@ -16,4 +16,4 @@ namespace Core {
 	void ACoreObject::Free()
 	{
 	}
-}
+}

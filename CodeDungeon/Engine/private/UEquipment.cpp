@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UEquipment.h"
 #include "UMethod.h"
 #include "UShaderConstantBuffer.h"
@@ -114,7 +114,7 @@ HRESULT UEquipment::NativeConstructClone(const VOIDDATAS& _Datas)
 	if (FAILED(__super::NativeConstructClone(_Datas)))
 		return E_FAIL;
 
-	// ÇØ´ç VOIDDATAS¿¡ Á¸ÀçÇÒ ¶§
+	// í•´ë‹¹ VOIDDATASì— ì¡´ìž¬í•  ë•Œ
 	if (_Datas.size() >= 1)
 	{
 		UEquipment::EQDESC desc = UMethod::ConvertTemplate_Index<UEquipment::EQDESC>(_Datas, FIRST);

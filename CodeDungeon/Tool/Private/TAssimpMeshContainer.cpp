@@ -1,4 +1,4 @@
-#include "ToolDefines.h"
+ï»¿#include "ToolDefines.h"
 #include "TAssimpMeshContainer.h"
 #include "TAssimpBoneNode.h"
 #include "TAssimpModel.h"
@@ -146,7 +146,7 @@ HRESULT TAssimpMeshContainer::ReadyVertices(aiMesh* _pMesh, CSHPTRREF<TAssimpMod
 				::memcpy(&pVertices[i].vTexUV[j], &_pMesh->mTextureCoords[j][i], sizeof(_float2));
 		}
 
-		// ÃÖ¼Ò ¹öÅØ½º¿Í ÃÖ´ë ¹öÅØ½º¸¦ °»½Å.
+		// ìµœì†Œ ë²„í…ìŠ¤ì™€ ìµœëŒ€ ë²„í…ìŠ¤ë¥¼ ê°±ì‹ .
 		m_vMinVertex.x = min(m_vMinVertex.x, pVertices[i].vPosition.x);
 		m_vMinVertex.y = min(m_vMinVertex.y, pVertices[i].vPosition.y);
 		m_vMinVertex.z = min(m_vMinVertex.z, pVertices[i].vPosition.z);
@@ -202,7 +202,7 @@ HRESULT TAssimpMeshContainer::ReadyAnimVertices(aiMesh* _pMesh, CSHPTRREF<TAssim
 				::memcpy(&pVertices[i].vTexUV[j], &_pMesh->mTextureCoords[j][i], sizeof(_float2));
 		}
 
-		// ÃÖ¼Ò ¹öÅØ½º¿Í ÃÖ´ë ¹öÅØ½º¸¦ °»½Å.
+		// ìµœì†Œ ë²„í…ìŠ¤ì™€ ìµœëŒ€ ë²„í…ìŠ¤ë¥¼ ê°±ì‹ .
 		m_vMinVertex.x = min(m_vMinVertex.x, pVertices[i].vPosition.x);
 		m_vMinVertex.y = min(m_vMinVertex.y, pVertices[i].vPosition.y);
 		m_vMinVertex.z = min(m_vMinVertex.z, pVertices[i].vPosition.z);

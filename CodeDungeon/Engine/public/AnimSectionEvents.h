@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "AnimEventParents.h"
 
 BEGIN(Engine)
@@ -9,9 +9,9 @@ class USound;
 class UActor;
 
 /*
-@ Date: 2024-02-17, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-17, Writer: ë°•íƒœí˜„
 @ Explain
-- ±¸°£ »çÀÌ¿¡¼­ Æ¯Á¤ ÀÌº¥Æ®°¡ ¹ß»ıÇÒ ¶§ ´ÙÀ½ ¾Ö´Ï¸ŞÀÌ¼ÇÀ¸·Î ³Ñ¾î°¡°Ô ¸¸µå´Â ÀÌº¥Æ®ÀÌ´Ù. 
+- êµ¬ê°„ ì‚¬ì´ì—ì„œ íŠ¹ì • ì´ë²¤íŠ¸ê°€ ë°œìƒí•  ë•Œ ë‹¤ìŒ ì• ë‹ˆë©”ì´ì…˜ìœ¼ë¡œ ë„˜ì–´ê°€ê²Œ ë§Œë“œëŠ” ì´ë²¤íŠ¸ì´ë‹¤. 
 */
 class UAnimChangeBetweenEvent final : public UAnimSectionEvent{
 public:
@@ -22,17 +22,17 @@ public:
 public:
 	virtual SHPTR<UAnimEvent> Clone(UAnimModel* _pAnimModel = nullptr) override;
 public:
-	// UAnimSectionEventÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UAnimSectionEventì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual const ANIMOTHEREVENTDESC*  OutOtherEventDesc() override;
 protected:
-	// Event »óÈ²ÀÏ ¶§¸¦ Á¤ÀÇ
+	// Event ìƒí™©ì¼ ë•Œë¥¼ ì •ì˜
 	virtual void EventSituation(UPawn* _pPawn, UAnimModel* _pAnimModel, const _double& _dTimeDelta, const _double& _dTimeAcc) override;
 	virtual void SaveEvent(std::ofstream& _save) override;
 	virtual void LoadEvent(CSHPTRREF<UAnimModel> _spAnimModel, std::ifstream& _load) override;
 private:
 	virtual void Free() override;
 private:
-	// ¾Ö´Ï¸ŞÀÌ¼Ç°ú ¾Ö´Ï¸ŞÀÌ¼Ç »çÀÌ¸¦ º¯°æÇÏ´Â ÀÌº¥Æ®
+	// ì• ë‹ˆë©”ì´ì…˜ê³¼ ì• ë‹ˆë©”ì´ì…˜ ì‚¬ì´ë¥¼ ë³€ê²½í•˜ëŠ” ì´ë²¤íŠ¸
 	ANIMCHANGEDESC		m_AnimChangeDesc;
 };
 
@@ -45,9 +45,9 @@ AnimColliderEvent
 */
 
 /*
-@ Date: 2024-02-22, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-22, Writer: ë°•íƒœí˜„
 @ Explain
-- ±¸°£ »çÀÌ¿¡¼­ Æ¯Á¤ ÀÌº¥Æ®°¡ ¹ß»ıÇÒ ¶§ ´ÙÀ½ ¾Ö´Ï¸ŞÀÌ¼ÇÀ¸·Î ³Ñ¾î°¡°Ô ¸¸µå´Â ÀÌº¥Æ®ÀÌ´Ù.
+- êµ¬ê°„ ì‚¬ì´ì—ì„œ íŠ¹ì • ì´ë²¤íŠ¸ê°€ ë°œìƒí•  ë•Œ ë‹¤ìŒ ì• ë‹ˆë©”ì´ì…˜ìœ¼ë¡œ ë„˜ì–´ê°€ê²Œ ë§Œë“œëŠ” ì´ë²¤íŠ¸ì´ë‹¤.
 */
 class UAnimColliderEvent final : public UAnimSectionEvent {
 public:
@@ -60,10 +60,10 @@ public:
 public:
 	virtual _bool EventCheck(UPawn* _pPawn, UAnimModel* _pAnimModel, const _double& _dTimeDelta, const _double& _dTimeAcc, 
 		const _wstring& _wstrInputTrigger) override;
-	// UAnimSectionEventÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UAnimSectionEventì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual const  ANIMOTHEREVENTDESC*  OutOtherEventDesc() override;
 protected:
-	// Event »óÈ²ÀÏ ¶§¸¦ Á¤ÀÇ
+	// Event ìƒí™©ì¼ ë•Œë¥¼ ì •ì˜
 	virtual void EventSituation(UPawn* _pPawn, UAnimModel* _pAnimModel, const _double& _dTimeDelta, const _double& _dTimeAcc) override;
 	virtual void SaveEvent(std::ofstream& _save) override;
 	virtual void LoadEvent(CSHPTRREF<UAnimModel> _spAnimModel, std::ifstream& _load) override;
@@ -89,7 +89,7 @@ public:
 	DESTRUCTOR(UAnimSoundEvent)
 public:
 	virtual SHPTR<UAnimEvent> Clone(UAnimModel* _pAnimModel = nullptr) override;
-	// UAnimSectionEventÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UAnimSectionEventì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual const ANIMOTHEREVENTDESC* OutOtherEventDesc() override;
 
 	virtual _bool EventCheck(UPawn* _pPawn, UAnimModel* _pAnimModel, const _double& _dTimeDelta, const _double& _dTimeAcc,
@@ -97,7 +97,7 @@ public:
 
 	void UpdateSoundOnwer(SHPTR<UActor> _spSoundOnwer) { this->m_wpPlayerCharacter = _spSoundOnwer; }
 protected:
-	// Event »óÈ²ÀÏ ¶§¸¦ Á¤ÀÇ
+	// Event ìƒí™©ì¼ ë•Œë¥¼ ì •ì˜
 	virtual void EventSituation(UPawn* _pPawn, UAnimModel* _pAnimModel, const _double& _dTimeDelta, const _double& _dTimeAcc) override;
 	virtual void SaveEvent(std::ofstream& _save) override;
 	virtual void LoadEvent(CSHPTRREF<UAnimModel> _spAnimModel, std::ifstream& _load) override;

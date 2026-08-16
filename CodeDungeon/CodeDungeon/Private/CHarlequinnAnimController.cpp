@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+ï»¿#include "ClientDefines.h"
 #include "CHarlequinnAnimController.h"
 #include "CHarlequinn.h"
 #include "UGameInstance.h"
@@ -425,7 +425,7 @@ void CHarlequinnAnimController::Tick(const _double& _dTimeDelta)
         }
     }
 
-    //½´¸®ÄË ´øÁö±â 
+    //ìŠˆë¦¬ì¼„ ë˜ì§€ê¸° 
     for (int i = 0; i < 6; i++)
     {
         if ((*spHarlequinn->GetShurikens())[i]->GetTraveledDistance() > 100)

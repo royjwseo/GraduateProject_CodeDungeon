@@ -1,4 +1,4 @@
-#include "ToolDefines.h"
+ï»¿#include "ToolDefines.h"
 #include "TBloodEffectView.h"
 #include "UParticle.h"
 #include "UParticleSystem.h"
@@ -32,7 +32,7 @@ HRESULT TBloodEffectView::NativeConstruct()
 }
 
 //================================================================
-//**** ÆÄÆ¼Å¬ Á¾·ùº°·Î °ü¸®ÇÏ´Â ÄÁÅ×ÀÌ³Ê(º¤ÅÍ) Å©±â ¹Ì¸® ÇÒ´ç ****
+//**** íŒŒí‹°í´ ì¢…ë¥˜ë³„ë¡œ ê´€ë¦¬í•˜ëŠ” ì»¨í…Œì´ë„ˆ(ë²¡í„°) í¬ê¸° ë¯¸ë¦¬ í• ë‹¹ ****
 //================================================================
 
 
@@ -46,12 +46,12 @@ void TBloodEffectView::ResizeMultipleParticleVector(_uint _resizeAmount)
 
 
 //================================================================
-//**************** ÆÄÆ¼Å¬ Á¾·ùº°·Î ¸®¼Ò½º ÇÒ´ç ****************
+//**************** íŒŒí‹°í´ ì¢…ë¥˜ë³„ë¡œ ë¦¬ì†ŒìŠ¤ í• ë‹¹ ****************
 //================================================================
 
 void TBloodEffectView::LoadMultipleParticleResource()
 {
-	// Default¸¦ y°ª Áõ°¡ÇÏÁö¾Ê´Â ¿ø , AUTO¸¦ y°ª Áõ°¡ÇÏ´Â ¿ø
+	// Defaultë¥¼ yê°’ ì¦ê°€í•˜ì§€ì•ŠëŠ” ì› , AUTOë¥¼ yê°’ ì¦ê°€í•˜ëŠ” ì›
 	for (int i = 0; i < m_iMultipleParticleSize; i++) {
 		SHPTR<UGameInstance> spGameInstance = GET_INSTANCE(UGameInstance);
 		{
@@ -81,14 +81,14 @@ void TBloodEffectView::LoadMultipleParticleResource()
 		m_MultipleParticleType[0] = m_MultipleParticle[0]->GetParticleSystem()->GetParticleTypeParam();
 		m_MultipleParticleType[0]->fParticleType = PARTICLE_TYPE_DEFAULT;
 		m_MultipleParticleType[0]->fParticleLifeTimeType = PARTICLE_LIFETIME_TYPE_DEFAULT;
-		m_MultipleParticle[0]->SetBloodTexture(0,L"blood"); // y°ª Áõ°¡ x ¿ø
-		m_MultipleParticle[0]->SetBloodTexture(1,L"blood1"); // y°ª Áõ°¡ x ¿ø
-		m_MultipleParticle[0]->SetBloodTexture(2,L"blood2"); // y°ª Áõ°¡ x ¿ø
-		m_MultipleParticle[0]->SetBloodTexture(3,L"blood3"); // y°ª Áõ°¡ x ¿ø
-		m_MultipleParticle[0]->SetBloodTexture(4,L"blood4"); // y°ª Áõ°¡ x ¿ø
-		m_MultipleParticle[0]->SetBloodTexture(5,L"blood5"); // y°ª Áõ°¡ x ¿ø
-		m_MultipleParticle[0]->SetBloodTexture(6,L"blood6"); // y°ª Áõ°¡ x ¿ø
-		m_MultipleParticle[0]->SetBloodTexture(7,L"blood7"); // y°ª Áõ°¡ x ¿ø
+		m_MultipleParticle[0]->SetBloodTexture(0,L"blood"); // yê°’ ì¦ê°€ x ì›
+		m_MultipleParticle[0]->SetBloodTexture(1,L"blood1"); // yê°’ ì¦ê°€ x ì›
+		m_MultipleParticle[0]->SetBloodTexture(2,L"blood2"); // yê°’ ì¦ê°€ x ì›
+		m_MultipleParticle[0]->SetBloodTexture(3,L"blood3"); // yê°’ ì¦ê°€ x ì›
+		m_MultipleParticle[0]->SetBloodTexture(4,L"blood4"); // yê°’ ì¦ê°€ x ì›
+		m_MultipleParticle[0]->SetBloodTexture(5,L"blood5"); // yê°’ ì¦ê°€ x ì›
+		m_MultipleParticle[0]->SetBloodTexture(6,L"blood6"); // yê°’ ì¦ê°€ x ì›
+		m_MultipleParticle[0]->SetBloodTexture(7,L"blood7"); // yê°’ ì¦ê°€ x ì›
 		m_MultipleParticle[0]->SetParticleType(PARTICLE_BLOOD);
 		
 	}
@@ -97,14 +97,14 @@ void TBloodEffectView::LoadMultipleParticleResource()
 	//	m_MultipleParticleType[1] = m_MultipleParticle[1]->GetParticleSystem()->GetParticleTypeParam();
 	//	m_MultipleParticleType[1]->fParticleType = PARTICLE_TYPE_AUTO;
 	//	m_MultipleParticleType[1]->fParticleLifeTimeType = PARTICLE_LIFETIME_TYPE_DEFAULT;
-	//	m_MultipleParticle[1]->SetBloodTexture(0, L"blood"); // y°ª Áõ°¡ x ¿ø
-	//	m_MultipleParticle[1]->SetBloodTexture(1, L"blood1"); // y°ª Áõ°¡ x ¿ø
-	//	m_MultipleParticle[1]->SetBloodTexture(2, L"blood2"); // y°ª Áõ°¡ x ¿ø
-	//	m_MultipleParticle[1]->SetBloodTexture(3, L"blood3"); // y°ª Áõ°¡ x ¿ø
-	//	m_MultipleParticle[1]->SetBloodTexture(4, L"blood4"); // y°ª Áõ°¡ x ¿ø
-	//	m_MultipleParticle[1]->SetBloodTexture(5, L"blood5"); // y°ª Áõ°¡ x ¿ø
-	//	m_MultipleParticle[1]->SetBloodTexture(6, L"blood6"); // y°ª Áõ°¡ x ¿ø
-	//	m_MultipleParticle[1]->SetBloodTexture(7, L"blood7"); // y°ª Áõ°¡ x ¿ø
+	//	m_MultipleParticle[1]->SetBloodTexture(0, L"blood"); // yê°’ ì¦ê°€ x ì›
+	//	m_MultipleParticle[1]->SetBloodTexture(1, L"blood1"); // yê°’ ì¦ê°€ x ì›
+	//	m_MultipleParticle[1]->SetBloodTexture(2, L"blood2"); // yê°’ ì¦ê°€ x ì›
+	//	m_MultipleParticle[1]->SetBloodTexture(3, L"blood3"); // yê°’ ì¦ê°€ x ì›
+	//	m_MultipleParticle[1]->SetBloodTexture(4, L"blood4"); // yê°’ ì¦ê°€ x ì›
+	//	m_MultipleParticle[1]->SetBloodTexture(5, L"blood5"); // yê°’ ì¦ê°€ x ì›
+	//	m_MultipleParticle[1]->SetBloodTexture(6, L"blood6"); // yê°’ ì¦ê°€ x ì›
+	//	m_MultipleParticle[1]->SetBloodTexture(7, L"blood7"); // yê°’ ì¦ê°€ x ì›
 	//	m_MultipleParticle[1]->SetParticleType(PARTICLE_BLOOD);
 	//}
 
@@ -126,7 +126,7 @@ HRESULT TBloodEffectView::LoadResource()
 }
 
 //================================================================
-//**************** ÆÄÆ¼Å¬ Á¾·ùº°·Î ¸®¼Ò½º ÇØÁ¦ ****************
+//**************** íŒŒí‹°í´ ì¢…ë¥˜ë³„ë¡œ ë¦¬ì†ŒìŠ¤ í•´ì œ ****************
 //================================================================
 
 
@@ -135,7 +135,7 @@ void TBloodEffectView::ReleaseMultipleParticleResource()
 	for (auto& _particle : m_MultipleParticle) {
 		_particle.reset();
 		GetGameInstance()->RemoveActor(_particle);
-	}//¹®Á¦ À¯¹ßµÉ ¼ö ÀÖ´Â ÄÚµå RemoveActorÀÇ »ó¼¼ ±¸ÇöÀ» »ìÆìº¸¾Æ¾ßÇÔ.
+	}//ë¬¸ì œ ìœ ë°œë  ìˆ˜ ìˆëŠ” ì½”ë“œ RemoveActorì˜ ìƒì„¸ êµ¬í˜„ì„ ì‚´í´ë³´ì•„ì•¼í•¨.
 }
 
 
@@ -150,7 +150,7 @@ HRESULT TBloodEffectView::ReleaseResource()
 
 
 //================================================================
-//************ ÆÄÆ¼Å¬ Á¾·ùº°·Î Rendering ÇÏ´Â ºÎºĞ ************
+//************ íŒŒí‹°í´ ì¢…ë¥˜ë³„ë¡œ Rendering í•˜ëŠ” ë¶€ë¶„ ************
 //================================================================
 
 void TBloodEffectView::TickActive(const _double& _dTimeDelta)
@@ -172,7 +172,7 @@ void TBloodEffectView::RenderActive()
 		m_stMainDesc.iDockSpaceID = ImGui::GetID(GetName().c_str());
 		DockBuildInitSetting();
 		ImGui::DockSpace(m_stMainDesc.iDockSpaceID, ImVec2{}, m_stMainDesc.imgDockNodeFlags);
-		//¿©±âºÎÅÍ ³» ÀÔ·Â
+		//ì—¬ê¸°ë¶€í„° ë‚´ ì…ë ¥
 
 		MultipleParticleView();
 
@@ -251,7 +251,7 @@ void TBloodEffectView::MultipleParticleView()
 
 void TBloodEffectView::MultipleParticleCountSetting()
 {
-	//ÆÄÆ¼Å¬ ÇÑ »çÀÌÅ¬ »ı¼º °¹¼ö.
+	//íŒŒí‹°í´ í•œ ì‚¬ì´í´ ìƒì„± ê°¯ìˆ˜.
 	//if (ImGui::CollapsingHeader("Multiple Particle Count Setting", ImGuiTreeNodeFlags_DefaultOpen)) {
 
 	//	_uint increment = 1;
@@ -268,7 +268,7 @@ void TBloodEffectView::MultipleParticleCountSetting()
 
 void TBloodEffectView::MultipleParticleTimeSetting()
 {
-	//ÆÄÆ¼Å¬ÀÇ »ı¼º ½Ã°£ Á¤ÇÏ±â
+	//íŒŒí‹°í´ì˜ ìƒì„± ì‹œê°„ ì •í•˜ê¸°
 	if (ImGui::CollapsingHeader("Multiple Particle Create Time Interval", ImGuiTreeNodeFlags_DefaultOpen)) {
 
 		ImGui::InputFloat("Enter Time Interval\n Min:0.f  Max :6.f", m_MultipleParticle[0]->GetParticleSystem()->GetCreateInterval(), 0.1f, 1.0f, "%.2f", ImGuiInputTextFlags_CharsDecimal);

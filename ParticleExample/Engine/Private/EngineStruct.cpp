@@ -1,4 +1,4 @@
-
+﻿
 #include "EngineDefines.h"
 #include "EngineStruct.h"
 #include <filesystem>
@@ -243,4 +243,4 @@ namespace Engine {
 
 #pragma endregion ANIMSECTION 
 
-}
+}

@@ -1,13 +1,13 @@
-#pragma once 
+ï»¿#pragma once 
 #include "UBase.h"
 
 BEGIN(Tool)
 class TAssimpChannel;
 class TAssimpModel;
 /*
-@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 @ Explain
-- Assimp¸¦ ·ÎµåÇÏ±â À§ÇÑ Animation Å¬·¡½º
+- Assimpë¥¼ ë¡œë“œí•˜ê¸° ìœ„í•œ Animation í´ë˜ìŠ¤
 */
 class TAssimpAnimation : public UBase {
 public:

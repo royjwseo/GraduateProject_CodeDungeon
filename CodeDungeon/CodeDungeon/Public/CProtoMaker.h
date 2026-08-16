@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 BEGIN(Engine)
 class UGameInstance;

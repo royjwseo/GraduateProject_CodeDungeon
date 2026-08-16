@@ -1,4 +1,4 @@
-#include "ASession.h"
+ï»¿#include "ASession.h"
 
 BEGIN(Core)
 class AService;
@@ -11,9 +11,9 @@ public:
 	DESTRUCTOR(CClientSession)
 public:
 	virtual _bool Start() override;
-	// Å¬¶óÀÌ¾ğÆ®¿¡¼­ Àü¼ÛµÈ ¹öÆÛ¸¦ ÀĞ´Â ÇÔ¼ö
+	// í´ë¼ì´ì–¸íŠ¸ì—ì„œ ì „ì†¡ëœ ë²„í¼ë¥¼ ì½ëŠ” í•¨ìˆ˜
 	virtual void RecvData() override;
-	// Å¬¶óÀÌ¾ğÆ®¿¡°Ô ¹öÆÛ¸¦ Á¶ÇÕÇÏ¿© Àü¼ÛÇÏ´Â ÇÔ¼ö
+	// í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ë²„í¼ë¥¼ ì¡°í•©í•˜ì—¬ ì „ì†¡í•˜ëŠ” í•¨ìˆ˜
 	virtual _bool SendData(_char* _pPacket, const Core::PACKETHEAD& _PacketHead) override;
 	virtual void Disconnect() override;
 	virtual void ConnectTcpSocket() override;

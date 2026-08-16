@@ -1,12 +1,12 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ACOREBASE_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ACOREBASE_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ACOREBASE_H
 
 BEGIN(Core)
 /*
 @ Date: 2023-12-26
-@ Writer: ¹ÚÅÂÇö
+@ Writer: ë°•íƒœí˜„
 @ Explain
-- ÃÖ»óÀ§ ºÎ¸ð Å¬·¡½º, ¼­¹ö¿¡¼­ °´Ã¼ÀÇ ¿ªÈ°À» ÇÏ´Â ¸ðµç Å¬·¡½º´Â ¸ðµÎ ÀÌ Å¬·¡½º¸¦ ¹«Á¶°Ç »ó¼Ó ¹Þ´Â´Ù.
+- ìµœìƒìœ„ ë¶€ëª¨ í´ëž˜ìŠ¤, ì„œë²„ì—ì„œ ê°ì²´ì˜ ì—­í™œì„ í•˜ëŠ” ëª¨ë“  í´ëž˜ìŠ¤ëŠ” ëª¨ë‘ ì´ í´ëž˜ìŠ¤ë¥¼ ë¬´ì¡°ê±´ ìƒì† ë°›ëŠ”ë‹¤.
 */
 class  CORE_DLL  ACoreBase abstract : public Core::AEnableSharedFromThis<ACoreBase> {
 protected:
@@ -17,7 +17,7 @@ protected:
 public:
 	/*
 	@ Explain
-	- ÀÚ±â ÀÚ½ÅÀÇ WEAKPTRÀ» Ä³½ºÆÃ ÇÏ±â À§ÇÑ ÇÔ¼öµéÀÌ´Ù. 
+	- ìžê¸° ìžì‹ ì˜ WEAKPTRì„ ìºìŠ¤íŒ… í•˜ê¸° ìœ„í•œ í•¨ìˆ˜ë“¤ì´ë‹¤. 
 	*/
 	template<class T>
 	SHPTR<T> ThisShared() { return Core::static_shared_cast<T>(shared_from_this()); }
@@ -26,7 +26,7 @@ public:
 
 	/*
 	@ Explain
-	- ¸Þ¸ð¸®¸¦ ÇØÁ¦ÇØ¾ß ÇÒ °ÍÀÌ ÀÖÀ» ¶§ FREE¿¡ Á¤ÀÇÇÏ¿© ÇØÁ¦ÇÑ´Ù. 
+	- ë©”ëª¨ë¦¬ë¥¼ í•´ì œí•´ì•¼ í•  ê²ƒì´ ìžˆì„ ë•Œ FREEì— ì •ì˜í•˜ì—¬ í•´ì œí•œë‹¤. 
 	*/
 protected:
 	virtual void Free() PURE;
@@ -36,4 +36,4 @@ protected:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ACOREBASE_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ACOREBASE_H

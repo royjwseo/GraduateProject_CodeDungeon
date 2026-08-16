@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UTimer.h"
 #include "UMethod.h"
 
@@ -20,12 +20,12 @@ void UTimer::Free()
 
 HRESULT UTimer::NativeConstruct()
 {
-	//¸ŞÀÎº¸µå°¡ °®°í ÀÖ´Â °íÇØ»óµµ Å¸ÀÌ¸ÓÀÇ ´©Àû°ªÀ» ¾ò¾î¿À´Â ÇÔ¼ö
+	//ë©”ì¸ë³´ë“œê°€ ê°–ê³  ìˆëŠ” ê³ í•´ìƒë„ íƒ€ì´ë¨¸ì˜ ëˆ„ì ê°’ì„ ì–»ì–´ì˜¤ëŠ” í•¨ìˆ˜
 	QueryPerformanceCounter(&m_stCurTimer);		// 1000
 	QueryPerformanceCounter(&m_stOldLTime);			// 1020	
 	QueryPerformanceCounter(&m_stOriginLTime);			// 1030	
 	QueryPerformanceCounter(&m_stStopLTime);			// 1030	
-	// °íÇØ»óµµ Å¸ÀÌ¸ÓÀÇ ÁÖÆÄ¼ö¸¦ ¾ò¾î¿À´Â ÇÔ¼ö, ÁÖÆÄ¼ö´Â cpu ÃÊ´ç Å¬·°¼ö ÁÖ±â¸¦ ¸»ÇÔ
+	// ê³ í•´ìƒë„ íƒ€ì´ë¨¸ì˜ ì£¼íŒŒìˆ˜ë¥¼ ì–»ì–´ì˜¤ëŠ” í•¨ìˆ˜, ì£¼íŒŒìˆ˜ëŠ” cpu ì´ˆë‹¹ í´ëŸ­ìˆ˜ ì£¼ê¸°ë¥¼ ë§í•¨
 	QueryPerformanceFrequency(&m_stCPULTime);			// 1600000
 	return S_OK;
 }

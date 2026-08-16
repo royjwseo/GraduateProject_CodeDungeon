@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "ARoomManager.h"
 
 namespace Core {
@@ -9,4 +9,4 @@ namespace Core {
 	{
 	}
 
-}
+}

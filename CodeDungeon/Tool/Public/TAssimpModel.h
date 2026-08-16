@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UResource.h"
 
 BEGIN(Engine)
@@ -11,9 +11,9 @@ class TAssimpBoneNode;
 class TAssimpAnimation;
 
 /*
-@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 @ Explain
-- Assimp¸¦ ·ÎµåÇÏ±â À§ÇÑ Model Å¬·¡½º
+- Assimpë¥¼ ë¡œë“œí•˜ê¸° ìœ„í•œ Model í´ë˜ìŠ¤
 */
 class TAssimpModel : public UResource {
 public:

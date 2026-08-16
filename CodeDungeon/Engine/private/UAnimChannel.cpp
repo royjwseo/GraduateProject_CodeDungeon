@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UAnimChannel.h"
 #include "UBoneNode.h"
 #include "UAnimModel.h"
@@ -81,7 +81,7 @@ void UAnimChannel::UpdateTransformMatrix(const _double& _dTimeAcc, UAnimation* _
 		}
 		else
 		{
-			// ÇöÀç Å°ÇÁ·¹ÀÓÇÏ°í ´ÙÀ½ Å°ÇÁ·¹ÀÓÇÏ°í °áÇÕÇÏ´Â °ÍÀÌ´Ù.
+			// í˜„ì¬ í‚¤í”„ë ˆì„í•˜ê³  ë‹¤ìŒ í‚¤í”„ë ˆì„í•˜ê³  ê²°í•©í•˜ëŠ” ê²ƒì´ë‹¤.
 			_float fCurrentRatio = static_cast<_float>((_dTimeAcc - m_vecKeyFrames[m_iCurrentKeyFrames].dTime)
 				/ (m_vecKeyFrames[m_iCurrentKeyFrames + 1].dTime - m_vecKeyFrames[m_iCurrentKeyFrames].dTime));
 
@@ -105,9 +105,9 @@ void UAnimChannel::UpdateSupplyToCurAndNextTransformMatrix(const _double& _dTime
 	UAnimation* _pAnimation, CSHPTRREF<UAnimChannel> _spNextAnimChannel)
 {
 	assert(nullptr != _pAnimation && nullptr != _spNextAnimChannel);
-	// ÇöÀç ¾Ö´Ï¸ŞÀÌ¼Ç°ú ´ÙÀ½ ¾Ö´Ï¸ŞÀÌ¼ÇÀÇ Ã¹ ¹øÂ° °ªµéÀ» Lerp ½ÃÅ²´Ù. 
+	// í˜„ì¬ ì• ë‹ˆë©”ì´ì…˜ê³¼ ë‹¤ìŒ ì• ë‹ˆë©”ì´ì…˜ì˜ ì²« ë²ˆì§¸ ê°’ë“¤ì„ Lerp ì‹œí‚¨ë‹¤. 
 	_int NextAnimCurrFrames = _spNextAnimChannel->GetCurrentKeyFrame();
-	// °ªµéÀ» Lerp ½ÃÅ´
+	// ê°’ë“¤ì„ Lerp ì‹œí‚´
 	m_vScale = _float3::Lerp(m_vecKeyFrames[m_iCurrentKeyFrames].vScale,
 		_spNextAnimChannel->m_vecKeyFrames[NextAnimCurrFrames].vScale, _fRatio);
 	m_vRotation = _float4::Lerp(m_vecKeyFrames[m_iCurrentKeyFrames].vRotation,
@@ -129,12 +129,12 @@ void UAnimChannel::ComputeCurKeyFrames(const _double& _dTimeAcc)
 
 void UAnimChannel::ComputeCurKeyFrames(const _double& _dTimeAcc, _uint& _iCurKeyFrame)
 {
-	// Å° ÇÁ·¹ÀÓÀÌ 1°³ ¹Û¿¡ ¾øÀ» °æ¿ì.
+	// í‚¤ í”„ë ˆì„ì´ 1ê°œ ë°–ì— ì—†ì„ ê²½ìš°.
 	if (m_vecKeyFrames.size() <= 1)
 	{
 		_iCurKeyFrame = 0;
 	}
-	// 1¹ø Å°ÇÁ·¹ÀÓº¸´Ù ÀÛÀ» °æ¿ì
+	// 1ë²ˆ í‚¤í”„ë ˆì„ë³´ë‹¤ ì‘ì„ ê²½ìš°
 	else if (_dTimeAcc < m_vecKeyFrames[1].dTime)
 	{
 		_iCurKeyFrame = 0;
@@ -146,7 +146,7 @@ void UAnimChannel::ComputeCurKeyFrames(const _double& _dTimeAcc, _uint& _iCurKey
 			++_iCurKeyFrame;
 		}
 
-		// ¾Ö´Ï¸ŞÀÌ¼ÇÀ» µÚ·Î µ¹¸®´Â °æ¿ì¿¡ KeyFrameÀ» ¸ÂÃçÁØ´Ù.
+		// ì• ë‹ˆë©”ì´ì…˜ì„ ë’¤ë¡œ ëŒë¦¬ëŠ” ê²½ìš°ì— KeyFrameì„ ë§ì¶°ì¤€ë‹¤.
 		while (_dTimeAcc < m_vecKeyFrames[_iCurKeyFrame].dTime)
 		{
 			if (0 == _iCurKeyFrame)

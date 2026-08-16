@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UBase.h"
 
 BEGIN(Engine)
@@ -33,7 +33,7 @@ public:
 	void BindViewProjMatrix(CSHPTRREF<UCommand> _spCommand);
 
 	const _float4x4 GetMainCamViewMatrix() const;
-	//2024-4-9 ¼öÁ¤ ¼­Á¤¿ø
+	//2024-4-9 ìˆ˜ì • ì„œì •ì›
 	const _float4x4 GetMainCamWorldMatrix() const;
 	const _float4x4& GetMainCamProjMatrix() const;
 	const _float3& GetMainCamPosition();

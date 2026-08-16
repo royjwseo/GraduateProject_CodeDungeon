@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "ACoreInstance.h"
 #include "AThreadManager.h"
 #include "ARandomManager.h"
@@ -257,4 +257,4 @@ namespace Core
 		m_spRandomManager.reset();
 		m_spThreadManager.reset();
 	}
-}
+}

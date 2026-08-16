@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ATRANFORM_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ATRANFORM_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ATRANFORM_H
 
 #include "ACoreBase.h"
@@ -6,9 +6,9 @@
 BEGIN(Core)
 /*
 @ Date: 2024-07-03
-@ Writer: ¹ÚÅÂÇö
+@ Writer: ë°•íƒœí˜„
 @ Explain
-- ½ÇÁ¦ °ÔÀÓ¿¡¼­ ¿ÀºêÁ§Æ®°¡ »ç¿ëÇÏ´Â Transform
+- ì‹¤ì œ ê²Œì„ì—ì„œ ì˜¤ë¸Œì íŠ¸ê°€ ì‚¬ìš©í•˜ëŠ” Transform
 */
 class CORE_DLL ATransform : public ACoreBase {
 public:
@@ -128,7 +128,7 @@ private:
 	AFastSpinLock										m_WorldSpinLock;
 	AFastSpinLock										m_ChangeSpinLock;
 
-	//2024-05-24 ÀÌ¼ºÇö Áß·Â ±¸Çö
+	//2024-05-24 ì´ì„±í˜„ ì¤‘ë ¥ êµ¬í˜„
 	Vector3 m_vVelocity;
 	const Vector3 m_vGravity;
 	Vector3 m_vJumpvelocity;
@@ -136,4 +136,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ATRANFORM_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ATRANFORM_H

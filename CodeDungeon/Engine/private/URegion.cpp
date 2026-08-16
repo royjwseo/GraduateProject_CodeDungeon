@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "URegion.h"
 #include "UGameInstance.h"
 #include "UCell.h"
@@ -242,7 +242,7 @@ HRESULT URegion::RearrageCells()
 	int i = 0;
 	for (CELLCONTAINER::iterator iter = pCells->begin(); iter != pCells->end();)
 	{
-		//¼¿µéÀÇ ÀÎµ¦½º Àç¼³Á¤
+		//ì…€ë“¤ì˜ ì¸ë±ìŠ¤ ì¬ì„¤ì •
 		(*iter)->SetIndex(i++);
 		++iter;
 	}
@@ -287,7 +287,7 @@ HRESULT URegion::SetName()
 		ImGui::EndGroup();
 		ImGui::SameLine();
 		ImGui::PushItemWidth(200);
-		// _wstringÀ» Ãâ·Â
+		// _wstringì„ ì¶œë ¥
 		ImGui::Text("Region Name: %ls", m_wsRegionName.c_str());
 
 		ImGui::Checkbox("Edit Region Name", &m_bEditName);

@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "Allocator.h"
 #include "Memory.h"
 
@@ -26,9 +26,9 @@ namespace Core
 
 	void* UStompAllocator::Alloc(size_t _size)
 	{
-		// ¹İ¿Ã¸²À» À§ÇÑ ÄÚµå
+		// ë°˜ì˜¬ë¦¼ì„ ìœ„í•œ ì½”ë“œ
 		const size_t PageCount = (_size + PAGE_SIZE - 1) / PAGE_SIZE;
-		// PageCount¿¡ µÚ¿¡ ºÎºĞ¿¡ ÇÒ´çÇÒ ¼ö ÀÖ°Ô DataOffset Á¶Á¤ÇØ¼­ ¿À¹öÇÃ·Î¿ì ¹®Á¦ ÇØ°á
+		// PageCountì— ë’¤ì— ë¶€ë¶„ì— í• ë‹¹í•  ìˆ˜ ìˆê²Œ DataOffset ì¡°ì •í•´ì„œ ì˜¤ë²„í”Œë¡œìš° ë¬¸ì œ í•´ê²°
 		const size_t DataOffset = PageCount * PAGE_SIZE - _size;
 
 		
@@ -42,7 +42,7 @@ namespace Core
 #ifdef _WIN32
 	void UStompAllocator::Release(void* _ptr)
 	{
-		// DataOffsetÀ» Á¶Á¤ÇØ¼­ ÇÒ´çÇÑ ¸Ş¸ğ¸®¸¦ ¿ø·¡ ÀÚ¸®·Î µ¹¾Æ°¡°Ô ¸¸µç´Ù. 
+		// DataOffsetì„ ì¡°ì •í•´ì„œ í• ë‹¹í•œ ë©”ëª¨ë¦¬ë¥¼ ì›ë˜ ìë¦¬ë¡œ ëŒì•„ê°€ê²Œ ë§Œë“ ë‹¤. 
 		const size_t address = reinterpret_cast<size_t>(_ptr);
 		const size_t baseAddress = address - (address % PAGE_SIZE);
 		::VirtualFree(reinterpret_cast<void*>(baseAddress), 0, MEM_RELEASE);
@@ -74,4 +74,4 @@ namespace Core
 	STOMP ALLOCATOR
 	----------------------------------------
 	*/
-}
+}

@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Engine.h"
 
 bool Engine::OnCreate(HINSTANCE hInstance, HWND hMainWnd)
@@ -30,7 +30,7 @@ void Engine::BuildObjects()
 {
 	m_spCommandQueue->GetCmdList()->Reset(m_spCommandQueue->GetCmdAllocator().Get(), NULL);
 
-	//Ä«¸Þ¶ó °´Ã¼¸¦ »ý¼ºÇÏ¿© ºäÆ÷Æ®, ¾¾Àú »ç°¢Çü, Åõ¿µ º¯È¯ Çà·Ä, Ä«¸Þ¶ó º¯È¯ Çà·ÄÀ» »ý¼ºÇÏ°í ¼³Á¤ÇÑ´Ù. 
+	//ì¹´ë©”ë¼ ê°ì²´ë¥¼ ìƒì„±í•˜ì—¬ ë·°í¬íŠ¸, ì”¨ì € ì‚¬ê°í˜•, íˆ¬ì˜ ë³€í™˜ í–‰ë ¬, ì¹´ë©”ë¼ ë³€í™˜ í–‰ë ¬ì„ ìƒì„±í•˜ê³  ì„¤ì •í•œë‹¤. 
 	m_pCamera = make_shared<CCamera>();
 	m_pCamera->SetViewport(0, 0, m_spSwapChainAndRtvDsvHeap->m_nWndClientWidth, m_spSwapChainAndRtvDsvHeap->m_nWndClientHeight, 0.0f, 1.0f);
 	m_pCamera->SetScissorRect(0, 0, m_spSwapChainAndRtvDsvHeap->m_nWndClientWidth, m_spSwapChainAndRtvDsvHeap->m_nWndClientHeight);
@@ -107,7 +107,7 @@ void Engine::OnProcessingKeyboardMessage(HWND hWnd, UINT nMessageID, WPARAM
 			break;
 		case VK_RETURN:
 			break;
-			//¡°F9¡± Å°°¡ ´­·ÁÁö¸é À©µµ¿ì ¸ðµå¿Í ÀüÃ¼È­¸é ¸ðµåÀÇ ÀüÈ¯À» Ã³¸®ÇÑ´Ù. 
+			//â€œF9â€ í‚¤ê°€ ëˆŒë ¤ì§€ë©´ ìœˆë„ìš° ëª¨ë“œì™€ ì „ì²´í™”ë©´ ëª¨ë“œì˜ ì „í™˜ì„ ì²˜ë¦¬í•œë‹¤. 
 		case VK_F9:
 			m_spCommandQueue->WaitForGpuComplete();
 			m_spSwapChainAndRtvDsvHeap->ChangeSwapChainState(m_spDevice->GetDevice());

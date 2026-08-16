@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 using namespace DirectX;
 #include "UCollider.h"
 #include "UTransform.h"
@@ -436,14 +436,14 @@ _float3 UCollider::CalculateOBBCollisionNormal(const DirectX::BoundingOrientedBo
 	XMMATRIX Rot1 = XMMatrixRotationQuaternion(XMLoadFloat4(&quaternion1));
 	XMMATRIX Rot2 = XMMatrixRotationQuaternion(XMLoadFloat4(&quaternion2));
 
-	// OBB 1°ú OBB 2ÀÇ È¸Àü Çà·Ä¿¡¼­ ÃàÀ» ÃßÃâÇÕ´Ï´Ù.
+	// OBB 1ê³¼ OBB 2ì˜ íšŒì „ í–‰ë ¬ì—ì„œ ì¶•ì„ ì¶”ì¶œí•©ë‹ˆë‹¤.
 	for (int i = 0; i < 3; ++i)
 	{
 		Axes[i] = Rot1.r[i];
 		Axes[i + 3] = Rot2.r[i];
 	}
 
-	// ¸ğµç ÃàÀÇ ¿ÜÀûÀ» °è»êÇÏ¿© Ãæµ¹ °¡´ÉÇÑ ÃàÀ» Ã£½À´Ï´Ù.
+	// ëª¨ë“  ì¶•ì˜ ì™¸ì ì„ ê³„ì‚°í•˜ì—¬ ì¶©ëŒ ê°€ëŠ¥í•œ ì¶•ì„ ì°¾ìŠµë‹ˆë‹¤.
 	for (int i = 0; i < 3; ++i)
 	{
 		for (int j = 0; j < 3; ++j)
@@ -452,20 +452,20 @@ _float3 UCollider::CalculateOBBCollisionNormal(const DirectX::BoundingOrientedBo
 		}
 	}
 
-	float minPenetration = FLT_MAX;  // ÃÖ¼Ò Ä§Åõ°ªÀ» ÃÊ±âÈ­ÇÕ´Ï´Ù.
-	_float3 bestAxis = _float3::Zero;  // ÃÖÀû ÃàÀ» ÃÊ±âÈ­ÇÕ´Ï´Ù.
+	float minPenetration = FLT_MAX;  // ìµœì†Œ ì¹¨íˆ¬ê°’ì„ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
+	_float3 bestAxis = _float3::Zero;  // ìµœì  ì¶•ì„ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
 
-	// ¸ğµç Ãà¿¡ ´ëÇØ Ãæµ¹ Å×½ºÆ®¸¦ ¼öÇàÇÕ´Ï´Ù.
+	// ëª¨ë“  ì¶•ì— ëŒ€í•´ ì¶©ëŒ í…ŒìŠ¤íŠ¸ë¥¼ ìˆ˜í–‰í•©ë‹ˆë‹¤.
 	for (int i = 0; i < 15; ++i)
 	{
-		XMVECTOR axis = Axes[i];  // ÇöÀç ÃàÀ» °¡Á®¿É´Ï´Ù.
+		XMVECTOR axis = Axes[i];  // í˜„ì¬ ì¶•ì„ ê°€ì ¸ì˜µë‹ˆë‹¤.
 
-		// ÃàÀÇ ±æÀÌ°¡ 0ÀÌ ¾Æ´Ï¸é Á¤±ÔÈ­ÇÕ´Ï´Ù.
+		// ì¶•ì˜ ê¸¸ì´ê°€ 0ì´ ì•„ë‹ˆë©´ ì •ê·œí™”í•©ë‹ˆë‹¤.
 		if (!XMVector3Equal(axis, XMVectorZero()))
 		{
-			axis = XMVector3Normalize(axis);  // ÃàÀ» Á¤±ÔÈ­ÇÕ´Ï´Ù.
+			axis = XMVector3Normalize(axis);  // ì¶•ì„ ì •ê·œí™”í•©ë‹ˆë‹¤.
 
-			// °¢ OBBÀÇ Ãà¿µ(projection)À» °è»êÇÕ´Ï´Ù.
+			// ê° OBBì˜ ì¶•ì˜(projection)ì„ ê³„ì‚°í•©ë‹ˆë‹¤.
 			float projection1 = fabs(XMVectorGetX(XMVector3Dot(axis, Rot1.r[0])) * XMVectorGetX(Extents1)) +
 				fabs(XMVectorGetX(XMVector3Dot(axis, Rot1.r[1])) * XMVectorGetY(Extents1)) +
 				fabs(XMVectorGetX(XMVector3Dot(axis, Rot1.r[2])) * XMVectorGetZ(Extents1));
@@ -474,20 +474,20 @@ _float3 UCollider::CalculateOBBCollisionNormal(const DirectX::BoundingOrientedBo
 				fabs(XMVectorGetX(XMVector3Dot(axis, Rot2.r[1])) * XMVectorGetY(Extents2)) +
 				fabs(XMVectorGetX(XMVector3Dot(axis, Rot2.r[2])) * XMVectorGetZ(Extents2));
 
-			// µÎ OBBÀÇ Áß½ÉÁ¡ »çÀÌÀÇ °Å¸®¸¦ °è»êÇÕ´Ï´Ù.
+			// ë‘ OBBì˜ ì¤‘ì‹¬ì  ì‚¬ì´ì˜ ê±°ë¦¬ë¥¼ ê³„ì‚°í•©ë‹ˆë‹¤.
 			float dot1 = XMVectorGetX(XMVector3Dot(Center1, axis));
 			float dot2 = XMVectorGetX(XMVector3Dot(Center2, axis));
 			float distance = fabs(dot1 - dot2);
 
-			// Ãà¿µ°ú Áß½ÉÁ¡ »çÀÌÀÇ °Å¸®¸¦ ºñ±³ÇÏ¿© °ãÄ§ ¿©ºÎ¸¦ È®ÀÎÇÕ´Ï´Ù.
+			// ì¶•ì˜ê³¼ ì¤‘ì‹¬ì  ì‚¬ì´ì˜ ê±°ë¦¬ë¥¼ ë¹„êµí•˜ì—¬ ê²¹ì¹¨ ì—¬ë¶€ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
 			float penetration = projection1 + projection2 - distance;
 
 			if (penetration < 0.0f)
 			{
-				return _float3::Zero; // Ãæµ¹ÀÌ ¾ø´Â °æ¿ì
+				return _float3::Zero; // ì¶©ëŒì´ ì—†ëŠ” ê²½ìš°
 			}
 
-			// ÃÖ¼Ò ¿À¹ö·¦ ÃàÀ» Ã£½À´Ï´Ù.
+			// ìµœì†Œ ì˜¤ë²„ë© ì¶•ì„ ì°¾ìŠµë‹ˆë‹¤.
 			if (penetration < minPenetration)
 			{
 				minPenetration = penetration;
@@ -496,7 +496,7 @@ _float3 UCollider::CalculateOBBCollisionNormal(const DirectX::BoundingOrientedBo
 		}
 	}
 
-	return bestAxis;  // ÃÖÀû ÃàÀ» ¹İÈ¯ÇÕ´Ï´Ù.
+	return bestAxis;  // ìµœì  ì¶•ì„ ë°˜í™˜í•©ë‹ˆë‹¤.
 }
 
 _float3 UCollider::CalculateOBBSphereCollisionNormal(const DirectX::BoundingOrientedBox& box, const DirectX::BoundingSphere& sphere) const
@@ -509,32 +509,32 @@ _float3 UCollider::CalculateOBBSphereCollisionNormal(const DirectX::BoundingOrie
 	XMFLOAT4 boxOrientation = box.Orientation;
 	XMVECTOR quaternion = XMLoadFloat4(&boxOrientation);
 
-	// OBBÀÇ ÃàÀ» ±¸ÇÕ´Ï´Ù.
+	// OBBì˜ ì¶•ì„ êµ¬í•©ë‹ˆë‹¤.
 	XMVECTOR boxAxisX = XMVector3Rotate(XMVectorSet(1.0f, 0.0f, 0.0f, 0.0f), quaternion);
 	XMVECTOR boxAxisY = XMVector3Rotate(XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), quaternion);
 	XMVECTOR boxAxisZ = XMVector3Rotate(XMVectorSet(0.0f, 0.0f, 1.0f, 0.0f), quaternion);
 
-	// ±¸Ã¼ÀÇ Áß½ÉÀ» OBBÀÇ ·ÎÄÃ ÁÂÇ¥°è·Î º¯È¯
+	// êµ¬ì²´ì˜ ì¤‘ì‹¬ì„ OBBì˜ ë¡œì»¬ ì¢Œí‘œê³„ë¡œ ë³€í™˜
 	XMVECTOR localSphereCenter = XMVector3InverseRotate(sphereCenter - boxCenter, quaternion);
 
-	// OBBÀÇ °¢ Ãà¿¡ ´ëÇØ ±¸Ã¼ÀÇ Áß½É°úÀÇ °Å¸® °è»ê
+	// OBBì˜ ê° ì¶•ì— ëŒ€í•´ êµ¬ì²´ì˜ ì¤‘ì‹¬ê³¼ì˜ ê±°ë¦¬ ê³„ì‚°
 	XMVECTOR closestPoint = localSphereCenter;
 	closestPoint = XMVectorClamp(closestPoint, -boxExtents, boxExtents);
 
-	// ·ÎÄÃ ÁÂÇ¥°è¿¡¼­ °¡Àå °¡±î¿î Á¡À» ´Ù½Ã ¿ùµå ÁÂÇ¥°è·Î º¯È¯
+	// ë¡œì»¬ ì¢Œí‘œê³„ì—ì„œ ê°€ì¥ ê°€ê¹Œìš´ ì ì„ ë‹¤ì‹œ ì›”ë“œ ì¢Œí‘œê³„ë¡œ ë³€í™˜
 	closestPoint = XMVector3Rotate(closestPoint, quaternion) + boxCenter;
 
-	// ±¸Ã¼ÀÇ Áß½É°ú °¡Àå °¡±î¿î Á¡ »çÀÌÀÇ °Å¸® °è»ê
+	// êµ¬ì²´ì˜ ì¤‘ì‹¬ê³¼ ê°€ì¥ ê°€ê¹Œìš´ ì  ì‚¬ì´ì˜ ê±°ë¦¬ ê³„ì‚°
 	XMVECTOR delta = closestPoint - sphereCenter;
 	float distance = XMVectorGetX(XMVector3Length(delta));
 
-	// Ãæµ¹ ¿©ºÎ ÆÇ´Ü
+	// ì¶©ëŒ ì—¬ë¶€ íŒë‹¨
 	if (distance > sphereRadius)
 	{
-		return _float3::Zero; // Ãæµ¹ÀÌ ¾ø´Â °æ¿ì
+		return _float3::Zero; // ì¶©ëŒì´ ì—†ëŠ” ê²½ìš°
 	}
 
-	// Ãæµ¹ÀÌ ¹ß»ıÇÑ °æ¿ì Ãæµ¹ ³ë¸Ö °è»ê
+	// ì¶©ëŒì´ ë°œìƒí•œ ê²½ìš° ì¶©ëŒ ë…¸ë©€ ê³„ì‚°
 	XMVECTOR collisionNormal = XMVector3Normalize(delta);
 
 	return _float3(XMVectorGetX(collisionNormal), XMVectorGetY(collisionNormal), XMVectorGetZ(collisionNormal));
@@ -655,7 +655,7 @@ _float3 UCollider::GetHeightAdjustedPointFromCenter(const std::shared_ptr<Boundi
 	// Adjust the point in the y direction by the extent in the y direction
 	XMVECTOR yOffset;
 	if (minus) {
-		yOffset = XMVectorSet(0.0f, XMVectorGetY(-2*extents/3.f), 0.0f, 0.0f);//ÀÏ´Ü ¹İÀ¸·Î ÁÙ¿©³õÀ½
+		yOffset = XMVectorSet(0.0f, XMVectorGetY(-2*extents/3.f), 0.0f, 0.0f);//ì¼ë‹¨ ë°˜ìœ¼ë¡œ ì¤„ì—¬ë†“ìŒ
 	}
 	else {
 		yOffset = XMVectorSet(0.0f, XMVectorGetY(extents), 0.0f, 0.0f);

@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOLLIDER_H
+Ôªø#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOLLIDER_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOLLIDER_H
 
 #include "UComponent.h"
@@ -33,7 +33,7 @@ public:
 	void SetTranslate(const _float3& _vTranslate);
 	void SetTransform(const _float3& _vPos, const _float4& _vQuaternion);
 	void SetTransform(CSHPTRREF< UTransform> _spTransform);
-	// UComponent¿ª(∏¶) ≈Î«ÿ ªÛº”µ 
+	// UComponentÏùÑ(Î•º) ÌÜµÌï¥ ÏÉÅÏÜçÎê®
 	virtual void Free() override;
 	CLONE_MACRO(UCollider, "UCollider::Clone To Failed")
 	virtual HRESULT NativeConstruct() override;
@@ -67,4 +67,4 @@ private:
 END
 
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOLLIDER_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOLLIDER_H

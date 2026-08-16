@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+﻿#include "ClientDefines.h"
 #include "CClientApp.h"
 #include "UGameInstance.h"
 #include "UTimer.h"
@@ -98,7 +98,7 @@ void CClientApp::Render()
 	MSG msg{};
 	ZeroMemory(&msg, sizeof(MSG));
 
-	// �⺻ �޽��� �����Դϴ�:
+	// 占썩본 占쌨쏙옙占쏙옙 占쏙옙占쏙옙占쌉니댐옙:
 	while (m_isTickThread)
 	{
 		// if PeekMeesage

@@ -1,4 +1,4 @@
-#include "ServerDefines.h"
+﻿#include "ServerDefines.h"
 #include "CMummyAnimController.h"
 #include "AAnimator.h"
 #include "AAnimation.h"
@@ -20,4 +20,4 @@ namespace Server {
 	void CMummyAnimController::Free()
 	{
 	}
-}
+}

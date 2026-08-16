@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+﻿#include "EngineDefine.h"
 #include "UShadowCamera.h"
 
 UShadowCamera::UShadowCamera(CSHPTRREF<UDevice> _spDevice, const _wstring& _wstrLayer, const CLONETYPE& _eCloneType)

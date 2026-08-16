@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Vertex.h"
 #include "Mesh.h"
 
@@ -111,22 +111,22 @@ void CMesh::RenderMesh_OneIndexBuffer(const ComPtr<ID3D12GraphicsCommandList>& _
 
 CTriangleMesh::CTriangleMesh(const ComPtr<ID3D12Device>& _Device, const ComPtr<ID3D12GraphicsCommandList>& _CommandList) : CMesh(_Device, _CommandList)
 {
-	//»ï°¢Çü ¸Ş½¬¸¦ Á¤ÀÇÇÑ´Ù. 
+	//ì‚¼ê°í˜• ë©”ì‰¬ë¥¼ ì •ì˜í•œë‹¤. 
 	m_nVertices = 3;
 	m_nStride = sizeof(CDiffusedVertex);
 	m_d3dPrimitiveTopology = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
-	/*Á¤Á¡(»ï°¢ÇüÀÇ ²ÀÁöÁ¡)ÀÇ »ö»óÀº ½Ã°è¹æÇâ ¼ø¼­´ë·Î »¡°£»ö, ³ì»ö, ÆÄ¶õ»öÀ¸·Î ÁöÁ¤ÇÑ´Ù. RGBA(Red, Green, Blue,
-	Alpha) 4°³ÀÇ ÆÄ¶ó¸ŞÅÍ¸¦ »ç¿ëÇÏ¿© »ö»óÀ» Ç¥ÇöÇÑ´Ù. °¢ ÆÄ¶ó¸ŞÅÍ´Â 0.0~1.0 »çÀÌÀÇ ½Ç¼ö°ªÀ» °¡Áø´Ù.*/
+	/*ì •ì (ì‚¼ê°í˜•ì˜ ê¼­ì§€ì )ì˜ ìƒ‰ìƒì€ ì‹œê³„ë°©í–¥ ìˆœì„œëŒ€ë¡œ ë¹¨ê°„ìƒ‰, ë…¹ìƒ‰, íŒŒë€ìƒ‰ìœ¼ë¡œ ì§€ì •í•œë‹¤. RGBA(Red, Green, Blue,
+	Alpha) 4ê°œì˜ íŒŒë¼ë©”í„°ë¥¼ ì‚¬ìš©í•˜ì—¬ ìƒ‰ìƒì„ í‘œí˜„í•œë‹¤. ê° íŒŒë¼ë©”í„°ëŠ” 0.0~1.0 ì‚¬ì´ì˜ ì‹¤ìˆ˜ê°’ì„ ê°€ì§„ë‹¤.*/
 	CDiffusedVertex pVertices[3];
 	pVertices[0] = CDiffusedVertex(XMFLOAT3(0.0f, 0.5f, 0.0f), XMFLOAT4(1.0f, 0.0f, 0.0f,
 		1.0f));
 	pVertices[1] = CDiffusedVertex(XMFLOAT3(0.5f, -0.5f, 0.0f), XMFLOAT4(0.0f, 1.0f, 0.0f,
 		1.0f));
 	pVertices[2] = CDiffusedVertex(XMFLOAT3(-0.5f, -0.5f, 0.0f), XMFLOAT4(Colors::Blue));
-	//»ï°¢Çü ¸Ş½¬¸¦ ¸®¼Ò½º(Á¤Á¡ ¹öÆÛ)·Î »ı¼ºÇÑ´Ù. 
+	//ì‚¼ê°í˜• ë©”ì‰¬ë¥¼ ë¦¬ì†ŒìŠ¤(ì •ì  ë²„í¼)ë¡œ ìƒì„±í•œë‹¤. 
 	m_pd3dPositionBuffer = Util::CreateBufferResource(_Device, _CommandList, pVertices, m_nStride* m_nVertices, D3D12_HEAP_TYPE_DEFAULT,
 		D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER, &m_pd3dPositionUploadBuffer);
-		//Á¤Á¡ ¹öÆÛ ºä¸¦ »ı¼ºÇÑ´Ù. 
+		//ì •ì  ë²„í¼ ë·°ë¥¼ ìƒì„±í•œë‹¤. 
 
 	D3D12_VERTEX_BUFFER_VIEW m_pd3dPositionBufferView;
 	m_pd3dPositionBufferView.BufferLocation = m_pd3dPositionBuffer->GetGPUVirtualAddress();
@@ -146,7 +146,7 @@ CBoundingBoxMesh::CBoundingBoxMesh(const ComPtr<ID3D12Device>& _Device, const Co
 
 	const XMFLOAT4 randomColor = XMFLOAT4(1.0f , 1.0f, 1.0f, 1.0f);
 
-	// Á¤Á¡ »ı¼º
+	// ì •ì  ìƒì„±
 	m_nVertices = 8;
 	m_nStride = sizeof(CDiffusedVertex);
 	m_nOffset = 0;
@@ -171,7 +171,7 @@ CBoundingBoxMesh::CBoundingBoxMesh(const ComPtr<ID3D12Device>& _Device, const Co
 		m_nStride * m_nVertices, D3D12_HEAP_TYPE_DEFAULT,
 		D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER, &m_pd3dPositionUploadBuffer);
 
-	// Á¤Á¡ ¹öÆÛ ºä ¼³Á¤
+	// ì •ì  ë²„í¼ ë·° ì„¤ì •
 	D3D12_VERTEX_BUFFER_VIEW m_pd3dPositionBufferView;
 	m_pd3dPositionBufferView.BufferLocation = m_pd3dPositionBuffer->GetGPUVirtualAddress();
 	m_pd3dPositionBufferView.StrideInBytes = m_nStride;
@@ -179,7 +179,7 @@ CBoundingBoxMesh::CBoundingBoxMesh(const ComPtr<ID3D12Device>& _Device, const Co
 
 	m_pd3dVertexBufferViews.push_back(m_pd3dPositionBufferView);
 
-	// ÀÎµ¦½º »ı¼º
+	// ì¸ë±ìŠ¤ ìƒì„±
 
 	int indices[] = {
 	0, 1, 1, 2, 2, 3, 3, 0, // Bottom face
@@ -200,7 +200,7 @@ CBoundingBoxMesh::CBoundingBoxMesh(const ComPtr<ID3D12Device>& _Device, const Co
 		m_ppnSubSetIndices[0][i] = indices[i];
 	}
 
-	// ¼­ºê¼Â¿¡ ´ëÇÑ ÀÎµ¦½º ¹öÆÛ »ı¼º
+	// ì„œë¸Œì…‹ì— ëŒ€í•œ ì¸ë±ìŠ¤ ë²„í¼ ìƒì„±
 	m_ppd3dIndexBuffers.resize(m_nSubMeshes);
 	m_ppd3dIndexUploadBuffers.resize(m_nSubMeshes);
 	m_pd3dIndexBufferViews.resize(m_nSubMeshes);

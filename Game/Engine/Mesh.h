@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 
 #define VERTEXT_POSITION				0x01

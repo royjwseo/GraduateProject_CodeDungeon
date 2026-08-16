@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UGameInstance.h"
 #include "UNavigation.h"
 #include "UTransform.h"
@@ -152,7 +152,7 @@ _bool UNavigation::IsMove(const _float3& _vPosition, SHPTR<UCell>& _spCell) {
 	else {
 		if (0 <= iNeighBorIndex) {
 			_uint iValue{ 0 };
-			float minYDiff = -1.0f; // y Â÷ÀÌ¸¦ °í·ÁÇÏ±â À§ÇÑ ÃÊ±â°ª
+			float minYDiff = -1.0f; // y ì°¨ì´ë¥¼ ê³ ë ¤í•˜ê¸° ìœ„í•œ ì´ˆê¸°ê°’
 			SHPTR<UCell> closestCell{};
 			bool found = false;
 
@@ -408,10 +408,10 @@ HRESULT UNavigation::ReadyNeighbor()
 
 _float3 UNavigation::ClampPositionToCell(const _float3& position)
 {
-	// ÇöÀç ¼¿ ³»ºÎ¿¡ ÀÖ´Â °æ¿ì, °¡Àå °¡±î¿î ¼± À§ÀÇ Á¡À» Ã£¾Æ¼­ ¹İÈ¯
+	// í˜„ì¬ ì…€ ë‚´ë¶€ì— ìˆëŠ” ê²½ìš°, ê°€ì¥ ê°€ê¹Œìš´ ì„  ìœ„ì˜ ì ì„ ì°¾ì•„ì„œ ë°˜í™˜
 	_float3 closestPointOnEdges = m_spCurCell->GetClosestPointOnEdges(position);
 
-	//ÇöÀç ¼¿ÀÇ ³¡Á¡¿¡ µµ´ŞÇÏ¸é ÀÌ¿ô ¼¿À¸·Î º¯°æ
+	//í˜„ì¬ ì…€ì˜ ëì ì— ë„ë‹¬í•˜ë©´ ì´ì›ƒ ì…€ìœ¼ë¡œ ë³€ê²½
 	for (auto& points : m_spCurCell->GetPoints())
 	{
 		if (closestPointOnEdges == points)
@@ -462,7 +462,7 @@ bool UNavigation::StepPathFinding(PathFindingState& state)
 		return false;
 
 	if (state.openSet.empty()) {
-		return true; // °æ·Î¸¦ Ã£Áö ¸øÇÔ
+		return true; // ê²½ë¡œë¥¼ ì°¾ì§€ ëª»í•¨
 	}
 
 	CellPathNode current = state.openSet.top();
@@ -472,13 +472,13 @@ bool UNavigation::StepPathFinding(PathFindingState& state)
 		return false;
 
 	if (current.cell == state.endCell) {
-		// °æ·Î¸¦ ÃßÀûÇÏ¿© ¹İÈ¯
+		// ê²½ë¡œë¥¼ ì¶”ì í•˜ì—¬ ë°˜í™˜
 		state.pathFound = true;
 		for (SHPTR<UCell> c = state.endCell; c != nullptr; c = state.cameFrom[c]) {
 			state.path.push_back(c);
 		}
 		std::reverse(state.path.begin(), state.path.end());
-		return true; // °æ·Î Ã£À½
+		return true; // ê²½ë¡œ ì°¾ìŒ
 	}
 
 	for (int neighborIndex : current.cell->GetNeighbor()) {
@@ -497,7 +497,7 @@ bool UNavigation::StepPathFinding(PathFindingState& state)
 		}
 	}
 
-	return false; // ¾ÆÁ÷ °æ·Î¸¦ Ã£Áö ¸øÇÔ
+	return false; // ì•„ì§ ê²½ë¡œë¥¼ ì°¾ì§€ ëª»í•¨
 }
 
 VECTOR<_float3> UNavigation::OptimizePath(const VECTOR<SHPTR<UCell>>& path, const _float3& start, const _float3& end)

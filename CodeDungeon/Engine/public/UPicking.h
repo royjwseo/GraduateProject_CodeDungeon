@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UBase.h"
 
@@ -54,7 +54,7 @@ END
 
 namespace std
 {
-	// Atomic ÇÔ¼ö ÀçÁ¤ÀÇ
+	// Atomic í•¨ìˆ˜ ì¬ì •ì˜
 	template<>
 	struct hash<Engine::WAITCHECKPAWN> {
 		size_t operator()(WAITCHECKPAWN ptr) const {

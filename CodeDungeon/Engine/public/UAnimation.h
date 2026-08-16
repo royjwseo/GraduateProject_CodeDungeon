@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UBase.h"
 
 BEGIN(Engine)
@@ -7,9 +7,9 @@ class UAnimChannel;
 class UAnimEvent;
 class UPawn;
 /*
-@ Date: 2024-02-17, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-17, Writer: ë°•íƒœí˜„
 @ Explain
-- Animation¸¦ ´ã´Â Å¬·¡½º ChannelµéÀÇ VECTOR ÄÁÅ×ÀÌ³Ê¸¦ µé°í ÀÖ´Ù. 
+- Animationë¥¼ ë‹´ëŠ” í´ë˜ìŠ¤ Channelë“¤ì˜ VECTOR ì»¨í…Œì´ë„ˆë¥¼ ë“¤ê³  ìˆë‹¤. 
 */
 class   UAnimation : public UBase{
 	using CHANNELS = VECTOR<SHPTR<UAnimChannel>>;
@@ -45,23 +45,23 @@ public:
 	SHPTR<UAnimation> Clone(CSHPTRREF<UAnimModel> _spAnimModel);
 	virtual void Free() override;
 	HRESULT NativeConstruct(CSHPTRREF<UAnimModel> _spAnimModel, const ANIMDESC& _stAnimDesc, _int _AnimIndex);
-	// ¾Ö´Ï¸ŞÀÌ¼Ç°ú ¿¬°áµÈ »À Á¤º¸µéÀ» ¾÷µ¥ÀÌÆ®
+	// ì• ë‹ˆë©”ì´ì…˜ê³¼ ì—°ê²°ëœ ë¼ˆ ì •ë³´ë“¤ì„ ì—…ë°ì´íŠ¸
 	void UpdateBoneMatrices(const _double& _dTimeDelta);
-	// TimeAcc·Î ¾Ö´Ï¸ŞÀÌ¼Ç°ú ¿¬°áµÈ »À Á¤º¸µéÀ» ¾÷µ¥ÀÌÆ®
+	// TimeAccë¡œ ì• ë‹ˆë©”ì´ì…˜ê³¼ ì—°ê²°ëœ ë¼ˆ ì •ë³´ë“¤ì„ ì—…ë°ì´íŠ¸
 	void UpdateboneMatricesToRatio( const _double& _Ratio);
-	// ´ÙÀ½ ¾Ö´Ï¸ŞÀÌ¼ÇÀ¸·Î º¯°æ
+	// ë‹¤ìŒ ì• ë‹ˆë©”ì´ì…˜ìœ¼ë¡œ ë³€ê²½
 	void UpdateNextAnimTransformMatrices(const _double& _dTimeDelta, const _float _fSupplyValue, CSHPTRREF<UAnimation> _spAnimation);
 	// Animation Event Tick 
 	void TickAnimEvent(UPawn* _pPawn, UAnimModel* _pAnimModel, const _double& _TimeDelta, const _wstring& _wstrInputTrigger);
 	void TickAnimEvent(UPawn* _pPawn, UAnimModel* _pAnimModel, const _double& _TimeDelta,  const _double& _Ratio, const _wstring& _wstrInputTrigger);
 	void ResetData();
-	// ¾Ö´Ï¸ŞÀÌ¼Ç ÀÌº¥Æ®¸¦ Áı¾î³Ö´Â ÇÔ¼ö
+	// ì• ë‹ˆë©”ì´ì…˜ ì´ë²¤íŠ¸ë¥¼ ì§‘ì–´ë„£ëŠ” í•¨ìˆ˜
 	void InsertAnimEvent(ANIMEVENTTYPE _AnimEventType, CSHPTRREF<UAnimEvent> _spAnimEvent);
-	// ¾Ö´Ï¸ŞÀÌ¼Ç ÀÌº¥Æ®¸¦ Á¦°ÅÇÏ´Â ÇÔ¼ö
+	// ì• ë‹ˆë©”ì´ì…˜ ì´ë²¤íŠ¸ë¥¼ ì œê±°í•˜ëŠ” í•¨ìˆ˜
 	void RemoveAnimEvent(CSHPTRREF<UAnimEvent> _spAnimEvent);
 	// Remove Event
 	void RemoveAnimEvent(ANIMEVENTTYPE _AnimEventType, _int _RemoveEvent);
-	// ¾Ö´Ï¸ŞÀÌ¼Ç ÀÌº¥Æ® ³ëµå¸¦ Á¦°Å
+	// ì• ë‹ˆë©”ì´ì…˜ ì´ë²¤íŠ¸ ë…¸ë“œë¥¼ ì œê±°
 	void ResetAnimChangeEventNode() { m_spActiveAnimChangeEvent = nullptr; }
 	// Save Sections
 	void SaveAnimSectionData(const _wstring& _wstrPath);

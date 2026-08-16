@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 
 namespace Engine {
 
 	/*
-	@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 	@ Explain
-	-  Window¿¡¼­ Áö¿øÇÏ´Â LockFreeList¸¦ »ç¿ëÇÏ±â À§ÇÑ SLIST ENUM 
+	-  Windowì—ì„œ ì§€ì›í•˜ëŠ” LockFreeListë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•œ SLIST ENUM 
 	*/
 	enum
 	{
@@ -18,9 +18,9 @@ namespace Engine {
 	===========================================================
 	*/
 	/*
-	@ Date: 2024-02-01, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-01, Writer: ë°•íƒœí˜„
 	@ Explain
-	-  ¸Ş¸ğ¸® ¾Õ¿¡ ºÙ´Â Çì´õ
+	-  ë©”ëª¨ë¦¬ ì•ì— ë¶™ëŠ” í—¤ë”
 	*/
 	DECLSPEC_ALIGN(SLIST_ALIGNMENT)
 	class UMemoryHeader : public SLIST_ENTRY {
@@ -50,9 +50,9 @@ namespace Engine {
 	===========================================================
 	*/
 	/*
-	@ Date: 2024-02-01, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-01, Writer: ë°•íƒœí˜„
 	@ Explain
-	-  ¸Ş¸ğ¸®¸®¸¦ ÀúÀåÇÒ Memory PoolÀÌ´Ù.
+	-  ë©”ëª¨ë¦¬ë¦¬ë¥¼ ì €ì¥í•  Memory Poolì´ë‹¤.
 	*/
 	DECLSPEC_ALIGN(SLIST_ALIGNMENT)
 	class UMemoryPool {
@@ -75,9 +75,9 @@ namespace Engine {
 	===========================================================
 	*/
 	/*
-	@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 	@ Explain
-	-  ¸Ş¸ğ¸® Ç®À» °ü¸®ÇÏ´Â Å¬·¡½º
+	-  ë©”ëª¨ë¦¬ í’€ì„ ê´€ë¦¬í•˜ëŠ” í´ë˜ìŠ¤
 	*/
 	class UMemoryAdminstor {
 		enum
@@ -99,7 +99,7 @@ namespace Engine {
 			unsigned int& _TableIndex, const unsigned int  _Limited, const 	unsigned int  _AddValue);
 
 	private:
-		// ¸Ş¸ğ¸®¸¦ ºü¸£°Ô Ã£±â À§ÇÑ Ç® Å×ÀÌºíÀÌ´Ù. 
+		// ë©”ëª¨ë¦¬ë¥¼ ë¹ ë¥´ê²Œ ì°¾ê¸° ìœ„í•œ í’€ í…Œì´ë¸”ì´ë‹¤. 
 		POOLTABLE			m_PoolTable;
 		MEMORYTABLE	m_MemoryTable;
 	};
@@ -112,9 +112,9 @@ namespace Engine {
 	===========================================================
 	*/
 	/*
-	@ Date: 2024-02-01,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-01,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ±âº»ÀûÀÎ ÇÒ´çÀ» À§ÇÑ Å¬·¡½º
+	- ê¸°ë³¸ì ì¸ í• ë‹¹ì„ ìœ„í•œ í´ë˜ìŠ¤
 	*/
 	class UBaseAllocator
 	{
@@ -130,9 +130,9 @@ namespace Engine {
 	===========================================================
 	*/
 	/*
-	@ Date: 2024-02-01,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-01,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- Memory AdiminsterÀ¸·Î ¸Ş¸ğ¸® °ü¸®
+	- Memory Adiminsterìœ¼ë¡œ ë©”ëª¨ë¦¬ ê´€ë¦¬
 	*/
 	class UPoolAllocator {
 	public:
@@ -153,9 +153,9 @@ namespace Engine {
 -------------------*/
 
 	/*
-	@ Date: 2024-02-01,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-01,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- STL¿¡ »ç¿ëÇÏ±â À§ÇÑ Allocator
+	- STLì— ì‚¬ìš©í•˜ê¸° ìœ„í•œ Allocator
 	*/
 	template<typename T>
 	class UStlAllocator
@@ -191,9 +191,9 @@ namespace Engine {
 	===========================================================
 	*/
 	/*
-	@ Date: 2024-02-02,  Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-02,  Writer: ë°•íƒœí˜„
 	@ Explain
-	- ObjectPool Å¬·¡½º´ç Memory Pool
+	- ObjectPool í´ë˜ìŠ¤ë‹¹ Memory Pool
 	*/
 	template<class Type>
 	class UObjectPool {
@@ -236,9 +236,9 @@ namespace Engine {
 
 	namespace Make {
 		/*
-		@ Date: 2024-02-03,  Writer: ¹ÚÅÂÇö
+		@ Date: 2024-02-03,  Writer: ë°•íƒœí˜„
 		@ Explain
-		- ÇÒ´çÀ» ³»°¡ custom ÇÏ±â À§ÇÑ ÇÔ¼ö
+		- í• ë‹¹ì„ ë‚´ê°€ custom í•˜ê¸° ìœ„í•œ í•¨ìˆ˜
 		*/
 		template<typename Type, typename... Args>
 		static Type* xnew(Args&&... args)
@@ -248,9 +248,9 @@ namespace Engine {
 			return memory;
 		}
 		/*
-		@ Date: 2024-02-03,  Writer: ¹ÚÅÂÇö
+		@ Date: 2024-02-03,  Writer: ë°•íƒœí˜„
 		@ Explain
-		- ¸¶À½µ¥·Î ÇÒ´çÇÑ °ªÀ» »èÁ¦ÇÏ´Â ÇÔ¼ö
+		- ë§ˆìŒë°ë¡œ í• ë‹¹í•œ ê°’ì„ ì‚­ì œí•˜ëŠ” í•¨ìˆ˜
 		*/
 		template<typename Type>
 		static void xdelete(Type* obj)
@@ -259,9 +259,9 @@ namespace Engine {
 			UPoolAllocator::Release(obj);
 		}
 		/*
-		@ Date: 2024-02-04,  Writer: ¹ÚÅÂÇö
+		@ Date: 2024-02-04,  Writer: ë°•íƒœí˜„
 		@ Explain
-		- ¹è¿­À» ÇÒ´çÇÏ±â À§ÇÑ ÇÔ¼ö
+		- ë°°ì—´ì„ í• ë‹¹í•˜ê¸° ìœ„í•œ í•¨ìˆ˜
 		*/
 		template<class T>
 		static T* AllocBuffer(size_t _number) {
@@ -269,9 +269,9 @@ namespace Engine {
 			return p;
 		}
 		/*
-		@ Date: 2024-02-03,  Writer: ¹ÚÅÂÇö
+		@ Date: 2024-02-03,  Writer: ë°•íƒœí˜„
 		@ Explain
-		- ¹è¿­À» Á¦°ÅÇÏ±â À§ÇÑ ÇÔ¼ö
+		- ë°°ì—´ì„ ì œê±°í•˜ê¸° ìœ„í•œ í•¨ìˆ˜
 		*/
 		template<class T>
 		static void ReleaseBuffer(T* obj)
@@ -282,9 +282,9 @@ namespace Engine {
 			UPoolAllocator::Release(obj);
 		}
 		/*
-		@ Date: 2024-02-03,  Writer: ¹ÚÅÂÇö
+		@ Date: 2024-02-03,  Writer: ë°•íƒœí˜„
 		@ Explain
-		- const ¿ë ¹è¿­À» Á¦°ÅÇÏ±â À§ÇÑ ÇÔ¼ö
+		- const ìš© ë°°ì—´ì„ ì œê±°í•˜ê¸° ìœ„í•œ í•¨ìˆ˜
 		*/
 		template<class T>
 		static void ReleaseBuffer(const T* obj)
@@ -294,9 +294,9 @@ namespace Engine {
 			UPoolAllocator::Release(obj);
 		}
 		/*
-		@ Date: 2024-02-03,  Writer: ¹ÚÅÂÇö
+		@ Date: 2024-02-03,  Writer: ë°•íƒœí˜„
 		@ Explain
-		- make_shared¸¦ custom
+		- make_sharedë¥¼ custom
 		*/
 		template<typename Type, typename... Args>
 		requires ConstructWidthArgsCheck<Type, Args...>

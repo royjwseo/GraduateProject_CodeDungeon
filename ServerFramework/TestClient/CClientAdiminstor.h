@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "AStressClientService.h"
 
@@ -11,7 +11,7 @@ public:
 	virtual bool NativeConstruct() override;
 	virtual _bool Start() override;
 protected:
-	// UServerServiceÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UServerServiceì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual void Connect() override;
 	virtual void Tick() override;
 

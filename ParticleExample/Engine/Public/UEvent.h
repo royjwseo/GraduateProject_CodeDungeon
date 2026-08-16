@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UEVENT_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UEVENT_H
 
@@ -6,14 +6,14 @@ BEGIN(Engine)
 
 /*
 
-Event °´Ã¼¸¦ Á¤ÀÇÇÑ Å¬·¡½º 
+Event ê°ì²´ë¥¼ ì •ì˜í•œ í´ë˜ìŠ¤ 
 
-ÀÌ Å¬·¡½º¸¦ È°¿ëÇÏ¸é ÇØ´ç ÀÌº¥Æ®°¡ ¹ß»ıÇÒ ¶§ ±îÁö ´ë±âÇÒ ¼ö ÀÖµµ·Ï ¸¸µé ¿¹Á¤ÀÌ´Ù. 
-ÀÌº¥Æ®ÀÇ º¹Á¦¸¦ ±İÇÑ´Ù. 
+ì´ í´ë˜ìŠ¤ë¥¼ í™œìš©í•˜ë©´ í•´ë‹¹ ì´ë²¤íŠ¸ê°€ ë°œìƒí•  ë•Œ ê¹Œì§€ ëŒ€ê¸°í•  ìˆ˜ ìˆë„ë¡ ë§Œë“¤ ì˜ˆì •ì´ë‹¤. 
+ì´ë²¤íŠ¸ì˜ ë³µì œë¥¼ ê¸ˆí•œë‹¤. 
 
 */
 
-// ÀÌº¥Æ®¸¦ Á¤ÀÇÇÑ enum class 
+// ì´ë²¤íŠ¸ë¥¼ ì •ì˜í•œ enum class 
 enum EVENT : _ushort 
 {
 	EVENT_NON = 0,
@@ -31,21 +31,21 @@ public:
 public:
 	static void AllEventClear();
 
-	// ÇØ´ç ÀÌº¥Æ®¸¦ Àá±Ù´Ù. 
+	// í•´ë‹¹ ì´ë²¤íŠ¸ë¥¼ ì ê·¼ë‹¤. 
 	void WaitEvent();
 	void CountDown();
 private:
 	static VECTOR<UEvent*>				s_m_vecEventContainer;
 
-	//  Á¶°Ç ºĞ±â 
+	//  ì¡°ê±´ ë¶„ê¸° 
 	 std::condition_variable				m_ConditionVariable;
 	atomic_short								m_sEventCountSaves;
 	atomic_short								m_sEventCountIndex;
-	// ÀÌº¥Æ® Àá±İ
+	// ì´ë²¤íŠ¸ ì ê¸ˆ
 	std::mutex										m_EventMutex;
 };
 
 
 END
 
-#endif //_PTH_FRAMEWORK_ENGIEN_PUBLIC_UEVENT_H
+#endif //_PTH_FRAMEWORK_ENGIEN_PUBLIC_UEVENT_H

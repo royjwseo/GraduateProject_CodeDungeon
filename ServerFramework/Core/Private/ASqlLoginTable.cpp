@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "ASqlLoginTable.h"
 #include "AMySqlConnector.h"
 
@@ -19,7 +19,7 @@ _bool ASqlLoginTable::ExcuteQueryMessage(SHPTR<AMySqlConnector> _spMySqlConnecto
 	{
 	case SQLQUERYTYPE::INSERT:
 	{
-		// Insert Procedure ÇÔ¼ö ½ÇÇà
+		// Insert Procedure í•¨ìˆ˜ ì‹¤í–‰
 		std::unique_ptr<sql::PreparedStatement> Procedure(AQueryFunc::ExcuteProcedureFunc(
 			_spMySqlConnector, INSERT_METHOD_NAME, METHOD_NUM));
 		UpdateProcedureValue(_spMySqlConnector, std::move(Procedure));
@@ -73,4 +73,4 @@ void ASqlLoginTable::Free()
 }
 
 
-END
+END

@@ -1,4 +1,4 @@
-#include "Renderer.h"
+ï»¿#include "Renderer.h"
 #include "GameObject.h"
 #include "Level_Manager.h"
 
@@ -264,7 +264,7 @@ HRESULT CRenderer::NativeConstruct_Prototype()
 
 //#ifdef _DEBUG
 
-	// 1¹øÂ° ¿­(±âº» Á¶¸í¿¬»ê)
+	// 1ë²ˆì§¸ ì—´(ê¸°ë³¸ ì¡°ëª…ì—°ì‚°)
 	if (FAILED(m_pTarget_Manager->Ready_Debug_Desc(TARGET_DIFFUSE_DEFERRED, _float2(0.f, 0.f), _float2(100.f, 100.f))))
 		return E_FAIL;
 	if (FAILED(m_pTarget_Manager->Ready_Debug_Desc(TARGET_NORMAL_DEFERRED, _float2(0.f, 100.f), _float2(100.f, 100.f))))
@@ -276,13 +276,13 @@ HRESULT CRenderer::NativeConstruct_Prototype()
 	if (FAILED(m_pTarget_Manager->Ready_Debug_Desc(TARGET_MOTIONBLUR_DEFERRED, _float2(0.f, 400.f), _float2(100.f, 100.f))))
 		return E_FAIL;
 
-	// 2¹øÂ° ¿­(±×¸²ÀÚ)
+	// 2ë²ˆì§¸ ì—´(ê·¸ë¦¼ìž)
 	if (FAILED(m_pTarget_Manager->Ready_Debug_Desc(TARGET_SHADOW_DEPTH, _float2(100.f, 0.f), _float2(100.f, 100.f))))
 		return E_FAIL;
 	if (FAILED(m_pTarget_Manager->Ready_Debug_Desc(TARGET_SHADOW, _float2(100.f, 100.f), _float2(100.f, 100.f))))
 		return E_FAIL;
 
-	// 3¹øÂ° ¿­(AlphaBlend)
+	// 3ë²ˆì§¸ ì—´(AlphaBlend)
 	if (FAILED(m_pTarget_Manager->Ready_Debug_Desc(TARGET_ALPHABLEND, _float2(200.f, 0.f), _float2(100.f, 100.f))))
 		return E_FAIL;
 	if (FAILED(m_pTarget_Manager->Ready_Debug_Desc(TARGET_GLOW, _float2(200.f, 100.f), _float2(100.f, 100.f))))
@@ -290,7 +290,7 @@ HRESULT CRenderer::NativeConstruct_Prototype()
 	if (FAILED(m_pTarget_Manager->Ready_Debug_Desc(TARGET_BLUR_DEGREE, _float2(200.f, 200.f), _float2(100.f, 100.f))))
 		return E_FAIL;
 
-	// 4¹øÂ° ¿­(Distortion)
+	// 4ë²ˆì§¸ ì—´(Distortion)
 	if (FAILED(m_pTarget_Manager->Ready_Debug_Desc(TARGET_DISTORTION_DIFFUSE, _float2(300.f, 0.f), _float2(100.f, 100.f))))
 		return E_FAIL;
 //#endif
@@ -330,7 +330,7 @@ HRESULT CRenderer::Add_Components(const RENDERDEBUG& _eDebugGroup, CComponent* _
 
 #endif
 
-// FadeÁ¾·ù (0 : FadeIn, 1 : FadeOut, 2: FadeOutIn)
+// Fadeì¢…ë¥˜ (0 : FadeIn, 1 : FadeOut, 2: FadeOutIn)
 void CRenderer::Start_FadeInOut(_float fFadeSpeed, _bool bFadeWhite, _uint iFadeType)
 {
 	m_tDebugRender.bFadeInOut = true;
@@ -342,11 +342,11 @@ void CRenderer::Start_FadeInOut(_float fFadeSpeed, _bool bFadeWhite, _uint iFade
 	else
 		m_tDebugRender.vFadeColor = _float4(0.f, 0.f, 0.f, 1.f);
 
-	// FadeOutºÎÅÍÀÏ¶§
+	// FadeOutë¶€í„°ì¼ë•Œ
 	m_tDebugRender.fFadeAmount = 0.f;
 	m_tDebugRender.fFadeSpeed = fabs(fFadeSpeed);
 
-	// FadeInÀÏ¶§
+	// FadeInì¼ë•Œ
 	if (0 == iFadeType)
 	{
 		m_tDebugRender.fFadeAmount = 1.f;
@@ -487,7 +487,7 @@ HRESULT CRenderer::Render_Lights()
 		// Texture
 		RH_TEX_VEC Texes{ RH_TEX(TARGET_NORMAL_DEFERRED, "g_NormalTexture"), RH_TEX(TARGET_DEPTH, "g_DepthTexture"), RH_TEX(TARGET_SHADOW_DEPTH, "g_LightDepthTexture") };
 
-		// Ambient, Shade, Specular, Shadow »ý¼º
+		// Ambient, Shade, Specular, Shadow ìƒì„±
 		if (FAILED(m_pRenderHandler->Render_Lights(MRT_LIGHTACC, SHADER_LIGHT, Values, Texes)))
 		{
 			RELEASE_INSTANCE(CPipeLine);
@@ -526,7 +526,7 @@ HRESULT CRenderer::Render_Blend()
 		}
 	}
 
-	// ¿Ü°¢¼±
+	// ì™¸ê°ì„ 
 	{
 		RH_VALUE_VEC Values{ RH_VALUE(m_WorldMatrix, "g_WorldMatrix"),  RH_VALUE(m_ViewMatrix, "g_ViewMatrix") , RH_VALUE(m_ProjMatrix, "g_ProjMatrix"),
 							RH_VALUE(fCamFar, "g_CamFar"), RH_VALUE(tDesc.minSeparation, "minSeparation"), RH_VALUE(tDesc.maxSeparation, "maxSeparation"),
@@ -560,7 +560,7 @@ HRESULT CRenderer::Render_NonLight()
 
 HRESULT CRenderer::Render_AlphaBlend()
 {
-	// Glow ±×·ì¿¡ ÀÖ´Â °´Ã¼ ±íÀÌ°ª Á¤·Ä
+	// Glow ê·¸ë£¹ì— ìžˆëŠ” ê°ì²´ ê¹Šì´ê°’ ì •ë ¬
 	m_RenderGroup[RENDER_ALPHABLEND].sort([](CGameObject* Obj1, CGameObject* Obj2)
 		{
 			return Obj1->Get_DepthValue() > Obj2->Get_DepthValue();
@@ -610,7 +610,7 @@ HRESULT CRenderer::Render_Distortion()
 			return E_FAIL;
 		}
 		
-		// ¹é¹öÆÛ¸¦ temp Å¸°Ù¿¡ º¹»ç
+		// ë°±ë²„í¼ë¥¼ temp íƒ€ê²Ÿì— ë³µì‚¬
 		{
 			if (FAILED(m_pTarget_Manager->Get_Shader(SHADER_DEFERRED)->Set_SRV("g_DiffuseTexture", CGraphic_Device::Get_Instance()->Get_BackBufferSRV())))
 				return E_FAIL;
@@ -750,7 +750,7 @@ HRESULT CRenderer::Render_HDR()
 				return E_FAIL;
 		}
 
-		// ¹é¹öÆÛ¸¦ temp Å¸°Ù¿¡ º¹»ç
+		// ë°±ë²„í¼ë¥¼ temp íƒ€ê²Ÿì— ë³µì‚¬
 		{
 			if (FAILED(m_pTarget_Manager->Get_Shader(SHADER_DEFERRED)->Set_SRV("g_DiffuseTexture", CGraphic_Device::Get_Instance()->Get_BackBufferSRV())))
 				return E_FAIL;

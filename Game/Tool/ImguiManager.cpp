@@ -1,4 +1,4 @@
-#include "ImguiManager.h"
+ï»¿#include "ImguiManager.h"
 #include "Engine.h"
 #include "GridObject.h"
 
@@ -20,7 +20,7 @@ void ImguiManager::DisplayWindow(const shared_ptr<CPlayer>& pPlayer, const share
 
     ImGui::Begin("Mini Engine");
 
-    //¸¶¿ì½º ÁÂÇ¥ ¹ÝÈ¯
+    //ë§ˆìš°ìŠ¤ ì¢Œí‘œ ë°˜í™˜
     m_pPickingManager->CalculateScreenMouseCoords();
     ImVec2 MousePosition = m_pPickingManager->GetMousePos();
     ImGui::Text("Mouse Position: (%.1f, %.1f)", MousePosition.x, MousePosition.y);

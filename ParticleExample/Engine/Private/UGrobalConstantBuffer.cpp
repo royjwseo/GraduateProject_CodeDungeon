@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+﻿#include "EngineDefines.h"
 #include "UGrobalConstantBuffer.h"
 #include "UDevice.h"
 #include "UGpuCommand.h"
@@ -58,4 +58,4 @@ void UGrobalConstantBuffer::SettingGrobalData(CSHPTRREF<UCommand> _spCommand, co
 	::memcpy(&m_pMapBuffer[0], _pBuffer, _iSize);
 	_spCommand->GetGpuCmdList()->SetGraphicsRootConstantBufferView(m_iCbvRegisterNumber,
 		m_cpUploadBuffer->GetGPUVirtualAddress());
-}
+}

@@ -1,4 +1,4 @@
-#include "ServerDefines.h"
+﻿#include "ServerDefines.h"
 #include "CSarcophagus.h"
 #include "CMummy.h"
 #include "ATransform.h"
@@ -125,4 +125,4 @@ namespace Server
 	void CSarcophagus::Free()
 	{
 	}
-}
+}

@@ -1,4 +1,4 @@
-#ifndef __HIREDIS_REDISMODULEAPI_H__
+﻿#ifndef __HIREDIS_REDISMODULEAPI_H__
 #define __HIREDIS_REDISMODULEAPI_H__
 
 #include "redismodule.h"

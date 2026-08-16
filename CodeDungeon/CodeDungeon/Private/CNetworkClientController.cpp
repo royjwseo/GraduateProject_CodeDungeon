@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+ï»¿#include "ClientDefines.h"
 #include "CNetworkClientController.h"
 #include "CWarriorPlayer.h"
 #include "CMainCamera.h"
@@ -267,13 +267,13 @@ void CNetworkClientController::ConnectSuccessState(_char* _pPacket, const PACKET
 	{
 		NETWORKRECEIVEINITDATA networkRecvInitData(scConnectSuccess.id(),
 			scConnectSuccess.cellindex(), scConnectSuccess.type());
-		// newwork Init Data Ãß°¡
+		// newwork Init Data ì¶”ê°€
 		AddNetworkInitData(networkRecvInitData.iNetworkID, networkRecvInitData);
 
 		SHPTR<UGameInstance> spGameInstance = GET_INSTANCE(UGameInstance);
 		SetNetworkOwnerID(scConnectSuccess.id());
 	}
-	// ·Î±×ÀÎ¿¡ ¼º°øÇß´Ù´Â ÆĞÅ¶ º¸³»±â
+	// ë¡œê·¸ì¸ì— ì„±ê³µí–ˆë‹¤ëŠ” íŒ¨í‚· ë³´ë‚´ê¸°
 	CS_LOGIN csLogin;
 	PROTOFUNC::MakeCsLogin(OUT & csLogin, GetNetworkOwnerID());
 	SendProtoData(csLogin, TAG_CS::TAG_CS_LOGIN);
@@ -302,7 +302,7 @@ void CNetworkClientController::PlayerAnimState(_char* _pPacket, const PACKETHEAD
 {
 	CHARSTATE PlayerState;
 	PlayerState.ParseFromArray(_pPacket, _PacketHead.PacketSize);
-	//// ÇØ´çÇÏ´Â ID¿¡ µ¥ÀÌÅÍ Àü´Ş
+	//// í•´ë‹¹í•˜ëŠ” IDì— ë°ì´í„° ì „ë‹¬
 	InsertNetworkProcessInQuery(std::move(UProcessedData(PlayerState.id(), PlayerState, TAG_SC_PLAYERSTATE,
 		_PacketHead.PacketSize)));
 }
@@ -311,7 +311,7 @@ void CNetworkClientController::SelfPlayerMoveState(_char* _pPacket, const PACKET
 {
 	SC_SEEPLAYERMOVE selfPlayerMove;
 	selfPlayerMove.ParseFromArray(_pPacket, _PacketHead.PacketSize);
-	//// ÇØ´çÇÏ´Â ID¿¡ µ¥ÀÌÅÍ Àü´Ş
+	//// í•´ë‹¹í•˜ëŠ” IDì— ë°ì´í„° ì „ë‹¬
 	InsertNetworkProcessInQuery(std::move(UProcessedData(selfPlayerMove.id(), selfPlayerMove,
 		TAG_SC_SELFPLAYERMOVE, _PacketHead.PacketSize)));
 }

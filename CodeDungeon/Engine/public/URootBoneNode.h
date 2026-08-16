@@ -1,13 +1,13 @@
-#pragma once 
+ï»¿#pragma once 
 #include "UBoneNode.h"
 
 BEGIN(Engine)
 class UModel;
 class UTransform;
 /*
-@ Date: 2024-02-12, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-12, Writer: ë°•íƒœí˜„
 @ Explain
-- ¾Ö´Ï¸ŞÀÌ¼ÇÀÇ ¿òÁ÷ÀÓÀ» ½ÇÁ¦ TransformÀ¸·Î °¡Á®¿À±â À§ÇÑ RootBoneÅ¬·¡½ºÀÌ´Ù. 
+- ì• ë‹ˆë©”ì´ì…˜ì˜ ì›€ì§ì„ì„ ì‹¤ì œ Transformìœ¼ë¡œ ê°€ì ¸ì˜¤ê¸° ìœ„í•œ RootBoneí´ë˜ìŠ¤ì´ë‹¤. 
 */
 class URootBoneNode final : public UBoneNode {
 	using ROOTBONEUPDATEFUNC = std::function<void(URootBoneNode*, const _float4x4&)>;

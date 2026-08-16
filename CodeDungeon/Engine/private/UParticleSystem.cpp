@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UParticleSystem.h"
 #include "UGameInstance.h"
 #include "UMethod.h"
@@ -200,7 +200,7 @@ void UParticleSystem::Update(const _double& _dTimeDelta)
 		case PARTICLE_FOOTPRINT:
 			
 			if (m_fOffsetFactor)m_stParticleParam.stGlobalParticleInfo.fParticleThickness = -1;
-			else m_stParticleParam.stGlobalParticleInfo.fParticleThickness = 2;//¿À¸¥ÂÊ ¹ß º¸Æø °è»ê
+			else m_stParticleParam.stGlobalParticleInfo.fParticleThickness = 2;//ì˜¤ë¥¸ìª½ ë°œ ë³´í­ ê³„ì‚°
 
 			if (m_iParticleAddAmount == 0)m_stParticleParam.stGlobalParticleInfo.fAccTime = 0;
 
@@ -323,7 +323,7 @@ void UParticleSystem::BindShaderParams(CSHPTRREF<UShader> _spShader)
 
 	}
 		
-	//±×·¡ÇÈ½º ÂÊ¿¡¼­ ÀÌ°É scaleÆÑÅÍ¸¸ ½á¼­ ±×°É PARTICLEPLUSÀÇ paddingÀ» scaleFactor·Î »ç¿ë
+	//ê·¸ë˜í”½ìŠ¤ ìª½ì—ì„œ ì´ê±¸ scaleíŒ©í„°ë§Œ ì¨ì„œ ê·¸ê±¸ PARTICLEPLUSì˜ paddingì„ scaleFactorë¡œ ì‚¬ìš©
 }
 
 void UParticleSystem::SettingComputeShader(const _wstring& _wstrProtoName)

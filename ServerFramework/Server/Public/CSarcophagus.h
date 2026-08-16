@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_SERVER_PUBLIC_CSARCOPHAGUS_H
+ï»¿#ifndef _SERVERFRAMEWORK_SERVER_PUBLIC_CSARCOPHAGUS_H
 #define _SERVERFRAMEWORK_SERVER_PUBLIC_CSARCOPHAGUS_H
 
 #include "CServerMonster.h"
@@ -21,7 +21,7 @@ protected:
 	// Damaged
 	virtual void Collision(APawn* _pPawn, const _double& _dTimeDelta) override;
 	virtual void ChangeCurrentFindPlayer(SESSIONID _CurPlayerSessionID, SESSIONID _ChangePlayerSessionID) override;
-	// ¿µ±¸ÀûÀ¸·Î ÇØ´ç ¿ÀºêÁ§Æ®¸¦ »ç¿ëÇÏÁö ¾Êµµ·Ï °áÁ¤ÇÒ °æ¿ì º¸³¾ ¸Ş½ÃÁö 
+	// ì˜êµ¬ì ìœ¼ë¡œ í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ë¥¼ ì‚¬ìš©í•˜ì§€ ì•Šë„ë¡ ê²°ì •í•  ê²½ìš° ë³´ë‚¼ ë©”ì‹œì§€ 
 	virtual void LastBehavior() override;
 private:
 	virtual void Free() override;
@@ -32,4 +32,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_SERVER_PUBLIC_CSARCOPHAGUS_H
+#endif // _SERVERFRAMEWORK_SERVER_PUBLIC_CSARCOPHAGUS_H

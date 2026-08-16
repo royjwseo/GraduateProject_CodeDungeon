@@ -1,20 +1,20 @@
-#pragma once
+ï»¿#pragma once
 
 
 namespace Core
 {
     /*
-    @ Date: 2024-02-05,  Writer: ¹ÚÅÂÇö
+    @ Date: 2024-02-05,  Writer: ë°•íƒœí˜„
     @ Explain
-    - UStlAllocatorÇÒ´çÀÚ¸¦ »ç¿ëÇÏ´Â String, std::string, std::wstring°ú È£È¯ÀÌ ÇÊ¿äÇÏ´Ù.
+    - UStlAllocatorí• ë‹¹ìë¥¼ ì‚¬ìš©í•˜ëŠ” String, std::string, std::wstringê³¼ í˜¸í™˜ì´ í•„ìš”í•˜ë‹¤.
     */
     template<class T>
     using STRING = std::basic_string<T, std::char_traits<T>, USTLAllocator<T>>;
     /*
-    @ Date: 2024-02-05,  Writer: ¹ÚÅÂÇö
+    @ Date: 2024-02-05,  Writer: ë°•íƒœí˜„
     @ Explain
-    - CustomString (UStlAllocator¸¦ ÅëÇÑ MemoryPoolÀ» »ç¿ëÇÏ±â À§ÇÔ)
-       std::string, std::wstring°ú È£È¯À» ¸ÂÃá CustomStringÀÌ´Ù.
+    - CustomString (UStlAllocatorë¥¼ í†µí•œ MemoryPoolì„ ì‚¬ìš©í•˜ê¸° ìœ„í•¨)
+       std::string, std::wstringê³¼ í˜¸í™˜ì„ ë§ì¶˜ CustomStringì´ë‹¤.
     */
     template<class TChar, class TString>
         requires CheckCustomString<TChar, TString>
@@ -23,37 +23,37 @@ namespace Core
     public:
         using CUSSTRING = CustomString<TChar, TString>;
         CustomString() : STRING<TChar>() {}
-        // Ãß°¡·Î ÇÊ¿äÇÑ ¿¬»êÀÚµéÀ» ¿À¹ö·ÎµùÇÕ´Ï´Ù.
+        // ì¶”ê°€ë¡œ í•„ìš”í•œ ì—°ì‚°ìë“¤ì„ ì˜¤ë²„ë¡œë”©í•©ë‹ˆë‹¤.
         CustomString(const TString& str) : STRING<TChar>(str) {}
-        // Ãß°¡·Î ÇÊ¿äÇÑ ¿¬»êÀÚµéÀ» ¿À¹ö·ÎµùÇÕ´Ï´Ù.
+        // ì¶”ê°€ë¡œ í•„ìš”í•œ ì—°ì‚°ìë“¤ì„ ì˜¤ë²„ë¡œë”©í•©ë‹ˆë‹¤.
         CustomString(const TChar* str) : STRING<TChar>(str) {}
-        // Ãß°¡·Î ÇÊ¿äÇÑ ¿¬»êÀÚµéÀ» ¿À¹ö·ÎµùÇÕ´Ï´Ù.
+        // ì¶”ê°€ë¡œ í•„ìš”í•œ ì—°ì‚°ìë“¤ì„ ì˜¤ë²„ë¡œë”©í•©ë‹ˆë‹¤.
         CustomString(const CustomString& str) : STRING<TChar>(str) {}
-        // Ãß°¡·Î ÇÊ¿äÇÑ ¿¬»êÀÚµéÀ» ¿À¹ö·ÎµùÇÕ´Ï´Ù.
+        // ì¶”ê°€ë¡œ í•„ìš”í•œ ì—°ì‚°ìë“¤ì„ ì˜¤ë²„ë¡œë”©í•©ë‹ˆë‹¤.
         CustomString(const STRING<TChar>& str) :STRING<TChar>(str) {}
 
-        // Ãß°¡·Î ÇÊ¿äÇÑ ¿¬»êÀÚµéÀ» ¿À¹ö·ÎµùÇÕ´Ï´Ù.
+        // ì¶”ê°€ë¡œ í•„ìš”í•œ ì—°ì‚°ìë“¤ì„ ì˜¤ë²„ë¡œë”©í•©ë‹ˆë‹¤.
         CustomString(TString&& str) noexcept : STRING<TChar>(std::move(str)) {}
-        // Ãß°¡·Î ÇÊ¿äÇÑ ¿¬»êÀÚµéÀ» ¿À¹ö·ÎµùÇÕ´Ï´Ù.
+        // ì¶”ê°€ë¡œ í•„ìš”í•œ ì—°ì‚°ìë“¤ì„ ì˜¤ë²„ë¡œë”©í•©ë‹ˆë‹¤.
         CustomString(STRING<TChar>&& str) noexcept : STRING<TChar>(std::move(str)) {}
-        // ÀÌµ¿ »ı¼ºÀÚ¸¦ Ãß°¡ÇÕ´Ï´Ù.
+        // ì´ë™ ìƒì„±ìë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
         CustomString(CUSSTRING&& other) noexcept : STRING<TChar>(std::move(other)) {}
 
-        // ÀÌµ¿ ¿¬»êÀÚ¸¦ Ãß°¡ÇÕ´Ï´Ù.
+        // ì´ë™ ì—°ì‚°ìë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
         CustomString& operator=(CUSSTRING&& other) noexcept {
             if (this != &other) {
                 STRING<TChar>::operator=(std::move(other));
             }
             return *this;
         }
-        // ÀÌµ¿ ¿¬»êÀÚ¸¦ Ãß°¡ÇÕ´Ï´Ù.
+        // ì´ë™ ì—°ì‚°ìë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
         CustomString& operator=(STRING<TChar>&& other) noexcept {
             if (this != &other) {
                 STRING<TChar>::operator=(std::move(other));
             }
             return *this;
         }
-        // ÀÌµ¿ ¿¬»êÀÚ¸¦ Ãß°¡ÇÕ´Ï´Ù.
+        // ì´ë™ ì—°ì‚°ìë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
         CustomString& operator=(TString&& other) noexcept {
             if (this != &other) {
                 STRING<TChar>::operator=(std::move(other));
@@ -81,14 +81,14 @@ namespace Core
             return *this;
         }
 
-        // ¿¹¸¦ µé¾î, + ¿¬»êÀÚ¸¦ Ãß°¡ÇÏ°Ú½À´Ï´Ù.
+        // ì˜ˆë¥¼ ë“¤ì–´, + ì—°ì‚°ìë¥¼ ì¶”ê°€í•˜ê² ìŠµë‹ˆë‹¤.
         CustomString operator+(const CUSSTRING& other) {
             CUSSTRING s(*this);
             s.append(other.c_str());
             return s;
         }
 
-        // += ¿¬»êÀÚ¸¦ Ãß°¡ÇÕ´Ï´Ù.
+        // += ì—°ì‚°ìë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
         CustomString operator+(const STRING<TChar>& other) {
             CUSSTRING s(*this);
             s.append(other);
@@ -113,7 +113,7 @@ namespace Core
             return s;
         }
 
-        // += ¿¬»êÀÚ¸¦ Ãß°¡ÇÕ´Ï´Ù.
+        // += ì—°ì‚°ìë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
         CustomString& operator+=(const CUSSTRING& other) {
             this->append(other.c_str());
             return *this;
@@ -144,13 +144,13 @@ namespace Core
             return *this;
         }
 
-        // Convert ÇÔ¼ö Á¤ÀÇ
+        // Convert í•¨ìˆ˜ ì •ì˜
         ChangeType convertstr() const {
-            // std::wstringÀ¸·Î º¯È¯ÇÏ¿© ¹İÈ¯
+            // std::wstringìœ¼ë¡œ ë³€í™˜í•˜ì—¬ ë°˜í™˜
             return  std::move(ChangeType(this->begin(), this->end()));
         }
 
-        // ¹®ÀÚ¿­À» ´Ù¸¥ Å¸ÀÔÀ¸·Î º¯È¯ÇÏ´Â ¿¬»êÀÚ¸¦ Ãß°¡ÇÕ´Ï´Ù.
+        // ë¬¸ìì—´ì„ ë‹¤ë¥¸ íƒ€ì…ìœ¼ë¡œ ë³€í™˜í•˜ëŠ” ì—°ì‚°ìë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
         operator STRING<TChar>() const {
             return  STRING<TChar>(this->begin(), this->end());
         }
@@ -211,9 +211,9 @@ namespace std
     using STRING = Core::STRING<T>;
 
     /*
-    @ Date: 2024-02-05,  Writer: ¹ÚÅÂÇö
+    @ Date: 2024-02-05,  Writer: ë°•íƒœí˜„
     @ Explain
-    - hash ¿¬»ê¿¡ ´ëÇÑ Core::CustomString<TChar, String> ÀçÁ¤ÀÇ ÄÁÅ×ÀÌ³Ê¿¡ »ç¿ëÇÏ±â À§ÇÔ
+    - hash ì—°ì‚°ì— ëŒ€í•œ Core::CustomString<TChar, String> ì¬ì •ì˜ ì»¨í…Œì´ë„ˆì— ì‚¬ìš©í•˜ê¸° ìœ„í•¨
     */
     template<class TChar, class String>
     struct std::hash<Core::CustomString<TChar, String>> {
@@ -222,9 +222,9 @@ namespace std
         }
     };
     /*
-   @ Date: 2024-02-05,  Writer: ¹ÚÅÂÇö
+   @ Date: 2024-02-05,  Writer: ë°•íƒœí˜„
    @ Explain
-   - Equal ¿¬»ê¿¡ ´ëÇÑ Core::CustomString<TChar, String> ÀçÁ¤ÀÇ ÄÁÅ×ÀÌ³Ê¿¡ »ç¿ëÇÏ±â À§ÇÔ
+   - Equal ì—°ì‚°ì— ëŒ€í•œ Core::CustomString<TChar, String> ì¬ì •ì˜ ì»¨í…Œì´ë„ˆì— ì‚¬ìš©í•˜ê¸° ìœ„í•¨
    */
     template<class TChar, class String>
     struct std::equal_to<Core::CustomString<TChar, String>> {
@@ -233,9 +233,9 @@ namespace std
         }
     };
     /*
-    @ Date: 2024-02-05,  Writer: ¹ÚÅÂÇö
+    @ Date: 2024-02-05,  Writer: ë°•íƒœí˜„
     @ Explain
-    - less ¿¬»ê¿¡ ´ëÇÑ Core::CustomString<TChar, String> ÀçÁ¤ÀÇ ÄÁÅ×ÀÌ³Ê¿¡ »ç¿ëÇÏ±â À§ÇÔ
+    - less ì—°ì‚°ì— ëŒ€í•œ Core::CustomString<TChar, String> ì¬ì •ì˜ ì»¨í…Œì´ë„ˆì— ì‚¬ìš©í•˜ê¸° ìœ„í•¨
     */
     template<class TChar, class String>
     struct std::less<Core::CustomString<TChar, String>> {

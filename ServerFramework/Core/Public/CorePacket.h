@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_COREPAKCET_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_COREPAKCET_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_COREPAKCET_H
 
 namespace Core
@@ -11,9 +11,9 @@ namespace Core
 	};
 
 	/*
-	@ Data: 2023-12-22, Writer: ¹ÚÅÂÇö
+	@ Data: 2023-12-22, Writer: ë°•íƒœí˜„
 	@ Explain
-	- PacketÀÇ ¾ÕÂÊ ºÎºĞÀ» ´ã´çÇÏ´Â Head ºÎºĞÀÌ´Ù.
+	- Packetì˜ ì•ìª½ ë¶€ë¶„ì„ ë‹´ë‹¹í•˜ëŠ” Head ë¶€ë¶„ì´ë‹¤.
 	*/
 	struct PACKETHEAD {
 		short		PacketSize;
@@ -27,4 +27,4 @@ namespace Core
 	constexpr static unsigned int PACKETSIZE_SIZE{ sizeof(short) };
 }
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_COREPAKCET_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_COREPAKCET_H

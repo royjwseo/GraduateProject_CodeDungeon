@@ -1,10 +1,10 @@
-#pragma once
+ï»¿#pragma once
 
 class SwapChainAndRtvDsvHeap;
 
 class CommandQueue {
 public:
-	void CreateCommandQueueAndList(const ComPtr<ID3D12Device>& _Device, shared_ptr<SwapChainAndRtvDsvHeap> _SwapChain); //¸í·É Å¥/ ÇÒ´çÀÚ / ¸®½ºÆ® »ı¼º ÇÔ¼ö
+	void CreateCommandQueueAndList(const ComPtr<ID3D12Device>& _Device, shared_ptr<SwapChainAndRtvDsvHeap> _SwapChain); //ëª…ë ¹ í/ í• ë‹¹ì / ë¦¬ìŠ¤íŠ¸ ìƒì„± í•¨ìˆ˜
 	void RenderBegin();
 	void RenderEnd();
 public:

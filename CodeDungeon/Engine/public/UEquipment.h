@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UItem.h"
 
@@ -12,15 +12,15 @@ class UModel;
 class UAnimModel;
 class URootBoneNode;
 /*
-@ Date: 2024-04-27, Writer: ¹ÚÅÂÇö
+@ Date: 2024-04-27, Writer: ë°•íƒœí˜„
 @ Explain
--  Ä³¸¯ÅÍ°¡ µé°í ÀÖ°Ô ÇÏ´Â Àåºñ¿¡ ´ëÇÑ Å¬·¡½ºÀÌ´Ù. 
+-  ìºë¦­í„°ê°€ ë“¤ê³  ìˆê²Œ í•˜ëŠ” ì¥ë¹„ì— ëŒ€í•œ í´ë˜ìŠ¤ì´ë‹¤. 
 */
 class UEquipment : public UItem {
 	using HASBUFFERCONTAINER = ARRAY<_int, MAX_HAS_TEX>;
 public:
 	struct EQDESC {
-		// ÁÖÀÎÀÌ µÇ´Â Pawn
+		// ì£¼ì¸ì´ ë˜ëŠ” Pawn
 		SHPTR<UCharacter>	spOwner;
 		SHPTR<UModel>			spEquipModel;
 		EQUIPMENTINFO			EquipmentInfo;
@@ -59,7 +59,7 @@ public:
 	UEquipment(const UEquipment& _rhs);
 	DESTRUCTOR(UEquipment)
 public:
-	// UPawnÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UPawnì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(UEquipment, "UEquipment::Clone To Failed")
 	virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;
@@ -100,7 +100,7 @@ private:
 	WKPTR<UPawn>										m_wpOwner;
 	SHPTR<UModel>										m_spEquipModel;
 	EQUIPMENTINFO										m_EquipmentInfo;
-	// ÀåÂøµÇ´Â º» ³ëµå
+	// ì¥ì°©ë˜ëŠ” ë³¸ ë…¸ë“œ
 	SHPTR<UBoneNode>								m_spEquipBoneNode;
 	SHPTR<UAnimModel>							m_spCharacterAnimModel;
 

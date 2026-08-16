@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "UDeadLockProfiler.h"
 
 BEGIN(Core)
@@ -11,7 +11,7 @@ UDeadLockProfiler::UDeadLockProfiler()
 
 void UDeadLockProfiler::PushLock(const char* _DeadLockLog)
 {
-	// ID¸¦ Ã£°Å³ª ¹ß±ŞÇÑ´Ù. 
+	// IDë¥¼ ì°¾ê±°ë‚˜ ë°œê¸‰í•œë‹¤. 
 	_long	LockID = 0;
 	auto findIt = m_NameTold.find(_DeadLockLog);
 	if (findIt == m_NameTold.end())
@@ -25,10 +25,10 @@ void UDeadLockProfiler::PushLock(const char* _DeadLockLog)
 		LockID = findIt->second;
 	}
 
-	// Àâ°í ÀÖ´Â ¶ôÀÌ ÀÖ¾ú´Ù¸é
+	// ì¡ê³  ìˆëŠ” ë½ì´ ìˆì—ˆë‹¤ë©´
 	if (false == s_LockStack.empty())
 	{
-		// ±âÁØ¿¡ ¹ß°ßµÇÁö ¾ÊÀº ÄÉÀÌ½º¶ó¸é µ¥µå¶ô ¿©ºÎ¸¦ È®ÀÎÇÑ´Ù. 
+		// ê¸°ì¤€ì— ë°œê²¬ë˜ì§€ ì•Šì€ ì¼€ì´ìŠ¤ë¼ë©´ ë°ë“œë½ ì—¬ë¶€ë¥¼ í™•ì¸í•œë‹¤. 
 		const _long PrevID = s_LockStack.top();
 		if (LockID != PrevID)
 		{
@@ -59,7 +59,7 @@ void UDeadLockProfiler::CheckCycle()
 {
 	const _long LockCount = static_cast<_long>(m_NameTold.size());
 	m_DiscoveredCount = 0;
-	// ÇÒ´ç 
+	// í• ë‹¹ 
 	{
 		LOCKGUARD<MUTEX> Lock(m_Mutex);
 		m_DiscoveredOrder = CONVECTOR<_long>(LockCount, -1);
@@ -72,7 +72,7 @@ void UDeadLockProfiler::CheckCycle()
 		Dfs(LockID);
 	}
 
-	// Á¤¸®ÇØÁØ´Ù. 
+	// ì •ë¦¬í•´ì¤€ë‹¤. 
 	{
 		LOCKGUARD<MUTEX> Lock(m_Mutex);
 		m_DiscoveredOrder.clear();
@@ -99,7 +99,7 @@ void UDeadLockProfiler::Dfs(const _long _Here)
 	CONSET<_long>& NextSet = FindIt->second;
 	for (_long There : NextSet)
 	{
-		// ¾ÆÁ÷ ¹æ¹®ÇÑÀûÀÌ ¾øÀ¸¸é ¹æ¹® 
+		// ì•„ì§ ë°©ë¬¸í•œì ì´ ì—†ìœ¼ë©´ ë°©ë¬¸ 
 		if (m_DiscoveredOrder[There] == -1)
 		{
 			m_Parent[There] = _Here;
@@ -107,11 +107,11 @@ void UDeadLockProfiler::Dfs(const _long _Here)
 			continue;
 		}
 
-		// Here°¡ Thereº¸´Ù ¸ÕÀú ¹ß°ßµÇ¾ú´Ù¸é, There´Â HereÀÇ ÈÄ¼ÕÀÌ´Ù (¼ø¹æÇâ °£¼±)
+		// Hereê°€ Thereë³´ë‹¤ ë¨¼ì € ë°œê²¬ë˜ì—ˆë‹¤ë©´, ThereëŠ” Hereì˜ í›„ì†ì´ë‹¤ (ìˆœë°©í–¥ ê°„ì„ )
 		if (m_DiscoveredOrder[_Here] < m_DiscoveredOrder[There])
 			continue;
 
-		// ¼ø¹İÇâÀÌ ¾Æ´Ï°í DFS(There)°¡ ¾ÆÁ÷ Á¾·áµÇÁö ¾Ê¾Ò´Ù¸é, There´Â HereÀÇ ¼±Á¶ÀÌ´Ù (¿ª¹æÇâ °£¼±)
+		// ìˆœë°˜í–¥ì´ ì•„ë‹ˆê³  DFS(There)ê°€ ì•„ì§ ì¢…ë£Œë˜ì§€ ì•Šì•˜ë‹¤ë©´, ThereëŠ” Hereì˜ ì„ ì¡°ì´ë‹¤ (ì—­ë°©í–¥ ê°„ì„ )
 		if (m_Finished[There] == false)
 		{
 			std::printf("%s -> %s", m_IdToName[_Here], m_IdToName[There]);
@@ -137,4 +137,4 @@ void UDeadLockProfiler::Free()
 }
 
 
-END
+END

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "CMob.h"
 #include "USound.h"
 
@@ -10,9 +10,9 @@ END
 
 BEGIN(Client)
 /*
-@ Date: 2024-05-13, Writer: ÀÌ¼ºÇö
+@ Date: 2024-05-13, Writer: ì´ì„±í˜„
 @ Explain
--  ¹Ì¶ó ¸ó½ºÅÍ Å¬·¡½º.
+-  ë¯¸ë¼ ëª¬ìŠ¤í„° í´ë˜ìŠ¤.
 */
 class CMummy final : public CMob {
 public:
@@ -23,7 +23,7 @@ public:
 	};
 	DESTRUCTOR(CMummy)
 public:
-	// UPlayerÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UPlayerì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(CMummy, "CMummy::CloneToFailed")
 	virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;

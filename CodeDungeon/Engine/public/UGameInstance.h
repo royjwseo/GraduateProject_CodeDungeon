@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "EngineDefine.h"
 #include "UBase.h"
 
@@ -112,7 +112,7 @@ public:
 public:
 	HRESULT	OnWindowResize(const _uint& _iWinSizeX, const _uint& _iWinSizeY, const GRAPHICDESC::WINMODE _eWindowMode);
 	// Clear Once Type data 
-	//4-27 Ãß°¡
+	//4-27 ì¶”ê°€
 	void SetDefaultViewPort();
 	void SetTemporaryViewPort(D3D12_VIEWPORT _viewport, D3D12_RECT _rect);
 	void ClearOnceTypeData();
@@ -162,11 +162,11 @@ public: /* InputManager*/
 	_bool IsMouseInWindowSize(const float _Width, const float _Height);
 	_bool IsMouseInWindowSize();
 public: /* ThreadManager */
-	// ½º·¹µå¿¡ THREADFUNC ÇÔ¼ö¸¦ µî·Ï
+	// ìŠ¤ë ˆë“œì— THREADFUNC í•¨ìˆ˜ë¥¼ ë“±ë¡
 	void RegisterFuncToRegister(const THREADFUNC& _CallBack, void* _pData);
-	// µî·Ï µÈ ÇÔ¼öµéÀ» JOIN
+	// ë“±ë¡ ëœ í•¨ìˆ˜ë“¤ì„ JOIN
 	void JoinRegister();
-	// µî·ÏµÈ ÇÔ¼öµéÀ» Detach
+	// ë“±ë¡ëœ í•¨ìˆ˜ë“¤ì„ Detach
 	void DetachRegister();
 public: /* ActorManager */
 	const  CLONEARR& GetClonesArr() const;
@@ -249,9 +249,9 @@ public: /* PipeLine */
 
 public: /* FilePath Manager*/
 	SHPTR<FILEGROUP> FindFolder(const PATHS& _vecFolderList);
-	// °°Àº ÀÌ¸§À» °¡Áø Æú´õ¸¦ Ã£¾Æ¼­ ¸®ÅÏÇÑ´Ù. ´Ü PatentsFolderNameÀÌ ºñ¾îÀÖ´Ù¸é ÃÖ»óÀ§ Æú´õ¸¦ Ã£¾Æ¼­ ¸®ÅÏ, ÀÔ·ÂÇßÀ¸¸é »óÀ§ Æú´õÀÇ ÀÌ¸§±îÁö °Ë»öÇÑ´Ù. 
+	// ê°™ì€ ì´ë¦„ì„ ê°€ì§„ í´ë”ë¥¼ ì°¾ì•„ì„œ ë¦¬í„´í•œë‹¤. ë‹¨ PatentsFolderNameì´ ë¹„ì–´ìˆë‹¤ë©´ ìµœìƒìœ„ í´ë”ë¥¼ ì°¾ì•„ì„œ ë¦¬í„´, ì…ë ¥í–ˆìœ¼ë©´ ìƒìœ„ í´ë”ì˜ ì´ë¦„ê¹Œì§€ ê²€ìƒ‰í•œë‹¤. 
 	SHPTR<FILEGROUP>	FindFolder(const _wstring& _wstrFindName, const _wstring& _wstrParentsFolderName = L"");
-	// °°Àº ÀÌ¸§À» °¡Áø ¸ğµç Æú´õ¸¦ Ã£¾Æ¼­ ¸®ÅÏÇÑ´Ù. 
+	// ê°™ì€ ì´ë¦„ì„ ê°€ì§„ ëª¨ë“  í´ë”ë¥¼ ì°¾ì•„ì„œ ë¦¬í„´í•œë‹¤. 
 	VECTOR<SHPTR<FILEGROUP>> FindSameAllFolder(const _wstring& _wstrFindFolderName);
 	HRESULT LoadFirstFolder(const _wstring& _wstrFilePath);
 public: /* AudioSystemManager*/
@@ -308,9 +308,9 @@ public: /* NetworkManager */
 	const _llong GetNetworkOwnerID() const;
 	const _bool IsNetworkResourceRecvSuccess() const;
 	/*
-	@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 	@ Explain
-	- ProtocolBuffer¸¦ TCP¿¡ ¿¬°áµÈ »ó´ë¿¡°Ô º¸³»±â À§ÇÑ ÅÛÇÃ¸´ ÇÔ¼öÀÌ´Ù.
+	- ProtocolBufferë¥¼ TCPì— ì—°ê²°ëœ ìƒëŒ€ì—ê²Œ ë³´ë‚´ê¸° ìœ„í•œ í…œí”Œë¦¿ í•¨ìˆ˜ì´ë‹¤.
 	*/
 	template<class T>
 	void CombineProto(REF_IN ARRAY<_char, MAX_BUFFER_LENGTH>& _Buffer, REF_IN PACKETHEAD& _PacketHead, 
@@ -336,9 +336,9 @@ public: /* Material Manager*/
 	void RemoveModelMaterial(const _uint _MaterialIndex);
 	const _bool IsMaterialContainerInfoChange() const;
 	/*
-	@ Date: 2024-03-08, Writer: ÀÌ¼ºÇö
+	@ Date: 2024-03-08, Writer: ì´ì„±í˜„
 	@ Explain
-	- Picking°ü·Ã ÇÔ¼öµé.
+	- Pickingê´€ë ¨ í•¨ìˆ˜ë“¤.
 	*/
 public: /* Picking */
 	void AddPickingObject(CSHPTRREF<UPawn> _spPawn, CSHPTRREF<UVIBuffer> _spVIBuffer);

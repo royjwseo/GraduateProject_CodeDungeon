@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "USceneManager.h"
 #include "UGraphicDevice.h"
 #include "ULight.h"
@@ -98,7 +98,7 @@ void USceneManager::RenderLight(CSHPTRREF<UPipeLine> _spPipeLine, CSHPTRREF<URen
 
 		if (nullptr != m_spCurScene)
 		{
-			////¼öÁ¤»çÇ× 2024-04-09
+			////ìˆ˜ì •ì‚¬í•­ 2024-04-09
 			//m_stLightParam.mScreenWorldMatrix = _stDefferendParam.mWorldMatrix;
 			//	//_spPipeLine->GetMainCamWorldMatrix();
 			//{
@@ -131,7 +131,7 @@ void USceneManager::RenderLight(CSHPTRREF<UPipeLine> _spPipeLine, CSHPTRREF<URen
 			//// Setting Grobal 
 			{
 				m_spLightGlobalBuffer->SettingGlobalData(spCmdList,
-					&m_stLightParam, m_c_iLightParamSize); //¿ø·¡ ´Ù¸¥ Ä¿¸Çµå ¸®½ºÆ®·Î Ã³¸®ÇßÀ½
+					&m_stLightParam, m_c_iLightParamSize); //ì›ëž˜ ë‹¤ë¥¸ ì»¤ë§¨ë“œ ë¦¬ìŠ¤íŠ¸ë¡œ ì²˜ë¦¬í–ˆìŒ
 			}
 
 			m_spCurScene->RenderLights();

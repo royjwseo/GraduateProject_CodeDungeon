@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "AMySqlTable.h"
 #include "AMySqlConnector.h"
 
@@ -23,10 +23,10 @@ namespace Core
 
 		std::unique_ptr<sql::ResultSet> Res(State->executeQuery(checkTableExistsQuery.c_str()));
 		assert(Res != nullptr);
-		// ¸¸¾à µ¥ÀÌÅÍº£ÀÌ½º¿¡ Å×ÀÌºíÀÌ Á¸ÀçÇÏÁö ¾Ê´Â´Ù¸é
+		// ë§Œì•½ ë°ì´í„°ë² ì´ìŠ¤ì— í…Œì´ë¸”ì´ ì¡´ìž¬í•˜ì§€ ì•ŠëŠ”ë‹¤ë©´
 		if (false == Res->next() || Res->getInt(1) < 0)
 		{
-			// TableÀ» »ý¼ºÇÑ´Ù. 
+			// Tableì„ ìƒì„±í•œë‹¤. 
 			return CreateTable(State.get());
 		}
 		return false;
@@ -86,4 +86,4 @@ namespace Core
 	{
 	}
 
-}
+}

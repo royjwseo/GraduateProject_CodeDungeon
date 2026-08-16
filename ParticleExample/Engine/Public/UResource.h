@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_URESOURCE_H
+Ôªø#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_URESOURCE_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_URESOURCE_H
 
 #include "UCloneObject.h"
@@ -11,7 +11,7 @@ public:
 	UResource(const UResource& _rhs);
 	virtual ~UResource() = default;
 public:
-	// UObject¿ª(∏¶) ≈Î«ÿ ªÛº”µ 
+	// UObjectÏùÑ(Î•º) ÌÜµÌï¥ ÏÉÅÏÜçÎê®
 	virtual SHPTR<UCloneObject> Clone(const VOIDDATAS& _stDatas) override PURE;
 
 	virtual void Free() override PURE;
@@ -23,4 +23,4 @@ private:
 
 END
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_URESOURCE_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_URESOURCE_H

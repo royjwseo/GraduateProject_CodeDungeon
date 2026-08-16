@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UPicking.h"
 #include "UTransform.h"
 #include "UVIBuffer.h"
@@ -77,7 +77,7 @@ void UPicking::DeletePickingObject(CSHPTRREF<UPawn> _spPawn, CSHPTRREF<UVIBuffer
 	stPawn.spPawn = _spPawn;
 	stPawn.spVIBuffer = _spVIBuffer;
 
-	// ÇØ´ç °´Ã¼¸¦ Ã£¾Æ¼­ Á¦°Å
+	// í•´ë‹¹ ê°ì²´ë¥¼ ì°¾ì•„ì„œ ì œê±°
 	auto it = m_WaitCheckPawnList.find(stPawn);
 	if (it != m_WaitCheckPawnList.end())
 	{
@@ -125,8 +125,8 @@ const PICKINGDESC UPicking::GetPickDesc()
 	}
 
 //#ifdef _USE_DEBUGGING
-//	//¸¸¾à À¯ÀÇ¹ÌÇÑ ÇÈÅ·ÀÌ ÁøÇàÀÌ ¾ÈµÇ¾úÀ» ½Ã
-//	//±×¸®µå À§ÀÇ ÁÂÇ¥¸¦ ¹ÝÈ¯ (y = 0ÀÇ ÁÂÇ¥)
+//	//ë§Œì•½ ìœ ì˜ë¯¸í•œ í”½í‚¹ì´ ì§„í–‰ì´ ì•ˆë˜ì—ˆì„ ì‹œ
+//	//ê·¸ë¦¬ë“œ ìœ„ì˜ ì¢Œí‘œë¥¼ ë°˜í™˜ (y = 0ì˜ ì¢Œí‘œ)
 //	if (!bFoundValidPick)
 //	{
 //		_float3 v3Pos = _float3(0.f, 0.f, 0.f);

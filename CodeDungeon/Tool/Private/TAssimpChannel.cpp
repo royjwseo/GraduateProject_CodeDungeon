@@ -1,4 +1,4 @@
-#include "ToolDefines.h"
+﻿#include "ToolDefines.h"
 #include "TAssimpChannel.h"
 #include "TAssimpBoneNode.h"
 #include "TAssimpModel.h"

@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 #include "UVIBufferTriangle.h"
 
 UVIBufferTriangle::UVIBufferTriangle(CSHPTRREF<UDevice> _spDevice)
@@ -19,7 +19,7 @@ HRESULT UVIBufferTriangle::NativeConstruct()
 	RETURN_CHECK_FAILED(__super::NativeConstruct(), E_FAIL);
 	// Vertex 
 	{
-		// Vertex °³¼ö
+		// Vertex ê°œìˆ˜
 		const _uint VERTEX_CNT = 3;
 		VECTOR<VTXDEFAULT>	Vertecies;
 		Vertecies.resize(VERTEX_CNT);
@@ -34,7 +34,7 @@ HRESULT UVIBufferTriangle::NativeConstruct()
 			// 3 +X, -Y
 			Vertecies[2] = VTXDEFAULT{ _float3(0.f, 0.5f, 0.f), _float2(0.5f, 0.f) };
 		}
-		// Position º¹Á¦
+		// Position ë³µì œ
 		for (_uint i = 0; i < VERTEX_CNT; ++i)
 			VertexPos[i] = Vertecies[i].vPosition;
 
@@ -43,9 +43,9 @@ HRESULT UVIBufferTriangle::NativeConstruct()
 	}
 	// Index
 	{
-		// Index °³¼ö
+		// Index ê°œìˆ˜
 		const _uint INDICES_CNT = 1;
-		// ¸ñ·Ï
+		// ëª©ë¡
 		INDICIES16* pIndices = new INDICIES16[INDICES_CNT];
 		ZeroMemory(pIndices, sizeof(INDICIES16) * INDICES_CNT);
 		{

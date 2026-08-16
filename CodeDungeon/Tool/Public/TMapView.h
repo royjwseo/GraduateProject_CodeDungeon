@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "TImGuiView.h"
 
@@ -20,7 +20,7 @@ public:
 	TMapView(CSHPTRREF<UDevice> _spDevice);
 	NO_COPY(TMapView)
 	DESTRUCTOR(TMapView)
-	// TImGuiViewÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// TImGuiViewì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	void Free() override;
 	HRESULT NativeConstruct() override;
 protected:

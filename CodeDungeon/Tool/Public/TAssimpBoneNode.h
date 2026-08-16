@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 #include "UBase.h"
 
 BEGIN(Tool)
 /*
-@ Date: 2024-02-04, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-04, Writer: ë°•íƒœí˜„
 @ Explain
-- Assimp¸¦ ·ÎµåÇÏ±â À§ÇÑ Bone Å¬·¡½º
+- Assimpë¥¼ ë¡œë“œí•˜ê¸° ìœ„í•œ Bone í´ë˜ìŠ¤
 */
 class TAssimpBoneNode : public UBase {
 public:

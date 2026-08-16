@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UBase.h"
 
@@ -8,9 +8,9 @@ using THREAD = std::thread;
 using THREADVECTOR = VECTOR<THREAD>;
 using THREADLIST = LIST<THREAD>;
 /*
-@ Date: 2024-02-02, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-02, Writer: ë°•íƒœí˜„
 @ Explain
-- Thread¸¦ °ü¸®ÇÏ´Â ¸Å´ÏÀú Å¬·¡½º, µî·ÏµÈ ÇÔ¼öµéÀ» JOIN È¤Àº Detach·Î ½ÇÇàÇÑ´Ù. 
+- Threadë¥¼ ê´€ë¦¬í•˜ëŠ” ë§¤ë‹ˆì € í´ë˜ìŠ¤, ë“±ë¡ëœ í•¨ìˆ˜ë“¤ì„ JOIN í˜¹ì€ Detachë¡œ ì‹¤í–‰í•œë‹¤. 
 */
 class UThreadManager final : public UBase {
 public:

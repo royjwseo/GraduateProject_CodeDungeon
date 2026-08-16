@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "ACoreBase.h"
 
 namespace Core
@@ -15,4 +15,4 @@ namespace Core
 	{
 
 	}
-}
+}

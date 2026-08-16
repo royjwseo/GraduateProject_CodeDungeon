@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "CustomMemory.h"
 #include "UGameInstance.h"
 
@@ -26,7 +26,7 @@ namespace Engine {
 	{
 		UMemoryHeader* memory = static_cast<UMemoryHeader*>(::InterlockedPopEntrySList(&m_Header));
 
-		// ¾øÀ¸¸é »õ·Î ¸¸µé´Ù
+		// ì—†ìœ¼ë©´ ìƒˆë¡œ ë§Œë“¤ë‹¤
 		if (memory == nullptr)
 		{
 			memory = reinterpret_cast<UMemoryHeader*>(::_aligned_malloc(m_AllocSize, SLIST_ALIGNMENT));
@@ -69,14 +69,14 @@ namespace Engine {
 	{
 		UMemoryHeader* Header = nullptr;
 		unsigned long long AllocateSize = _Size + sizeof(UMemoryHeader);
-		// ¸Þ¸ð¸® ÃÖ´ë Å©±â¸¦ ²¨³»¿À¸é ÀÏ¹Ý ÇÒ´ç 
+		// ë©”ëª¨ë¦¬ ìµœëŒ€ í¬ê¸°ë¥¼ êº¼ë‚´ì˜¤ë©´ ì¼ë°˜ í• ë‹¹ 
 		if (AllocateSize > MAX_ALLOC_SIZE)
 		{
 			Header = reinterpret_cast<UMemoryHeader*>(::malloc(AllocateSize));
 		}
 		else
 		{
-			// ¸Þ¸ð¸® Ç®¿¡¼­ ²¨³»¿Â´Ù. 
+			// ë©”ëª¨ë¦¬ í’€ì—ì„œ êº¼ë‚´ì˜¨ë‹¤. 
 			Header = m_PoolTable[AllocateSize]->Pop();
 		}
 		::ZeroMemory(Header, AllocateSize);

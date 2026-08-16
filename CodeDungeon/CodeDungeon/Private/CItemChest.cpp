@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+ï»¿#include "ClientDefines.h"
 #include "CMob.h"
 #include "UGameInstance.h"
 #include "URenderer.h"
@@ -97,7 +97,7 @@ void CItemChest::TickActive(const _double& _dTimeDelta)
 	_double ItemChestTimeArcOpenEnd = 3;
 	GetAnimationController()->Tick(_dTimeDelta);
 	SetTargetPlayer(std::static_pointer_cast<UPlayer>(spGameInstance->GetCurrPlayer()));
-	//»óÀÚ ¿©´Â Æ®¸®°Å
+	//ìƒì ì—¬ëŠ” íŠ¸ë¦¬ê±°
 	if (GetFoundTargetState())
 	{
 		SetOutline(true);

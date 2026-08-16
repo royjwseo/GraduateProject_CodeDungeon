@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 #include "UTransform.h"
 #include "UMethod.h"
 #include "UShaderConstantBuffer.h"
@@ -85,7 +85,7 @@ HRESULT UTransform::NativeConstruct()
 {
     RETURN_CHECK_FAILED(__super::NativeConstruct(), E_FAIL);
 	SHPTR<UGameInstance> spGameInstance = GET_INSTANCE(UGameInstance);
-	// ÀÌ¹Ì ¸¸µé¾îÁø Shader ConstnatBuffer¸¦ °¡Á®¿È
+	// ì´ë¯¸ ë§Œë“¤ì–´ì§„ Shader ConstnatBufferë¥¼ ê°€ì ¸ì˜´
 	spGameInstance->GetPreAllocatedConstantBuffer(PREALLOCATED_TRANSFORM, m_spWaterShaderBuffer);
 	return S_OK;
 }
@@ -342,7 +342,7 @@ void UTransform::LookAt(const _float3& _vTargetPos)
 	_float4 vRight = DirectX::XMVector3Normalize(XMVector3Cross(_float3::Up, vLook));
 	_float4 vUp = DirectX::XMVector3Normalize(XMVector3Cross(vLook, vRight));
 
-	// È¸Àü Çà·Ä °è»ê
+	// íšŒì „ í–‰ë ¬ ê³„ì‚°
 	_float4x4 rotationMatrix(
 		vRight,
 		vUp,
@@ -418,4 +418,4 @@ void UTransform::ShowObjectInfo()
 		ImGui::TreePop();
 	}
 }
-#endif
+#endif

@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UDevice.h"
 #include "UGameInstance.h"
 #include "UGpuCommand.h"
@@ -37,9 +37,9 @@ HRESULT UTexture::NativeConstruct(CSHPTRREF<UDevice> _spDevice, const _wstring& 
 	// Create Texture
 	{
 		{
-			// ³¡Á¡À» °¡Á®¿Í¼­ È®ÀåÀÚ¿¡ µû¶ó¼­ ÅØ½ºÃÄ ·ÎµåÇÏ±â 
+			// ëì ì„ ê°€ì ¸ì™€ì„œ í™•ì¥ìì— ë”°ë¼ì„œ í…ìŠ¤ì³ ë¡œë“œí•˜ê¸° 
 			_wstring ext = fs::path(_wstrPath).extension();
-			// ÅØ½ºÃÄ ·Îµå
+			// í…ìŠ¤ì³ ë¡œë“œ
 			_wstring dds{ L".dds" };
 			_wstring DDS{ L".DDS" };
 			Dx12Device* pDevice = _spDevice->GetDV().Get();
@@ -70,7 +70,7 @@ HRESULT UTexture::NativeConstruct(CSHPTRREF<UDevice> _spDevice, const _wstring& 
 HRESULT UTexture::NativeConstruct(CSHPTRREF<UDevice> _spDevice, const TEXTURETYPEDESC& _stTextureDesc)
 {
 	RETURN_CHECK(nullptr == _spDevice, E_FAIL);
-	// Texture¸¦ ¸¸µé±â À§ÇÑ CD3DX12_RESOURCE_DESC 2D 
+	// Textureë¥¼ ë§Œë“¤ê¸° ìœ„í•œ CD3DX12_RESOURCE_DESC 2D 
 	D3D12_RESOURCE_DESC Desc = CD3DX12_RESOURCE_DESC::Tex2D(_stTextureDesc.eDxFormat, _stTextureDesc.iWidth,
 		_stTextureDesc.iHeight);
 	Desc.Flags = _stTextureDesc.eResourceFlags;
@@ -79,7 +79,7 @@ HRESULT UTexture::NativeConstruct(CSHPTRREF<UDevice> _spDevice, const TEXTURETYP
 	D3D12_CLEAR_VALUE OptimizedClearValue{};
 	D3D12_RESOURCE_STATES ResourceStates{ D3D12_RESOURCE_STATES::D3D12_RESOURCE_STATE_COMMON };
 
-	// RenderTargetDesc¿¡ µû¶ó DepthStencil È¤Àº RenderTargetÀ» ¸¸µé ÁØºñ¸¦ ÇÑ´Ù. 
+	// RenderTargetDescì— ë”°ë¼ DepthStencil í˜¹ì€ RenderTargetì„ ë§Œë“¤ ì¤€ë¹„ë¥¼ í•œë‹¤. 
 	if (D3D12_RESOURCE_FLAGS::D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL & _stTextureDesc.eResourceFlags)
 	{
 		ResourceStates = D3D12_RESOURCE_STATES::D3D12_RESOURCE_STATE_DEPTH_WRITE;
@@ -94,10 +94,10 @@ HRESULT UTexture::NativeConstruct(CSHPTRREF<UDevice> _spDevice, const TEXTURETYP
 		pOptimizedClearValue = &OptimizedClearValue;
 	}
 
-	// ÇØ´çÇÏ´Â ¸®¼Ò½º¸¦ ¸¸µé°í 
+	// í•´ë‹¹í•˜ëŠ” ë¦¬ì†ŒìŠ¤ë¥¼ ë§Œë“¤ê³  
 	RETURN_CHECK_DXOBJECT(_spDevice->GetDV()->CreateCommittedResource(&_stTextureDesc.HeapProPerty, _stTextureDesc.eHeapFlags,
 		&Desc, ResourceStates, pOptimizedClearValue, IID_PPV_ARGS(&m_cpTexture)), E_FAIL);
-	// ±× ÅØ½ºÃÄ¿¡ µû¶ó¼­ ¸®¼Ò½º¸¦ »ı¼ºÇÏ±â À§ÇÑ ÁØºñ¸¦ ÇÑ´Ù. 
+	// ê·¸ í…ìŠ¤ì³ì— ë”°ë¼ì„œ ë¦¬ì†ŒìŠ¤ë¥¼ ìƒì„±í•˜ê¸° ìœ„í•œ ì¤€ë¹„ë¥¼ í•œë‹¤. 
 	RETURN_CHECK_FAILED(CreateFromResource(_spDevice, m_cpTexture), E_FAIL);
 	return S_OK;
 }
@@ -111,7 +111,7 @@ HRESULT UTexture::NativeConstruct(CSHPTRREF<UDevice> _spDevice, const ComPtr<Dx1
 
 HRESULT UTexture::CreateView(CSHPTRREF<UDevice> _spDevice, const TEXTURECREATETYPE _eTextureType)
 {
-	// ShaderHeap ¿¡ °ø°£ÇÏ³ª¸¦ ¸¸µç´Ù. 
+	// ShaderHeap ì— ê³µê°„í•˜ë‚˜ë¥¼ ë§Œë“ ë‹¤. 
 	D3D12_DESCRIPTOR_HEAP_DESC SrvHeapDesc{};
 	SrvHeapDesc.NumDescriptors = 1;
 	SrvHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
@@ -120,7 +120,7 @@ HRESULT UTexture::CreateView(CSHPTRREF<UDevice> _spDevice, const TEXTURECREATETY
 	_spDevice->GetDV()->CreateDescriptorHeap(&SrvHeapDesc, IID_PPV_ARGS(&cpDescriptor));
 	m_DescriptorHeaps.insert(std::pair <DESCRIPTOR_TYPE, ComPtr<Dx12DescriptorHeap>>(DESCRIPTOR_TYPE::SRV, cpDescriptor));
 	m_DescriptorHandles.insert(std::pair <DESCRIPTOR_TYPE, D3D12_CPU_DESCRIPTOR_HANDLE>(DESCRIPTOR_TYPE::SRV, cpDescriptor->GetCPUDescriptorHandleForHeapStart()));
-	// ShaderHeapÀ» º¼ ¼ö ÀÖ´Â View¸¦ ¸¸µç´Ù. 
+	// ShaderHeapì„ ë³¼ ìˆ˜ ìˆëŠ” Viewë¥¼ ë§Œë“ ë‹¤. 
 	D3D12_SHADER_RESOURCE_VIEW_DESC ShaderView{};
 	ShaderView.Format = m_eDXTextureFormat;
 	ShaderView.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
@@ -168,7 +168,7 @@ HRESULT UTexture::CreateFromResource(CSHPTRREF<UDevice> _spDevice, const ComPtr<
 
 	if (D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL & Desc.Flags)
 	{
-		// ÇöÀç DepthStencilÀÌ¶ó¸é, DepthStencil View¿Í Descriptor¸¦ ¸¸µç´Ù. 
+		// í˜„ì¬ DepthStencilì´ë¼ë©´, DepthStencil Viewì™€ Descriptorë¥¼ ë§Œë“ ë‹¤. 
 		D3D12_DESCRIPTOR_HEAP_DESC HeapDesc{};
 		HeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_DSV;
 		HeapDesc.NumDescriptors = 1;
@@ -187,7 +187,7 @@ HRESULT UTexture::CreateFromResource(CSHPTRREF<UDevice> _spDevice, const ComPtr<
 	{
 		if (D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET & Desc.Flags)
 		{
-			// RenderTarget »óÅÂÀÏ ¶§, View¿Í Desriptor¸¦ ¸¸µç´Ù. 
+			// RenderTarget ìƒíƒœì¼ ë•Œ, Viewì™€ Desriptorë¥¼ ë§Œë“ ë‹¤. 
 			D3D12_DESCRIPTOR_HEAP_DESC HeapDesc{};
 			HeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_RTV;
 			HeapDesc.NumDescriptors = 1;

@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "AService.h"
 #include "ASession.h"
 #include "ACoreInstance.h"
@@ -79,7 +79,7 @@ namespace Core {
 			std::atomic_thread_fence(std::memory_order_seq_cst);
 			if (iter->second)
 			{
-				// Session »èÁ¦
+				// Session ì‚­ì œ
 				iter->second->Disconnect();
 			}
 		}

@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Shader.h"
 #include "NavigationCell.h"
 #include "Material.h"
@@ -166,7 +166,7 @@ void NavigationCell::CalculateCrossResult(array<XMFLOAT3, POINT_END>& arrPointsE
 
 void NavigationCell::ResortPointsClockwise()
 {
-	// °°Àº ½Ã°è ¹æÇâÀ¸·Î Á¡µéÀÌ ¹èÄ¡µÇµµ·Ï ÇÏ´Â °Í
+	// ê°™ì€ ì‹œê³„ ë°©í–¥ìœ¼ë¡œ ì ë“¤ì´ ë°°ì¹˜ë˜ë„ë¡ í•˜ëŠ” ê²ƒ
 	bool bIsTrue = true;
 	while (bIsTrue) {
 		array<XMFLOAT3, POINT_END> arrPosList;
@@ -217,7 +217,7 @@ CCellMesh::CCellMesh(const ComPtr<ID3D12Device>& _Device, const ComPtr<ID3D12Gra
 
 	m_pd3dPositionBuffer = Util::CreateBufferResource(_Device, _CommandList, pVertices, m_nStride * m_nVertices, D3D12_HEAP_TYPE_DEFAULT,
 		D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER, &m_pd3dPositionUploadBuffer);
-	//Á¤Á¡ ¹öÆÛ ºä¸¦ »ı¼ºÇÑ´Ù. 
+	//ì •ì  ë²„í¼ ë·°ë¥¼ ìƒì„±í•œë‹¤. 
 
 	D3D12_VERTEX_BUFFER_VIEW m_pd3dPositionBufferView;
 	m_pd3dPositionBufferView.BufferLocation = m_pd3dPositionBuffer->GetGPUVirtualAddress();

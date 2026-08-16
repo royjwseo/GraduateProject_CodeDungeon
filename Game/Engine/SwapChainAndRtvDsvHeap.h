@@ -1,12 +1,12 @@
-#pragma once
+ï»¿#pragma once
 class SwapChainAndRtvDsvHeap {
 public:
 	void InitSwapChainAndRtvDsvHeap(const ComPtr<IDXGIFactory4>& _Factory, const ComPtr<ID3D12Device>& _Device, const ComPtr< ID3D12CommandQueue>& _CmdQueue, bool MsaaEnable, uint16 MsaaQualityLevels);
 	void ChangeSwapChainState(const ComPtr<ID3D12Device>& _Device);
-	void CreateSwapChain(const ComPtr<IDXGIFactory4>& _Factory, const ComPtr<ID3D12Device>& _Device, const ComPtr< ID3D12CommandQueue>& _CmdQueue, bool MssaaEnable, uint16 MsaaQualityLevels); //½º¿Ò Ã¼ÀÎ »ı¼º ÇÔ¼ö
-	void CreateRenderTargetViews(const ComPtr<ID3D12Device>& _Device); //·»´õ Å¸°Ù ºä »ı¼º ÇÔ¼ö
-	void CreateDepthStencilView(const ComPtr<ID3D12Device>& _Device, bool MsaaEnable, uint16 MsaaQualityLevels); //±íÀÌ-½ºÅÙ½Ç ºä »ı¼º ÇÔ¼ö
-	void CreateRtvAndDsvDescriptorHeaps(const ComPtr<ID3D12Device>& _Device); //¼­¼úÀÚ Èü »ı¼º ÇÔ¼ö
+	void CreateSwapChain(const ComPtr<IDXGIFactory4>& _Factory, const ComPtr<ID3D12Device>& _Device, const ComPtr< ID3D12CommandQueue>& _CmdQueue, bool MssaaEnable, uint16 MsaaQualityLevels); //ìŠ¤ì™‘ ì²´ì¸ ìƒì„± í•¨ìˆ˜
+	void CreateRenderTargetViews(const ComPtr<ID3D12Device>& _Device); //ë Œë” íƒ€ê²Ÿ ë·° ìƒì„± í•¨ìˆ˜
+	void CreateDepthStencilView(const ComPtr<ID3D12Device>& _Device, bool MsaaEnable, uint16 MsaaQualityLevels); //ê¹Šì´-ìŠ¤í…ì‹¤ ë·° ìƒì„± í•¨ìˆ˜
+	void CreateRtvAndDsvDescriptorHeaps(const ComPtr<ID3D12Device>& _Device); //ì„œìˆ ì í™ ìƒì„± í•¨ìˆ˜
 public:
 	ComPtr<IDXGISwapChain3>GetSwapChain() { return m_cpdxgiSwapChain; }
 	ComPtr<ID3D12Resource>GetRenderTarget(int index) { return m_ppd3dRenderTargetBuffers[index]; }
@@ -37,6 +37,6 @@ private:
 public:
 	HINSTANCE m_hInstance;
 	HWND m_hWnd;
-	int m_nWndClientWidth; //swap chain ³Êºñ µî ÀúÀå¸ñÀû
+	int m_nWndClientWidth; //swap chain ë„ˆë¹„ ë“± ì €ì¥ëª©ì 
 	int m_nWndClientHeight;
 };

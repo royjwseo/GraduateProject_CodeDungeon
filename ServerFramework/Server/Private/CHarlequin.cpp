@@ -1,4 +1,4 @@
-#include "ServerDefines.h"
+﻿#include "ServerDefines.h"
 #include "CHarlequin.h"
 #include "ATransform.h"
 #include "CHarlequinAnimController.h"
@@ -70,4 +70,4 @@ namespace Server {
 	{
 	}
 
-}
+}

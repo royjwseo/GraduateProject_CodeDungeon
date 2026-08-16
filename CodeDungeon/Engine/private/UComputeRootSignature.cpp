@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+Ôªø#include "EngineDefine.h"
 #include "UComputeRootSignature.h"
 #include "UDevice.h"
 
@@ -18,11 +18,11 @@ HRESULT UComputeRootSignature::CreateRootSignature(CSHPTRREF<UDevice> _spDevice)
 		CD3DX12_DESCRIPTOR_RANGE(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, SRV_REGISTER_END, 0, GetRegisterSpace()), // t0~t14
 		CD3DX12_DESCRIPTOR_RANGE(D3D12_DESCRIPTOR_RANGE_TYPE_UAV, UAV_REGISTER_END, 0, GetRegisterSpace()), // u0~u14
 	};
-	// ConstantBuffer View∏¶ ∏∏µÈ∞Ì
+	// ConstantBuffer ViewÎ•º ÎßåÎì§Í≥†
 	const _uint PARAM_SIZE = 1;
 	ARRAY<CD3DX12_ROOT_PARAMETER, PARAM_SIZE> Param = {};
-	// DescriptorTable¿ª Range ∏∏≈≠ ∏∏µÁ¥Ÿ. 
-	Param[0].InitAsDescriptorTable(static_cast<_uint>(Ranges.size()), Ranges.data()); // 0π¯ -> b0 -> CBV
+	// DescriptorTableÏùÑ Range ÎßåÌÅº ÎßåÎì†Îã§. 
+	Param[0].InitAsDescriptorTable(static_cast<_uint>(Ranges.size()), Ranges.data()); // 0Î≤à -> b0 -> CBV
 
 	D3D12_ROOT_SIGNATURE_DESC tDesc = CD3DX12_ROOT_SIGNATURE_DESC(static_cast<_uint>(Param.size()), Param.data(),
 		static_cast<_uint>(GetSamplers().size()), GetSamplers().data());
@@ -31,7 +31,7 @@ HRESULT UComputeRootSignature::CreateRootSignature(CSHPTRREF<UDevice> _spDevice)
 
 	ComPtr<DxBlob> BlobSignature = nullptr;
 	ComPtr<DxBlob> BlobError = nullptr;
-	// RootSignature ªÛ≈¬∏¶ æÀ∏Æ∞Ì 
+	// RootSignature ÏÉÅÌÉúÎ•º ÏïåÎ¶¨Í≥† 
 	RETURN_CHECK_DXOBJECT(::D3D12SerializeRootSignature(&tDesc, D3D_ROOT_SIGNATURE_VERSION_1,
 		&BlobSignature, &BlobError), E_FAIL);
 	return Create(_spDevice, BlobSignature);

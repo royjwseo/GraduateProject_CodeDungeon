@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "UObject.h"
 
 BEGIN(Engine)
@@ -61,7 +61,7 @@ private:
 	LIGHTCONTAINER						m_AllLightContainer;
 	_uint						MAX_LIGHT_NUMS;
 	_uint						CUR_LIGHT_NUMS;
-	LIGHTPARAMS m_stLightParams;//�ǳ״¿뵵
+	LIGHTPARAMS m_stLightParams;//건네는용도
 	LIGHTPARAMVECTOR m_stLightParamVector; //
 	SHPTR<UShaderConstantBuffer>		m_spLightConstantBuffer;
 };

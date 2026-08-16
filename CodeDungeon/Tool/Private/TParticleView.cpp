@@ -1,4 +1,4 @@
-#include "ToolDefines.h"
+ï»¿#include "ToolDefines.h"
 #include "TParticleView.h"
 #include "UParticle.h"
 #include "UParticleSystem.h"
@@ -42,7 +42,7 @@ HRESULT TParticleView::NativeConstruct()
 }
 
 //================================================================
-//**** ÆÄÆ¼Å¬ Á¾·ùº°·Î °ü¸®ÇÏ´Â ÄÁÅ×ÀÌ³Ê(º¤ÅÍ) Å©±â ¹Ì¸® ÇÒ´ç ****
+//**** íŒŒí‹°í´ ì¢…ë¥˜ë³„ë¡œ ê´€ë¦¬í•˜ëŠ” ì»¨í…Œì´ë„ˆ(ë²¡í„°) í¬ê¸° ë¯¸ë¦¬ í• ë‹¹ ****
 //================================================================
 void TParticleView::ResizeSingleParticleVector(_uint _resizeAmount)
 {
@@ -70,7 +70,7 @@ void TParticleView::ResizeAnimParticleVector(_uint _resizeAmount)
 }
 
 //================================================================
-//**************** ÆÄÆ¼Å¬ Á¾·ùº°·Î ¸®¼Ò½º ÇÒ´ç ****************
+//**************** íŒŒí‹°í´ ì¢…ë¥˜ë³„ë¡œ ë¦¬ì†ŒìŠ¤ í• ë‹¹ ****************
 //================================================================
 
 void TParticleView::LoadSingleParticleResource()
@@ -277,7 +277,7 @@ HRESULT TParticleView::LoadResource()
 }
 
 //================================================================
-//**************** ÆÄÆ¼Å¬ Á¾·ùº°·Î ¸®¼Ò½º ÇØÁ¦ ****************
+//**************** íŒŒí‹°í´ ì¢…ë¥˜ë³„ë¡œ ë¦¬ì†ŒìŠ¤ í•´ì œ ****************
 //================================================================
 
 void TParticleView::ReleaseSingleParticleResource()
@@ -285,7 +285,7 @@ void TParticleView::ReleaseSingleParticleResource()
 	for (auto& _particle : m_SingleParticle) {
 		_particle.reset();
 		GetGameInstance()->RemoveActor(_particle);
-	}//¹®Á¦ À¯¹ßµÉ ¼ö ÀÖ´Â ÄÚµå RemoveActorÀÇ »ó¼¼ ±¸ÇöÀ» »ìÆìº¸¾Æ¾ßÇÔ.
+	}//ë¬¸ì œ ìœ ë°œë  ìˆ˜ ìˆëŠ” ì½”ë“œ RemoveActorì˜ ìƒì„¸ êµ¬í˜„ì„ ì‚´í´ë³´ì•„ì•¼í•¨.
 	
 }
 
@@ -294,7 +294,7 @@ void TParticleView::ReleaseMultipleParticleResource()
 	for (auto& _particle : m_MultipleParticle) {
 		_particle.reset();
 		GetGameInstance()->RemoveActor(_particle);
-	}//¹®Á¦ À¯¹ßµÉ ¼ö ÀÖ´Â ÄÚµå RemoveActorÀÇ »ó¼¼ ±¸ÇöÀ» »ìÆìº¸¾Æ¾ßÇÔ.
+	}//ë¬¸ì œ ìœ ë°œë  ìˆ˜ ìˆëŠ” ì½”ë“œ RemoveActorì˜ ìƒì„¸ êµ¬í˜„ì„ ì‚´í´ë³´ì•„ì•¼í•¨.
 }
 
 void TParticleView::ReleaseAnimParticleResource()
@@ -302,7 +302,7 @@ void TParticleView::ReleaseAnimParticleResource()
 	for (auto& _particle : m_AnimParticle) {
 		_particle.reset();
 		GetGameInstance()->RemoveActor(_particle);
-	}//¹®Á¦ À¯¹ßµÉ ¼ö ÀÖ´Â ÄÚµå RemoveActorÀÇ »ó¼¼ ±¸ÇöÀ» »ìÆìº¸¾Æ¾ßÇÔ.
+	}//ë¬¸ì œ ìœ ë°œë  ìˆ˜ ìˆëŠ” ì½”ë“œ RemoveActorì˜ ìƒì„¸ êµ¬í˜„ì„ ì‚´í´ë³´ì•„ì•¼í•¨.
 }
 
 
@@ -317,7 +317,7 @@ HRESULT TParticleView::ReleaseResource()
 
 
 //================================================================
-//************ ÆÄÆ¼Å¬ Á¾·ùº°·Î Rendering ÇÏ´Â ºÎºĞ ************
+//************ íŒŒí‹°í´ ì¢…ë¥˜ë³„ë¡œ Rendering í•˜ëŠ” ë¶€ë¶„ ************
 //================================================================
 
 void TParticleView::TickActive(const _double& _dTimeDelta)
@@ -339,7 +339,7 @@ void TParticleView::RenderActive()
 		m_stMainDesc.iDockSpaceID = ImGui::GetID(GetName().c_str());
 		DockBuildInitSetting();
 		ImGui::DockSpace(m_stMainDesc.iDockSpaceID, ImVec2{}, m_stMainDesc.imgDockNodeFlags);
-		//¿©±âºÎÅÍ ³» ÀÔ·Â
+		//ì—¬ê¸°ë¶€í„° ë‚´ ì…ë ¥
 		SingleParticleView();
 		MultipleParticleView();
 		AnimParticleView();
@@ -416,7 +416,7 @@ void TParticleView::SingleParticleView()
 
 void TParticleView::SingleParticleCountSetting()
 {
-	//ÆÄÆ¼Å¬ ÇÑ »çÀÌÅ¬ »ı¼º °¹¼ö.
+	//íŒŒí‹°í´ í•œ ì‚¬ì´í´ ìƒì„± ê°¯ìˆ˜.
 	if (ImGui::CollapsingHeader("Single Particle Count Setting", ImGuiTreeNodeFlags_DefaultOpen)) {
 		_uint increment = 1;
 		ImGui::InputScalar("Enter Create Amount\n Min:1  Max :1000", ImGuiDataType_U32, m_SingleParticle[0]->GetParticleSystem()->GetAddParticleAmount(), &increment, &increment);
@@ -432,7 +432,7 @@ void TParticleView::SingleParticleCountSetting()
 
 void TParticleView::SingleParticleTimeSetting()
 {
-	//ÆÄÆ¼Å¬ÀÇ »ı¼º ½Ã°£ Á¤ÇÏ±â
+	//íŒŒí‹°í´ì˜ ìƒì„± ì‹œê°„ ì •í•˜ê¸°
 	if (ImGui::CollapsingHeader("Single Particle Create Time Interval", ImGuiTreeNodeFlags_DefaultOpen)) {
 
 		ImGui::InputFloat("Enter Time Interval\n Min:0.f  Max :6.f", m_SingleParticle[0]->GetParticleSystem()->GetCreateInterval(), 0.1f, 1.0f, "%.2f", ImGuiInputTextFlags_CharsDecimal);
@@ -449,7 +449,7 @@ void TParticleView::SingleParticleTexSetting()
 {
 	 
 
-		//ÆÄÆ¼Å¬ÀÇ ÅØ½ºÃÄ ÁöÁ¤
+		//íŒŒí‹°í´ì˜ í…ìŠ¤ì³ ì§€ì •
 		ImGui::Text("Single Particle Texture Select");
 		if (ImGui::BeginListBox("Texture List", ImVec2(-FLT_MIN, 5 * ImGui::GetTextLineHeightWithSpacing())))
 		{
@@ -569,7 +569,7 @@ void TParticleView::MultipleParticleView()
 
 void TParticleView::MultipleParticleCountSetting()
 {
-	//ÆÄÆ¼Å¬ ÇÑ »çÀÌÅ¬ »ı¼º °¹¼ö.
+	//íŒŒí‹°í´ í•œ ì‚¬ì´í´ ìƒì„± ê°¯ìˆ˜.
 	if (ImGui::CollapsingHeader("Multiple Particle Count Setting", ImGuiTreeNodeFlags_DefaultOpen)) {
 		
 			_uint increment = 1;
@@ -586,7 +586,7 @@ void TParticleView::MultipleParticleCountSetting()
 
 void TParticleView::MultipleParticleTimeSetting()
 {
-	//ÆÄÆ¼Å¬ÀÇ »ı¼º ½Ã°£ Á¤ÇÏ±â
+	//íŒŒí‹°í´ì˜ ìƒì„± ì‹œê°„ ì •í•˜ê¸°
 	if (ImGui::CollapsingHeader("Multiple Particle Create Time Interval", ImGuiTreeNodeFlags_DefaultOpen)) {
 
 		ImGui::InputFloat("Enter Time Interval\n Min:0.f  Max :6.f", m_MultipleParticle[0]->GetParticleSystem()->GetCreateInterval(), 0.1f, 1.0f, "%.2f", ImGuiInputTextFlags_CharsDecimal);
@@ -602,7 +602,7 @@ void TParticleView::MultipleParticleTimeSetting()
 void TParticleView::MultipleParticleTexSetting()
 {
 
-	//ÆÄÆ¼Å¬ÀÇ ÅØ½ºÃÄ ÁöÁ¤
+	//íŒŒí‹°í´ì˜ í…ìŠ¤ì³ ì§€ì •
 	ImGui::Text("Multiple Particle Texture Select");
 	if (ImGui::BeginListBox("Texture List", ImVec2(-FLT_MIN, 5 * ImGui::GetTextLineHeightWithSpacing())))
 	{
@@ -706,7 +706,7 @@ void TParticleView::AnimParticleView()
 
 void TParticleView::AnimParticleCountSetting() 
 {
-	//ÆÄÆ¼Å¬ ÇÑ »çÀÌÅ¬ »ı¼º °¹¼ö.
+	//íŒŒí‹°í´ í•œ ì‚¬ì´í´ ìƒì„± ê°¯ìˆ˜.
 	if (ImGui::CollapsingHeader("Anim Particle Count Setting", ImGuiTreeNodeFlags_DefaultOpen)) {
 		_uint increment = 1;
 		ImGui::InputScalar("Enter Create Amount\n Min:1  Max :1000", ImGuiDataType_U32, m_AnimParticle[0]->GetParticleSystem()->GetAddParticleAmount(), &increment, &increment);
@@ -721,7 +721,7 @@ void TParticleView::AnimParticleCountSetting()
 
 void TParticleView::AnimParticleTimeSetting() 
 {
-	//ÆÄÆ¼Å¬ÀÇ »ı¼º ½Ã°£ Á¤ÇÏ±â
+	//íŒŒí‹°í´ì˜ ìƒì„± ì‹œê°„ ì •í•˜ê¸°
 	if (ImGui::CollapsingHeader("Anim Particle Create Time Interval", ImGuiTreeNodeFlags_DefaultOpen)) {
 
 		ImGui::InputFloat("Enter Time Interval\n Min:0.f  Max :6.f", m_AnimParticle[0]->GetParticleSystem()->GetCreateInterval(), 0.1f, 1.0f, "%.2f", ImGuiInputTextFlags_CharsDecimal);
@@ -737,7 +737,7 @@ void TParticleView::AnimParticleTimeSetting()
 void TParticleView::AnimParticleTexSetting() 
 {
 	
-		//ÆÄÆ¼Å¬ÀÇ ÅØ½ºÃÄ ÁöÁ¤
+		//íŒŒí‹°í´ì˜ í…ìŠ¤ì³ ì§€ì •
 		ImGui::Text("Anim Particle Texture Select");
 		if (ImGui::BeginListBox("Texture List", ImVec2(-FLT_MIN, 5 * ImGui::GetTextLineHeightWithSpacing())))
 		{

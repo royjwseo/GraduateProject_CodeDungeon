@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UTrail.h"
 #include "UGameInstance.h"
 #include "UVIBufferTrail.h"
@@ -73,7 +73,7 @@ void UTrail::TickActive(const _double& _dTimeDelta)
 	Update(_dTimeDelta);
 
 }
-//void UTrail::AddTrail(_float3 top, _float3 bottom)//º¤ÅÍ ¹öÀü - ¸â¹ö size_t m_iStartIndex = 0; Ãß°¡
+//void UTrail::AddTrail(_float3 top, _float3 bottom)//ë²¡í„° ë²„ì „ - ë©¤ë²„ size_t m_iStartIndex = 0; ì¶”ê°€
 //{
 //	if (m_fTime >= 0.f)
 //		return;
@@ -82,18 +82,18 @@ void UTrail::TickActive(const _double& _dTimeDelta)
 //
 //	m_vecPos.emplace_back(top, bottom);
 //
-//	// ½½¶óÀÌµù À©µµ¿ì ¹æ½Ä
+//	// ìŠ¬ë¼ì´ë”© ìœˆë„ìš° ë°©ì‹
 //	if (m_vecPos.size() - m_iStartIndex > m_iMaxCount) {
 //		m_iStartIndex += 2;
 //	}
 //
-//	// º¸°£ ºÒ°¡´ÉÇÏ¸é ¿øº» Ãß°¡¸¸
+//	// ë³´ê°„ ë¶ˆê°€ëŠ¥í•˜ë©´ ì›ë³¸ ì¶”ê°€ë§Œ
 //	if (m_vecPos.size() - m_iStartIndex <= 3) {
 //		m_vecRomPos.emplace_back(top, bottom);
 //		return;
 //	}
 //
-//	// º¸°£¿ë Á¤Á¡ °¡Á®¿À±â
+//	// ë³´ê°„ìš© ì •ì  ê°€ì ¸ì˜¤ê¸°
 //	const auto& p0 = m_vecPos[m_iStartIndex + m_vecPos.size() - m_iStartIndex - 4];
 //	const auto& p1 = m_vecPos[m_iStartIndex + m_vecPos.size() - m_iStartIndex - 3];
 //	const auto& p2 = m_vecPos[m_iStartIndex + m_vecPos.size() - m_iStartIndex - 2];
@@ -114,7 +114,7 @@ void UTrail::TickActive(const _double& _dTimeDelta)
 //		m_vecRomPos.emplace_back(topInterp, botInterp);
 //	}
 //
-//	// ÇÊ¿ä ½Ã ¾ĞÃà
+//	// í•„ìš” ì‹œ ì••ì¶•
 //	if (m_iStartIndex > 50) {
 //		m_vecPos.erase(m_vecPos.begin(), m_vecPos.begin() + m_iStartIndex);
 //		m_iStartIndex = 0;
@@ -203,7 +203,7 @@ void UTrail::LateTickActive(const _double& _dTimeDelta)
 //		return;
 //
 //	size_t rectCount = m_vecRomPos.size() - 1;
-//	m_vecVertices.resize(rectCount * 6); // Á¤Á¡ 6°³ per quad
+//	m_vecVertices.resize(rectCount * 6); // ì •ì  6ê°œ per quad
 //
 //	for (size_t i = 0; i < rectCount; ++i)
 //	{
@@ -229,7 +229,7 @@ void UTrail::LateTickActive(const _double& _dTimeDelta)
 //		m_vecVertices[vi++] = VTXDEFAULT(bot2, uv[2]);
 //	}
 //
-//	// GPU Àü¼Û
+//	// GPU ì „ì†¡
 //	m_spVIBufferTrail->SetVertices(m_vecVertices, static_cast<_int>(m_vecVertices.size()));
 //	m_spVIBufferTrail->Render(GetShader(), _spCommand, static_cast<_int>(m_vecVertices.size()));
 //}
@@ -243,7 +243,7 @@ HRESULT UTrail::RenderActive(CSHPTRREF<UCommand> _spCommand, CSHPTRREF<UTableDes
 	GetShader()->BindSRVBuffer(SRV_REGISTER::T1, m_spTrailTexGroup->GetTexture(NoiseTextureIndex));		//(L"VAP1_Noise_17"));
 	GetShader()->BindSRVBuffer(SRV_REGISTER::T2, m_spTrailTexGroup->GetTexture(ColorTextureIndex));		//(L"GlowDiffuse"));
 	
-	//GlowDiffuse °¡ Çü±¤, FireRed°¡ ¿ë¾Ï, neon ³×¿Â»ö
+	//GlowDiffuse ê°€ í˜•ê´‘, FireRedê°€ ìš©ì•”, neon ë„¤ì˜¨ìƒ‰
 	if (m_bRender) {
 		size_t iCount = m_listRomPos.size();
 		if (iCount <= 1)
@@ -252,27 +252,27 @@ HRESULT UTrail::RenderActive(CSHPTRREF<UCommand> _spCommand, CSHPTRREF<UTableDes
 		auto iter = m_listRomPos.begin();
 
 		size_t iRectCount = iCount - 1;
-		size_t iVertexCount = iRectCount * 6;//»ç°¢Çü ´ç Á¤Á¡ 6°³
+		size_t iVertexCount = iRectCount * 6;//ì‚¬ê°í˜• ë‹¹ ì •ì  6ê°œ
 
 		VECTOR<VTXDEFAULT>	Vertices;
 		Vertices.resize(iVertexCount);
 
 
-		int i = 0, iLineIndex = 0; //»ç°¢ÇüÀÇ ¿ŞÂÊ
+		int i = 0, iLineIndex = 0; //ì‚¬ê°í˜•ì˜ ì™¼ìª½
 		while (iter != m_listRomPos.end())
 		{
 			_float3 xmf3Pos[4];
 			xmf3Pos[0] = (*(iter)).first; //Top1
 			xmf3Pos[1] = (*(iter++)).second; //Bottom1
 
-			//»ç°¢Çü ´õ ¸ø±×¸®¸é
+			//ì‚¬ê°í˜• ë” ëª»ê·¸ë¦¬ë©´
 			if (iter == m_listRomPos.end())
 				break;
 
 			xmf3Pos[2] = (*(iter)).second; //Bottom2
 			xmf3Pos[3] = (*(iter)).first; //Top2
 
-			_int iNextIineIndex = iLineIndex + 1; //»ç°¢ÇüÀÇ ¿À¸¥ÂÊ
+			_int iNextIineIndex = iLineIndex + 1; //ì‚¬ê°í˜•ì˜ ì˜¤ë¥¸ìª½
 			_float2 xmf2UV[4];
 			_float fRatio = (_float)iLineIndex / iRectCount;
 			_float fNextRatio = (_float)iNextIineIndex / iRectCount;

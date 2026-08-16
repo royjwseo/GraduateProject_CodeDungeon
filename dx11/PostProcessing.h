@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "Base.h"
 #include "ProcessHandler.h"
@@ -57,7 +57,7 @@ private:
 	class CShader* m_pShader_Blur = nullptr;
 	class CShader* m_pShader_HDR = nullptr;
 
-private: // �׽�Ʈ
+private: // 테스트
 	ID3D11Buffer* m_pInputBuffer = nullptr;
 	ID3D11ShaderResourceView* m_pInputSRV = nullptr;
 

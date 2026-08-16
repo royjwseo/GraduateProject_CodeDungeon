@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_DBGROUP_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_DBGROUP_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_DBGROUP_H
 
 
@@ -11,8 +11,8 @@ USING_SHARED_PTR(UIndex);
 //USING_SHARED_PTR(Procedure);
 
 /*
-@ Date: 2024-03-25, Writer: ¹ÚÅÂÇö
-@ Explain: SqlÀ» µµ¿ÍÁÖ´Â ÇÔ¼ö ¸ğÀ½
+@ Date: 2024-03-25, Writer: ë°•íƒœí˜„
+@ Explain: Sqlì„ ë„ì™€ì£¼ëŠ” í•¨ìˆ˜ ëª¨ìŒ
 */
 class ASqlHelpers
 {
@@ -34,12 +34,12 @@ AQueryFunc
 class AQueryFunc {
 public:
 	/*
-	Sql¿¡ Procedure¸¦ ¸¸µå´Â ÇÔ¼ö
+	Sqlì— Procedureë¥¼ ë§Œë“œëŠ” í•¨ìˆ˜
 	*/
 	static _bool MakeProcedureFunc(sql::Statement* _pStatement, 
 		const _char* _pProcedureName, const _char* _pDefineFunc);
 	/*
-	ProcedureÇÔ¼ö¸¦ ½ÇÇàÇÏ´Â ÇÔ¼ö 
+	Procedureí•¨ìˆ˜ë¥¼ ì‹¤í–‰í•˜ëŠ” í•¨ìˆ˜ 
 	*/
 	static sql::PreparedStatement* ExcuteProcedureFunc(CSHPTRREF<class AMySqlConnector> _spConnector, 
 		const _char* _pProcedureName, _int _MethodLength);
@@ -47,4 +47,4 @@ public:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_DBGROUP_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_DBGROUP_H

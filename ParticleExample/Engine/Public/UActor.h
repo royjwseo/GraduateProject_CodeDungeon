@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UACTOR_H
+Ôªø#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UACTOR_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UACTOR_H
 
 #include "UCloneObject.h"
@@ -35,7 +35,7 @@ public:
 	const BACKINGTYPE GetBackingType() const { return m_eBackingType; }
 	const USECOLLISIONTYPE GetUseCollisionType() const { return m_eUseCollType; }
 
-	// UObject¿ª(∏¶) ≈Î«ÿ ªÛº”µ 
+	// UObjectÏùÑ(Î•º) ÌÜµÌï¥ ÏÉÅÏÜçÎê®
 	virtual SHPTR<UCloneObject> Clone(const VOIDDATAS& _stDatas) override PURE;
 	virtual void Free() override PURE;
 	virtual HRESULT NativeConstruct() override PURE;
@@ -114,4 +114,4 @@ private:
 
 END
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UACTOR_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UACTOR_H

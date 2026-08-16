@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 //#define _WITH_SWAPCHAIN_FULLSCREEN_STATE
 
 enum
@@ -38,8 +38,8 @@ enum
 #include <sstream>
 using namespace std;
 
-#define WIN32_LEAN_AND_MEAN             // °ÅÀÇ »ç¿ëµÇÁö ¾Ê´Â ³»¿ëÀ» Windows Çì´õ¿¡¼­ Á¦¿ÜÇÕ´Ï´Ù.
-// Windows Çì´õ ÆÄÀÏ
+#define WIN32_LEAN_AND_MEAN             // ê±°ì˜ ì‚¬ìš©ë˜ì§€ ì•ŠëŠ” ë‚´ìš©ì„ Windows í—¤ë”ì—ì„œ ì œì™¸í•©ë‹ˆë‹¤.
+// Windows í—¤ë” íŒŒì¼
 #include <windows.h>
 #include <d3d12.h>
 #include <dxgi1_4.h>
@@ -68,7 +68,7 @@ using Microsoft::WRL::ComPtr;
 #define CMD gGameFrameWork->GetCommandQueue()
 
 #define GRAPHICS_ROOT_SIGNATURE	gGameFrameWork->GetRootSignature()->GetGraphicsRootSignature()
-//2024-01-07 ÀÌ¼ºÇö
+//2024-01-07 ì´ì„±í˜„
 #define RTVDSVDESCRIPTORHEAP gGameFrameWork->GetSwapChainAndRtvDsvHeap()
 #define RTVDESCRIPTORHEAP gGameFrameWork->GetSwapChainAndRtvDsvHeap()->GetRTVHeap()
 #define SWAPCHAIN gGameFrameWork->GetSwapChainAndRtvDsvHeap()->GetSwapChain()
@@ -101,7 +101,7 @@ using uint64 = unsigned __int64;
 
 #define RANDOM_COLOR XMFLOAT4(rand() / float(RAND_MAX), rand() / float(RAND_MAX), rand() / float(RAND_MAX), rand() / float(RAND_MAX))
 
-//2024-01-17 ÀÌ¼ºÇö
+//2024-01-17 ì´ì„±í˜„
 #define DIR_FORWARD					0x01
 #define DIR_BACKWARD				0x02
 #define DIR_LEFT					0x04

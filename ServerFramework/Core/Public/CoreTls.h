@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_CORETLS_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_CORETLS_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_CORETLS_H
 
 namespace Core
@@ -6,24 +6,24 @@ namespace Core
 	namespace TLS
 	{
 		/*
-		@ Date: 2024.01.23,  Writer: ¹ÚÅÂÇö
+		@ Date: 2024.01.23,  Writer: ë°•íƒœí˜„
 		@ Explain
-		- ÀüÃ¼ ¾²·¹µå°¡ »ı¼ºµÉ ¼ö ÀÖ´Â °³¼ö
+		- ì „ì²´ ì“°ë ˆë“œê°€ ìƒì„±ë  ìˆ˜ ìˆëŠ” ê°œìˆ˜
 		*/
 		constexpr static _uint									 MAX_THREAD{ 8 };
 
 		/*
-		@ Date: 2024.01.23,  Writer: ¹ÚÅÂÇö
+		@ Date: 2024.01.23,  Writer: ë°•íƒœí˜„
 		@ Explain
-		- ÀÏÀ» Ã³¸®ÇÒ MAX_THREDÀÇ ¼ö
+		- ì¼ì„ ì²˜ë¦¬í•  MAX_THREDì˜ ìˆ˜
 		*/
 		constexpr static _uint									 MAX_WORKTHREAD{ 8 };
 
 		/*
 		@ Date: 2023-12-26
-		@ Writer: ¹ÚÅÂÇö
+		@ Writer: ë°•íƒœí˜„
 		@ Explain
-		- Thread_Local¿¡¼­ ThreadÀÇ ID¸¦ Á¤ÀÇÇÑ´Ù. 
+		- Thread_Localì—ì„œ Threadì˜ IDë¥¼ ì •ì˜í•œë‹¤. 
 		*/
 		static  thread_local _uint							g_ThreadID;
 
@@ -32,4 +32,4 @@ namespace Core
 }
 
 
-#endif 
+#endif 

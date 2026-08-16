@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "AGameObject.h"
 #include "ACollider.h"
 #include "ATransform.h"
@@ -166,4 +166,4 @@ namespace Core
 	void AGameObject::Free()
 	{
 	}
-}
+}

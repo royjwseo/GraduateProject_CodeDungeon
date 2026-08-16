@@ -1,4 +1,4 @@
-#include "ServerDefines.h"
+﻿#include "ServerDefines.h"
 #include "CServerApp.h"
 #include "ACoreInstance.h"
 #include "CServerAdiminstor.h"
@@ -28,4 +28,4 @@ namespace Server
 		}
 		return false;
 	}
-}
+}

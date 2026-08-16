@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UResource.h"
 
 BEGIN(Engine)
@@ -20,7 +20,7 @@ public:
 
 	const _uint GetTextureCount() const { return static_cast<_uint>(m_vecTextureContainer.size()); }
 public:
-	// UResourceÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UResourceì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(UTexGroup, "UTexGroup::Clone To Failed");
 	virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;

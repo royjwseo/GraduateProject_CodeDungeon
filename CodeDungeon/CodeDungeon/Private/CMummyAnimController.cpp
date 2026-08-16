@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+﻿#include "ClientDefines.h"
 #include "CMummyAnimController.h"
 #include "CMummy.h"
 #include "UGameInstance.h"

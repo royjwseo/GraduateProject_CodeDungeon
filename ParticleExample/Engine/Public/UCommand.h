@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOMMAND_H
+ï»¿#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOMMAND_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOMMAND_H
 
 #include "UBase.h"
@@ -48,7 +48,7 @@ private:
 	ComPtr<Dx12Fence>									m_cpFence;
 	// Fences 
 	_uint																	m_iCurrentFence;
-	// FameContext °ü·Ã
+	// FameContext ê´€ë ¨
 	HANDLE																m_hFenceEvent;
 	// Graphic Commands
 	ComPtr<Dx12CommandQueue>					m_cpCommandQueue;
@@ -58,4 +58,4 @@ private:
 
 END
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOMMAND_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOMMAND_H

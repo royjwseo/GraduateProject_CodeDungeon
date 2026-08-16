@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UTIMER_H
+Ôªø#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UTIMER_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UTIMER_H
 
 #include "UBase.h"
@@ -16,9 +16,9 @@ public:
 	virtual void Free() override;
 	HRESULT NativeConstruct();
 public:
-	// «‘ºˆ ∆˜¿Œ≈Õ »£√‚
+	// Ìï®Ïàò Ìè¨Ïù∏ÌÑ∞ Ìò∏Ï∂ú
 	void	 Tick() { (this->*m_pRunningFunc)(); }
-	// Stop, Run¿ª »£√‚
+	// Stop, RunÏùÑ Ìò∏Ï∂ú
 	void StopTimer();
 	void RunTimer();
 protected:
@@ -40,4 +40,4 @@ private:
 
 END
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UTIMER_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UTIMER_H

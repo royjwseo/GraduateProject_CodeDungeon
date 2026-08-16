@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_CORETYPECAST_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_CORETYPECAST_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_CORETYPECAST_H
 
 namespace Core {
@@ -29,7 +29,7 @@ namespace Core {
 	};
 
 	/*
-	* ÅÛÇÃ¸´ Å¬·¡½º Àç±ÍÇÔ¼ö °°Àº °ÍÀÎµí
+	* í…œí”Œë¦¿ í´ë˜ìŠ¤ ì¬ê·€í•¨ìˆ˜ ê°™ì€ ê²ƒì¸ë“¯
 	*/
 	template<class T, class... U>
 	struct TypeLength<TypeList<T, U...>> {
@@ -78,7 +78,7 @@ namespace Core {
 	template<class From, class To>
 	struct Conversion {
 		private:
-			// Small, BigÀº ¾î¶² °ªÀÌµç »ó°üÀÌ ¾ø´Ù. 
+			// Small, Bigì€ ì–´ë–¤ ê°’ì´ë“  ìƒê´€ì´ ì—†ë‹¤. 
 			// To, Small -> Parents 
 			using Small = __int8;
 			// From, Big -> Child
@@ -90,9 +90,9 @@ namespace Core {
 
 	public:
 		/*
-		-> ÇØ´çÇÏ´Â ÄÚµå¿¡ Small size¸¦ °è»êÇÑ ÈÄ TestÇÔ¼ö È£Ãâ -> 
-		È£ÃâµÇ´Â ½ÃÁ¡¿¡¼­ ChildÀÎ FromÀÌ To·Î castÆÃÀÌ µÇ´ÂÁö È®ÀÎ 
-		-> castingÀÌ µÇ¸é true, ¾ÈµÇ¸é false
+		-> í•´ë‹¹í•˜ëŠ” ì½”ë“œì— Small sizeë¥¼ ê³„ì‚°í•œ í›„ Testí•¨ìˆ˜ í˜¸ì¶œ -> 
+		í˜¸ì¶œë˜ëŠ” ì‹œì ì—ì„œ Childì¸ Fromì´ Toë¡œ castíŒ…ì´ ë˜ëŠ”ì§€ í™•ì¸ 
+		-> castingì´ ë˜ë©´ true, ì•ˆë˜ë©´ false
 		*/
 		static constexpr bool exist = sizeof(Test(MakeFrom())) == sizeof(Small);
 	};
@@ -117,21 +117,21 @@ namespace Core {
 			using FromType = typename TypeAt<TL, i>::Result;
 			using ToType = typename TypeAt<TL, i>::Result;
 
-			// ÄÚµå ºñ±³
+			// ì½”ë“œ ë¹„êµ
 			s_convert[i][j] = Conversion<const FromType*, const ToType*>::exist;
 
-			// J°ªÀ» Ã¤¿öÁØ´Ù. 
+			// Jê°’ì„ ì±„ì›Œì¤€ë‹¤. 
 			MakeTable(Int2Type<i>(), Int2Type<j + 1>());
 		}
 
-		// J°¡ °¡µæÃ¡À» ¶§, I¸¦ ++ 
+		// Jê°€ ê°€ë“ì°¼ì„ ë•Œ, Ië¥¼ ++ 
 		template<int i>
 		static void MakeTable(Int2Type<i>, Int2Type<length>)
 		{
 			MakeTable(Int2Type<i + 1>(), Int2Type<0>());
 		}
 
-		// ³¡³ª´Â °Í 
+		// ëë‚˜ëŠ” ê²ƒ 
 		static void MakeTable(Int2Type<length>, Int2Type<length>)	{}
 
 		static bool CanConvert(__int32 from, __int32 to)
@@ -173,4 +173,4 @@ namespace Core {
 }
 
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_CORETYPECAST_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_CORETYPECAST_H

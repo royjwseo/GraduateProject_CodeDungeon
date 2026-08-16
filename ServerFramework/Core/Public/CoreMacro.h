@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_COREMACRO_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_COREMACRO_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_COREMACRO_H
 
 
@@ -8,54 +8,54 @@
 ==========================
 */
 /*
-@ Date: 2023-12-28, Writer: ¹ÚÅÂÇö
+@ Date: 2023-12-28, Writer: ë°•íƒœí˜„
 @ Explain
-- ÇÔ¼ö¸¦ ½ÇÇà½ÃÅ³ ¶§, ·¹ÆÛ·±½º¸¦ ÅëÇØ ÇØ´çÇÏ´Â º¯¼öÀÇ °ªÀÌ ¹Ù²ğ ¼ö ÀÖÀ» °æ¿ì¸¦ ³ªÅ¸³¿
+- í•¨ìˆ˜ë¥¼ ì‹¤í–‰ì‹œí‚¬ ë•Œ, ë ˆí¼ëŸ°ìŠ¤ë¥¼ í†µí•´ í•´ë‹¹í•˜ëŠ” ë³€ìˆ˜ì˜ ê°’ì´ ë°”ë€” ìˆ˜ ìˆì„ ê²½ìš°ë¥¼ ë‚˜íƒ€ëƒ„
 */
 #define REF_OUT
 
 
 /*
-@ Date: 2023-12-28,  Writer: ¹ÚÅÂÇö
+@ Date: 2023-12-28,  Writer: ë°•íƒœí˜„
 @ Explain
-- ÇÔ¼ö Á¤ÀÇÇÒ ¶§, ·¹ÆÛ·±½º¸¦ ÅëÇØ ÇØ´çÇÏ´Â º¯¼öÀÇ °ªÀÌ ¹Ù²ğ ¼ö ÀÖÀ» °æ¿ì¸¦ ³ªÅ¸³¿
+- í•¨ìˆ˜ ì •ì˜í•  ë•Œ, ë ˆí¼ëŸ°ìŠ¤ë¥¼ í†µí•´ í•´ë‹¹í•˜ëŠ” ë³€ìˆ˜ì˜ ê°’ì´ ë°”ë€” ìˆ˜ ìˆì„ ê²½ìš°ë¥¼ ë‚˜íƒ€ëƒ„
 */
 #define REF_IN
 
 
 /*
-@ Date: 2023-12-28, Writer: ¹ÚÅÂÇö
+@ Date: 2023-12-28, Writer: ë°•íƒœí˜„
 @ Explain
-- ·¹ÆÛ·±½º ÇÔ¼ö¸¦ ¸®ÅÏÇÏ´Â °æ¿ì¸¦ ³ªÅ¸³½´Ù. 
+- ë ˆí¼ëŸ°ìŠ¤ í•¨ìˆ˜ë¥¼ ë¦¬í„´í•˜ëŠ” ê²½ìš°ë¥¼ ë‚˜íƒ€ë‚¸ë‹¤. 
 */
 #define REF_RETURN
 
 /*
-@ Date: 2023-12-28. Writer: ¹ÚÅÂÇö
+@ Date: 2023-12-28. Writer: ë°•íƒœí˜„
 @ Explain
-- ÇÔ¼ö¸¦ ½ÇÇà½ÃÅ³ ¶§,  Pointer¸¦ ÅëÇØ ÇØ´çÇÏ´Â º¯¼öÀÇ °ªÀÌ ¹Ù²ğ ¼ö ÀÖÀ½À» ³ªÅ¸³¿
+- í•¨ìˆ˜ë¥¼ ì‹¤í–‰ì‹œí‚¬ ë•Œ,  Pointerë¥¼ í†µí•´ í•´ë‹¹í•˜ëŠ” ë³€ìˆ˜ì˜ ê°’ì´ ë°”ë€” ìˆ˜ ìˆìŒì„ ë‚˜íƒ€ëƒ„
 */
 #define POINTER_OUT 
 
 
 /*
-@ Date: 2023-12-28,  Writer: ¹ÚÅÂÇö
+@ Date: 2023-12-28,  Writer: ë°•íƒœí˜„
 @ Explain
-- ÇÔ¼ö¸¦ Á¤ÀÇÇÒ ¶§,  Pointer¸¦ ÅëÇØ ÇØ´çÇÏ´Â º¯¼öÀÇ °ªÀÌ ¹Ù²ğ ¼ö ÀÖÀ½À» ³ªÅ¸³¿
+- í•¨ìˆ˜ë¥¼ ì •ì˜í•  ë•Œ,  Pointerë¥¼ í†µí•´ í•´ë‹¹í•˜ëŠ” ë³€ìˆ˜ì˜ ê°’ì´ ë°”ë€” ìˆ˜ ìˆìŒì„ ë‚˜íƒ€ëƒ„
 */
 #define POINTER_IN
 
 /*
-@ Date: 2023-12-28, Writer: ¹ÚÅÂÇö
+@ Date: 2023-12-28, Writer: ë°•íƒœí˜„
 @ Explain
-- ÀĞ±â Àü¿ë º¯¼ö¸¦ ³ªÅ¸³½´Ù.
+- ì½ê¸° ì „ìš© ë³€ìˆ˜ë¥¼ ë‚˜íƒ€ë‚¸ë‹¤.
 */
 #define READONLY
 
 /*
-@ Date: 2023-12-30, Writer: ¹ÚÅÂÇö
+@ Date: 2023-12-30, Writer: ë°•íƒœí˜„
 @ Explain
-- °¡»óÇÔ¼ö¶ó´Â °ÍÀ» ³ªÅ¸³»´Â ¸ÅÅ©·Î
+- ê°€ìƒí•¨ìˆ˜ë¼ëŠ” ê²ƒì„ ë‚˜íƒ€ë‚´ëŠ” ë§¤í¬ë¡œ
 */
 #define PURE = 0
 
@@ -64,9 +64,9 @@
 					LOCK	
 ==========================
 @ Date: 2023-12-28
-@ Writer: ¹ÚÅÂÇö
+@ Writer: ë°•íƒœí˜„
 @ Explain
-- ¸ÅÅ©·Î·Î LockµéÀ» ´Ù·ê¶§ »ç¿ëÇÑ´Ù.
+- ë§¤í¬ë¡œë¡œ Lockë“¤ì„ ë‹¤ë£°ë•Œ ì‚¬ìš©í•œë‹¤.
 */
 
 #define READ_SPINLOCK(Lock) \
@@ -84,9 +84,9 @@ Core::AWriteFastSpinLockguard writeLockGuard{&Lock};
 */
 
 /*
-@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
+@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
 @ Explain
-- °­Á¦·Î Å©·¡½¬¸¦ ÀÏÀ¸Å°´Â ¸ÅÅ©·Î
+- ê°•ì œë¡œ í¬ë˜ì‰¬ë¥¼ ì¼ìœ¼í‚¤ëŠ” ë§¤í¬ë¡œ
 */
 #define CRASH(cause) 	\
 {											\
@@ -106,9 +106,9 @@ Core::AWriteFastSpinLockguard writeLockGuard{&Lock};
 
 
 /*
-@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
+@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
 @ Explain
-- DEBUG_MACRO¸¦ À§ÇÑ FILE_LINE_FUNCTIONµîÀ» Á¤ÀÇ 
+- DEBUG_MACROë¥¼ ìœ„í•œ FILE_LINE_FUNCTIONë“±ì„ ì •ì˜ 
 */
 #define DEBUG_MACRO_TO_METHOD \
 __FILE__, __LINE__, __FUNCTION__ 
@@ -124,9 +124,9 @@ typeid(x).name() , __LINE__, __FUNCTION__
 
 
 /*
-@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
+@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
 @ Explain
-- NO_COPY ¸ÅÅ©·Î°¡ Á¸ÀçÇÏ¸é º¹Á¦ ºÒ°¡ÇÑ Å¬·¡½º¶ó´Â ¸»ÀÌ´Ù. 
+- NO_COPY ë§¤í¬ë¡œê°€ ì¡´ì¬í•˜ë©´ ë³µì œ ë¶ˆê°€í•œ í´ë˜ìŠ¤ë¼ëŠ” ë§ì´ë‹¤. 
 */
 #define NO_COPY(ClassName)							\
 public: \
@@ -134,16 +134,16 @@ ClassName(const ClassName&) = delete;					\
 ClassName& operator=(const ClassName&) = delete; 
 
 /*
-@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
+@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
 @ Explain
-- ¼Ò¸êÀÚ¿¡ Free¸¦ È£ÃâÇÏ°Ô ¸¸µå´Â ¸ÅÅ©·Î
+- ì†Œë©¸ìì— Freeë¥¼ í˜¸ì¶œí•˜ê²Œ ë§Œë“œëŠ” ë§¤í¬ë¡œ
 */
 #define DESTRUCTOR(ClassName) virtual ~ClassName() {Free();}
 
 /*
-@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
+@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
 @ Explain
-- Çì´õÆÄÀÏ¿¡ ½Ì±ÛÅæ¿¡ »ç¿ëÇÒ ÇÔ¼ö¿Í º¯¼ö¸¦ Á¤ÀÇ
+- í—¤ë”íŒŒì¼ì— ì‹±ê¸€í†¤ì— ì‚¬ìš©í•  í•¨ìˆ˜ì™€ ë³€ìˆ˜ë¥¼ ì •ì˜
 */
 #define DECLARE_SINGLETON(ClassName)					\
 		NO_COPY(ClassName)								\
@@ -154,9 +154,9 @@ private:												\
 	static SHPTR<ClassName> m_pInstance;
 
 /*
-@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
+@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
 @ Explain
-- Çì´õÆÄÀÏ¿¡¼­ Á¤ÀÇÇÑ ÇÔ¼ö¿Í º¯¼ö¸¦ CPPÆÄÀÏ¿¡¼­ ÃÊ±âÈ­ ±×¸®°í Á¤ÀÇÇÏ¿© ½Ì±ÛÅæÀÌ µÇµµ·ÏÇÑ´Ù. 
+- í—¤ë”íŒŒì¼ì—ì„œ ì •ì˜í•œ í•¨ìˆ˜ì™€ ë³€ìˆ˜ë¥¼ CPPíŒŒì¼ì—ì„œ ì´ˆê¸°í™” ê·¸ë¦¬ê³  ì •ì˜í•˜ì—¬ ì‹±ê¸€í†¤ì´ ë˜ë„ë¡í•œë‹¤. 
 */
 #define IMPLEMENT_SINGLETON(ClassName)					\
 SHPTR<ClassName> ClassName::m_pInstance = nullptr;			\
@@ -169,9 +169,9 @@ SHPTR<ClassName> ClassName::GetInstance()					\
 void ClassName::DestoryInstance(){  m_pInstance.reset(); }		
 
 /*
-@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
+@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
 @ Explain
-- ½Ì±ÛÅæ Å¬·¡½ºÀÇ °ªÀ» ¹Ş¾Æ¿À´Â ¸ÅÅ©·Î
+- ì‹±ê¸€í†¤ í´ë˜ìŠ¤ì˜ ê°’ì„ ë°›ì•„ì˜¤ëŠ” ë§¤í¬ë¡œ
 */
 #define GET_INSTANCE(CLASSNAME) [](){ \
   SHPTR<CLASSNAME> pInstance = CLASSNAME::GetInstance();	\
@@ -185,9 +185,9 @@ void ClassName::DestoryInstance(){  m_pInstance.reset(); }
 */
 
 /*
-@ Date: 2024-01-01, Writer: ¹ÚÅÂÇö
+@ Date: 2024-01-01, Writer: ë°•íƒœí˜„
 @ Explain
-- TypeList¸¦ »ı¼ºÇÏ±â À§ÇÑ ¸ÅÅ©·Î 
+- TypeListë¥¼ ìƒì„±í•˜ê¸° ìœ„í•œ ë§¤í¬ë¡œ 
 */
 #define DEFCLARE_TL using TL = TL;  int typeId;
 #define INIT_TL(Type) typeId = Core::IndexOf<TL, Type>::value;
@@ -209,17 +209,17 @@ void ClassName::DestoryInstance(){  m_pInstance.reset(); }
 */
 
 /*
-@ Date: 2024-01-02,  Writer: ¹ÚÅÂÇö
+@ Date: 2024-01-02,  Writer: ë°•íƒœí˜„
 @ Explain
--  OBJECT »ı¼ºÀÚ¿¡ Á¤ÀÇµÇ¾î ÀÖ´Â º¯¼ö¸¦ ¸ÅÅ©·ÎÈ­ ½ÃÄ×´Ù. 
+-  OBJECT ìƒì„±ìì— ì •ì˜ë˜ì–´ ìˆëŠ” ë³€ìˆ˜ë¥¼ ë§¤í¬ë¡œí™” ì‹œì¼°ë‹¤. 
 */
 #define OBJCON_CONSTRUCTOR Core::SHPTR<Core::ACoreInstance> _spCoreInstance
 #define OBJCON_CONDATA _spCoreInstance 
 
 /*
-@ Date: 2024-01-02,  Writer: ¹ÚÅÂÇö
+@ Date: 2024-01-02,  Writer: ë°•íƒœí˜„
 @ Explain
--  Session »ı¼ºÀÚ¿¡ Á¤ÀÇµÇ¾î ÀÖ´Â º¯¼ö¸¦ ¸ÅÅ©·ÎÈ­ ½ÃÄ×´Ù.
+-  Session ìƒì„±ìì— ì •ì˜ë˜ì–´ ìˆëŠ” ë³€ìˆ˜ë¥¼ ë§¤í¬ë¡œí™” ì‹œì¼°ë‹¤.
 */
 #define SESSION_CONSTRUCTOR OBJCON_CONSTRUCTOR,  Asio::ip::tcp::socket _TcpSocket, \
  SESSIONID _ID
@@ -231,30 +231,30 @@ void ClassName::DestoryInstance(){  m_pInstance.reset(); }
 */
 
 /*
-@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
-@ Explain: namespaceÀÇ ½ÃÀÛ°ú ³¡À» ±¸ºĞÇÏ´Â ¿µ¿ª ÁöÁ¤
+@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
+@ Explain: namespaceì˜ ì‹œì‘ê³¼ ëì„ êµ¬ë¶„í•˜ëŠ” ì˜ì—­ ì§€ì •
 */
 #define BEGIN(NAME) namespace NAME{
 #define END }
 
 /*
-@ Date: 2023-12-26, Writer: ¹ÚÅÂÇö
-@ Explain: Á¶°Ç¿¡ ¸ÂÀ¸¸é ¸®ÅÏÇÏ´Â ¸ŞÅ©·Î
+@ Date: 2023-12-26, Writer: ë°•íƒœí˜„
+@ Explain: ì¡°ê±´ì— ë§ìœ¼ë©´ ë¦¬í„´í•˜ëŠ” ë©”í¬ë¡œ
 */
 #define RETURN_CHECK(SITUATION, RETURN) if(SITUATION) return RETURN;
 
 /*
-@ Date: 2024-03-24, Writer: ¹ÚÅÂÇö
-@ Explain: SHPTRÀ» »ç¿ëÇÏ´Â Å¬·¡½ºµéÀ» ¹Ì¸® Á¤ÀÇÇØ ³õ´Â´Ù. 
+@ Date: 2024-03-24, Writer: ë°•íƒœí˜„
+@ Explain: SHPTRì„ ì‚¬ìš©í•˜ëŠ” í´ë˜ìŠ¤ë“¤ì„ ë¯¸ë¦¬ ì •ì˜í•´ ë†“ëŠ”ë‹¤. 
 */
 #define USING_SHARED_PTR(name)	using name##Ref = SHPTR<class name>;
 
 
 /*
-@ Date: 2024-03-28, Writer: ¹ÚÅÂÇö
-@ Explain: WKPTRÀ» »ç¿ëÇÏ´Â Å¬·¡½ºµéÀ» ¹Ì¸® Á¤ÀÇÇØ ³õ´Â´Ù. 
+@ Date: 2024-03-28, Writer: ë°•íƒœí˜„
+@ Explain: WKPTRì„ ì‚¬ìš©í•˜ëŠ” í´ë˜ìŠ¤ë“¤ì„ ë¯¸ë¦¬ ì •ì˜í•´ ë†“ëŠ”ë‹¤. 
 */
 #define USING_WEAK_PTR(name)	using name##Ref = WKPTR<class name>;
 
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_COREMACRO_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_COREMACRO_H

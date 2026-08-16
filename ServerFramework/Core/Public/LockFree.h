@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_LOCKFREE_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_LOCKFREE_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_LOCKFREE_H
 
 namespace Core
@@ -6,8 +6,8 @@ namespace Core
 	static constexpr unsigned  long long MASK_VALUE = 0xFFFFFFFFFFFFFFFE;
 	static constexpr int CHECK_MARKING{ 0x1 };
 	/*
-	@ Date: 2023-12-29, Writer: ¹ÚÅÂÇö
-	@ Explain: ¸ÖÆ¼¾²·¹µå È¯°æ¿¡¼­ ÇÏ³ªÀÇ Æ÷ÀÎÅÍ¿¡ CAS°¡ ¸ô¸®´Â °ÍÀ» ¹æÁöÇÏ±â À§ÇØ ¾²·¹µå¸¦ Àá½Ã ´ë±â½ÃÅ°´Â Å¬·¡½º
+	@ Date: 2023-12-29, Writer: ë°•íƒœí˜„
+	@ Explain: ë©€í‹°ì“°ë ˆë“œ í™˜ê²½ì—ì„œ í•˜ë‚˜ì˜ í¬ì¸í„°ì— CASê°€ ëª°ë¦¬ëŠ” ê²ƒì„ ë°©ì§€í•˜ê¸° ìœ„í•´ ì“°ë ˆë“œë¥¼ ì ì‹œ ëŒ€ê¸°ì‹œí‚¤ëŠ” í´ë˜ìŠ¤
 	*/
 	class Backoff {
 	public:
@@ -29,8 +29,8 @@ namespace Core
 	};
 
 	/*
-	@ Date: 2023-12-31, Writer: ¹ÚÅÂÇö
-	@ Explain: EBR Controller¸¦ Á¤ÀÇÇÔ
+	@ Date: 2023-12-31, Writer: ë°•íƒœí˜„
+	@ Explain: EBR Controllerë¥¼ ì •ì˜í•¨
 	*/
 	template<class NODE>
 	class EBRController {
@@ -53,7 +53,7 @@ namespace Core
 			}
 		}
 
-		// ¸¸µé¾îÁø ½Ã°£µé Áß °¡Àå ¸ÕÀú È£ÃâµÈ ½Ã°£À» °¡Á®¿Â´Ù. 
+		// ë§Œë“¤ì–´ì§„ ì‹œê°„ë“¤ ì¤‘ ê°€ì¥ ë¨¼ì € í˜¸ì¶œëœ ì‹œê°„ì„ ê°€ì ¸ì˜¨ë‹¤. 
 		unsigned int get_min_reservation() {
 			unsigned int min_re = 0xffffffff;
 			for (int i = 0; i < m_CurrentNumThreads; ++i) {
@@ -62,7 +62,7 @@ namespace Core
 			return min_re;
 		}
 
-		// È£ÃâµÈ ½Ã°£ÀÌ °¡Àå ÀÛÀº °ÍÀ» ±âÁØÀ¸·Î ¸Ş¸ğ¸® ÇØÁ¦
+		// í˜¸ì¶œëœ ì‹œê°„ì´ ê°€ì¥ ì‘ì€ ê²ƒì„ ê¸°ì¤€ìœ¼ë¡œ ë©”ëª¨ë¦¬ í•´ì œ
 		void empty() {
 			unsigned int max_safe_epoch = get_min_reservation();
 
@@ -75,7 +75,7 @@ namespace Core
 			}
 		}
 
-		// RemainCountº¸´Ù Å©¸é Empty È£Ãâ 
+		// RemainCountë³´ë‹¤ í¬ë©´ Empty í˜¸ì¶œ 
 		void retire(NODE* ptr) {
 			m_Retired[TLS::g_ThreadID].push(ptr);
 			ptr->retireEpoch = m_Epoch.load(std::memory_order_relaxed);
@@ -84,18 +84,18 @@ namespace Core
 			}
 		}
 
-		// Reservation¿¡ ¿¹¾à
+		// Reservationì— ì˜ˆì•½
 		void start_op() {
 			m_Reservation[TLS::g_ThreadID].store(m_Epoch.fetch_add(1, std::memory_order_relaxed), std::memory_order_relaxed);
 		}
 
-		// ReservationÀ» ÇØÁ¦ÇÑ´Ù. 
+		// Reservationì„ í•´ì œí•œë‹¤. 
 		void end_op() {
 			m_Reservation[TLS::g_ThreadID].store(ENDOP_VALUE, std::memory_order_relaxed);
 		}
 
 	private:
-		// ÇÁ·Î±×·¥ Á¾·á½Ã ¸ğµç ¸Ş¸ğ¸®¸¦ ÇØÁ¦ÇÑ´Ù. 
+		// í”„ë¡œê·¸ë¨ ì¢…ë£Œì‹œ ëª¨ë“  ë©”ëª¨ë¦¬ë¥¼ í•´ì œí•œë‹¤. 
 		void clear_ebr()
 		{
 			for (int i = 0; i < m_CurrentNumThreads; ++i)
@@ -122,8 +122,8 @@ namespace Core
 	namespace PTHStack {
 
 		/*
-		@ Date: 2023-12-29, Writer: ¹ÚÅÂÇö
-		@ Explain: StackÀÇ ³ëµå
+		@ Date: 2023-12-29, Writer: ë°•íƒœí˜„
+		@ Explain: Stackì˜ ë…¸ë“œ
 		*/
 		template<class T>
 		struct __declspec(align(16)) NODE {
@@ -150,7 +150,7 @@ namespace Core
 			std::atomic_uint		retireEpoch;
 		};
 		/*
-		@ Date: 2023-12-29, Writer: ¹ÚÅÂÇö
+		@ Date: 2023-12-29, Writer: ë°•íƒœí˜„
 		@ Explain: LockFreeStack + Backoff
 		*/
 		template<class T>
@@ -166,7 +166,7 @@ namespace Core
 				m_EBRController.Initialize(_currentThread, _remainCount);
 			}
 
-			// ¸Ç À§¿¡ ÀÖ´Â °ªÀ» ²¨³»¿Â´Ù. 
+			// ë§¨ ìœ„ì— ìˆëŠ” ê°’ì„ êº¼ë‚´ì˜¨ë‹¤. 
 			T Top()
 			{
 				NODE<T>* pNode = m_Top;
@@ -177,7 +177,7 @@ namespace Core
 				return pNode->value;
 			}
 
-			// Top¿¡ °ªÀ» ¹Ğ¾î ³Ö´Â´Ù. 
+			// Topì— ê°’ì„ ë°€ì–´ ë„£ëŠ”ë‹¤. 
 			void Push(T _value)
 			{
 				m_EBRController.start_op();
@@ -185,16 +185,16 @@ namespace Core
 				while (true) {
 					NODE<T>* p = m_Top;
 					newNode->next = p;
-					// Ä«½º ¼º°ø
+					// ì¹´ìŠ¤ ì„±ê³µ
 					if (true == CAS(p, newNode)) {
 						m_EBRController.end_op();
 						return;
 					}
-					// ½ÇÆĞ½Ã Àá½Ã ´ë±â
+					// ì‹¤íŒ¨ì‹œ ì ì‹œ ëŒ€ê¸°
 					m_BackOff.Relax();
 				}
 			}
-			// TopÀ¸·ÎºÎÅÍ °ªÀ» ²¨³½´Ù. 
+			// Topìœ¼ë¡œë¶€í„° ê°’ì„ êº¼ë‚¸ë‹¤. 
 			T Pop() {
 				m_EBRController.start_op();
 				while (true)
@@ -252,15 +252,15 @@ namespace Core
 	namespace PTHList {
 
 		/*
-		@ Date: 2024-01-21, Writer: ¹ÚÅÂÇö
-		@ Explain: ListÀÇ ³ëµåÀÌ´Ù. 
+		@ Date: 2024-01-21, Writer: ë°•íƒœí˜„
+		@ Explain: Listì˜ ë…¸ë“œì´ë‹¤. 
 		*/
 		template<class T>
 		class __declspec(align(16)) LFNODE {
 		public:
 			T value;
 			unsigned int retireEpoch;
-			// remove µÇ¾ú´ÂÁö È®ÀÎ 
+			// remove ë˜ì—ˆëŠ”ì§€ í™•ì¸ 
 			unsigned long long next;
 
 			LFNODE() : retireEpoch{ 0 }, next{ 0 } {
@@ -468,4 +468,4 @@ namespace Core
 }
 
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_LOCKFREE_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_LOCKFREE_H

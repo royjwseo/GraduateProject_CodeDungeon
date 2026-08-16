@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 #include "UShaderConstantBuffer.h"
 #include "UDevice.h"
 #include "UTableDescriptor.h"
@@ -54,7 +54,7 @@ HRESULT UShaderConstantBuffer::NativeConstruct(CSHPTRREF<UDevice> _spDevice,cons
 		for (_uint i = 0; i < m_iElementNum; ++i)
 		{
 			D3D12_CONSTANT_BUFFER_VIEW_DESC bufferViewDesc{};
-			// ¹öÆÛ°¡ ÇÒ´çµÈ °ø°£À» ÁöÁ¤ÇÑ´Ù. 
+			// ë²„í¼ê°€ í• ë‹¹ëœ ê³µê°„ì„ ì§€ì •í•œë‹¤. 
 			bufferViewDesc.BufferLocation = m_cpUploadBuffer->GetGPUVirtualAddress() + 
 				UINT64(i * m_iElementSize);
 			bufferViewDesc.SizeInBytes = m_iElementSize;
@@ -65,11 +65,11 @@ HRESULT UShaderConstantBuffer::NativeConstruct(CSHPTRREF<UDevice> _spDevice,cons
 	return S_OK;
 }
 
-// CPU °ø°£¿¡ ÇÒ´çµÇ¾î ÀÖ´Â DescriptorHeap¿¡ Buffer¸¦ Upload ÇÑ´Ù. 
+// CPU ê³µê°„ì— í• ë‹¹ë˜ì–´ ìˆëŠ” DescriptorHeapì— Bufferë¥¼ Upload í•œë‹¤. 
 HRESULT UShaderConstantBuffer::PushData(CSHPTRREF< UTableDescriptor> _spTableDescriptor, const void* _pBuffer, const _uint& _iSize)
 {
 	UMethod::CheckOverNumbers(m_iShaderConstantBufferIndex, m_iElementNum);
-	// ÇöÀç ÀÎµ¦½Ì µÈ »çÀÌÁî ¸¸Å­ 
+	// í˜„ì¬ ì¸ë±ì‹± ëœ ì‚¬ì´ì¦ˆ ë§Œí¼ 
 	_uint iIndex = m_iShaderConstantBufferIndex * m_iElementSize;
 	::memcpy(&m_pMapBuffer[iIndex], _pBuffer, _iSize);
 	_spTableDescriptor->BindCBV(GetCpuDescriptorHandle(m_iShaderConstantBufferIndex), m_eCbvRegisterNumber);

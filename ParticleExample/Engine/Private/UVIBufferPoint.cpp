@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+﻿#include "EngineDefines.h"
 #include "UVIBufferPoint.h"
 
 UVIBufferPoint::UVIBufferPoint(CSHPTRREF<UDevice> _spDevice)
@@ -48,4 +48,4 @@ HRESULT UVIBufferPoint::NativeConstruct()
 HRESULT UVIBufferPoint::NativeConstructClone(const VOIDDATAS& _convecDatas)
 {
 	return __super::NativeConstructClone(_convecDatas);
-}
+}

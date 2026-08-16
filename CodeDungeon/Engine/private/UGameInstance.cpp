@@ -1,4 +1,4 @@
-#include "UGameInstance.h"
+ï»¿#include "UGameInstance.h"
 //#include "UGraphicRenderManager.h"
 #include "UShaderBufferManager.h"
 #include "UGraphicDevice.h"
@@ -267,7 +267,7 @@ void UGameInstance::RenderBegin()
 
 void UGameInstance::RenderEnd()
 {
-	/* Gpu µ¿±âÈ­ ½ÃÅ°´Â ºÎºĞ */
+	/* Gpu ë™ê¸°í™” ì‹œí‚¤ëŠ” ë¶€ë¶„ */
 	m_spGraphicDevice->MainRenderEnd();
 }
 
@@ -594,7 +594,7 @@ SHPTR<UActor> UGameInstance::CloneActorAddAndNotInLayer(const _wstring& _wstrPro
 void UGameInstance::RemoveActor(CSHPTRREF<UActor> _spActor)
 {
 	m_spActorManager->RemoveActor(_spActor);
-	// Collision pawn ¾È¿¡ ÀÖ´Â ³à¼® Áö¿ì±â
+	// Collision pawn ì•ˆì— ìˆëŠ” ë…€ì„ ì§€ìš°ê¸°
 	SHPTR<UPawn> spPawn = std::dynamic_pointer_cast<UPawn>(_spActor);
 	if (nullptr != spPawn)
 	{
@@ -982,44 +982,44 @@ void UGameInstance::Restart(const _wstring& _wstrSoundName)
 
 void UGameInstance::Pause(const _wstring& _wstrSoundName)
 {
-	m_spAudioSystemManager->Pause(_wstrSoundName);// »ç¿îµå ÀÏ½Ã Á¤Áö
+	m_spAudioSystemManager->Pause(_wstrSoundName);// ì‚¬ìš´ë“œ ì¼ì‹œ ì •ì§€
 }
 
-void UGameInstance::Resume(const _wstring& _wstrSoundName)//ÀÏ½Ã Á¤ÁöµÈ »ç¿îµå¸¦ Àç°³ÇÕ´Ï´Ù.
+void UGameInstance::Resume(const _wstring& _wstrSoundName)//ì¼ì‹œ ì •ì§€ëœ ì‚¬ìš´ë“œë¥¼ ì¬ê°œí•©ë‹ˆë‹¤.
 {
 	m_spAudioSystemManager->Resume(_wstrSoundName);
 }
 
 void UGameInstance::SetPlaybackPosition(const _wstring& _wstrSoundName, unsigned int position)
 {
-	m_spAudioSystemManager->SetPlaybackPosition(_wstrSoundName, position);//// Àç»ı À§Ä¡¸¦ 1000 ¹Ğ¸®ÃÊ(1ÃÊ)·Î ¼³Á¤//USoundInstance->SetPlaybackPosition(1000);
+	m_spAudioSystemManager->SetPlaybackPosition(_wstrSoundName, position);//// ì¬ìƒ ìœ„ì¹˜ë¥¼ 1000 ë°€ë¦¬ì´ˆ(1ì´ˆ)ë¡œ ì„¤ì •//USoundInstance->SetPlaybackPosition(1000);
 	
 }
 
 //unsigned int UGameInstance::GetPlaybackPosition(const _wstring& _wstrSoundName)
 //{
-//	return m_spAudioSystemManager->GetPlaybackPosition(_wstrSoundName);//// ÇöÀç Àç»ı À§Ä¡ °¡Á®¿À±â
+//	return m_spAudioSystemManager->GetPlaybackPosition(_wstrSoundName);//// í˜„ì¬ ì¬ìƒ ìœ„ì¹˜ ê°€ì ¸ì˜¤ê¸°
 //}
 
 void UGameInstance::SetLooping(const _wstring& _wstrSoundName, bool loop)
 {
-	m_spAudioSystemManager->SetLooping(_wstrSoundName, loop);// »ç¿îµå¸¦ ¹İº¹ Àç»ıÀ¸·Î ¼³Á¤// »ç¿îµå ¹İº¹ Àç»ı ºñÈ°¼ºÈ­
+	m_spAudioSystemManager->SetLooping(_wstrSoundName, loop);// ì‚¬ìš´ë“œë¥¼ ë°˜ë³µ ì¬ìƒìœ¼ë¡œ ì„¤ì •// ì‚¬ìš´ë“œ ë°˜ë³µ ì¬ìƒ ë¹„í™œì„±í™”
 }
 
 void UGameInstance::SetPitch(const _wstring& _wstrSoundName, float pitch)
 {
-	m_spAudioSystemManager->SetPitch(_wstrSoundName, pitch);// »ç¿îµå ÇÇÄ¡¸¦ 1.2·Î ¼³Á¤ (¿ø·¡ ÇÇÄ¡º¸´Ù ³ô°Ô)
+	m_spAudioSystemManager->SetPitch(_wstrSoundName, pitch);// ì‚¬ìš´ë“œ í”¼ì¹˜ë¥¼ 1.2ë¡œ ì„¤ì • (ì›ë˜ í”¼ì¹˜ë³´ë‹¤ ë†’ê²Œ)
 
 }
 
 void UGameInstance::SetPan(const _wstring& _wstrSoundName, float pan)
 {
-	m_spAudioSystemManager->SetPan(_wstrSoundName, pan);// »ç¿îµå¸¦ ¿ŞÂÊÀ¸·Î ÆĞ´×
+	m_spAudioSystemManager->SetPan(_wstrSoundName, pan);// ì‚¬ìš´ë“œë¥¼ ì™¼ìª½ìœ¼ë¡œ íŒ¨ë‹
 }
 
 void UGameInstance::Mute(const _wstring& _wstrSoundName)
 {
-	m_spAudioSystemManager->Mute(_wstrSoundName);// »ç¿îµå À½¼Ò°Å
+	m_spAudioSystemManager->Mute(_wstrSoundName);// ì‚¬ìš´ë“œ ìŒì†Œê±°
 }
 
 void UGameInstance::Unmute(const _wstring& _wstrSoundName)
@@ -1029,12 +1029,12 @@ void UGameInstance::Unmute(const _wstring& _wstrSoundName)
 
 void UGameInstance::FadeIn(const _wstring& _wstrSoundName, float fadeDuration)
 {
-	m_spAudioSystemManager->FadeIn(_wstrSoundName, fadeDuration);// »ç¿îµå¸¦ 2ÃÊ µ¿¾È ÆäÀÌµå ÀÎ º¼·ı ¼­¼­È÷ Áõ°¡
+	m_spAudioSystemManager->FadeIn(_wstrSoundName, fadeDuration);// ì‚¬ìš´ë“œë¥¼ 2ì´ˆ ë™ì•ˆ í˜ì´ë“œ ì¸ ë³¼ë¥¨ ì„œì„œíˆ ì¦ê°€
 }
 
 void UGameInstance::FadeOut(const _wstring& _wstrSoundName, float fadeDuration)
 {
-	m_spAudioSystemManager->FadeOut(_wstrSoundName, fadeDuration); //»ç¿îµåÀÇ º¼·ıÀ» ¼­¼­È÷ °¨¼Ò½ÃÄÑ Á¤ÁöÇÕ´Ï´Ù.
+	m_spAudioSystemManager->FadeOut(_wstrSoundName, fadeDuration); //ì‚¬ìš´ë“œì˜ ë³¼ë¥¨ì„ ì„œì„œíˆ ê°ì†Œì‹œì¼œ ì •ì§€í•©ë‹ˆë‹¤.
 }
 
 void UGameInstance::UpdateVolume(const _wstring& _wstrSoundName, const _float _fVolume)
@@ -2118,7 +2118,7 @@ HRESULT UGameInstance::ReadyRenderTarget(const OUTPUTDATA& _stData)
 							GraphicDesc->iWinCX, GraphicDesc->iWinCY, { 0.f, 0.f, 0.f, 0.f }},
 					RTDESC{ RTOBJID::NONALPHA_GLOW_DEFFERED, DXGI_FORMAT::DXGI_FORMAT_R16G16B16A16_FLOAT,
 					GraphicDesc->iWinCX, GraphicDesc->iWinCY, { 0.f, 0.f, 0.f, 0.f }},
-						//GLow ¿µ¿ªÀ» ÇÈ¼¿´ÜÀ§·Î ÅØ½ºÃÄ¿¡ ½Äº°»ö»ó(ex.»¡°£»ö)À¸·Î Ãâ·ÂÇÏ¿© ±× ÇØ´ç ¿µ¿ª Á¶¸í¿¡¼­ ½ê°Ô¹Ş°ÔÇÏ´øÁö. },
+						//GLow ì˜ì—­ì„ í”½ì…€ë‹¨ìœ„ë¡œ í…ìŠ¤ì³ì— ì‹ë³„ìƒ‰ìƒ(ex.ë¹¨ê°„ìƒ‰)ìœ¼ë¡œ ì¶œë ¥í•˜ì—¬ ê·¸ í•´ë‹¹ ì˜ì—­ ì¡°ëª…ì—ì„œ ì„ê²Œë°›ê²Œí•˜ë˜ì§€. },
 					RTDESC{ RTOBJID::NONALPHA_VELOCITY_DEFFERED, DXGI_FORMAT::DXGI_FORMAT_R32G32B32A32_FLOAT,
 						GraphicDesc->iWinCX, GraphicDesc->iWinCY, { 0.f, 0.f, 0.f, 0.f }}
 			};
@@ -2263,7 +2263,7 @@ HRESULT UGameInstance::ReadyRenderTarget(const OUTPUTDATA& _stData)
 
 #ifdef _USE_DEBUGGING
 	/*
-	·»´õ Å¸°Ù µğ¹ö±ëÀ» À§ÇÑ °Í
+	ë Œë” íƒ€ê²Ÿ ë””ë²„ê¹…ì„ ìœ„í•œ ê²ƒ
 	*/
 
 	/*m_spRenderTargetManager->AddDebugRenderObjects(RTGROUPID::SHADOW_MAP, RTOBJID::SHADOW_DEPTH_FOURBYFOUR,

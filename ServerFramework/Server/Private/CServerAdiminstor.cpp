@@ -1,4 +1,4 @@
-#include "ServerDefines.h"
+ï»¿#include "ServerDefines.h"
 #include "CServerAdiminstor.h"
 #include "CPlayerSession.h"
 #include "ACoreInstance.h"
@@ -76,7 +76,7 @@ namespace Server
 			CMobLayoutLoader Interior_Room_G("..\\..\\Resource\\MobsLayouts\\Interior_Room_G.bin");
 			CMobLayoutLoader Mimic("..\\..\\Resource\\MobsLayouts\\Mimics.bin");
 
-			// Mobµ¥ÀÌÅÍ¸¦ ¹Ş¾Æ¿Â´Ù. 
+			// Mobë°ì´í„°ë¥¼ ë°›ì•„ì˜¨ë‹¤. 
 			for (auto& iter : Chest.GetMobData())
 			{
 				MobData.push_back(iter);
@@ -109,7 +109,7 @@ namespace Server
 			{
 				MobData.push_back(iter);
 			}
-			// Mob µ¥ÀÌÅÍ¸¦ »óÀÚ·Î ¸¸µç´Ù. 
+			// Mob ë°ì´í„°ë¥¼ ìƒìë¡œ ë§Œë“ ë‹¤. 
 			for (auto& iter : MobData)
 			{
 				if (iter.strAnimModelName == "Chest 1_FBX.bin")
@@ -222,4 +222,4 @@ namespace Server
 	void CServerAdiminstor::Free()
 	{
 	}
-}
+}

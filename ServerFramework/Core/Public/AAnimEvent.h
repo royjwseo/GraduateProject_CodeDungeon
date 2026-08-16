@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AANIMEVENT_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AANIMEVENT_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_AANIMEVENT_H
 
 #include "ACoreBase.h"
@@ -7,9 +7,9 @@ BEGIN(Core)
 class AAnimator;
 class APawn;
 /*
-@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 @ Explain
-- Animation Event¸¦ Á¤ÀÇÇÒ ºÎ¸ğ Å¬·¡½º
+- Animation Eventë¥¼ ì •ì˜í•  ë¶€ëª¨ í´ë˜ìŠ¤
 */
 class AAnimEvent abstract : public ACoreBase {
 public:
@@ -21,12 +21,12 @@ public:
 public:
 	virtual _bool EventCheck(APawn* _pPawn, AAnimator* _pAnimator,
 		const _double& _dTimeDelta, const _double& _dTimeAcc,	const _string& _strInputTrigger) PURE;
-	// AnimEventDesc¸¦ »ó¼Ó¹Ş´Â ±¸Á¶Ã¼¸¦ ¸®ÅÏÇÏ´Â ÇÔ¼ö
+	// AnimEventDescë¥¼ ìƒì†ë°›ëŠ” êµ¬ì¡°ì²´ë¥¼ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜
 	virtual const  ANIMEVENTDESC* OutAnimEventDesc() PURE;
-	// AnimEvent¿¡ ´Ù¸¥ ±¸Á¶Ã¼°¡ ÇÊ¿äÇÒ °æ¿ì ÇØ´ç ±¸Á¶Ã¼ÀÇ »ó¼ÓÀ» ¹Ş´Â ³à¼®µé¸¸ ³»º¸³¾ ¼ö ÀÖµµ·Ï ÇÑ´Ù.
+	// AnimEventì— ë‹¤ë¥¸ êµ¬ì¡°ì²´ê°€ í•„ìš”í•  ê²½ìš° í•´ë‹¹ êµ¬ì¡°ì²´ì˜ ìƒì†ì„ ë°›ëŠ” ë…€ì„ë“¤ë§Œ ë‚´ë³´ë‚¼ ìˆ˜ ìˆë„ë¡ í•œë‹¤.
 	virtual const ANIMOTHEREVENTDESC* OutOtherEventDesc() PURE;
 protected:
-	// Event »óÈ²ÀÏ ¶§¸¦ Á¤ÀÇ
+	// Event ìƒí™©ì¼ ë•Œë¥¼ ì •ì˜
 	virtual void EventSituation(APawn* _pPawn, AAnimator* _pAnimator,
 		const _double& _dTimeDelta, const _double& _dTimeAcc) PURE;
 	virtual void LoadEvent(AAnimator* _pAnimator, std::ifstream& _load) PURE;
@@ -45,9 +45,9 @@ AnimSectionEvent
 =====================================
 */
 /*
-@ Date: 2024-02-08, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-08, Writer: ë°•íƒœí˜„
 @ Explain
-- ±¸°£¿¡¸¸ ÀÌº¥Æ®¸¦ ¹ß»ı½ÃÅ°´Â Å¬·¡½º
+- êµ¬ê°„ì—ë§Œ ì´ë²¤íŠ¸ë¥¼ ë°œìƒì‹œí‚¤ëŠ” í´ë˜ìŠ¤
 */
 class AAnimSectionEvent abstract : public AAnimEvent {
 public:
@@ -63,7 +63,7 @@ public:
 public: /* get set*/
 	virtual const ANIMEVENTDESC* OutAnimEventDesc() override { return &m_AnimSectionDesc; }
 protected:
-	// Event »óÈ²ÀÏ ¶§¸¦ Á¤ÀÇ
+	// Event ìƒí™©ì¼ ë•Œë¥¼ ì •ì˜
 	virtual void EventSituation(APawn* _pPawn, AAnimator* _pAnimator,
 		const _double& _dTimeDelta, const _double& _dTimeAcc) PURE;
 	virtual void LoadEvent(AAnimator* _pAnimator, std::ifstream& _load) PURE;
@@ -85,9 +85,9 @@ AnimChangeBetweenEvent
 */
 
 /*
-@ Date: 2024-02-17, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-17, Writer: ë°•íƒœí˜„
 @ Explain
-- ±¸°£ »çÀÌ¿¡¼­ Æ¯Á¤ ÀÌº¥Æ®°¡ ¹ß»ıÇÒ ¶§ ´ÙÀ½ ¾Ö´Ï¸ŞÀÌ¼ÇÀ¸·Î ³Ñ¾î°¡°Ô ¸¸µå´Â ÀÌº¥Æ®ÀÌ´Ù.
+- êµ¬ê°„ ì‚¬ì´ì—ì„œ íŠ¹ì • ì´ë²¤íŠ¸ê°€ ë°œìƒí•  ë•Œ ë‹¤ìŒ ì• ë‹ˆë©”ì´ì…˜ìœ¼ë¡œ ë„˜ì–´ê°€ê²Œ ë§Œë“œëŠ” ì´ë²¤íŠ¸ì´ë‹¤.
 */
 class AAnimChangeBetweenEvent final : public AAnimSectionEvent {
 public:
@@ -100,17 +100,17 @@ public:
 public:
 	virtual _bool EventCheck(APawn* _pPawn, AAnimator* _pAnimator,
 		const _double& _dTimeDelta, const _double& _dTimeAcc, const _string& _strInputTrigger) override;
-	// UAnimSectionEventÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UAnimSectionEventì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual const ANIMOTHEREVENTDESC* OutOtherEventDesc() override;
 protected:
-	// Event »óÈ²ÀÏ ¶§¸¦ Á¤ÀÇ
+	// Event ìƒí™©ì¼ ë•Œë¥¼ ì •ì˜
 	virtual void EventSituation(APawn* _pPawn, AAnimator* _pAnimator,
 		const _double& _dTimeDelta, const _double& _dTimeAcc) override;
 	virtual void LoadEvent(AAnimator* _pAnimator, std::ifstream& _load) override;
 private:
 	virtual void Free() override;
 private:
-	// ¾Ö´Ï¸ŞÀÌ¼Ç°ú ¾Ö´Ï¸ŞÀÌ¼Ç »çÀÌ¸¦ º¯°æÇÏ´Â ÀÌº¥Æ®
+	// ì• ë‹ˆë©”ì´ì…˜ê³¼ ì• ë‹ˆë©”ì´ì…˜ ì‚¬ì´ë¥¼ ë³€ê²½í•˜ëŠ” ì´ë²¤íŠ¸
 	ANIMCHANGEDESC		m_AnimChangeDesc;
 };
 
@@ -123,9 +123,9 @@ AnimColliderEvent
 */
 
 /*
-@ Date: 2024-02-22, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-22, Writer: ë°•íƒœí˜„
 @ Explain
-- ±¸°£ »çÀÌ¿¡¼­ Æ¯Á¤ ÀÌº¥Æ®°¡ ¹ß»ıÇÒ ¶§ ´ÙÀ½ ¾Ö´Ï¸ŞÀÌ¼ÇÀ¸·Î ³Ñ¾î°¡°Ô ¸¸µå´Â ÀÌº¥Æ®ÀÌ´Ù.
+- êµ¬ê°„ ì‚¬ì´ì—ì„œ íŠ¹ì • ì´ë²¤íŠ¸ê°€ ë°œìƒí•  ë•Œ ë‹¤ìŒ ì• ë‹ˆë©”ì´ì…˜ìœ¼ë¡œ ë„˜ì–´ê°€ê²Œ ë§Œë“œëŠ” ì´ë²¤íŠ¸ì´ë‹¤.
 */
 class AAnimColliderEvent final : public AAnimSectionEvent {
 public:
@@ -138,10 +138,10 @@ public:
 public:
 	virtual _bool EventCheck(APawn* _pPawn, AAnimator* _pAnimator,
 		const _double& _dTimeDelta, const _double& _dTimeAcc, const _string& _strInputTrigger) override;
-	// UAnimSectionEventÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UAnimSectionEventì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual const ANIMOTHEREVENTDESC* OutOtherEventDesc() override;
 protected:
-	// Event »óÈ²ÀÏ ¶§¸¦ Á¤ÀÇ
+	// Event ìƒí™©ì¼ ë•Œë¥¼ ì •ì˜
 	virtual void EventSituation(APawn* _pPawn, AAnimator* _pAnimator,
 		const _double& _dTimeDelta, const _double& _dTimeAcc) override;
 	virtual void LoadEvent(AAnimator* _pAnimator, std::ifstream& _load) override;
@@ -153,4 +153,4 @@ private:
 
 END
 
-#endif
+#endif

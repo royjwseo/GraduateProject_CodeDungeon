@@ -1,13 +1,13 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ARANDOMMANAGER_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ARANDOMMANAGER_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ARANDOMMANAGER_H
 
 #include "ACoreBase.h"
 
 BEGIN(Core)
 /*
-@ Date: 2023-01-22, Writer: ¹ÚÅÂÇö
+@ Date: 2023-01-22, Writer: ë°•íƒœí˜„
 @ Explain
-- RandomÇÑ °ªµéÀ» ÃßÃâÇÏ´Â Å¬·¡½ºÀÌ´Ù. 
+- Randomí•œ ê°’ë“¤ì„ ì¶”ì¶œí•˜ëŠ” í´ë˜ìŠ¤ì´ë‹¤. 
 */
 class  ARandomManager final : public ACoreBase {
 public:
@@ -26,4 +26,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ARANDOMMANAGER_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ARANDOMMANAGER_H

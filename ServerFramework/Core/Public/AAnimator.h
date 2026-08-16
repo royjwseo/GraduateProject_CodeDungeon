@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AANIMATOR_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AANIMATOR_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_AANIMATOR_H
 
 #include "ACoreObject.h"
@@ -17,9 +17,9 @@ using SELECTOR = CONUNORMAP<_string, _int>;
 using ANIMEVENTCOLLICONTAINER = CONUNORMAP<_int, SHPTR<ACollider>>;
 /*
 @ Date: 2024-07-03
-@ Writer: ¹ÚÅÂÇö
+@ Writer: ë°•íƒœí˜„
 @ Explain
-- ¼­¹ö¿¡¼­ »ç¿ëÇÏ´Â ¾Ö´Ï¸ŞÀÌÅÍ
+- ì„œë²„ì—ì„œ ì‚¬ìš©í•˜ëŠ” ì• ë‹ˆë©”ì´í„°
 */
 class CORE_DLL AAnimator final : public ACoreObject {
 public:
@@ -32,13 +32,13 @@ public:
 	void TickEvent(APawn* _pPawn, const _string& _strInputTrigger, const _double& _TimeDelta);
 	// Tick Event 
 	void TickEventToRatio(APawn* _pPawn, const _string& _strInputTrigger, const _double& _dRatio, const _double& _TimeDelta);
-	// ¾Ö´Ï¸ŞÀÌ¼ÇÀ» timedeltaÀÇ Èå¸§¿¡ µû¶ó¼­ Á¦¾îÇÏ´Â ÇÔ¼ö (TimeDelta´Â ÇöÀç °ÔÀÓ¿¡¼­ Èå¸£´Â ½Ã°£)
+	// ì• ë‹ˆë©”ì´ì…˜ì„ timedeltaì˜ íë¦„ì— ë”°ë¼ì„œ ì œì–´í•˜ëŠ” í•¨ìˆ˜ (TimeDeltaëŠ” í˜„ì¬ ê²Œì„ì—ì„œ íë¥´ëŠ” ì‹œê°„)
 	void TickAnimation(const _double& _dTimeDelta);
-	// ¾Ö´Ï¸ŞÀÌ¼ÇÀ» TickÇÏ¸é¼­ Eventµµ TickÇÏ´Â ÇÔ¼ö
+	// ì• ë‹ˆë©”ì´ì…˜ì„ Tickí•˜ë©´ì„œ Eventë„ Tickí•˜ëŠ” í•¨ìˆ˜
 	void TickAnimChangeTransform(CSHPTRREF<ATransform> _spTransform, const _double& _dTimeDelta);
-	// ÇöÀç ¾Ö´Ï¸ŞÀÌ¼ÇÀ» TimAcc °ª¿¡ µû¶ó¼­ Á¦¾îÇÏ´Â ÇÔ¼ö Evnetµµ TimeAcc¿¡ µû¶ó Á¦¾îÇÑ´Ù. 
+	// í˜„ì¬ ì• ë‹ˆë©”ì´ì…˜ì„ TimAcc ê°’ì— ë”°ë¼ì„œ ì œì–´í•˜ëŠ” í•¨ìˆ˜ Evnetë„ TimeAccì— ë”°ë¼ ì œì–´í•œë‹¤. 
 	void TickAnimToTimeAccChangeTransform(CSHPTRREF<ATransform> _spTransform, const _double& _dTimeDelta, const _double& _TimeAc);
-	// ¾Ö´Ï¸ŞÀÌ¼ÇÀ» timeAcc¿¡ µû¶ó¼­ Á¦¾îÇÏ´Â ÇÔ¼ö (TimAcc´Â ¾Ö´Ï¸ŞÀÌ¼Ç Á¦¾îµµ)
+	// ì• ë‹ˆë©”ì´ì…˜ì„ timeAccì— ë”°ë¼ì„œ ì œì–´í•˜ëŠ” í•¨ìˆ˜ (TimAccëŠ” ì• ë‹ˆë©”ì´ì…˜ ì œì–´ë„)
 	void UpdateCurAnimationToRatio(const _double& _dRatio);
 	// Get BoneNode
 	SHPTR<ABoneNode> FindBoneNode(const _string& _strBoneNode) const;
@@ -95,4 +95,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_AANIMATOR_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_AANIMATOR_H

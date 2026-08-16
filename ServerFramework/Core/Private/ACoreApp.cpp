@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "ACoreApp.h"
 #include "ACoreInstance.h"
 
@@ -23,4 +23,4 @@ namespace Core
 
 		return true;
 	}
-}
+}

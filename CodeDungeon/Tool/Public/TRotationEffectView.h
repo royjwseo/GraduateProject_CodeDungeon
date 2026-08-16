@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "TImGuiView.h"
 
@@ -15,7 +15,7 @@ public:
 	NO_COPY(TRotationEffectView)
 		DESTRUCTOR(TRotationEffectView)
 public:
-	// TImGuiViewÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// TImGuiViewì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual void Free() override;
 
 	virtual HRESULT NativeConstruct() override;

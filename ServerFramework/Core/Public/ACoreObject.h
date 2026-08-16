@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ACOREOBJECT_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ACOREOBJECT_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ACOREOBJECT_H
 
 #include "ACoreBase.h"
@@ -8,9 +8,9 @@ class ACoreInstance;
 
 /*
 @ Date: 2023-12-26
-@ Writer: ¹ÚÅÂÇö
+@ Writer: ë°•íƒœí˜„
 @ Explain
-- ACoreInstance °´Ã¼°¡ ÇÊ¿äÇÑ ¸ğµç Å¬·¡½º
+- ACoreInstance ê°ì²´ê°€ í•„ìš”í•œ ëª¨ë“  í´ë˜ìŠ¤
 */
 class CORE_DLL  ACoreObject abstract : public ACoreBase {
 public:
@@ -30,4 +30,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ACOREOBJECT_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ACOREOBJECT_H

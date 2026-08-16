@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UTexture.h"
 #include "USwapChain.h"
 #include "URenderTargetGroup.h"
@@ -41,7 +41,7 @@ HRESULT URenderTargetManager::ReadyRenderTarget(CSHPTRREF<UGraphicDevice> _spGra
     CreateDefaultRenderTargets(_spGraphicDevice);
 #ifdef _USE_DEBUGGING
     SHPTR<UGameInstance> spGameInstance = GET_INSTANCE(UGameInstance);
-    // ÀÌ¹Ì ¸¸µé¾îÁø Shader ConstnatBuffer¸¦ °¡Á®¿È
+    // ì´ë¯¸ ë§Œë“¤ì–´ì§„ Shader ConstnatBufferë¥¼ ê°€ì ¸ì˜´
     spGameInstance->GetPreAllocatedConstantBuffer(PREALLOCATED_TRANSFORM, m_spTransformConstantBuffer);
 #endif
     return S_OK;

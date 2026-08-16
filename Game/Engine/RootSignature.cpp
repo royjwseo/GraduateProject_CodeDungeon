@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "RootSignature.h"
 #include "Engine.h"
 
@@ -8,17 +8,17 @@ void RootSignature::InitRootSignature(ComPtr<ID3D12Device>& _Device) {
 
 void RootSignature::CreateGraphicsRootSignature(ComPtr<ID3D12Device>& _Device)
 {
-	//¿¹½Ã
+	//ì˜ˆì‹œ
 	CD3DX12_DESCRIPTOR_RANGE pd3dDescriptorRanges[1]{};
 	pd3dDescriptorRanges[0].Init(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 7, 6, 0, D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND);
-	// b6ºÎÅÍ b13±îÁö 7°³ µğ½ºÅ©¸³ÅÍ »ç¿ë TexturedModel SRVµé
+	// b6ë¶€í„° b13ê¹Œì§€ 7ê°œ ë””ìŠ¤í¬ë¦½í„° ì‚¬ìš© TexturedModel SRVë“¤
 
 
 	CD3DX12_ROOT_PARAMETER pd3dRootParameters[3]{};
-	pd3dRootParameters[0].InitAsConstantBufferView(1); // b1 Camera°ü·Ã
-	//pd3dRootParameters[0].InitAsConstants(32, 1, 0, D3D12_SHADER_VISIBILITY_ALL); //Camera°ü·Ã.
-	pd3dRootParameters[1].InitAsConstants(17, 2, 0, D3D12_SHADER_VISIBILITY_ALL); //GameObject°ü·Ã.
-	pd3dRootParameters[2].InitAsDescriptorTable(1, pd3dDescriptorRanges);	//ÅØ½ºÃ³ 
+	pd3dRootParameters[0].InitAsConstantBufferView(1); // b1 Cameraê´€ë ¨
+	//pd3dRootParameters[0].InitAsConstants(32, 1, 0, D3D12_SHADER_VISIBILITY_ALL); //Cameraê´€ë ¨.
+	pd3dRootParameters[1].InitAsConstants(17, 2, 0, D3D12_SHADER_VISIBILITY_ALL); //GameObjectê´€ë ¨.
+	pd3dRootParameters[2].InitAsDescriptorTable(1, pd3dDescriptorRanges);	//í…ìŠ¤ì²˜ 
 	
 	CD3DX12_STATIC_SAMPLER_DESC samplerDesc[1]{};
 	samplerDesc[0].Init(

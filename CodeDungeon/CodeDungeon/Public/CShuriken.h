@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UWeapon.h"
 
 BEGIN(Engine)
@@ -7,9 +7,9 @@ END
 
 BEGIN(Client)
 /*
-@ Date: 2024-07-12, Writer: ÀÌ¼ºÇö
+@ Date: 2024-07-12, Writer: ì´ì„±í˜„
 @ Explain
-- ÇÒ¸®ÄıÀÇ ¹«±â
+- í• ë¦¬í€¸ì˜ ë¬´ê¸°
 */
 class CShuriken final : public UWeapon {
 public:
@@ -17,7 +17,7 @@ public:
 	CShuriken(const CShuriken& _rhs);
 	DESTRUCTOR(CShuriken)
 public:
-	// UPlayerÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UPlayerì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(CShuriken, "CShuriken::CloneToFailed")
 		virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;

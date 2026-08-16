@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "UCharacter.h"
 #include "UNavigation.h"
 
@@ -32,7 +32,7 @@ protected:
     virtual void Collision(CSHPTRREF<UPawn> _pEnemy, const _double& _dTimeDelta) override;
     virtual void ReceiveNetworkProcessData(const UProcessedData& _ProcessData) override;
 #ifdef _ENABLE_PROTOBUFF
-    // ���� �߰�
+    // 占쏙옙占쏙옙 占쌩곤옙
     void SendMobStateData();
     void SendCollisionData();
 #endif

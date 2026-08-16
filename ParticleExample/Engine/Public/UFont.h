@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UFONT_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UFONT_H
 
@@ -43,4 +43,4 @@ private:
 
 END
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UFONT_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UFONT_H

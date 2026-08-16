@@ -1,14 +1,14 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_UNAVIGATION_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_UNAVIGATION_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_UNAVIGATION_H
 
 #include "ACoreBase.h"
 
 BEGIN(Core)
 /*
-@ Date: 2023-01-14, Writer: ¹ÚÅÂÇö
+@ Date: 2023-01-14, Writer: ë°•íƒœí˜„
 @ Explain
--  ÇØ´ç ±æ À§¿¡ ÀÖÁö ¾Ê´ÂÁö ÆÇ´ÜÇÏ°í, ³»°¡ ¿øÇÏ´Â À§Ä¡±îÁö¸¦ Ã£¾ÆÁÙ Å¬·¡½º
- Index °°Àº °æ¿ì °ø¿ë °ªÀÌ ¾Æ´Ï¹Ç·Î datarace°¡ ÀÏ¾î³¯ ÀÏÀÌ Á¸ÀçÇÏÁö ¾Ê´Â´Ù. ±×·¡¼­ atomicÀ» ¾²Áö ¾Ê´Â´Ù.
+-  í•´ë‹¹ ê¸¸ ìœ„ì— ìˆì§€ ì•ŠëŠ”ì§€ íŒë‹¨í•˜ê³ , ë‚´ê°€ ì›í•˜ëŠ” ìœ„ì¹˜ê¹Œì§€ë¥¼ ì°¾ì•„ì¤„ í´ë˜ìŠ¤
+ Index ê°™ì€ ê²½ìš° ê³µìš© ê°’ì´ ì•„ë‹ˆë¯€ë¡œ dataraceê°€ ì¼ì–´ë‚  ì¼ì´ ì¡´ì¬í•˜ì§€ ì•ŠëŠ”ë‹¤. ê·¸ë˜ì„œ atomicì„ ì“°ì§€ ì•ŠëŠ”ë‹¤.
 */
 class ACell;
 class ATransform;
@@ -59,16 +59,16 @@ public:
 	_bool ReadyNeighbor();
 
 	/*
-	@ Date: 2024-05-14, Writer: ÀÌ¼ºÇö
+	@ Date: 2024-05-14, Writer: ì´ì„±í˜„
 	@ Explain
-	-  ½½¶óÀÌµù º¤ÅÍ °è»ê ÇÔ¼ö.
+	-  ìŠ¬ë¼ì´ë”© ë²¡í„° ê³„ì‚° í•¨ìˆ˜.
 	*/
 	Vector3 ClampPositionToCell(const Vector3& position);
 
 	/*
-	@ Date: 2024-06-03, Writer: ÀÌ¼ºÇö
+	@ Date: 2024-06-03, Writer: ì´ì„±í˜„
 	@ Explain
-	-  A* ¾Ë°í¸®Áò
+	-  A* ì•Œê³ ë¦¬ì¦˜
 	*/
 	_float Heuristic(const Vector3& a, const Vector3& b);
 	VECTOR<Vector3> ComputePath(PathFindingState& _PathFindingState);
@@ -91,4 +91,4 @@ private:
 
 END
 
-#endif //_SERVERFRAMEWORK_CORE_PUBLIC_UNAVIGATION_H
+#endif //_SERVERFRAMEWORK_CORE_PUBLIC_UNAVIGATION_H

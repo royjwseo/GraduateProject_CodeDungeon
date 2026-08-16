@@ -1,4 +1,4 @@
-
+ï»¿
 #ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINEMACRO_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINEMACRO_H
 
@@ -54,7 +54,7 @@ SHPTR<ClassName> ClassName::GetInstance()					\
     return pInstance; \
 }();
 
-#pragma region ¹Ù²ã¾ßÇÏ´Â±¸°£ÀÌ´Ù. 
+#pragma region ë°”ê¿”ì•¼í•˜ëŠ”êµ¬ê°„ì´ë‹¤. 
 
 #define CLONE_MACRO(CLASS, DEBUG) \
 public: \
@@ -82,7 +82,7 @@ virtual ~CLASS() { Free(); }
 
 
 
-#pragma endregion ¹Ù²ã¾ßÇÏ´Â±¸°£
+#pragma endregion ë°”ê¿”ì•¼í•˜ëŠ”êµ¬ê°„
 
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINEMACRO_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_EMGINE_ENGINEMACRO_H

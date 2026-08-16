@@ -1,4 +1,4 @@
-#pragma once 
+ï»¿#pragma once 
 
 #include "UBase.h"
 
@@ -11,7 +11,7 @@ public:
 	UStageManager();
 	NO_COPY(UStageManager)
 	DESTRUCTOR(UStageManager)
-	// UBaseÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UBaseì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	void Free() override;
 
 	SHPTR<UStage> GetStage() { return m_spStage; }

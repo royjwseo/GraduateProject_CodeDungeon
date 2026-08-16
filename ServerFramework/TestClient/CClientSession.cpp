@@ -1,4 +1,4 @@
-#include "ClientDefines.h"
+ï»¿#include "ClientDefines.h"
 #include "CClientSession.h"
 #include "AService.h"
 
@@ -52,7 +52,7 @@ void CClientSession::SendMsg()
 	Login.set_time_test(CurrentMilliseconds());
 	Login.set_user_name(wordList[rand() % wordList.size()]);
 	SendProtoData(Login, TAG_CS_LOGIN);
-	// Remove Object Á¶ÇÕ 
+	// Remove Object ì¡°í•© 
 	//CS_LOGOUT logout;
 	//logout.set_id(GetID());
 	//SendProtoData(logout, TAG_CS::TAG_CS_LOGOUT);

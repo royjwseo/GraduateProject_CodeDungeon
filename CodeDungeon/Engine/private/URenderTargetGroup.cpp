@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "URenderTargetGroup.h"
 #include "UDevice.h"
 #include "UGpuCommand.h"
@@ -66,7 +66,7 @@ void URenderTargetGroup::RemakeRenderTargets(CSHPTRREF<UDevice> _spDevice, CSHPT
 
 HRESULT URenderTargetGroup::ReadyTargets(CSHPTRREF<UDevice> _spDevice)
 {
-	// RenderTarget HeapÀ» ¸¸µç´Ù. 
+	// RenderTarget Heapì„ ë§Œë“ ë‹¤. 
 	D3D12_DESCRIPTOR_HEAP_DESC HeapDesc{};
 	HeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_RTV;
 	HeapDesc.NumDescriptors = m_iRenderTargetCount;
@@ -76,20 +76,20 @@ HRESULT URenderTargetGroup::ReadyTargets(CSHPTRREF<UDevice> _spDevice)
 	// Create Descriptor Heap
 	RETURN_CHECK_FAILED(_spDevice->GetDV()->CreateDescriptorHeap(&HeapDesc,
 		IID_PPV_ARGS(&m_cpRenderTargetHeap)), E_FAIL);
-	// RtvHeapÀÇ »çÀÌÁî¸¦ °¡Á®¿È
+	// RtvHeapì˜ ì‚¬ì´ì¦ˆë¥¼ ê°€ì ¸ì˜´
 	m_iRenderTargetHeapSize = _spDevice->GetDV()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
-	// RtvHeapÀÇ ½ÃÀÛ ÁÖ¼Ò¸¦ °¡Á®¿È
+	// RtvHeapì˜ ì‹œì‘ ì£¼ì†Œë¥¼ ê°€ì ¸ì˜´
 	m_stD3DRenderTargetHeapBegin = m_cpRenderTargetHeap->GetCPUDescriptorHandleForHeapStart();
-	// DepthStencilHeapÀÇ BeginÀ» °¡Á®¿È
+	// DepthStencilHeapì˜ Beginì„ ê°€ì ¸ì˜´
 	m_stD3DDepthStencilHeapBegin = m_spDepthStencilTexture->GetHeap(DESCRIPTOR_TYPE::DSV)->GetCPUDescriptorHandleForHeapStart();
 
-	// RTV ¼ıÀÚ¸¸Å­
+	// RTV ìˆ«ìë§Œí¼
 	for (_uint i = 0; i < m_iRenderTargetCount; ++i)
 	{
-		// DescSize¸¦ °¡Á®¿È
+		// DescSizeë¥¼ ê°€ì ¸ì˜´
 		_uint DescSize = 1;
 		D3D12_CPU_DESCRIPTOR_HANDLE DescHandle = CD3DX12_CPU_DESCRIPTOR_HANDLE(m_stD3DRenderTargetHeapBegin, i * m_iRenderTargetHeapSize);
-		// »ı¼ºµÈ RenderTargetHeapÀ» °¡Á®¿È
+		// ìƒì„±ëœ RenderTargetHeapì„ ê°€ì ¸ì˜´
 		_uint SrcSize = 1;
 		ComPtr<Dx12DescriptorHeap> SrcRtvHeapBegin = m_vecRenderTargets[i].pTexture->GetHeap(DESCRIPTOR_TYPE::RTV);
 		D3D12_CPU_DESCRIPTOR_HANDLE SrcHandle = SrcRtvHeapBegin->GetCPUDescriptorHandleForHeapStart();
@@ -119,16 +119,16 @@ void URenderTargetGroup::OmSetRenderTargets(const _uint _index, const _uint _iOf
 void URenderTargetGroup::OmSetRenderTargets(CSHPTRREF<UCommand> _spCommand)
 {
 	_spCommand->GetGpuCmdList()->OMSetRenderTargets(m_iRenderTargetCount, &m_stD3DRenderTargetHeapBegin,
-		TRUE/*´ÙÁß*/, &m_stD3DDepthStencilHeapBegin);
+		TRUE/*ë‹¤ì¤‘*/, &m_stD3DDepthStencilHeapBegin);
 }
 
 //Clear
 void URenderTargetGroup::ClearRenderTargetView(const _uint _index, CSHPTRREF<UCommand> _spCommand)
 {
-	// RenderTargetHandleÀ» Index ¸¸Å­ °¡Á®¿Â´Ù. 
+	// RenderTargetHandleì„ Index ë§Œí¼ ê°€ì ¸ì˜¨ë‹¤. 
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = CD3DX12_CPU_DESCRIPTOR_HANDLE(m_stD3DRenderTargetHeapBegin,
 		_index * m_iRenderTargetHeapSize);
-	// RenderTargetÀ» ClearÇÑ´Ù. 
+	// RenderTargetì„ Clearí•œë‹¤. 
 	_spCommand->GetGpuCmdList()->ClearRenderTargetView(rtvHandle,
 		m_vecRenderTargets[_index].arrClearColor.data(), 0, nullptr);
 	_spCommand->GetGpuCmdList()->ClearDepthStencilView(m_stD3DDepthStencilHeapBegin,

@@ -1,4 +1,4 @@
-/* Extracted from anet.c to work properly with Hiredis error reporting.
+﻿/* Extracted from anet.c to work properly with Hiredis error reporting.
  *
  * Copyright (c) 2009-2011, Salvatore Sanfilippo <antirez at gmail dot com>
  * Copyright (c) 2010-2014, Pieter Noordhuis <pcnoordhuis at gmail dot com>

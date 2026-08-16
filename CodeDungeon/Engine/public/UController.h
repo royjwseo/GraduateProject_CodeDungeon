@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UComponent.h"
 
@@ -7,9 +7,9 @@ class UCharacter;
 class UInputReceiver;
 class UProcessedData;
 /*
-@ Date: 2024-04-28, Writer: ¹ÚÅÂÇö
+@ Date: 2024-04-28, Writer: ë°•íƒœí˜„
 @ Explain
--  Ä³¸¯ÅÍÀÇ ¿òÁ÷ÀÓÀ» Á¦¾îÇÏ´Â Å¬·¡½º
+-  ìºë¦­í„°ì˜ ì›€ì§ì„ì„ ì œì–´í•˜ëŠ” í´ë˜ìŠ¤
 */
 class UController abstract : public UComponent{
 public:
@@ -26,7 +26,7 @@ public:
 	virtual HRESULT NativeConstructClone(const VOIDDATAS& _tDatas) override PURE;
 	// Tick
 	virtual void Tick(const _double& _dTimeDelta) PURE;
-	// ³×Æ®¿öÅ© Á¤º¸¸¦ ¹Ş¾Æ¿À´Â ÇÔ¼ö
+	// ë„¤íŠ¸ì›Œí¬ ì •ë³´ë¥¼ ë°›ì•„ì˜¤ëŠ” í•¨ìˆ˜
 	virtual void ReceiveNetworkProcessData(void* _pData);
 protected: /* get set */
 };

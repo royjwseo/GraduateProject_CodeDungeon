@@ -1,4 +1,4 @@
-#include "EngineDefines.h"
+ï»¿#include "EngineDefines.h"
 using namespace std; 
 #include "UEvent.h"
 
@@ -38,7 +38,7 @@ void UEvent::AllEventClear()
 
 void UEvent::WaitEvent()
 {
-	// Event CountIndex°¡ 0º¸´Ù ÀÛÀ» °æ¿ì 
+	// Event CountIndexê°€ 0ë³´ë‹¤ ì‘ì„ ê²½ìš° 
 	std::unique_lock<std::mutex> LL(m_EventMutex);
 	m_ConditionVariable.wait(LL, [this] { return m_sEventCountIndex <= 0; });
 	m_sEventCountIndex.store( m_sEventCountSaves);
@@ -52,4 +52,4 @@ void UEvent::CountDown()
 	{
 		m_ConditionVariable.notify_one();
 	}
-}
+}

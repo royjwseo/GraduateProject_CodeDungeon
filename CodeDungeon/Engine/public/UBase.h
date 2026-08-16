@@ -1,11 +1,11 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UBASE_H
+ï»¿#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UBASE_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UBASE_H
 
 BEGIN(Engine)
 
 /*
-ÃÖ»óÀ§ Å¬·¡½º ¸ğµç Å¬·¡½º´Â ¹İµå½Ã ÀÌ Å¬·¡½ºÀÇ ÇÏÀ§ Å¬·¡½º¿©¾ß ÇÑ´Ù.
-¿¹¿Ü¶õ Á¸ÀçÇÏÁö ¾Ê´Â´Ù.
+ìµœìƒìœ„ í´ë˜ìŠ¤ ëª¨ë“  í´ë˜ìŠ¤ëŠ” ë°˜ë“œì‹œ ì´ í´ë˜ìŠ¤ì˜ í•˜ìœ„ í´ë˜ìŠ¤ì—¬ì•¼ í•œë‹¤.
+ì˜ˆì™¸ë€ ì¡´ì¬í•˜ì§€ ì•ŠëŠ”ë‹¤.
 */
 
 class UBase abstract : public std::enable_shared_from_this<UBase> {
@@ -14,10 +14,10 @@ protected:
 	UBase(const UBase& _rhs) : enable_shared_from_this<UBase>(_rhs) {}
 	virtual  ~UBase() {  }
 public:
-	// »èÁ¦
+	// ì‚­ì œ
 	virtual void Free() PURE;
 protected:
-	// ÀÚ±â ÀÚ½ÅÀ» Ä³½ºÆÃ ÇØ¼­ »ç¿ëÇÑ´Ù. 
+	// ìê¸° ìì‹ ì„ ìºìŠ¤íŒ… í•´ì„œ ì‚¬ìš©í•œë‹¤. 
 	template<class T>
 	std::shared_ptr<T> ThisShared() { return std::static_pointer_cast<T>(shared_from_this()); }
 	template<class T>

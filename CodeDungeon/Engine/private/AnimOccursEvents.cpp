@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "AnimOccursEvents.h"
 #include "UMethod.h"
 #include "UAnimModel.h"
@@ -47,20 +47,20 @@ _bool UAnimOccursTimePassEvent::EventCheck(UPawn* _pPawn, UAnimModel* _pAnimMode
 
 void UAnimOccursTimePassEvent::EventSituation(UPawn* _pPawn, UAnimModel* _pAnimModel, const _double& _dTimeDelta, const _double& _dTimeAcc)
 {
-	// ¸¸¾à EnableLastLerp°¡ ÄÑÁ® ÀÖÁö ¾Ê´Ù¸é
+	// ë§Œì•½ EnableLastLerpê°€ ì¼œì ¸ ìˆì§€ ì•Šë‹¤ë©´
 	if (false == m_AnimChangeDesc.isEnableLastSettingAnim)
 	{
-		// ¹Ù²ã¾ß ÇÏ´Â ±¸°£¿¡ ¹Ù²Û´Ù. 
+		// ë°”ê¿”ì•¼ í•˜ëŠ” êµ¬ê°„ì— ë°”ê¾¼ë‹¤. 
 		if (m_AnimChangeDesc.fAnimChangeTime <= _dTimeAcc)
 		{
 			_pAnimModel->SetSupplyLerpValue(m_AnimChangeDesc.fSupplyAnimValue);
 			_pAnimModel->ChangeAnimation(m_AnimChangeDesc.iNextAnimIndex, m_AnimChangeDesc.dNextAnimTimeAcc);
 		}
 	}
-	// ÄÑÀú ÀÖ´Ù¸é
+	// ì¼œì € ìˆë‹¤ë©´
 	else
 	{
-		// ¸¸¾à
+		// ë§Œì•½
 		if (_pAnimModel->GetCurrentAnimation()->GetAnimationProgressRate() >= m_AnimChangeDesc.fLastProgressValue)
 		{
 			_pAnimModel->SetAnimation(m_AnimChangeDesc.iNextAnimIndex);

@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ASPACEMANAGER_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ASPACEMANAGER_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ASPACEMANAGER_H
 
 #include "ACoreBase.h"
@@ -8,9 +8,9 @@ class ASpace;
 class ASession;
 
 /*
-@ Date: 2023-01-22, Writer: ¹ÚÅÂÇö
+@ Date: 2023-01-22, Writer: ë°•íƒœí˜„
 @ Explain
-- Space¸¦ °ü¸®ÇÏ´Â ¸Å´ÏÀú Å¬·¡½º
+- Spaceë¥¼ ê´€ë¦¬í•˜ëŠ” ë§¤ë‹ˆì € í´ë˜ìŠ¤
 */
 class ASpaceManager final : public ACoreBase {
 public:
@@ -36,4 +36,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ASPACEMANAGER_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ASPACEMANAGER_H

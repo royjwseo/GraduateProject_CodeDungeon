@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AGAMEOBJECT_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AGAMEOBJECT_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_AGAMEOBJECT_H
 
 #include "ACoreObject.h"
@@ -9,9 +9,9 @@ class ACollider;
 class ASpace;
 class ACollider;
 /*
-@ Date: 2024-07-04, Writer: ¹ÚÅÂÇö
+@ Date: 2024-07-04, Writer: ë°•íƒœí˜„
 @ Explain
-- ¼­¹ö¿¡ ÇÊ¿äÇÑ Object¸¦ Á¤ÀÇÇÑ´Ù. 
+- ì„œë²„ì— í•„ìš”í•œ Objectë¥¼ ì •ì˜í•œë‹¤. 
 */
 class CORE_DLL AGameObject abstract : public ACoreObject {
 public:
@@ -26,15 +26,15 @@ public:
 	void InsertColliderContainer(const COLLIDERINFO& _ColliderInfo);
 	void BringSpaceIndex(SHPTR<ASpace> _spSpace);
 
-	// ´Ù¸¥ Ä³¸¯ÅÍ¿ÍÀÇ °Å¸® »êÃâ 
+	// ë‹¤ë¥¸ ìºë¦­í„°ì™€ì˜ ê±°ë¦¬ ì‚°ì¶œ 
 	_float OtherCharacterToDistance(SHPTR<ATransform> _spOtherTransform);
-	// ´Ù¸¥ Ä³¸¯ÅÍ¸¦ ¹Ù¶óº¸´Â ÀÚ±â ÀÚ½ÅÀÇ Look Angle 
+	// ë‹¤ë¥¸ ìºë¦­í„°ë¥¼ ë°”ë¼ë³´ëŠ” ìê¸° ìì‹ ì˜ Look Angle 
 	_float OtherCharacterDirToLook(SHPTR<ATransform> _spOtherTransform);
-	// ´Ù¸¥ Ä³¸¯ÅÍ¸¦ ±âÁØÀ¸·Î ¹Ù¶óº¸´Â ÀÚ±â ÀÚ½ÅÀÇ Right Angle 
+	// ë‹¤ë¥¸ ìºë¦­í„°ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë°”ë¼ë³´ëŠ” ìê¸° ìì‹ ì˜ Right Angle 
 	_float OhterCharacterDirToRight(SHPTR<ATransform> _spOtherTransform);
-	// ´Ù¸¥ Ä³¸¯ÅÍ¸¦ ¹Ù¶óº¸´Â ÀÚ±â ÀÚ½ÅÀÇ Look Angle ( 180 ~ -180 )
+	// ë‹¤ë¥¸ ìºë¦­í„°ë¥¼ ë°”ë¼ë³´ëŠ” ìê¸° ìì‹ ì˜ Look Angle ( 180 ~ -180 )
 	_float OtherCharacterDirToLookConverter(SHPTR<ATransform> _spOtherTransform);
-	// ´Ù¸¥ Ä³¸¯ÅÍ¸¦ ¹Ù¶óº¸´Â ÀÚ±â ÀÚ½ÅÀÇ Look Direction
+	// ë‹¤ë¥¸ ìºë¦­í„°ë¥¼ ë°”ë¼ë³´ëŠ” ìê¸° ìì‹ ì˜ Look Direction
 	Vector3 OtherCharacterDirToLookVectorF3(SHPTR<ATransform> _spOtherTransform);
 
 	_bool IsCanSee(Vector3 _OtherPos);
@@ -57,9 +57,9 @@ public:/*Get Set */
 	virtual void SetActive(const _bool _isActive);
 	void ActivePermanentDisable();
 	/*
-	@ Date: 2024-01-04, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-01-04, Writer: ë°•íƒœí˜„
 	@ Explain
-	- ProtocolBuffer¸¦ Á¶ÇÕÇÏ±â À§ÇÑ ÇÔ¼öÀÌ´Ù.
+	- ProtocolBufferë¥¼ ì¡°í•©í•˜ê¸° ìœ„í•œ í•¨ìˆ˜ì´ë‹¤.
 	*/
 	template<class T>
 	void CombineProto(REF_IN BUFFER& _Buffer, REF_IN PACKETHEAD& _PacketHead, const T& _data, _int _tag)
@@ -69,7 +69,7 @@ public:/*Get Set */
 		_PacketHead.PacketType = static_cast<short>(_tag);
 	}
 protected:
-	// ¿µ±¸ÀûÀ¸·Î ÇØ´ç ¿ÀºêÁ§Æ®¸¦ »ç¿ëÇÏÁö ¾Êµµ·Ï °áÁ¤ÇÒ °æ¿ì º¸³¾ ¸Ş½ÃÁö 
+	// ì˜êµ¬ì ìœ¼ë¡œ í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ë¥¼ ì‚¬ìš©í•˜ì§€ ì•Šë„ë¡ ê²°ì •í•  ê²½ìš° ë³´ë‚¼ ë©”ì‹œì§€ 
 	virtual void LastBehavior();
 	virtual void CallActiveEnable();
 	virtual void CallActiveDisable();
@@ -101,7 +101,7 @@ private:
 	_bool									m_isJumpable;
 
 	SHPTR<ATransform>		m_spTransform;
-	// ÇöÀç ¼¿ À§¿¡ ÀÖ´Â ÀÎµ¦½º
+	// í˜„ì¬ ì…€ ìœ„ì— ìˆëŠ” ì¸ë±ìŠ¤
 	_int										m_iCurOnCellIndex;
 
 	_float									m_fMoveSpeed;
@@ -118,4 +118,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_AGAMEOBJECT_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_AGAMEOBJECT_H

@@ -1,4 +1,4 @@
-#ifndef _WIN32_HELPER_INCLUDE
+﻿#ifndef _WIN32_HELPER_INCLUDE
 #define _WIN32_HELPER_INCLUDE
 #ifdef _MSC_VER
 

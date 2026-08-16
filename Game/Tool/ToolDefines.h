@@ -1,8 +1,8 @@
-#pragma once
+ï»¿#pragma once
 #pragma comment(lib, "Engine.lib")
 #include "../Engine/EnginePch.h"
 
-//Imgui »ç¿ëÀ» À§ÇÑ Çì´õ
+//Imgui ì‚¬ìš©ì„ ìœ„í•œ í—¤ë”
 #include "ImGui/imgui.h"
 #include "ImGui/imgui_impl_win32.h"
 #include "ImGui/imgui_impl_dx12.h"

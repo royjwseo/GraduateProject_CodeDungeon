@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_SERVER_PUBLIC_CPLAYERSESSION_H
+ï»¿#ifndef _SERVERFRAMEWORK_SERVER_PUBLIC_CPLAYERSESSION_H
 #define _SERVERFRAMEWORK_SERVER_PUBLIC_CPLAYERSESSION_H
 
 #include "ASession.h"
@@ -10,9 +10,9 @@ END
 
 BEGIN(Server)
 /*
-@ Date: 2023-01-02, Writer: ¹ÚÅÂÇö
+@ Date: 2023-01-02, Writer: ë°•íƒœí˜„
 @ Explain
-- Client¿¡ Á¸ÀçÇÏ´Â ÇÃ·¹ÀÌ¾îµé°ú Åë½ÅÇÏ±â À§ÇÑ Å¬·¡½º
+- Clientì— ì¡´ì¬í•˜ëŠ” í”Œë ˆì´ì–´ë“¤ê³¼ í†µì‹ í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤
 */
 class  CPlayerSession final : public Core::ASession {
 public:
@@ -21,9 +21,9 @@ public:
 	DESTRUCTOR(CPlayerSession)
 public:
 	virtual _bool Start(const VOIDDATAS& _ReceiveDatas = {}) override;
-	// Å¬¶óÀÌ¾ğÆ®¿¡¼­ Àü¼ÛµÈ ¹öÆÛ¸¦ ÀĞ´Â ÇÔ¼ö
+	// í´ë¼ì´ì–¸íŠ¸ì—ì„œ ì „ì†¡ëœ ë²„í¼ë¥¼ ì½ëŠ” í•¨ìˆ˜
 	virtual void RecvData() override;
-	// Å¬¶óÀÌ¾ğÆ®¿¡°Ô ¹öÆÛ¸¦ Á¶ÇÕÇÏ¿© Àü¼ÛÇÏ´Â ÇÔ¼ö
+	// í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ë²„í¼ë¥¼ ì¡°í•©í•˜ì—¬ ì „ì†¡í•˜ëŠ” í•¨ìˆ˜
 	virtual _bool SendData(_char* _pPacket, const Core::PACKETHEAD& _PacketHead) override;
 	virtual void Disconnect() override;
 	virtual void ConnectTcpSocket() override;
@@ -46,4 +46,4 @@ private:
 
 
 END
-#endif // _SERVERFRAMEWORK_SERVER_PUBLIC_CPLAYERSESSION_H
+#endif // _SERVERFRAMEWORK_SERVER_PUBLIC_CPLAYERSESSION_H

@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "APawn.h"
 #include "AAnimController.h"
 #include "ACell.h"
@@ -87,4 +87,4 @@ namespace Core {
 	{
 	}
 
-}
+}

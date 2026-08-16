@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UCloneObject.h"
 
 BEGIN(Engine)
@@ -36,13 +36,13 @@ public:
 	const BACKINGTYPE GetBackingType() const { return m_eBackingType; }
 	const USECOLLISIONTYPE GetUseCollisionType() const { return m_eUseCollType; }
 
-	// UObjectÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UObjectì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	virtual SHPTR<UCloneObject> Clone(const VOIDDATAS& _stDatas) override PURE;
 	virtual void Free() override PURE;
 	virtual HRESULT NativeConstruct() override PURE;
 	virtual HRESULT NativeConstructClone(const VOIDDATAS& _stDatas) override PURE;
 
-	// ³×Æ®¿öÅ© Á¤º¸¸¦ ¹Ş¾Æ¿À´Â ÇÔ¼ö
+	// ë„¤íŠ¸ì›Œí¬ ì •ë³´ë¥¼ ë°›ì•„ì˜¤ëŠ” í•¨ìˆ˜
 	virtual void ReceiveNetworkProcessData(const UProcessedData& _ProcessData);
 
 	void AwakeTick(const _double& _dTimeDelta) { (this->*m_pAwakeTick)(_dTimeDelta); }
@@ -132,7 +132,7 @@ private:
 	// Backing Type
 	BACKINGTYPE										m_eBackingType;
 	USECOLLISIONTYPE							m_eUseCollType;
-	// ÇöÀç »ç¿ëµÇ°í ÀÖ´ÂÁö È®ÀÎ
+	// í˜„ì¬ ì‚¬ìš©ë˜ê³  ìˆëŠ”ì§€ í™•ì¸
 	_bool														m_isUsedThisMemory;
 	_int															m_iNetworkID;
 };

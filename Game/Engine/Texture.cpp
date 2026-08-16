@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "Texture.h"
 #include "GameObject.h"
 #include "Scene.h"
@@ -12,9 +12,9 @@ CTexture::CTexture(int nTextures, UINT nTextureType, int nSamplers, int nRootPar
 	m_nTextures = nTextures;
 	if (m_nTextures > 0)
 	{
-		m_ppd3dTextureUploadBuffers.resize(m_nTextures); // ¾÷·Îµå ¹öÆÛ »ı¼º
-		m_ppd3dTextures.resize(m_nTextures); // ÅØ½ºÃÄ ¸®¼Ò½º »ı¼º
-		//m_ppstrTextureNames.resize(m_nTextures); // °¢ ÅØ½ºÃÄÀÇ ÀÌ¸§À» ÀúÀåÇÏ´Â ¹è¿­ »ı¼º
+		m_ppd3dTextureUploadBuffers.resize(m_nTextures); // ì—…ë¡œë“œ ë²„í¼ ìƒì„±
+		m_ppd3dTextures.resize(m_nTextures); // í…ìŠ¤ì³ ë¦¬ì†ŒìŠ¤ ìƒì„±
+		//m_ppstrTextureNames.resize(m_nTextures); // ê° í…ìŠ¤ì³ì˜ ì´ë¦„ì„ ì €ì¥í•˜ëŠ” ë°°ì—´ ìƒì„±
 		//for (int i = 0; i < m_nTextures; i++) {
 		//	m_ppstrTextureNames[i].resize(64);
 		//	m_ppstrTextureNames[i][0] = '\0';
@@ -36,7 +36,7 @@ CTexture::CTexture(int nTextures, UINT nTextureType, int nSamplers, int nRootPar
 	}
 
 	m_nRootParameters = 3;
-	if (nRootParameters > 0) m_pnRootParameterIndices.resize(3);   //ÀÌ ºÎºĞ ->FindReplicateTextures°ú ÆÄ¶ó¸ŞÅÍ °³¼ö °ü·Ã °ËÅäÇØ¾ßÇÔ.
+	if (nRootParameters > 0) m_pnRootParameterIndices.resize(3);   //ì´ ë¶€ë¶„ ->FindReplicateTexturesê³¼ íŒŒë¼ë©”í„° ê°œìˆ˜ ê´€ë ¨ ê²€í† í•´ì•¼í•¨.
 	for (int i = 0; i < m_nRootParameters; i++) m_pnRootParameterIndices[i] = -1;
 
 	m_nSamplers = nSamplers;
@@ -147,7 +147,7 @@ int CTexture::LoadTextureFromFile(const ComPtr<ID3D12Device>& _Device, const Com
 		bDuplicated = (pstrTextureName[0] == '@');
 		strcpy_s(pstrFilePath + 15, 64 - 15, (bDuplicated) ? (pstrTextureName + 1) : pstrTextureName);
 		strcpy_s(pstrFilePath + 15 + ((bDuplicated) ? (nStrLength - 1) : nStrLength), 64 - 15 - ((bDuplicated) ? (nStrLength - 1) : nStrLength), ".dds");
-		//°æ·Î 28±ÛÀÚ
+		//ê²½ë¡œ 28ê¸€ì
 		size_t nConverted = 0;
 		//mbstowcs_s(&nConverted, const_cast<wchar_t*>(m_ppstrTextureNames[nIndex].data()), 128, pstrFilePath, _TRUNCATE);
 		mbstowcs_s(&nConverted, m_ppstrTextureNames[nIndex], 64, pstrFilePath, _TRUNCATE);

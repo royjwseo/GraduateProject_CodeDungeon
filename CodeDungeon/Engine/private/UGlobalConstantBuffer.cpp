@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UGlobalConstantBuffer.h"
 #include "UDevice.h"
 #include "UGpuCommand.h"
@@ -13,7 +13,7 @@ UGlobalConstantBuffer::UGlobalConstantBuffer() :
 	m_cpCpuDescriptorHandle{ NULL },
 	m_iElementSize{ 0 },
 	m_iCbvRegisterNumber{ 0 },
-	m_bUseDefaultBuffer { false },
+	m_bUseDefaultBuffer{ false },
 	m_bCopiedUploadToDefaultOnce{ false }
 {
 }
@@ -39,7 +39,7 @@ HRESULT UGlobalConstantBuffer::NativeConstruct(CSHPTRREF<UDevice> _spDevice, con
 	}
 	//if (m_bUseDefaultBuffer)
 	//{
-	//	// µðÆúÆ® ¹öÆÛ
+	//	// ë””í´íŠ¸ ë²„í¼
 	//	RETURN_CHECK_DXOBJECT(UMethod::CreateBufferResource(
 	//		_spDevice->GetDV(), nullptr,
 	//		m_iElementSize, nullptr,
@@ -85,18 +85,15 @@ void UGlobalConstantBuffer::SettingGlobalData(CSHPTRREF<UCommand> _spCommand, co
 
 	if (m_bUseDefaultBuffer && !m_bCopiedUploadToDefaultOnce)
 	{
-		// Default Buffer¸¦ COPY_DEST·Î º¯°æ (ÃÖÃÊ 1È¸)
 		CD3DX12_RESOURCE_BARRIER transitionToCopy = CD3DX12_RESOURCE_BARRIER::Transition(
 			m_cpDefaultBuffer.Get(),
-			D3D12_RESOURCE_STATE_COMMON,  // ±âÁ¸ »óÅÂ
-			D3D12_RESOURCE_STATE_COPY_DEST                   // º¹»ç »óÅÂ
+			D3D12_RESOURCE_STATE_COMMON,
+			D3D12_RESOURCE_STATE_COPY_DEST
 		);
 		_spCommand->GetGpuCmdList()->ResourceBarrier(1, &transitionToCopy);
 
-		// ¾÷·Îµå ¹öÆÛ¿¡¼­ µðÆúÆ® ¹öÆÛ·Î µ¥ÀÌÅÍ º¹»ç
 		_spCommand->GetGpuCmdList()->CopyResource(m_cpDefaultBuffer.Get(), m_cpUploadBuffer.Get());
 
-		// Default Buffer¸¦ GPU°¡ ÀÐÀ» ¼ö ÀÖµµ·Ï »óÅÂ º¯°æ
 		CD3DX12_RESOURCE_BARRIER barrier = CD3DX12_RESOURCE_BARRIER::Transition(
 			m_cpDefaultBuffer.Get(),
 			D3D12_RESOURCE_STATE_COPY_DEST,

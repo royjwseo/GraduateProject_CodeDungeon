@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UMethod.h"
 #include <fstream>
 #include "DirectXTK/ResourceUploadBatch.h"
@@ -166,11 +166,11 @@ HRESULT UMethod::CreateBufferToUpLoadGpu(const ComPtr<Dx12Device>& _pDevice,
 	D3D12_HEAP_PROPERTIES UpLoadHeapProperty = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
 	D3D12_RESOURCE_DESC ResourceDesc = CD3DX12_RESOURCE_DESC::Buffer(_iBufferSize);
 
-	// Gpu Resource ¸¸µê 
+	// Gpu Resource ë§Œë“¦ 
 	RETURN_CHECK_FAILED(_pDevice->CreateCommittedResource(&GpuHeapProperty, D3D12_HEAP_FLAG_NONE,
 		&ResourceDesc, D3D12_RESOURCE_STATE_COMMON, nullptr, IID_PPV_ARGS(&_pGpu)), E_FAIL);
 
-	// GPU Upload Resource ¸¸µê
+	// GPU Upload Resource ë§Œë“¦
 	RETURN_CHECK_FAILED(_pDevice->CreateCommittedResource(&UpLoadHeapProperty, D3D12_HEAP_FLAG_NONE,
 		&ResourceDesc, D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(&_pUpLoad)), E_FAIL);
 
@@ -179,12 +179,12 @@ HRESULT UMethod::CreateBufferToUpLoadGpu(const ComPtr<Dx12Device>& _pDevice,
 	tSubResourceData.RowPitch = _iBufferSize;
 	tSubResourceData.SlicePitch = _iBufferSize;
 
-	// ±×·¡ÇÈ Cmd »ç¿ë ÁØºñ
+	// ê·¸ë˜í”½ Cmd ì‚¬ìš© ì¤€ë¹„
 	{
-		// µ¥ÀÌÅÍ Àü´Ş
+		// ë°ì´í„° ì „ë‹¬
 		CD3DX12_RESOURCE_BARRIER OpenBarrier = CD3DX12_RESOURCE_BARRIER::Transition(_pGpu.Get(),
 			D3D12_RESOURCE_STATE_COMMON, D3D12_RESOURCE_STATE_COPY_DEST);
-		// Common -> CopyDesc·Î º¯°æ
+		// Common -> CopyDescë¡œ ë³€ê²½
 		_pGpuCmd->ResourceBarrier(1, &OpenBarrier);
 
 		::UpdateSubresources<1>(_pGpuCmd.Get(), _pGpu.Get(),
@@ -235,8 +235,8 @@ HRESULT UMethod::CreateBufferResource(const ComPtr<Dx12Device>& _pDevice,
 	RETURN_CHECK_DXOBJECT(_pDevice->CreateCommittedResource(&d3dHeapPropertiesDesc, D3D12_HEAP_FLAG_NONE,
 		&d3dResourceDesc, d3dResourceInitialStates, NULL, IID_PPV_ARGS(_pBuffer.GetAddressOf())), E_FAIL);
 	/*
-	CreateCommittedResource -> ÀÌ ÇÔ¼ö¸¦ ÅëÇØ ¾ÖÇÃ¸®ÄÉÀÌ¼ÇÀº GPU ¸Ş¸ğ¸®¿¡ ¸®¼Ò½º ÇÒ´çÇÏ°í, ÇØ´ç ¸®¼Ò½ºÀÇ
-	¼Ó¼º°ú ÃÊ±â »óÅÂ¸¦ ÁöÁ¤ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+	CreateCommittedResource -> ì´ í•¨ìˆ˜ë¥¼ í†µí•´ ì• í”Œë¦¬ì¼€ì´ì…˜ì€ GPU ë©”ëª¨ë¦¬ì— ë¦¬ì†ŒìŠ¤ í• ë‹¹í•˜ê³ , í•´ë‹¹ ë¦¬ì†ŒìŠ¤ì˜
+	ì†ì„±ê³¼ ì´ˆê¸° ìƒíƒœë¥¼ ì§€ì •í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 	*/
 	// 
 	// Data
@@ -245,21 +245,21 @@ HRESULT UMethod::CreateBufferResource(const ComPtr<Dx12Device>& _pDevice,
 		switch (_d3dHeapType) {
 		case D3D12_HEAP_TYPE_DEFAULT:
 		{
-			// ¾÷·Îµå ¹öÆÛ¸¦ »ı¼ºÇÑ´Ù. 
+			// ì—…ë¡œë“œ ë²„í¼ë¥¼ ìƒì„±í•œë‹¤. 
 			d3dHeapPropertiesDesc.Type = D3D12_HEAP_TYPE_UPLOAD;
 			_pDevice->CreateCommittedResource(&d3dHeapPropertiesDesc, D3D12_HEAP_FLAG_NONE,
 				&d3dResourceDesc, D3D12_RESOURCE_STATE_GENERIC_READ, NULL,
 				IID_PPV_ARGS(_pUpLoad.GetAddressOf()));
-			// ¾÷·Îµå ¹öÆÛ¸¦ ¸ÅÇÎÇÏ¿© ÃÊ±âÈ­ µ¥ÀÌÅÍ¸¦ ¾÷·Îµå ¹öÆÛ¿¡ º¹»çÇÑ´Ù. 
+			// ì—…ë¡œë“œ ë²„í¼ë¥¼ ë§¤í•‘í•˜ì—¬ ì´ˆê¸°í™” ë°ì´í„°ë¥¼ ì—…ë¡œë“œ ë²„í¼ì— ë³µì‚¬í•œë‹¤. 
 			D3D12_RANGE d3dReadRange{ 0, 0 };
 			_ubyte* pBufferDataBegin{ NULL };
-			// µ¥ÀÌÅÍ¸¦ ²¨³»¿Â´Ù. 
+			// ë°ì´í„°ë¥¼ êº¼ë‚´ì˜¨ë‹¤. 
 			_pUpLoad->Map(0, &d3dReadRange, (void**)&pBufferDataBegin);
-			// µ¥ÀÌÅÍ¸¦ º¹»çÇÑ´Ù. 
+			// ë°ì´í„°ë¥¼ ë³µì‚¬í•œë‹¤. 
 			::memcpy(pBufferDataBegin, _pData, _iBufferSize);
-			// µ¥ÀÌÅÍ¸¦ ´Ù½Ã ´İ¾ÆÁØ´Ù. 
+			// ë°ì´í„°ë¥¼ ë‹¤ì‹œ ë‹«ì•„ì¤€ë‹¤. 
 			_pUpLoad->Unmap(0, NULL);
-			// ¾÷·Îµå ¹öÆÛÀÇ ³»¿ëÀ» µğÆúÆ® ¹öÆÛ¿¡ º¹»çÇÑ´Ù. 
+			// ì—…ë¡œë“œ ë²„í¼ì˜ ë‚´ìš©ì„ ë””í´íŠ¸ ë²„í¼ì— ë³µì‚¬í•œë‹¤. 
 			_pGpuCmd->CopyResource(_pBuffer.Get(), _pUpLoad.Get());
 			// Resource Barrier
 			D3D12_RESOURCE_BARRIER d3dResourceBarrier;
@@ -276,14 +276,14 @@ HRESULT UMethod::CreateBufferResource(const ComPtr<Dx12Device>& _pDevice,
 		break;
 		case D3D12_HEAP_TYPE_UPLOAD:
 		{
-			// ¾÷·Îµå ¹öÆÛ¸¦ ¸ÅÇÎÇÏ¿© ÃÊ±âÈ­ µ¥ÀÌÅÍ¸¦ ¾÷·Îµå ¹öÆÛ¿¡ º¹»çÇÑ´Ù. 
+			// ì—…ë¡œë“œ ë²„í¼ë¥¼ ë§¤í•‘í•˜ì—¬ ì´ˆê¸°í™” ë°ì´í„°ë¥¼ ì—…ë¡œë“œ ë²„í¼ì— ë³µì‚¬í•œë‹¤. 
 			D3D12_RANGE d3dReadRange{ 0, 0 };
 			_ubyte* pBufferDataBegin{ NULL };
-			// µ¥ÀÌÅÍ¸¦ ²¨³»¿Â´Ù. 
+			// ë°ì´í„°ë¥¼ êº¼ë‚´ì˜¨ë‹¤. 
 			_pBuffer->Map(0, &d3dReadRange, (void**)&pBufferDataBegin);
-			// µ¥ÀÌÅÍ¸¦ º¹»çÇÑ´Ù. 
+			// ë°ì´í„°ë¥¼ ë³µì‚¬í•œë‹¤. 
 			::memcpy(pBufferDataBegin, _pData, _iBufferSize);
-			// µ¥ÀÌÅÍ¸¦ ´Ù½Ã ´İ¾ÆÁØ´Ù. 
+			// ë°ì´í„°ë¥¼ ë‹¤ì‹œ ë‹«ì•„ì¤€ë‹¤. 
 			_pBuffer->Unmap(0, NULL);
 		}
 		break;

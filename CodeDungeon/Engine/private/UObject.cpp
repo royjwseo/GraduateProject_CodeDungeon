@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+﻿#include "EngineDefine.h"
 #include "UObject.h"
 UObject::UObject(CSHPTRREF<UDevice> _spDevice)
 	: m_spDevice(_spDevice)

@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "AChannel.h"
 #include "AAnimator.h"
 #include "ABoneNode.h"
@@ -54,7 +54,7 @@ namespace Core {
 			}
 			else
 			{
-				// ÇöÀç Å°ÇÁ·¹ÀÓÇÏ°í ´ÙÀ½ Å°ÇÁ·¹ÀÓÇÏ°í °áÇÕÇÏ´Â °ÍÀÌ´Ù.
+				// í˜„ì¬ í‚¤í”„ë ˆì„í•˜ê³  ë‹¤ìŒ í‚¤í”„ë ˆì„í•˜ê³  ê²°í•©í•˜ëŠ” ê²ƒì´ë‹¤.
 				_float fCurrentRatio = static_cast<_float>((_dTimeAcc - m_KeyFrameContainer[m_iCurrentKeyFrames].dTime)
 					/ (m_KeyFrameContainer[m_iCurrentKeyFrames + 1].dTime - m_KeyFrameContainer[m_iCurrentKeyFrames].dTime));
 
@@ -78,9 +78,9 @@ namespace Core {
 		AAnimation* _pAnimation, CSHPTRREF<AChannel> _spNextAnimChannel)
 	{
 		assert(nullptr != _pAnimation && nullptr != _spNextAnimChannel);
-		// ÇöÀç ¾Ö´Ï¸ŞÀÌ¼Ç°ú ´ÙÀ½ ¾Ö´Ï¸ŞÀÌ¼ÇÀÇ Ã¹ ¹øÂ° °ªµéÀ» Lerp ½ÃÅ²´Ù. 
+		// í˜„ì¬ ì• ë‹ˆë©”ì´ì…˜ê³¼ ë‹¤ìŒ ì• ë‹ˆë©”ì´ì…˜ì˜ ì²« ë²ˆì§¸ ê°’ë“¤ì„ Lerp ì‹œí‚¨ë‹¤. 
 		_int NextAnimCurrFrames = _spNextAnimChannel->GetCurrentKeyFrame();
-		// °ªµéÀ» Lerp ½ÃÅ´
+		// ê°’ë“¤ì„ Lerp ì‹œí‚´
 		m_vScale = Vector3::Lerp(m_KeyFrameContainer[m_iCurrentKeyFrames].vScale,
 			_spNextAnimChannel->m_KeyFrameContainer[NextAnimCurrFrames].vScale, _fRatio);
 		m_vRotation = Vector4::Lerp(m_KeyFrameContainer[m_iCurrentKeyFrames].vRotation,
@@ -102,12 +102,12 @@ namespace Core {
 
 	void AChannel::ComputeCurKeyFrames(const _double& _dTimeAcc, REF_OUT _int& _iCurKeyFrame)
 	{	
-		// Å° ÇÁ·¹ÀÓÀÌ 1°³ ¹Û¿¡ ¾øÀ» °æ¿ì.
+		// í‚¤ í”„ë ˆì„ì´ 1ê°œ ë°–ì— ì—†ì„ ê²½ìš°.
 		if (m_KeyFrameContainer.size() <= 1)
 		{
 			_iCurKeyFrame = 0;
 		}
-		// 1¹ø Å°ÇÁ·¹ÀÓº¸´Ù ÀÛÀ» °æ¿ì
+		// 1ë²ˆ í‚¤í”„ë ˆì„ë³´ë‹¤ ì‘ì„ ê²½ìš°
 		else if (_dTimeAcc < m_KeyFrameContainer[1].dTime)
 		{
 			_iCurKeyFrame = 0;
@@ -119,7 +119,7 @@ namespace Core {
 				++_iCurKeyFrame;
 			}
 
-			// ¾Ö´Ï¸ŞÀÌ¼ÇÀ» µÚ·Î µ¹¸®´Â °æ¿ì¿¡ KeyFrameÀ» ¸ÂÃçÁØ´Ù.
+			// ì• ë‹ˆë©”ì´ì…˜ì„ ë’¤ë¡œ ëŒë¦¬ëŠ” ê²½ìš°ì— KeyFrameì„ ë§ì¶°ì¤€ë‹¤.
 			while (_dTimeAcc < m_KeyFrameContainer[_iCurKeyFrame].dTime)
 			{
 				if (0 == _iCurKeyFrame)
@@ -133,4 +133,4 @@ namespace Core {
 	void AChannel::Free()
 	{
 	}
-}
+}

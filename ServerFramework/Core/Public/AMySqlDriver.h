@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AMYSQLDRIVER_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_AMYSQLDRIVER_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_AMYSQLDRIVER_H
 
 #include "ACoreObject.h"
@@ -8,10 +8,10 @@ class AMySqlConnector;
 class AMySqlTable;
 
 /*
-@ Date: 2024-01-28, Writer: ¹ÚÅÂÇö
+@ Date: 2024-01-28, Writer: ë°•íƒœí˜„
 @ Explain
--  DataBase¿Í ¿¬°áÀ» ÇÏ±â À§ÇÑ Å¬·¡½ºÀÌ´Ù. 
-¿¬°áÇÒ µ¥ÀÌÅÍº£ÀÌ½º´Â mysql, redis
+-  DataBaseì™€ ì—°ê²°ì„ í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ì´ë‹¤. 
+ì—°ê²°í•  ë°ì´í„°ë² ì´ìŠ¤ëŠ” mysql, redis
 */
 class CORE_DLL AMySqlDriver final : public ACoreObject {
 public:
@@ -54,4 +54,4 @@ private:
 END
 
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_AMYSQLDRIVER_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_AMYSQLDRIVER_H

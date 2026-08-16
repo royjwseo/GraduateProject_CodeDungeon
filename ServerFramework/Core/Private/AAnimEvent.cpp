@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "AAnimEvent.h"
 #include "AAnimator.h"
 #include "AAnimation.h"
@@ -143,22 +143,22 @@ namespace Core {
 	{
 		RETURN_CHECK(_pAnimator->GetCurAnimIndex() == m_AnimChangeDesc.iNextAnimIndex, ;);
 
-		// ¸¸¾à EnableLastLerp°¡ ÄÑÁ® ÀÖÁö ¾Ê´Ù¸é
+		// ë§Œì•½ EnableLastLerpê°€ ì¼œì ¸ ìˆì§€ ì•Šë‹¤ë©´
 		if (false == m_AnimChangeDesc.isEnableLastSettingAnim)
 		{
-			// ¹Ù²ã¾ß ÇÏ´Â ±¸°£¿¡ ¹Ù²Û´Ù. 
+			// ë°”ê¿”ì•¼ í•˜ëŠ” êµ¬ê°„ì— ë°”ê¾¼ë‹¤. 
 			if (m_AnimChangeDesc.fAnimChangeTime <= _dTimeAcc)
 			{
 				ResetEventData(_pAnimator);
-				// ÇöÀç event ºñÈ°¼ºÈ­
+				// í˜„ì¬ event ë¹„í™œì„±í™”
 				_pAnimator->SetSupplyLerpValue(m_AnimChangeDesc.fSupplyAnimValue);
 				_pAnimator->ChangeAnimation(m_AnimChangeDesc.iNextAnimIndex, m_AnimChangeDesc.dNextAnimTimeAcc);
 			}
 		}
-		// ÄÑÀú ÀÖ´Ù¸é
+		// ì¼œì € ìˆë‹¤ë©´
 		else
 		{
-			// ¸¸¾à
+			// ë§Œì•½
 			if (_pAnimator->GetCurAnimation()->GetAnimationProgressRate() >= m_AnimChangeDesc.fLastProgressValue)
 			{
 				ResetEventData(_pAnimator);
@@ -256,4 +256,4 @@ namespace Core {
 	{
 	}
 
-}
+}

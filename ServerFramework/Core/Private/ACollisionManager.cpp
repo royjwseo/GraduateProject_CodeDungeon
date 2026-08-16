@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "ACollisionManager.h"
 #include "APawn.h"
 #include "ASession.h"
@@ -66,4 +66,4 @@ namespace Core {
 	{
 	}
 
-}
+}

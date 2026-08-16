@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "CloneObject.h"
 #include "DeviceAndFactory.h"
 #include "CommandQueue.h"

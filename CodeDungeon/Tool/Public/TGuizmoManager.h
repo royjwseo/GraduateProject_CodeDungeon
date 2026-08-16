@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "UBase.h"
 
 BEGIN(Engine)
@@ -12,9 +12,9 @@ BEGIN(Tool)
 
 
 /*
-@ Date: 2024-04-01, Writer: ÀÌ¼ºÇö
+@ Date: 2024-04-01, Writer: ì´ì„±í˜„
 @ Explain
-- Guizmo¸¦ º¸¿©ÁÖ°í ¸ğµ¨°ú »óÈ£ÀÛ¿ëÀ» À§ÇÑ Å¬·¡½º
+- Guizmoë¥¼ ë³´ì—¬ì£¼ê³  ëª¨ë¸ê³¼ ìƒí˜¸ì‘ìš©ì„ ìœ„í•œ í´ë˜ìŠ¤
 */
 
 static ImGuizmo::OPERATION mCurrentGizmoOperation(ImGuizmo::TRANSLATE);

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "UBase.h"
 
@@ -16,13 +16,13 @@ enum
 class UOverExp;
 class UNetworkAddress;
 /*
-@ Date: 2024-02-02, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-02, Writer: ë°•íƒœí˜„
 @ Explain
-- Server¿¡ ÇÊ¿äÇÑ ¸Ş¼Òµåµé ¸ğÀ½
+- Serverì— í•„ìš”í•œ ë©”ì†Œë“œë“¤ ëª¨ìŒ
 */
 class UServerMethods {
 public:
-	// wsa¸¦ ÅëÇØ¼­ ¼­¹ö¿Í ¿¬°áÇÒ ÁØºñ¸¦ ÇÏ´Â ÇÔ¼ö 
+	// wsaë¥¼ í†µí•´ì„œ ì„œë²„ì™€ ì—°ê²°í•  ì¤€ë¹„ë¥¼ í•˜ëŠ” í•¨ìˆ˜ 
 	static _bool ReadyConnectToServer(WSADATA* _pWsaData);
 	static HANDLE CreateIocpHandle();
 	static void RegisterIocpToSocket(const SOCKET& _Socket, const HANDLE& _IocpHandle);
@@ -45,9 +45,9 @@ UOverExp
 ===========================================================
 */
 /*
-@ Date: 2024-02-02, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-02, Writer: ë°•íƒœí˜„
 @ Explain
-- GetQueuedCompletionStatus¸¦ ÅëÇØ¼­ ¹Ş¾Æ¿Ã OverExp
+- GetQueuedCompletionStatusë¥¼ í†µí•´ì„œ ë°›ì•„ì˜¬ OverExp
 */
 class UOverExp {
 public:
@@ -78,9 +78,9 @@ UNetworkAddress
 */
 
 /*
-@ Date: 2024-02-02, Writer: ¹ÚÅÂÇö
+@ Date: 2024-02-02, Writer: ë°•íƒœí˜„
 @ Explain
-- Network¸¦ ¾î¶»°Ô ¹Ş¾Æ¿ÃÁö Á¤ÇÏ´Â Å¬·¡½º 
+- Networkë¥¼ ì–´ë–»ê²Œ ë°›ì•„ì˜¬ì§€ ì •í•˜ëŠ” í´ë˜ìŠ¤ 
 */
 class UNetworkAddress final : public UBase {
 public:

@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "AMainLoop.h"
 #include "AService.h"
 #include "AGameTimer.h"
@@ -19,7 +19,7 @@ namespace Core {
 	void AMainLoop::RegisterTimer(_int _iTime)
 	{
 		m_SteadyTimer.expires_from_now(std::chrono::microseconds(_iTime));
-		// Å¸ÀÌ¸ÓÀÇ ºñµ¿±â ´ë±â ¼³Á¤
+		// íƒ€ì´ë¨¸ì˜ ë¹„ë™ê¸° ëŒ€ê¸° ì„¤ì •
 		m_SteadyTimer.async_wait(std::bind(&AMainLoop::TimerThread, this, std::placeholders::_1));
 	}
 
@@ -32,7 +32,7 @@ namespace Core {
 			_double dTimeDelta = m_spGameTimer->GetDeltaTime();
 			LIST<SHPTR<AMonster>> aliveMonster;
 			{
-				// MobÀ» Ã£À½ 
+				// Mobì„ ì°¾ìŒ 
 				for (auto& iter : spServerService->GetMobObjContainer())
 				{
 					SHPTR<AMonster> spMonster = iter.second;
@@ -52,7 +52,7 @@ namespace Core {
 					return;
 				}
 			}
-			// Animation È°¼º 
+			// Animation í™œì„± 
 			{
 				for (auto& iter : aliveMonster)
 				{
@@ -69,4 +69,4 @@ namespace Core {
 	{
 	}
 
-}
+}

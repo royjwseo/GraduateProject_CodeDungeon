@@ -1,9 +1,9 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_COREGROBAL_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_COREGROBAL_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_COREGROBAL_H
 
 namespace Core
 {
-	// ¸Ç ¸¶Áö¸·¿¡ »èÁ¦µÇ¾î¾ßÇÏ´Â App
+	// ë§¨ ë§ˆì§€ë§‰ì— ì‚­ì œë˜ì–´ì•¼í•˜ëŠ” App
 	CORE_DLL extern class  ACoreApp* g_RegisterApp;
 
 #ifdef USE_DEBUG
@@ -15,4 +15,4 @@ namespace Core
 	CORE_DLL		extern class ALogger*				g_LogManager;
 }
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_COREGROBAL_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_COREGROBAL_H

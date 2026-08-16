@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "UBase.h"
 #include "UResourceLoader.h"
 #include <thread>

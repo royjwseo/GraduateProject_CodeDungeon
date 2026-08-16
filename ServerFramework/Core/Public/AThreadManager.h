@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ATHREADMANAGER_H
+Ôªø#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ATHREADMANAGER_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ATHREADMANAGER_H
 
 #include "ACoreBase.h"
@@ -15,9 +15,9 @@ using THRAEDVECTOR = VECTOR<THREAD>;
 using JOBTIMERCONTAINER = CONUNORMAP<_int, SHPTR<AJobTimer>>;
 
 /*
-@ Date: 2023-12-26, Writer: π⁄≈¬«ˆ
+@ Date: 2023-12-26, Writer: Î∞ïÌÉúÌòÑ
 @ Explain
-- Thread∏¶ ∞¸∏Æ«œ¥¬ ∏≈¥œ¿˙ ≈¨∑°Ω∫ 
+- ThreadÎ•º Í¥ÄÎ¶¨ÌïòÎäî Îß§ÎãàÏ†Ä ÌÅ¥ÎûòÏä§ 
 */
 class  AThreadManager final : public ACoreBase {
 public:
@@ -39,7 +39,7 @@ private:
 	static void InitTLS(_uint _CurrentThreadID);
 	static void DestroyTLS();
 
-	// √ ±‚»≠ «‘ºˆ -> UCoreBaseø° ±‚∑œµ  
+	// Ï¥àÍ∏∞Ìôî Ìï®Ïàò -> UCoreBaseÏóê Í∏∞Î°ùÎê® 
 	virtual void Free() override;
 private:
 	MUTEX								m_Mutex;
@@ -53,4 +53,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ATHREADMANAGER_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ATHREADMANAGER_H

@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "USwapChain.h"
 #include "UDevice.h"
 #include "UGpuCommand.h"
@@ -44,7 +44,7 @@ HRESULT USwapChain::NativeConstruct(const GRAPHICDESC& _stGraphicDesc, const _ui
 	RETURN_CHECK_DXOBJECT(_spDevice->GetFactory()->CreateSwapChainForHwnd(pCmdQueue.Get(), _stGraphicDesc.hWnd,
 		&sd, NULL, NULL, &swapChain1), E_FAIL);
 
-	// SwapChainÀÇ QueryInterface·Î ¸¸µë 
+	// SwapChainì˜ QueryInterfaceë¡œ ë§Œë“¬ 
 	RETURN_CHECK_DXOBJECT(swapChain1->QueryInterface(IID_PPV_ARGS(&m_cpSwapChain)), E_FAIL);
 
 	// SWAP_CHAIN_END = 3

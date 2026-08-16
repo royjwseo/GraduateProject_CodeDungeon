@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+﻿#include "CoreDefines.h"
 #include "Lock.h"
 
 namespace Core
@@ -154,4 +154,4 @@ namespace Core
 			m_SpinLock->LeaveWriteLock();
 		}
 	}
-}
+}

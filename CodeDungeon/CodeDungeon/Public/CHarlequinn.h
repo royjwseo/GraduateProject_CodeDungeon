@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "CMob.h"
 BEGIN(Engine)
 class UGameInstance;
@@ -10,9 +10,9 @@ BEGIN(Client)
 class CShuriken;
 class CShurikenThrowing;
 /*
-@ Date: 2024-07-05, Writer: ÀÌ¼ºÇö
+@ Date: 2024-07-05, Writer: ì´ì„±í˜„
 @ Explain
--  ÇÒ¸®Äı ¸ó½ºÅÍ Å¬·¡½º.
+-  í• ë¦¬í€¸ ëª¬ìŠ¤í„° í´ë˜ìŠ¤.
 */
 class CHarlequinn final : public CMob {
 public:
@@ -23,7 +23,7 @@ public:
 	};
 	DESTRUCTOR(CHarlequinn)
 public:
-	// UPlayerÀ»(¸¦) ÅëÇØ »ó¼ÓµÊ
+	// UPlayerì„(ë¥¼) í†µí•´ ìƒì†ë¨
 	CLONE_MACRO(CHarlequinn, "CHarlequinn::CloneToFailed")
 		virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;

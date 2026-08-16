@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UANIMATOR_H
+Ôªø#ifndef _PTH_FRAMEWORK_ENGIEN_PUBLIC_UANIMATOR_H
 #define _PTH_FRAMEWORK_ENGIEN_PUBLIC_UANIMATOR_H
 
 #include "UComponent.h"
@@ -13,7 +13,7 @@ public:
 	UAnimator(const UAnimator& _rhs);
 	DESTRUCTOR(UAnimator)
 public:
-	// UComponent¿ª(∏¶) ≈Î«ÿ ªÛº”µ 
+	// UComponentÏùÑ(Î•º) ÌÜµÌï¥ ÏÉÅÏÜçÎê®
 	virtual void Free() override;
 	virtual HRESULT NativeConstruct() override;
 	virtual HRESULT NativeConstructClone(const VOIDDATAS& _vecDatas) override;
@@ -25,4 +25,4 @@ private:
 
 END
 
-#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOMPONENT_H
+#endif // _PTH_FRAMEWORK_ENGIEN_PUBLIC_UCOMPONENT_H

@@ -1,4 +1,4 @@
-#ifndef _PTH_FRAMEWORK_CLIENT_PUBLIC_CLOGOSCENE_H
+Ôªø#ifndef _PTH_FRAMEWORK_CLIENT_PUBLIC_CLOGOSCENE_H
 #define _PTH_FRAMEWORK_CLIENT_PUBLIC_CLOGOSCENE_H
 
 #include "UScene.h"
@@ -15,7 +15,7 @@ public:
 	NO_COPY(CLogoScene)
 	DESTRUCTOR(CLogoScene)
 public:
-	// UScene¿ª(∏¶) ≈Î«ÿ ªÛº”µ 
+	// USceneÏùÑ(Î•º) ÌÜµÌï¥ ÏÉÅÏÜçÎê®
 	virtual void Free() override;
 	virtual HRESULT LoadSceneData() override;
 	virtual void Tick(const _double& _dTimeDelta) override;
@@ -27,4 +27,4 @@ private:
 
 END
 
-#endif // _PTH_FRAMEWORK_CLIENT_PUBLIC_CLOGOSCENE_H
+#endif // _PTH_FRAMEWORK_CLIENT_PUBLIC_CLOGOSCENE_H

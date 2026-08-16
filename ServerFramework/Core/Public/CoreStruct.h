@@ -1,11 +1,11 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_CORESTRUCT_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_CORESTRUCT_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_CORESTRUCT_H
 
 namespace Core {
 
 	/*
-	@ Date: 2024-04-07, Writer: ¹ÚÅÂÇö
-	@ Explain: °ø°£¿¡ ´ëÇÑ Á¤ÀÇ 
+	@ Date: 2024-04-07, Writer: ë°•íƒœí˜„
+	@ Explain: ê³µê°„ì— ëŒ€í•œ ì •ì˜ 
 	*/
 	struct SPACEINFO {
 		Vector3		vCenter;
@@ -18,8 +18,8 @@ namespace Core {
 			vCenter{ _vCenter }, vExtents{ _vExtents }, Depths{ _Depths }, Index{ _SpaceIndex } {}
 	};
 	/*
-	@ Date: 2024-06-15, Writer: ¹ÚÅÂÇö
-	@ Explain: Äİ¶óÀÌ´õ¿¡ ´ëÇÑ Á¤º¸ Á¤ÀÇ 
+	@ Date: 2024-06-15, Writer: ë°•íƒœí˜„
+	@ Explain: ì½œë¼ì´ë”ì— ëŒ€í•œ ì •ë³´ ì •ì˜ 
 	*/
 	struct COLLIDERINFO {
 		_int							iColliderType;
@@ -27,8 +27,8 @@ namespace Core {
 		Vector3					vScale;
 	};
 	/*
-	@ Date: 2024-06-16, Writer: ¹ÚÅÂÇö
-	@ Explain: Ä³¸¯ÅÍ ½ºÅ×ÀÌÅÍ½º¿¡ ´ëÇÑ Á¤º¸ 
+	@ Date: 2024-06-16, Writer: ë°•íƒœí˜„
+	@ Explain: ìºë¦­í„° ìŠ¤í…Œì´í„°ìŠ¤ì— ëŒ€í•œ ì •ë³´ 
 	*/
 	struct CHARSTATUS
 	{
@@ -69,9 +69,9 @@ namespace Core {
 
 
 	/*
-	@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¾Ö´Ï¸ŞÀÌ¼Ç ÀÌº¥Æ® ±¸Á¶Ã¼ÀÇ »óÀ§ ±¸Á¶Ã¼
+	- ì• ë‹ˆë©”ì´ì…˜ ì´ë²¤íŠ¸ êµ¬ì¡°ì²´ì˜ ìƒìœ„ êµ¬ì¡°ì²´
 	*/
 	struct ANIMEVENTDESC abstract {
 	public:
@@ -85,10 +85,10 @@ namespace Core {
 		}
 	};
 	/*
-	@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¾Ö´Ï¸ŞÀÌ¼Ç Event¸¦ À§ÇÑ ±¸°£À» Á¤ÀÇÇÏ´Â ±¸Á¶Ã¼
-	- ¾Ö´Ï¸ŞÀÌ¼Ç Event¿Í ChangeDesc¸¦ »ó¼Ó ¹Ş¾Æ¼­ ±× °ªµéÀ» »ç¿ëÇÑ´Ù.
+	- ì• ë‹ˆë©”ì´ì…˜ Eventë¥¼ ìœ„í•œ êµ¬ê°„ì„ ì •ì˜í•˜ëŠ” êµ¬ì¡°ì²´
+	- ì• ë‹ˆë©”ì´ì…˜ Eventì™€ ChangeDescë¥¼ ìƒì† ë°›ì•„ì„œ ê·¸ ê°’ë“¤ì„ ì‚¬ìš©í•œë‹¤.
 	*/
 	struct ANIMEVENTSECTIONDESC : public ANIMEVENTDESC {
 		_double dStartTime;
@@ -107,10 +107,10 @@ namespace Core {
 		}
 	};
 	/*
-	@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	- ¾Ö´Ï¸ŞÀÌ¼Ç Event°¡ ¹ß»ıµÈ ÁöÁ¡À» Á¤ÀÇÇÏ´Â ±¸Á¶Ã¼
-	- ¾Ö´Ï¸ŞÀÌ¼Ç Event¿Í ChangeDesc¸¦ »ó¼Ó ¹Ş¾Æ¼­ ±× °ªµéÀ» »ç¿ëÇÑ´Ù.
+	- ì• ë‹ˆë©”ì´ì…˜ Eventê°€ ë°œìƒëœ ì§€ì ì„ ì •ì˜í•˜ëŠ” êµ¬ì¡°ì²´
+	- ì• ë‹ˆë©”ì´ì…˜ Eventì™€ ChangeDescë¥¼ ìƒì† ë°›ì•„ì„œ ê·¸ ê°’ë“¤ì„ ì‚¬ìš©í•œë‹¤.
 	*/
 	struct ANIMOCURRESDESC : public ANIMEVENTDESC {
 		_double		dAnimOccursTime;
@@ -124,17 +124,17 @@ namespace Core {
 		}
 	};
 	/*
-	@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	-  ¾Ö´Ï¸ŞÀÌ¼ÇÀÇ Event Desc ¸»°í °¢ÀÚÀÇ Other Event¸¦ ´ã°í ÀÖ´Â ±¸Á¶Ã¼·Î
-		ÇØ´ç ±¸Á¶Ã¼¸¦ Á¤ÀÇÇÔÀ¸·Î½á, ´Ù¸¥ POINTERµéÀÌ °³ÀÔÇÒ ¿©Áö¸¦ ¾ø¾Ö±â À§ÇØ¼­ Á¤ÀÇÇÔ
+	-  ì• ë‹ˆë©”ì´ì…˜ì˜ Event Desc ë§ê³  ê°ìì˜ Other Eventë¥¼ ë‹´ê³  ìˆëŠ” êµ¬ì¡°ì²´ë¡œ
+		í•´ë‹¹ êµ¬ì¡°ì²´ë¥¼ ì •ì˜í•¨ìœ¼ë¡œì¨, ë‹¤ë¥¸ POINTERë“¤ì´ ê°œì…í•  ì—¬ì§€ë¥¼ ì—†ì• ê¸° ìœ„í•´ì„œ ì •ì˜í•¨
 	*/
 	struct ANIMOTHEREVENTDESC abstract { };
 
 	/*
-	@ Date: 2024-02-10, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-10, Writer: ë°•íƒœí˜„
 	@ Explain
-	-  ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ´ÙÀ½À¸·Î ³Ñ¾î°¡±â À§ÇÑ ±¸Á¶Ã¼
+	-  ì• ë‹ˆë©”ì´ì…˜ì´ ë‹¤ìŒìœ¼ë¡œ ë„˜ì–´ê°€ê¸° ìœ„í•œ êµ¬ì¡°ì²´
 	*/
 	struct ANIMCHANGEDESC : public ANIMOTHEREVENTDESC {
 		_int				iNextAnimIndex;
@@ -153,9 +153,9 @@ namespace Core {
 		{}
 	};
 	/*
-	@ Date: 2024-02-21, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-21, Writer: ë°•íƒœí˜„
 	@ Explain
-	-  ¾Ö´Ï¸ŞÀÌ¼Ç Æ¯Á¤ ±¸¿ª¿¡ Collider¸¦ ºÙÀÌ±â À§ÇÑ ±¸Á¶Ã¼ÀÌ´Ù.
+	-  ì• ë‹ˆë©”ì´ì…˜ íŠ¹ì • êµ¬ì—­ì— Colliderë¥¼ ë¶™ì´ê¸° ìœ„í•œ êµ¬ì¡°ì²´ì´ë‹¤.
 	*/
 	struct ANIMCOLLIDERDESC : public ANIMOTHEREVENTDESC {
 		_int												iColliderType;
@@ -173,9 +173,9 @@ namespace Core {
 		{}
 	};
 	/*
-	@ Date: 2024-02-21, Writer: ¹ÚÅÂÇö
+	@ Date: 2024-02-21, Writer: ë°•íƒœí˜„
 	@ Explain
-	-  ¾Ö´Ï¸ŞÀÌ¼Ç Æ¯Á¤ ±¸¿ª¿¡ Collider¸¦ ºÙÀÌ±â À§ÇÑ ±¸Á¶Ã¼ÀÌ´Ù.
+	-  ì• ë‹ˆë©”ì´ì…˜ íŠ¹ì • êµ¬ì—­ì— Colliderë¥¼ ë¶™ì´ê¸° ìœ„í•œ êµ¬ì¡°ì²´ì´ë‹¤.
 	*/
 	struct ANIMSOUNDDESC : public ANIMOTHEREVENTDESC {
 		_string				strSoundName;
@@ -295,4 +295,4 @@ namespace Core {
 	};
 
 }
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_CORESTRUCT_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_CORESTRUCT_H

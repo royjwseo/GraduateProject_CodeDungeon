@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UVIBufferSphere.h"
 
 UVIBufferSphere::UVIBufferSphere(CSHPTRREF<UDevice> _spDevice, const VIBUFFERTYPE _eBufferType) :
@@ -18,16 +18,16 @@ void UVIBufferSphere::Free()
 HRESULT UVIBufferSphere::NativeConstruct()
 {
 	RETURN_CHECK_FAILED(__super::NativeConstruct(), E_FAIL);
-	// ±¸¿¡ ´ëÇÑ Á¤ÀÇ 
-	const _uint NUM_LOGITUDES{ 30 }; // °æµµ(¼öÆò) ¹æÇâ ºĞÇÒ ¼ö
-	const _uint NUM_LATITUDES{ 20 };  // À§µµ(¼öÁ÷) ¹æÇâ ºĞÇÒ ¼ö
-	const _float RADIUS{ 1.f };  // ±¸ÀÇ ¹İÁö¸§
+	// êµ¬ì— ëŒ€í•œ ì •ì˜ 
+	const _uint NUM_LOGITUDES{ 30 }; // ê²½ë„(ìˆ˜í‰) ë°©í–¥ ë¶„í•  ìˆ˜
+	const _uint NUM_LATITUDES{ 20 };  // ìœ„ë„(ìˆ˜ì§) ë°©í–¥ ë¶„í•  ìˆ˜
+	const _float RADIUS{ 1.f };  // êµ¬ì˜ ë°˜ì§€ë¦„
 
 	if (GetBufferType() == VIBUFFERTYPE::GENERIC)
 	{
 		// Vertex 
 		{
-			// Vertex °³¼ö
+			// Vertex ê°œìˆ˜
 			const _uint VERTEX_CNT = (NUM_LOGITUDES + 1) * (NUM_LATITUDES + 1);
 			VECTOR<VTXDEFAULT>	Vertecies;
 			Vertecies.resize(VERTEX_CNT);
@@ -68,7 +68,7 @@ HRESULT UVIBufferSphere::NativeConstruct()
 	{
 		// Vertex 
 		{
-			// Vertex °³¼ö
+			// Vertex ê°œìˆ˜
 			const _uint VERTEX_CNT = (NUM_LOGITUDES + 1) * (NUM_LATITUDES + 1);
 			VECTOR<VTXNORMAL>	Vertecies;
 			Vertecies.resize(VERTEX_CNT);
@@ -111,9 +111,9 @@ HRESULT UVIBufferSphere::NativeConstruct()
 	}
 	// Index
 	{
-		// Index °³¼ö
+		// Index ê°œìˆ˜
 		const _uint INDICES_CNT = NUM_LATITUDES * NUM_LOGITUDES * 6;
-		// ¸ñ·Ï
+		// ëª©ë¡
 		INDICIES32* pIndices = Make::AllocBuffer<INDICIES32>(INDICES_CNT);
 		ZeroMemory(pIndices, sizeof(INDICIES32) * INDICES_CNT);
 		{

@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "ALuaLoader.h"
 
 namespace Core {
@@ -49,14 +49,14 @@ namespace Core {
 
 	_bool ALuaLoader::LuaCreate(const _string& _strFilename)
 	{
-		// ÇÕÃÄÁø °æ·Î
+		// í•©ì³ì§„ ê²½ë¡œ
 		_string Path = LUA_PATH + _strFilename + LUA_EXT;
 
-		// ·ç¾Æ »óÅÂ »ı¼º ÈÄ, Ç¥ÁØ ¶óÀÌºê·¯¸® ·Îµå
+		// ë£¨ì•„ ìƒíƒœ ìƒì„± í›„, í‘œì¤€ ë¼ì´ë¸ŒëŸ¬ë¦¬ ë¡œë“œ
 		m_pLuaState = luaL_newstate();
 		luaL_openlibs(m_pLuaState);
 		RETURN_CHECK(luaL_dofile(m_pLuaState, Path.c_str()) != LUA_OK, false);
-		// ·ç¾Æ ·Îµå ¼º°ø 
+		// ë£¨ì•„ ë¡œë“œ ì„±ê³µ 
 		return true;
 	}
-}
+}

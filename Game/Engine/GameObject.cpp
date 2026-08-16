@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "GameObject.h"
 #include "Shader.h"
 #include "Texture.h"
@@ -478,15 +478,15 @@ void CGameObject::LoadGeometryFromFile(const ComPtr<ID3D12Device>& _Device, cons
 	::rewind(pInFile);
 	//FILE* pInFile = fopen(pstrFileName, "rb");
 	//if (pInFile != NULL) {
-	//	fseek(pInFile, 0, SEEK_SET); // ÆÄÀÏÀÇ ½ÃÀÛÀ¸·Î ÀÌµ¿
-	//	// ÆÄÀÏ ÀÛ¾÷ ¼öÇà
+	//	fseek(pInFile, 0, SEEK_SET); // íŒŒì¼ì˜ ì‹œìž‘ìœ¼ë¡œ ì´ë™
+	//	// íŒŒì¼ ìž‘ì—… ìˆ˜í–‰
 	//	// ...
-	//	fclose(pInFile); // ÆÄÀÏ ´Ý±â
+	//	fclose(pInFile); // íŒŒì¼ ë‹«ê¸°
 	//}
 	//else {
-	//	// ÆÄÀÏÀ» ¿­Áö ¸øÇÑ °æ¿ì Ã³¸®
-	//	perror("ÆÄÀÏ ¿­±â ½ÇÆÐ"); // ¿À·ù ¸Þ½ÃÁö Ãâ·Â
-	//	// ¶Ç´Â »ç¿ëÀÚ¿¡°Ô ¿À·ù¸¦ ¾Ë¸®°í ÀûÀýÈ÷ Ã³¸®
+	//	// íŒŒì¼ì„ ì—´ì§€ ëª»í•œ ê²½ìš° ì²˜ë¦¬
+	//	perror("íŒŒì¼ ì—´ê¸° ì‹¤íŒ¨"); // ì˜¤ë¥˜ ë©”ì‹œì§€ ì¶œë ¥
+	//	// ë˜ëŠ” ì‚¬ìš©ìžì—ê²Œ ì˜¤ë¥˜ë¥¼ ì•Œë¦¬ê³  ì ì ˆížˆ ì²˜ë¦¬
 	//}
 	
 	this->LoadFrameHierarchyFromFile(_Device, _CommandList, pd3dGraphicsRootSignature, NULL, pInFile, pShader);

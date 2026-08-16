@@ -1,4 +1,4 @@
-#include "EngineDefine.h"
+ï»¿#include "EngineDefine.h"
 #include "UFontManager.h"
 #include "URenderTargetManager.h"
 #include "UGameInstance.h"
@@ -135,7 +135,7 @@ void UFontManager::RemoveFont(CSHPTRREF<UFont> _pFont)
 void UFontManager::Render()
 {
 	Dx12DescriptorHeap* DescHeap[] = { m_pDescriptor->Heap() };
-	//CBV , Sampler 2°³ ÀÎÀÚ¸¸ ³ÖÀ» ¼ö ÀÖ´Ù.
+	//CBV , Sampler 2ê°œ ì¸ìžë§Œ ë„£ì„ ìˆ˜ ìžˆë‹¤.
 	m_spGpuCommand->GetGpuCmdList()->SetDescriptorHeaps(1, DescHeap);
 	m_spSpriteBatch->SetViewport(m_tViewPort);
 	m_spSpriteBatch->Begin(m_spGpuCommand->GetGpuCmdList().Get());
@@ -143,7 +143,7 @@ void UFontManager::Render()
 		(*it)->Render(m_spSpriteBatch.get(), m_tViewPort);
 	}
 	m_spSpriteBatch->End();
-	// GraphicMemory°¡ ÇÊ¿äÇÔ, SpriteBatch¸¦ »ç¿ëÇÏ±â À§ÇØ¼­´Â, ¿Ö ±×·±Áö ÀÌÇØ ºÒ°¡
+	// GraphicMemoryê°€ í•„ìš”í•¨, SpriteBatchë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œëŠ”, ì™œ ê·¸ëŸ°ì§€ ì´í•´ ë¶ˆê°€
 	m_pGraphicMemory->Commit(m_spGpuCommand->GetCmdQue().Get());
 }
 

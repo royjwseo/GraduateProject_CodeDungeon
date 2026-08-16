@@ -1,4 +1,4 @@
-#include "CoreDefines.h"
+ï»¿#include "CoreDefines.h"
 #include "ACell.h"
 
 namespace Core {
@@ -60,12 +60,12 @@ namespace Core {
 	}
 
 	/*
-	 PositonÀÌ Cell À§¿¡ ÀÖ´ÂÁö ÆÇ´ÜÇÏ´Â ÇÔ¼öÀÌ´Ù. 
+	 Positonì´ Cell ìœ„ì— ìˆëŠ”ì§€ íŒë‹¨í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤. 
 	*/
 	_bool ACell::IsIn(const Vector3& _vPos, REF_IN ATOMIC<_int>& _NeighborIndex)
 	{
 		for (_uint i = 0; i < LINE_END; ++i) {
-			// º¯¿¡ ´ëÇÑ Á¡, ¹ı¼± º¤ÅÍ, º¯À» ±¸¼ºÇÏ´Â µÎ Á¡À» °¡Á®¿É´Ï´Ù.
+			// ë³€ì— ëŒ€í•œ ì , ë²•ì„  ë²¡í„°, ë³€ì„ êµ¬ì„±í•˜ëŠ” ë‘ ì ì„ ê°€ì ¸ì˜µë‹ˆë‹¤.
 			Vector3 vPointA, vPointB;
 			Vector3 vNormal = m_arrNormals[i];
 			Vector3 vLine = m_arrLines[i];
@@ -85,10 +85,10 @@ namespace Core {
 				break;
 			}
 
-			// Á¡ _vPos¿Í º¯ÀÇ Á¡µé·ÎºÎÅÍ º¤ÅÍ¸¦ ¸¸µì´Ï´Ù.
+			// ì  _vPosì™€ ë³€ì˜ ì ë“¤ë¡œë¶€í„° ë²¡í„°ë¥¼ ë§Œë“­ë‹ˆë‹¤.
 			Vector3 vDir = _vPos - vPointA;
 
-			// Æò¸é ¹æÁ¤½ÄÀ» »ç¿ëÇÏ¿© Á¡ÀÌ º¯ÀÇ ¾î´À ÂÊ¿¡ ÀÖ´ÂÁö È®ÀÎÇÕ´Ï´Ù.
+			// í‰ë©´ ë°©ì •ì‹ì„ ì‚¬ìš©í•˜ì—¬ ì ì´ ë³€ì˜ ì–´ëŠ ìª½ì— ìˆëŠ”ì§€ í™•ì¸í•©ë‹ˆë‹¤.
 			float dotProduct = vDir.Dot(vNormal);
 			if (dotProduct > 0) {
 				_NeighborIndex = m_arrNeighbors[i];
@@ -102,7 +102,7 @@ namespace Core {
 	_bool ACell::IsIn(const Vector3& _vPos, REF_IN _int& _NeighborIndex)
 	{
 		for (_uint i = 0; i < LINE_END; ++i) {
-			// º¯¿¡ ´ëÇÑ Á¡, ¹ı¼± º¤ÅÍ, º¯À» ±¸¼ºÇÏ´Â µÎ Á¡À» °¡Á®¿É´Ï´Ù.
+			// ë³€ì— ëŒ€í•œ ì , ë²•ì„  ë²¡í„°, ë³€ì„ êµ¬ì„±í•˜ëŠ” ë‘ ì ì„ ê°€ì ¸ì˜µë‹ˆë‹¤.
 			Vector3 vPointA, vPointB;
 			Vector3 vNormal = m_arrNormals[i];
 			Vector3 vLine = m_arrLines[i];
@@ -122,10 +122,10 @@ namespace Core {
 				break;
 			}
 
-			// Á¡ _vPos¿Í º¯ÀÇ Á¡µé·ÎºÎÅÍ º¤ÅÍ¸¦ ¸¸µì´Ï´Ù.
+			// ì  _vPosì™€ ë³€ì˜ ì ë“¤ë¡œë¶€í„° ë²¡í„°ë¥¼ ë§Œë“­ë‹ˆë‹¤.
 			Vector3 vDir = _vPos - vPointA;
 
-			// Æò¸é ¹æÁ¤½ÄÀ» »ç¿ëÇÏ¿© Á¡ÀÌ º¯ÀÇ ¾î´À ÂÊ¿¡ ÀÖ´ÂÁö È®ÀÎÇÕ´Ï´Ù.
+			// í‰ë©´ ë°©ì •ì‹ì„ ì‚¬ìš©í•˜ì—¬ ì ì´ ë³€ì˜ ì–´ëŠ ìª½ì— ìˆëŠ”ì§€ í™•ì¸í•©ë‹ˆë‹¤.
 			float dotProduct = vDir.Dot(vNormal);
 			if (dotProduct > 0) {
 				_NeighborIndex = m_arrNeighbors[i];
@@ -207,7 +207,7 @@ namespace Core {
 		Vector3 closestPoint = position;
 		_float minDistanceSquared = FLT_MAX;
 
-		// °¢ º¯¿¡ ´ëÇØ °¡Àå °¡±î¿î Á¡À» Ã£À½
+		// ê° ë³€ì— ëŒ€í•´ ê°€ì¥ ê°€ê¹Œìš´ ì ì„ ì°¾ìŒ
 		for (size_t i = 0; i < LINE_END; ++i) {
 			Vector3 pointOnEdge = ClosestPointOnLine(m_arrPoints[i], m_arrPoints[(i + 1) % LINE_END], position);
 			_float distanceSquared = DirectX::PTH::Vector3::DistanceSquared(position, pointOnEdge);
@@ -221,16 +221,16 @@ namespace Core {
 
 	Vector3 ACell::ClosestPointOnLine(const Vector3& lineStart, const Vector3& lineEnd, const Vector3& point) const
 	{
-		// ¶óÀÎ ½ÃÀÛÁ¡ºÎÅÍ ³¡Á¡±îÁöÀÇ º¤ÅÍ
+		// ë¼ì¸ ì‹œì‘ì ë¶€í„° ëì ê¹Œì§€ì˜ ë²¡í„°
 		Vector3 lineDirection = lineEnd - lineStart;
 
-		// ¶óÀÎ ½ÃÀÛÁ¡ºÎÅÍ ÀÔ·ÂµÈ Á¡±îÁöÀÇ º¤ÅÍ
+		// ë¼ì¸ ì‹œì‘ì ë¶€í„° ì…ë ¥ëœ ì ê¹Œì§€ì˜ ë²¡í„°
 		Vector3 pointToLineStart = point - lineStart;
 
-		// ¶óÀÎ ¹æÇâ°ú ÀÔ·ÂµÈ Á¡±îÁöÀÇ º¤ÅÍ »çÀÌÀÇ ³»Àû °ª
+		// ë¼ì¸ ë°©í–¥ê³¼ ì…ë ¥ëœ ì ê¹Œì§€ì˜ ë²¡í„° ì‚¬ì´ì˜ ë‚´ì  ê°’
 		float t = DirectX::PTH::Vector3::Dot(pointToLineStart, lineDirection) / DirectX::PTH::Vector3::Dot(lineDirection, lineDirection);
 
-		// t °ªÀ» »ç¿ëÇÏ¿© ÀÔ·ÂµÈ Á¡¿¡¼­ °¡Àå °¡±î¿î Á¡À» °è»ê
+		// t ê°’ì„ ì‚¬ìš©í•˜ì—¬ ì…ë ¥ëœ ì ì—ì„œ ê°€ì¥ ê°€ê¹Œìš´ ì ì„ ê³„ì‚°
 		Vector3 closestPoint = lineStart + lineDirection * t;
 		if (t > 1.0f) {
 			closestPoint = lineEnd;

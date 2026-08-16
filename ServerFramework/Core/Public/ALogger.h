@@ -1,4 +1,4 @@
-#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ALOGGER_H
+ï»¿#ifndef _SERVERFRAMEWORK_CORE_PUBLIC_ALOGGER_H
 #define _SERVERFRAMEWORK_CORE_PUBLIC_ALOGGER_H
 
 #include "ACoreBase.h"
@@ -6,8 +6,8 @@
 BEGIN(Core)
 
 /*
-@ Date: 2024-04-08, Writer: ¹ÚÅÂÇö
-@ Explain: ·Î±×¸¦ Âï°í ¸ğÀ¸´Â Å¬·¡½º
+@ Date: 2024-04-08, Writer: ë°•íƒœí˜„
+@ Explain: ë¡œê·¸ë¥¼ ì°ê³  ëª¨ìœ¼ëŠ” í´ë˜ìŠ¤
 */
 class  ALogger final : public ACoreBase  {
 public:
@@ -26,4 +26,4 @@ private:
 
 END
 
-#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ALOGGER_H
+#endif // _SERVERFRAMEWORK_CORE_PUBLIC_ALOGGER_H
